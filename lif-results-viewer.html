@@ -12,7 +12,11 @@ body{background:#F5EFD6;color:#111;font-family:'Inter',sans-serif;font-size:15px
 .logo{display:flex;align-items:center;gap:14px}
 .logo img{height:32px;width:auto;display:block}
 .logo-divider{width:1px;height:24px;background:rgba(255,255,255,.2)}
-.logo-text{font-size:13px;font-weight:600;color:#fff;letter-spacing:.3px;text-transform:uppercase;opacity:.85}
+.crumbs{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.3px;text-transform:uppercase}
+.crumb-link{opacity:.55;text-decoration:none;color:inherit;transition:opacity .15s}
+.crumb-link:hover{opacity:1}
+.crumb-sep{opacity:.35;font-weight:400;font-size:15px}
+.crumb-current{opacity:.95}
 .hdr-tag{font-size:11px;font-weight:600;color:#E8A800;letter-spacing:.5px;text-transform:uppercase;background:rgba(85,0,156,.15);padding:3px 10px;border:1px solid rgba(85,0,156,.4)}
 .wrap{width:100%;margin:0 auto;padding:0 24px;box-sizing:border-box}
 .drop-wrap{padding:36px 0}
@@ -245,7 +249,11 @@ footer span{color:#555;font-weight:600}
     <img src="https://finishlynx.com/wp-content/uploads/2022/06/logo-no-url-300x90.jpg" alt="FinishLynx" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="logo-fallback" style="display:none;align-items:center;gap:8px"><span style="font-size:15px;font-weight:700;color:#fff;letter-spacing:-.2px">FinishLynx</span></div>
     <div class="logo-divider"></div>
-    <span class="logo-text">Results Viewer</span>
+    <div class="crumbs">
+      <a href="index.html" class="crumb-link">Lynx Pro</a>
+      <span class="crumb-sep">&rsaquo;</span>
+      <span class="crumb-current">Results Viewer</span>
+    </div>
   </div>
   <span class="hdr-tag" style="display:none">LIF Viewer</span>
 </div>
