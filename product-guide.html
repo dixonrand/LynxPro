@@ -41,18 +41,18 @@ body{background:#F5EFD6;color:#111;font-family:'Inter',sans-serif;font-size:15px
 .cmp-row + .cmp-row,.cmp-section + .cmp-row,.cmp-row + .cmp-section{border-top:1px solid rgba(0,0,0,.12)}
 .cmp-cell{flex:1 1 0;min-width:0;max-width:100%;background:#FDFAF0;padding:12px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;border-left:1px solid rgba(0,0,0,.08);transition:max-width .55s cubic-bezier(.4,0,.2,1),padding .55s cubic-bezier(.4,0,.2,1),opacity .3s ease,border-left-width .55s cubic-bezier(.4,0,.2,1)}
 .cmp-row > .cmp-cell:first-child{border-left:0}
-.cmp-header{padding:8px 10px 14px}
+.cmp-header{padding:8px 10px 14px;min-height:90px}
 .cmp-model-num{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:800;letter-spacing:.8px;color:#555;text-transform:uppercase;margin-bottom:6px;white-space:nowrap}
 .cmp-name{font-size:13px;font-weight:800;letter-spacing:-.2px;color:#111;line-height:1.2}
 .cmp-tagline{font-size:11px;color:#666;margin-top:5px;line-height:1.45}
 .cmp-status{display:inline-block;margin-top:7px;font-size:8px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 6px;border:1.5px solid #111;white-space:nowrap}
 .cmp-status.available{background:#F5C518;color:#111}
 .cmp-status.retired{background:#111;color:#FDFAF0}
-.cmp-img-cell{padding:14px 8px;min-height:120px}
-.cmp-img-cell img{max-width:100%;max-height:110px;width:auto;height:auto;display:block}
+.cmp-img-cell{padding:14px 8px;height:120px}
+.cmp-img-cell img{max-width:100%;max-height:90px;width:auto;height:auto;display:block;object-fit:contain}
 .cmp-img-placeholder{font-size:9px;color:#aaa;font-style:italic;letter-spacing:.3px;text-transform:uppercase}
 .cmp-section{background:#EDE4BF;padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#555;text-align:left}
-.cmp-spec{font-size:12px;line-height:1.45;color:#333;min-height:46px}
+.cmp-spec{font-size:12px;line-height:1.45;color:#333;height:46px}
 .cmp-spec-label{font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#888;margin-bottom:3px}
 .compare[data-filter="available"] .cmp-cell[data-status="retired"]{max-width:0;padding-left:0;padding-right:0;opacity:0;border-left-width:0;pointer-events:none}
 footer{border-top:2px solid #111;padding:16px 24px;text-align:center;font-size:11px;color:#888}
