@@ -201,7 +201,13 @@ footer span{color:#555;font-weight:600}
 
   // Initial render for EtherLynx Cameras
   const ecCompare = document.querySelector('.compare[data-parent="etherlynx"]');
-  if (ecCompare) ecCompare.innerHTML = buildCompare(EC_MODELS, EC_SPECS);
+  if (ecCompare) {
+    ecCompare.innerHTML = buildCompare(EC_MODELS, EC_SPECS);
+    // Lock row heights so only width changes on filter toggle
+    ecCompare.querySelectorAll('.cmp-row').forEach(row => {
+      row.style.height = row.offsetHeight + 'px';
+    });
+  }
 
   // ----- Tab wiring -----
   const tabs = document.querySelectorAll('.cat-tab');
