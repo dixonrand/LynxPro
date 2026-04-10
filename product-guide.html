@@ -29,6 +29,12 @@ body{background:#F5EFD6;color:#111;font-family:'Inter',sans-serif;font-size:15px
 .cat-tab.active:hover{transform:translateY(-2px);box-shadow:4px 4px 0 #E8A800}
 .cat-panel{display:none}
 .cat-panel.active{display:block}
+.sub-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.sub-tab{background:transparent;border:1.5px solid #111;color:#111;font-family:inherit;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:5px 14px;cursor:pointer;transition:background .15s}
+.sub-tab:hover{background:#EDE4BF}
+.sub-tab.active{background:#111;color:#FDFAF0}
+.sub-panel{display:none}
+.sub-panel.active{display:block}
 footer{border-top:2px solid #111;padding:16px 24px;text-align:center;font-size:11px;color:#888}
 footer span{color:#555;font-weight:600}
 </style>
@@ -62,7 +68,14 @@ footer span{color:#555;font-weight:600}
     <button class="cat-tab" data-cat="accessories">Accessories</button>
   </div>
 
-  <div class="cat-panel active" data-cat="etherlynx"></div>
+  <div class="cat-panel active" data-cat="etherlynx">
+    <div class="sub-tabs" data-parent="etherlynx">
+      <button class="sub-tab active" data-sub="all">All</button>
+      <button class="sub-tab" data-sub="available">Available</button>
+    </div>
+    <div class="sub-panel active" data-parent="etherlynx" data-sub="all"></div>
+    <div class="sub-panel" data-parent="etherlynx" data-sub="available"></div>
+  </div>
   <div class="cat-panel" data-cat="identilynx"></div>
   <div class="cat-panel" data-cat="lenses"></div>
   <div class="cat-panel" data-cat="upgrades"></div>
@@ -85,6 +98,19 @@ footer span{color:#555;font-weight:600}
       const cat = tab.dataset.cat;
       tabs.forEach(t => t.classList.toggle('active', t === tab));
       panels.forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
+    });
+  });
+
+  document.querySelectorAll('.sub-tabs').forEach(bar => {
+    const parent = bar.dataset.parent;
+    const subTabs = bar.querySelectorAll('.sub-tab');
+    const subPanels = document.querySelectorAll('.sub-panel[data-parent="' + parent + '"]');
+    subTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const sub = tab.dataset.sub;
+        subTabs.forEach(t => t.classList.toggle('active', t === tab));
+        subPanels.forEach(p => p.classList.toggle('active', p.dataset.sub === sub));
+      });
     });
   });
 })();
