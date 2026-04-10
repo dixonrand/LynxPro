@@ -52,7 +52,7 @@ body{background:#F5EFD6;color:#111;font-family:'Inter',sans-serif;font-size:15px
 .cmp-img-cell img{max-width:100%;max-height:90px;width:auto;height:auto;display:block;object-fit:contain}
 .cmp-img-placeholder{font-size:9px;color:#aaa;font-style:italic;letter-spacing:.3px;text-transform:uppercase}
 .cmp-section{background:#EDE4BF;padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#555;text-align:left}
-.cmp-spec{font-size:12px;line-height:1.45;color:#333;height:46px}
+.cmp-spec{font-size:12px;line-height:1.45;color:#333;min-height:46px}
 .cmp-spec-label{font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#888;margin-bottom:3px}
 .compare[data-filter="available"] .cmp-cell[data-status="retired"]{max-width:0;padding-left:0;padding-right:0;opacity:0;border-left-width:0;pointer-events:none}
 footer{border-top:2px solid #111;padding:16px 24px;text-align:center;font-size:11px;color:#888}
@@ -123,6 +123,7 @@ footer span{color:#555;font-weight:600}
     {section:'Lens Mount'},
     {key:'standardMount', label:'Standard Mount'},
     {key:'alternateMounts', label:'Alternate Mounts'},
+    {key:'compatibleLenses', label:'Compatible Lenses'},
     {section:'Camera Features'},
     {key:'poeCapable', label:'PoE Capable'},
     {key:'onBoardBattery', label:'On-Board Battery'},
@@ -131,16 +132,16 @@ footer span{color:#555;font-weight:600}
 
   // Each model: { modelNumber, name, tagline, image, status:'available'|'retired', specs:{...} }
   const EC_MODELS = [
-    { modelNumber: '5L100', name: 'EtherLynx 2000',               status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', poeCapable: 'No', onBoardBattery: 'No' } },
-    { modelNumber: '5L200', name: 'EtherLynx 2000',               status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', poeCapable: 'No', onBoardBattery: 'No' } },
-    { modelNumber: '5L300', name: 'EtherLynx Professional',       status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', standardFrameRate: '3000', maxFrameRate: '10000', standardPixelDensity: '1350', maxPixelDensity: '4000', poeCapable: 'No', onBoardBattery: 'No' } },
-    { modelNumber: '5L400', name: 'EtherLynx Fusion',             status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', standardFrameRate: '2000', maxFrameRate: '3000', standardPixelDensity: '1000', maxPixelDensity: '2700', poeCapable: 'No', onBoardBattery: 'No' } },
-    { modelNumber: '5L410', name: 'EtherLynx Scholastic',         status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', poeCapable: 'No', onBoardBattery: 'No' } },
-    { modelNumber: '5L420', name: 'EtherLynx 2000+',              status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', standardFrameRate: '1000', maxFrameRate: '2000', standardPixelDensity: '500', maxPixelDensity: '1000', poeCapable: 'No', onBoardBattery: 'No' } },
-    { modelNumber: '5L510', name: 'EtherLynx Vision Scholastic',  status: 'available', image: 'EtherLynx%20Vision.png',           specs: { standardMount: 'CS-Mount', alternateMounts: 'C-Mount',  standardFrameRate: '600',  maxFrameRate: '600', standardPixelDensity: '640', maxPixelDensity: '640', poeCapable: 'Yes', onBoardBattery: 'No' } },
-    { modelNumber: '5L500', name: 'EtherLynx Vision',             status: 'available', image: 'EtherLynx%20Vision.png',           specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', standardFrameRate: '1000', maxFrameRate: '2000', standardPixelDensity: '640', maxPixelDensity: '1280', poeCapable: 'Yes', onBoardBattery: 'Optional', luxBoostMax: '4x' } },
-    { modelNumber: '5L600', name: 'EtherLynx Vision Pro',         status: 'available', image: 'EtherLynx%20Vision%20Pro.png',     specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', standardFrameRate: '3000', maxFrameRate: '20000', standardPixelDensity: '1024', maxPixelDensity: '2048', poeCapable: 'Yes', onBoardBattery: 'Optional', luxBoostMax: '4x' } },
-    { modelNumber: '5L700', name: 'EtherLynx Vision Pro X',       status: 'available', image: 'EtherLynx%20Vision%20Pro%20X.png', specs: { standardMount: 'F-Mount',  alternateMounts: 'C-Mount',  standardFrameRate: '40000', maxFrameRate: '40000', standardPixelDensity: '2560', maxPixelDensity: '5120', poeCapable: 'Yes', onBoardBattery: 'Optional', luxBoostMax: '16x' } },
+    { modelNumber: '5L100', name: 'EtherLynx 2000',               status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', compatibleLenses: ['8-48mm (C)','12.5-75mm (C)','25mm (C)'], poeCapable: 'No', onBoardBattery: 'No' } },
+    { modelNumber: '5L200', name: 'EtherLynx 2000',               status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', compatibleLenses: ['8-48mm (C)','12.5-75mm (C)','25mm (C)'], poeCapable: 'No', onBoardBattery: 'No' } },
+    { modelNumber: '5L300', name: 'EtherLynx Professional',       status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', compatibleLenses: ['8-48mm (C)','12.5-75mm (C)','25mm (C)'], standardFrameRate: '3000', maxFrameRate: '10000', standardPixelDensity: '1350', maxPixelDensity: '4000', poeCapable: 'No', onBoardBattery: 'No' } },
+    { modelNumber: '5L400', name: 'EtherLynx Fusion',             status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', compatibleLenses: ['8-48mm (C)','12.5-75mm (C)','25mm (C)'], standardFrameRate: '2000', maxFrameRate: '3000', standardPixelDensity: '1000', maxPixelDensity: '2700', poeCapable: 'No', onBoardBattery: 'No' } },
+    { modelNumber: '5L410', name: 'EtherLynx Scholastic',         status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', compatibleLenses: ['8-48mm (C)','12.5-75mm (C)','25mm (C)'], poeCapable: 'No', onBoardBattery: 'No' } },
+    { modelNumber: '5L420', name: 'EtherLynx 2000+',              status: 'retired',   image: 'EtherLynx%202000.png',             specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', compatibleLenses: ['8-48mm (C)','12.5-75mm (C)','25mm (C)'], standardFrameRate: '1000', maxFrameRate: '2000', standardPixelDensity: '500', maxPixelDensity: '1000', poeCapable: 'No', onBoardBattery: 'No' } },
+    { modelNumber: '5L510', name: 'EtherLynx Vision Scholastic',  status: 'available', image: 'EtherLynx%20Vision.png',           specs: { standardMount: 'CS-Mount', alternateMounts: 'C-Mount', compatibleLenses: ['2.8-10mm (CS)','5-50mm (CS)','6mm (CS)'], standardFrameRate: '600',  maxFrameRate: '600', standardPixelDensity: '640', maxPixelDensity: '640', poeCapable: 'Yes', onBoardBattery: 'No' } },
+    { modelNumber: '5L500', name: 'EtherLynx Vision',             status: 'available', image: 'EtherLynx%20Vision.png',           specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', compatibleLenses: ['8-48mm (C)','12.5-75mm (C)','25mm (C)','2.8-10mm (CS)','5-50mm (CS)','6mm (CS)'], standardFrameRate: '1000', maxFrameRate: '2000', standardPixelDensity: '640', maxPixelDensity: '1280', poeCapable: 'Yes', onBoardBattery: 'Optional', luxBoostMax: '4x' } },
+    { modelNumber: '5L600', name: 'EtherLynx Vision Pro',         status: 'available', image: 'EtherLynx%20Vision%20Pro.png',     specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount', compatibleLenses: ['8-48mm (C)','12.5-75mm (C)','25mm (C)','2.8-10mm (CS)','5-50mm (CS)','6mm (CS)'], standardFrameRate: '3000', maxFrameRate: '20000', standardPixelDensity: '1024', maxPixelDensity: '2048', poeCapable: 'Yes', onBoardBattery: 'Optional', luxBoostMax: '4x' } },
+    { modelNumber: '5L700', name: 'EtherLynx Vision Pro X',       status: 'available', image: 'EtherLynx%20Vision%20Pro%20X.png', specs: { standardMount: 'F-Mount',  alternateMounts: 'C-Mount', standardFrameRate: '40000', maxFrameRate: '40000', standardPixelDensity: '2560', maxPixelDensity: '5120', poeCapable: 'Yes', onBoardBattery: 'Optional', luxBoostMax: '16x' } },
   ];
 
   function esc(s){
@@ -185,10 +186,11 @@ footer span{color:#555;font-weight:600}
       } else {
         html += '<div class="cmp-row">';
         models.forEach(m => {
-          const val = (m.specs && m.specs[row.key] != null) ? m.specs[row.key] : '—';
+          const raw = (m.specs && m.specs[row.key] != null) ? m.specs[row.key] : '—';
+          const val = Array.isArray(raw) ? raw.map(v => esc(v)).join('<br>') : esc(raw);
           html += '<div class="cmp-cell cmp-spec"' + statusAttr(m) + '>';
           if (row.label) html += '<div class="cmp-spec-label">' + esc(row.label) + '</div>';
-          html += esc(val) + '</div>';
+          html += val + '</div>';
         });
         html += '</div>';
       }
