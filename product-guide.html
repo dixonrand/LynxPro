@@ -116,18 +116,18 @@ footer span{color:#555;font-weight:600}
   // Use {key:'someKey'} to add a spec row pulling m.specs.someKey from each model.
   const EC_SPECS = [
     {section:'Camera Specs'},
-    {key:'standardFrameRate', label:'Standard Frame Rate'},
-    {key:'maxFrameRate', label:'Max Frame Rate'},
-    {key:'standardPixelDensity', label:'Standard Pixel Density'},
-    {key:'maxPixelDensity', label:'Max Pixel Density'},
+    {key:'standardFrameRate', label:'Standard Frame Rate', rank:true},
+    {key:'maxFrameRate', label:'Max Frame Rate', rank:true},
+    {key:'standardPixelDensity', label:'Standard Pixel Density', rank:true},
+    {key:'maxPixelDensity', label:'Max Pixel Density', rank:true},
     {section:'Lens Mount'},
     {key:'standardMount', label:'Standard Mount'},
     {key:'alternateMounts', label:'Alternate Mounts'},
     {key:'compatibleLenses', label:'Compatible Lenses'},
     {section:'Camera Features'},
-    {key:'poeCapable', label:'PoE Capable'},
-    {key:'onBoardBattery', label:'On-Board Battery'},
-    {key:'luxBoostMax', label:'LuxBoost Max'},
+    {key:'poeCapable', label:'PoE Capable', rank:true},
+    {key:'onBoardBattery', label:'On-Board Battery', rank:true},
+    {key:'luxBoostMax', label:'LuxBoost Max', rank:true},
   ];
 
   // Each model: { modelNumber, name, tagline, image, status:'available'|'retired', specs:{...} }
@@ -146,6 +146,18 @@ footer span{color:#555;font-weight:600}
 
   function esc(s){
     return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function rankVal(raw){
+    if(raw==null||raw==='')return 0;
+    var s=String(raw);
+    var x=s.match(/^(\d+\.?\d*)x$/i);
+    if(x)return parseFloat(x[1]);
+    if(s.toLowerCase()==='yes')return 1;
+    if(s.toLowerCase()==='optional')return 0.5;
+    if(s.toLowerCase()==='no')return 0;
+    var n=parseFloat(s.replace(/,/g,''));
+    return isNaN(n)?0:n;
   }
 
   function statusAttr(m){
@@ -184,11 +196,21 @@ footer span{color:#555;font-weight:600}
       if (row.section) {
         html += '<div class="cmp-section">' + esc(row.section) + '</div>';
       } else {
+        // Pre-compute gold heatmap if row is ranked
+        var rankings = null;
+        if (row.rank) {
+          var parsed = models.map(m => rankVal(m.specs && m.specs[row.key]));
+          var maxV = Math.max.apply(null, parsed);
+          var minV = Math.min.apply(null, parsed);
+          if (maxV > minV && maxV > 0) rankings = parsed.map(v => v / maxV);
+        }
+
         html += '<div class="cmp-row">';
-        models.forEach(m => {
+        models.forEach((m, i) => {
           const raw = (m.specs && m.specs[row.key] != null) ? m.specs[row.key] : '—';
           const val = Array.isArray(raw) ? raw.map(v => esc(v)).join('<br>') : esc(raw);
-          html += '<div class="cmp-cell cmp-spec"' + statusAttr(m) + '>';
+          const gold = (rankings && rankings[i] > 0) ? ' style="box-shadow:inset 0 0 0 999px rgba(232,168,0,' + (rankings[i] * 0.22).toFixed(3) + ')"' : '';
+          html += '<div class="cmp-cell cmp-spec"' + statusAttr(m) + gold + '>';
           if (row.label) html += '<div class="cmp-spec-label">' + esc(row.label) + '</div>';
           html += val + '</div>';
         });
