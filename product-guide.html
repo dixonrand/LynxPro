@@ -53,6 +53,7 @@ body{background:#F5EFD6;color:#111;font-family:'Inter',sans-serif;font-size:15px
 .cmp-img-placeholder{font-size:9px;color:#aaa;font-style:italic;letter-spacing:.3px;text-transform:uppercase}
 .cmp-section{background:#EDE4BF;padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#555;text-align:left}
 .cmp-spec{font-size:12px;line-height:1.45;color:#333;min-height:46px}
+.cmp-spec-label{font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#888;margin-bottom:3px}
 .compare[data-filter="available"] .cmp-cell[data-status="retired"]{max-width:0;padding-left:0;padding-right:0;opacity:0;border-left-width:0;pointer-events:none}
 footer{border-top:2px solid #111;padding:16px 24px;text-align:center;font-size:11px;color:#888}
 footer span{color:#555;font-weight:600}
@@ -114,26 +115,23 @@ footer span{color:#555;font-weight:600}
   // Use {section:'Name'} to insert a section header row that spans all columns.
   // Use {key:'someKey'} to add a spec row pulling m.specs.someKey from each model.
   const EC_SPECS = [
-    // Example:
-    // {section:'Imaging'},
-    // {key:'frameRate'},
-    // {key:'sensor'},
-    // {section:'Interface'},
-    // {key:'connection'},
+    {section:'Lens Mount'},
+    {key:'standardMount', label:'Standard Mount'},
+    {key:'alternateMounts', label:'Alternate Mounts'},
   ];
 
   // Each model: { modelNumber, name, tagline, image, status:'available'|'retired', specs:{...} }
   const EC_MODELS = [
-    { modelNumber: '5L100', name: 'EtherLynx 2000',               status: 'retired',   image: 'EtherLynx%202000.png' },
-    { modelNumber: '5L200', name: 'EtherLynx 2000',               status: 'retired',   image: 'EtherLynx%202000.png' },
-    { modelNumber: '5L300', name: 'EtherLynx Professional',       status: 'retired',   image: 'EtherLynx%202000.png' },
-    { modelNumber: '5L400', name: 'EtherLynx Fusion',             status: 'retired',   image: 'EtherLynx%202000.png' },
-    { modelNumber: '5L410', name: 'EtherLynx Scholastic',         status: 'retired',   image: 'EtherLynx%202000.png' },
-    { modelNumber: '5L420', name: 'EtherLynx 2000+',              status: 'retired',   image: 'EtherLynx%202000.png' },
-    { modelNumber: '5L510', name: 'EtherLynx Vision Scholastic',  status: 'available', image: 'EtherLynx%20Vision.png' },
-    { modelNumber: '5L500', name: 'EtherLynx Vision',             status: 'available', image: 'EtherLynx%20Vision.png' },
-    { modelNumber: '5L600', name: 'EtherLynx Vision Pro',         status: 'available', image: 'EtherLynx%20Vision%20Pro.png' },
-    { modelNumber: '5L700', name: 'EtherLynx Vision Pro X',       status: 'available', image: 'EtherLynx%20Vision%20Pro%20X.png' },
+    { modelNumber: '5L100', name: 'EtherLynx 2000',               status: 'retired',   image: 'EtherLynx%202000.png',           specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount' } },
+    { modelNumber: '5L200', name: 'EtherLynx 2000',               status: 'retired',   image: 'EtherLynx%202000.png',           specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount' } },
+    { modelNumber: '5L300', name: 'EtherLynx Professional',       status: 'retired',   image: 'EtherLynx%202000.png',           specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount' } },
+    { modelNumber: '5L400', name: 'EtherLynx Fusion',             status: 'retired',   image: 'EtherLynx%202000.png',           specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount' } },
+    { modelNumber: '5L410', name: 'EtherLynx Scholastic',         status: 'retired',   image: 'EtherLynx%202000.png',           specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount' } },
+    { modelNumber: '5L420', name: 'EtherLynx 2000+',              status: 'retired',   image: 'EtherLynx%202000.png',           specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount' } },
+    { modelNumber: '5L510', name: 'EtherLynx Vision Scholastic',  status: 'available', image: 'EtherLynx%20Vision.png',         specs: { standardMount: 'CS-Mount', alternateMounts: 'C-Mount' } },
+    { modelNumber: '5L500', name: 'EtherLynx Vision',             status: 'available', image: 'EtherLynx%20Vision.png',         specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount' } },
+    { modelNumber: '5L600', name: 'EtherLynx Vision Pro',         status: 'available', image: 'EtherLynx%20Vision%20Pro.png',   specs: { standardMount: 'C-Mount',  alternateMounts: 'CS-Mount' } },
+    { modelNumber: '5L700', name: 'EtherLynx Vision Pro X',       status: 'available', image: 'EtherLynx%20Vision%20Pro%20X.png', specs: { standardMount: 'F-Mount',  alternateMounts: 'C-Mount' } },
   ];
 
   function esc(s){
@@ -179,7 +177,9 @@ footer span{color:#555;font-weight:600}
         html += '<div class="cmp-row">';
         models.forEach(m => {
           const val = (m.specs && m.specs[row.key] != null) ? m.specs[row.key] : '—';
-          html += '<div class="cmp-cell cmp-spec"' + statusAttr(m) + '>' + esc(val) + '</div>';
+          html += '<div class="cmp-cell cmp-spec"' + statusAttr(m) + '>';
+          if (row.label) html += '<div class="cmp-spec-label">' + esc(row.label) + '</div>';
+          html += esc(val) + '</div>';
         });
         html += '</div>';
       }
