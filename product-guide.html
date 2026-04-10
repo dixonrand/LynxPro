@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <title>Product Guide &mdash; Lynx Pro</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
 html{color-scheme:light;background:#F5EFD6}
@@ -36,10 +36,12 @@ body{background:#F5EFD6;color:#111;font-family:'Inter',sans-serif;font-size:15px
 .sub-panel{display:none}
 .sub-panel.active{display:block}
 .cmp-empty{padding:44px 24px;text-align:center;color:#888;font-size:13px;background:#FDFAF0;border:2px dashed #111}
-.compare-grid{display:grid;grid-template-columns:repeat(var(--cols,1),minmax(0,1fr));gap:1px;background:#111;border:2px solid #111}
+.compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:2px solid #111;background:#111}
+.compare-grid{display:grid;grid-template-columns:repeat(var(--cols,1),minmax(180px,1fr));gap:1px;background:#111;min-width:100%}
 .cmp-cell{background:#FDFAF0;padding:16px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.cmp-header{padding:24px 20px 18px}
-.cmp-name{font-size:19px;font-weight:800;letter-spacing:-.4px;color:#111;line-height:1.15}
+.cmp-header{padding:22px 18px 18px}
+.cmp-model-num{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1.2px;color:#888;text-transform:uppercase;margin-bottom:6px}
+.cmp-name{font-size:18px;font-weight:800;letter-spacing:-.4px;color:#111;line-height:1.15}
 .cmp-tagline{font-size:12px;color:#666;margin-top:6px;line-height:1.5;max-width:240px}
 .cmp-status{display:inline-block;margin-top:8px;font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border:1.5px solid #111}
 .cmp-status.available{background:#F5C518;color:#111}
@@ -118,9 +120,18 @@ footer span{color:#555;font-weight:600}
     // {key:'connection'},
   ];
 
-  // Each model: { name, tagline, image, status:'available'|'retired', specs:{...} }
+  // Each model: { modelNumber, name, tagline, image, status:'available'|'retired', specs:{...} }
   const EC_MODELS = [
-    // Populated with real data later.
+    { modelNumber: '5L100', name: 'EtherLynx 2000' },
+    { modelNumber: '5L200', name: 'EtherLynx 2000' },
+    { modelNumber: '5L300', name: 'EtherLynx Professional' },
+    { modelNumber: '5L400', name: 'EtherLynx Fusion' },
+    { modelNumber: '5L410', name: 'EtherLynx Scholastic' },
+    { modelNumber: '5L420', name: 'EtherLynx 2000+' },
+    { modelNumber: '5L510', name: 'EtherLynx Vision Scholastic' },
+    { modelNumber: '5L500', name: 'EtherLynx Vision' },
+    { modelNumber: '5L600', name: 'EtherLynx Vision Pro' },
+    { modelNumber: '5L700', name: 'EtherLynx Vision Pro X' },
   ];
 
   function esc(s){
@@ -130,11 +141,12 @@ footer span{color:#555;font-weight:600}
   function buildCompare(models, specs){
     if (!models.length) return '<div class="cmp-empty">No models to show yet.</div>';
     const cols = models.length;
-    let html = '<div class="compare-grid" style="--cols:' + cols + '">';
+    let html = '<div class="compare-wrap"><div class="compare-grid" style="--cols:' + cols + '">';
 
-    // Header row: name, tagline, status badge
+    // Header row: model number, name, tagline, status badge
     models.forEach(m => {
       html += '<div class="cmp-cell cmp-header">';
+      if (m.modelNumber) html += '<div class="cmp-model-num">' + esc(m.modelNumber) + '</div>';
       html += '<div class="cmp-name">' + esc(m.name) + '</div>';
       if (m.tagline) html += '<div class="cmp-tagline">' + esc(m.tagline) + '</div>';
       if (m.status) html += '<span class="cmp-status ' + esc(m.status) + '">' + esc(m.status) + '</span>';
@@ -162,7 +174,7 @@ footer span{color:#555;font-weight:600}
       }
     });
 
-    html += '</div>';
+    html += '</div></div>';
     return html;
   }
 
