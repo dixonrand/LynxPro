@@ -35,6 +35,20 @@ body{background:#F5EFD6;color:#111;font-family:'Inter',sans-serif;font-size:15px
 .sub-tab.active{background:#111;color:#FDFAF0}
 .sub-panel{display:none}
 .sub-panel.active{display:block}
+.cmp-empty{padding:44px 24px;text-align:center;color:#888;font-size:13px;background:#FDFAF0;border:2px dashed #111}
+.compare-grid{display:grid;grid-template-columns:repeat(var(--cols,1),minmax(0,1fr));gap:1px;background:#111;border:2px solid #111}
+.cmp-cell{background:#FDFAF0;padding:16px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.cmp-header{padding:24px 20px 18px}
+.cmp-name{font-size:19px;font-weight:800;letter-spacing:-.4px;color:#111;line-height:1.15}
+.cmp-tagline{font-size:12px;color:#666;margin-top:6px;line-height:1.5;max-width:240px}
+.cmp-status{display:inline-block;margin-top:8px;font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border:1.5px solid #111}
+.cmp-status.available{background:#F5C518;color:#111}
+.cmp-status.retired{background:#111;color:#FDFAF0}
+.cmp-img-cell{padding:22px;min-height:180px}
+.cmp-img-cell img{max-width:180px;max-height:160px;width:auto;height:auto;display:block}
+.cmp-img-placeholder{font-size:10px;color:#aaa;font-style:italic;letter-spacing:.3px;text-transform:uppercase}
+.cmp-section{grid-column:1/-1;background:#EDE4BF;padding:9px 18px;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#555;text-align:left}
+.cmp-spec{font-size:13px;line-height:1.5;color:#333;min-height:54px}
 footer{border-top:2px solid #111;padding:16px 24px;text-align:center;font-size:11px;color:#888}
 footer span{color:#555;font-weight:600}
 </style>
@@ -91,6 +105,77 @@ footer span{color:#555;font-weight:600}
 
 <script>
 (function(){
+  // ----- EtherLynx Cameras data -----
+  // Add spec rows here in the order they should appear in the comparison.
+  // Use {section:'Name'} to insert a section header row that spans all columns.
+  // Use {key:'someKey'} to add a spec row pulling m.specs.someKey from each model.
+  const EC_SPECS = [
+    // Example:
+    // {section:'Imaging'},
+    // {key:'frameRate'},
+    // {key:'sensor'},
+    // {section:'Interface'},
+    // {key:'connection'},
+  ];
+
+  // Each model: { name, tagline, image, status:'available'|'retired', specs:{...} }
+  const EC_MODELS = [
+    // Populated with real data later.
+  ];
+
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function buildCompare(models, specs){
+    if (!models.length) return '<div class="cmp-empty">No models to show yet.</div>';
+    const cols = models.length;
+    let html = '<div class="compare-grid" style="--cols:' + cols + '">';
+
+    // Header row: name, tagline, status badge
+    models.forEach(m => {
+      html += '<div class="cmp-cell cmp-header">';
+      html += '<div class="cmp-name">' + esc(m.name) + '</div>';
+      if (m.tagline) html += '<div class="cmp-tagline">' + esc(m.tagline) + '</div>';
+      if (m.status) html += '<span class="cmp-status ' + esc(m.status) + '">' + esc(m.status) + '</span>';
+      html += '</div>';
+    });
+
+    // Image row
+    models.forEach(m => {
+      html += '<div class="cmp-cell cmp-img-cell">';
+      html += m.image
+        ? '<img src="' + esc(m.image) + '" alt="' + esc(m.name) + '">'
+        : '<div class="cmp-img-placeholder">No image yet</div>';
+      html += '</div>';
+    });
+
+    // Spec rows / sections
+    specs.forEach(row => {
+      if (row.section) {
+        html += '<div class="cmp-section">' + esc(row.section) + '</div>';
+      } else {
+        models.forEach(m => {
+          const val = (m.specs && m.specs[row.key] != null) ? m.specs[row.key] : '—';
+          html += '<div class="cmp-cell cmp-spec">' + esc(val) + '</div>';
+        });
+      }
+    });
+
+    html += '</div>';
+    return html;
+  }
+
+  function renderInto(selector, models, specs){
+    const el = document.querySelector(selector);
+    if (el) el.innerHTML = buildCompare(models, specs);
+  }
+
+  // Initial render for EtherLynx Cameras
+  renderInto('.sub-panel[data-parent="etherlynx"][data-sub="all"]', EC_MODELS, EC_SPECS);
+  renderInto('.sub-panel[data-parent="etherlynx"][data-sub="available"]', EC_MODELS.filter(m => m.status === 'available'), EC_SPECS);
+
+  // ----- Tab wiring -----
   const tabs = document.querySelectorAll('.cat-tab');
   const panels = document.querySelectorAll('.cat-panel');
   tabs.forEach(tab => {
