@@ -95,7 +95,13 @@ footer span{color:#555;font-weight:600}
     </div>
     <div class="compare" data-parent="etherlynx" data-filter="all"></div>
   </div>
-  <div class="cat-panel" data-cat="identilynx"></div>
+  <div class="cat-panel" data-cat="identilynx">
+    <div class="sub-tabs" data-parent="identilynx">
+      <button class="sub-tab active" data-sub="all">All</button>
+      <button class="sub-tab" data-sub="available">Available</button>
+    </div>
+    <div class="compare" data-parent="identilynx" data-filter="all"></div>
+  </div>
   <div class="cat-panel" data-cat="lenses"></div>
   <div class="cat-panel" data-cat="upgrades"></div>
   <div class="cat-panel" data-cat="scoreboards"></div>
@@ -221,12 +227,29 @@ footer span{color:#555;font-weight:600}
     return html;
   }
 
+  // ----- IdentiLynx Cameras data -----
+  const IC_SPECS = [];
+
+  const IC_MODELS = [
+    { name: 'IdentiLynx SR',   status: 'retired' },
+    { name: 'IdentiLynx SR-2', status: 'available' },
+    { name: 'IdentiLynx HRS',  status: 'available' },
+  ];
+
   // Initial render for EtherLynx Cameras
   const ecCompare = document.querySelector('.compare[data-parent="etherlynx"]');
   if (ecCompare) {
     ecCompare.innerHTML = buildCompare(EC_MODELS, EC_SPECS);
-    // Lock row heights so only width changes on filter toggle
     ecCompare.querySelectorAll('.cmp-row').forEach(row => {
+      row.style.height = row.offsetHeight + 'px';
+    });
+  }
+
+  // Initial render for IdentiLynx Cameras
+  const icCompare = document.querySelector('.compare[data-parent="identilynx"]');
+  if (icCompare) {
+    icCompare.innerHTML = buildCompare(IC_MODELS, IC_SPECS);
+    icCompare.querySelectorAll('.cmp-row').forEach(row => {
       row.style.height = row.offsetHeight + 'px';
     });
   }
