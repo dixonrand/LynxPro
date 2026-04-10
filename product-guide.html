@@ -165,7 +165,7 @@ footer span{color:#555;font-weight:600}
     models.forEach(m => {
       html += '<div class="cmp-cell cmp-img-cell"' + statusAttr(m) + '>';
       html += m.image
-        ? '<img src="' + esc(m.image) + '" alt="' + esc(m.name) + '">'
+        ? '<img src="' + esc(m.image) + '" alt="' + esc(m.name) + '" onerror="this.outerHTML=\'<div class=&quot;cmp-img-placeholder&quot;>No image yet</div>\'">'
         : '<div class="cmp-img-placeholder">No image yet</div>';
       html += '</div>';
     });
