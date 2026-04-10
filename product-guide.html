@@ -254,14 +254,9 @@ footer span{color:#555;font-weight:600}
     });
   }
 
-  // Initial render for IdentiLynx Cameras
+  // Initial render for IdentiLynx Cameras (heights locked on first tab show)
   const icCompare = document.querySelector('.compare[data-parent="identilynx"]');
-  if (icCompare) {
-    icCompare.innerHTML = buildCompare(IC_MODELS, IC_SPECS);
-    icCompare.querySelectorAll('.cmp-row').forEach(row => {
-      row.style.height = row.offsetHeight + 'px';
-    });
-  }
+  if (icCompare) icCompare.innerHTML = buildCompare(IC_MODELS, IC_SPECS);
 
   // ----- Tab wiring -----
   const tabs = document.querySelectorAll('.cat-tab');
@@ -271,6 +266,15 @@ footer span{color:#555;font-weight:600}
       const cat = tab.dataset.cat;
       tabs.forEach(t => t.classList.toggle('active', t === tab));
       panels.forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
+      // Lock row heights for compare grids that just became visible
+      const active = document.querySelector('.cat-panel.active');
+      if (active) {
+        active.querySelectorAll('.compare .cmp-row').forEach(row => {
+          if (!row.style.height || row.style.height === '0px') {
+            row.style.height = row.offsetHeight + 'px';
+          }
+        });
+      }
     });
   });
 
