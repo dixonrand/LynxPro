@@ -36,21 +36,24 @@ body{background:#F5EFD6;color:#111;font-family:'Inter',sans-serif;font-size:15px
 .sub-panel{display:none}
 .sub-panel.active{display:block}
 .cmp-empty{padding:44px 24px;text-align:center;color:#888;font-size:13px;background:#FDFAF0;border:2px dashed #111}
-.compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:2px solid #111;background:#111}
-.compare-grid{display:grid;grid-template-columns:repeat(var(--cols,1),minmax(0,1fr));gap:1px;background:#111;min-width:100%}
-.cmp-cell{background:#FDFAF0;padding:12px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.compare{background:#FDFAF0;border:2px solid #111;overflow:hidden}
+.cmp-row{display:flex;align-items:stretch}
+.cmp-row + .cmp-row,.cmp-section + .cmp-row,.cmp-row + .cmp-section{border-top:1px solid rgba(0,0,0,.12)}
+.cmp-cell{flex:1 1 0;min-width:0;max-width:100%;background:#FDFAF0;padding:12px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;border-left:1px solid rgba(0,0,0,.08);transition:max-width .55s cubic-bezier(.4,0,.2,1),padding .55s cubic-bezier(.4,0,.2,1),opacity .3s ease,border-left-width .55s cubic-bezier(.4,0,.2,1)}
+.cmp-row > .cmp-cell:first-child{border-left:0}
 .cmp-header{padding:16px 10px 14px}
-.cmp-model-num{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.8px;color:#888;text-transform:uppercase;margin-bottom:5px}
+.cmp-model-num{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.8px;color:#888;text-transform:uppercase;margin-bottom:5px;white-space:nowrap}
 .cmp-name{font-size:13px;font-weight:800;letter-spacing:-.2px;color:#111;line-height:1.2}
 .cmp-tagline{font-size:11px;color:#666;margin-top:5px;line-height:1.45}
-.cmp-status{display:inline-block;margin-top:7px;font-size:8px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 6px;border:1.5px solid #111}
+.cmp-status{display:inline-block;margin-top:7px;font-size:8px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 6px;border:1.5px solid #111;white-space:nowrap}
 .cmp-status.available{background:#F5C518;color:#111}
 .cmp-status.retired{background:#111;color:#FDFAF0}
 .cmp-img-cell{padding:14px 8px;min-height:120px}
 .cmp-img-cell img{max-width:100%;max-height:110px;width:auto;height:auto;display:block}
 .cmp-img-placeholder{font-size:9px;color:#aaa;font-style:italic;letter-spacing:.3px;text-transform:uppercase}
-.cmp-section{grid-column:1/-1;background:#EDE4BF;padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#555;text-align:left}
+.cmp-section{background:#EDE4BF;padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#555;text-align:left}
 .cmp-spec{font-size:12px;line-height:1.45;color:#333;min-height:46px}
+.compare[data-filter="available"] .cmp-cell[data-status="retired"]{max-width:0;padding-left:0;padding-right:0;opacity:0;border-left-width:0;pointer-events:none}
 footer{border-top:2px solid #111;padding:16px 24px;text-align:center;font-size:11px;color:#888}
 footer span{color:#555;font-weight:600}
 </style>
@@ -89,8 +92,7 @@ footer span{color:#555;font-weight:600}
       <button class="sub-tab active" data-sub="all">All</button>
       <button class="sub-tab" data-sub="available">Available</button>
     </div>
-    <div class="sub-panel active" data-parent="etherlynx" data-sub="all"></div>
-    <div class="sub-panel" data-parent="etherlynx" data-sub="available"></div>
+    <div class="compare" data-parent="etherlynx" data-filter="all"></div>
   </div>
   <div class="cat-panel" data-cat="identilynx"></div>
   <div class="cat-panel" data-cat="lenses"></div>
@@ -122,70 +124,73 @@ footer span{color:#555;font-weight:600}
 
   // Each model: { modelNumber, name, tagline, image, status:'available'|'retired', specs:{...} }
   const EC_MODELS = [
-    { modelNumber: '5L100', name: 'EtherLynx 2000' },
-    { modelNumber: '5L200', name: 'EtherLynx 2000' },
-    { modelNumber: '5L300', name: 'EtherLynx Professional' },
-    { modelNumber: '5L400', name: 'EtherLynx Fusion' },
-    { modelNumber: '5L410', name: 'EtherLynx Scholastic' },
-    { modelNumber: '5L420', name: 'EtherLynx 2000+' },
-    { modelNumber: '5L510', name: 'EtherLynx Vision Scholastic' },
-    { modelNumber: '5L500', name: 'EtherLynx Vision' },
-    { modelNumber: '5L600', name: 'EtherLynx Vision Pro' },
-    { modelNumber: '5L700', name: 'EtherLynx Vision Pro X' },
+    { modelNumber: '5L100', name: 'EtherLynx 2000',               status: 'retired' },
+    { modelNumber: '5L200', name: 'EtherLynx 2000',               status: 'retired' },
+    { modelNumber: '5L300', name: 'EtherLynx Professional',       status: 'retired' },
+    { modelNumber: '5L400', name: 'EtherLynx Fusion',             status: 'retired' },
+    { modelNumber: '5L410', name: 'EtherLynx Scholastic',         status: 'retired' },
+    { modelNumber: '5L420', name: 'EtherLynx 2000+',              status: 'retired' },
+    { modelNumber: '5L510', name: 'EtherLynx Vision Scholastic',  status: 'available' },
+    { modelNumber: '5L500', name: 'EtherLynx Vision',             status: 'available' },
+    { modelNumber: '5L600', name: 'EtherLynx Vision Pro',         status: 'available' },
+    { modelNumber: '5L700', name: 'EtherLynx Vision Pro X',       status: 'available' },
   ];
 
   function esc(s){
     return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   }
 
+  function statusAttr(m){
+    return m.status ? ' data-status="' + esc(m.status) + '"' : '';
+  }
+
   function buildCompare(models, specs){
     if (!models.length) return '<div class="cmp-empty">No models to show yet.</div>';
-    const cols = models.length;
-    let html = '<div class="compare-wrap"><div class="compare-grid" style="--cols:' + cols + '">';
+    let html = '';
 
     // Header row: model number, name, tagline, status badge
+    html += '<div class="cmp-row">';
     models.forEach(m => {
-      html += '<div class="cmp-cell cmp-header">';
+      html += '<div class="cmp-cell cmp-header"' + statusAttr(m) + '>';
       if (m.modelNumber) html += '<div class="cmp-model-num">' + esc(m.modelNumber) + '</div>';
       html += '<div class="cmp-name">' + esc(m.name) + '</div>';
       if (m.tagline) html += '<div class="cmp-tagline">' + esc(m.tagline) + '</div>';
       if (m.status) html += '<span class="cmp-status ' + esc(m.status) + '">' + esc(m.status) + '</span>';
       html += '</div>';
     });
+    html += '</div>';
 
     // Image row
+    html += '<div class="cmp-row">';
     models.forEach(m => {
-      html += '<div class="cmp-cell cmp-img-cell">';
+      html += '<div class="cmp-cell cmp-img-cell"' + statusAttr(m) + '>';
       html += m.image
         ? '<img src="' + esc(m.image) + '" alt="' + esc(m.name) + '">'
         : '<div class="cmp-img-placeholder">No image yet</div>';
       html += '</div>';
     });
+    html += '</div>';
 
     // Spec rows / sections
     specs.forEach(row => {
       if (row.section) {
         html += '<div class="cmp-section">' + esc(row.section) + '</div>';
       } else {
+        html += '<div class="cmp-row">';
         models.forEach(m => {
           const val = (m.specs && m.specs[row.key] != null) ? m.specs[row.key] : '—';
-          html += '<div class="cmp-cell cmp-spec">' + esc(val) + '</div>';
+          html += '<div class="cmp-cell cmp-spec"' + statusAttr(m) + '>' + esc(val) + '</div>';
         });
+        html += '</div>';
       }
     });
 
-    html += '</div></div>';
     return html;
   }
 
-  function renderInto(selector, models, specs){
-    const el = document.querySelector(selector);
-    if (el) el.innerHTML = buildCompare(models, specs);
-  }
-
   // Initial render for EtherLynx Cameras
-  renderInto('.sub-panel[data-parent="etherlynx"][data-sub="all"]', EC_MODELS, EC_SPECS);
-  renderInto('.sub-panel[data-parent="etherlynx"][data-sub="available"]', EC_MODELS.filter(m => m.status === 'available'), EC_SPECS);
+  const ecCompare = document.querySelector('.compare[data-parent="etherlynx"]');
+  if (ecCompare) ecCompare.innerHTML = buildCompare(EC_MODELS, EC_SPECS);
 
   // ----- Tab wiring -----
   const tabs = document.querySelectorAll('.cat-tab');
@@ -202,11 +207,13 @@ footer span{color:#555;font-weight:600}
     const parent = bar.dataset.parent;
     const subTabs = bar.querySelectorAll('.sub-tab');
     const subPanels = document.querySelectorAll('.sub-panel[data-parent="' + parent + '"]');
+    const compareBoxes = document.querySelectorAll('.compare[data-parent="' + parent + '"]');
     subTabs.forEach(tab => {
       tab.addEventListener('click', () => {
         const sub = tab.dataset.sub;
         subTabs.forEach(t => t.classList.toggle('active', t === tab));
         subPanels.forEach(p => p.classList.toggle('active', p.dataset.sub === sub));
+        compareBoxes.forEach(c => { c.dataset.filter = sub; });
       });
     });
   });
