@@ -234,12 +234,15 @@ footer span{color:#555;font-weight:600}
     {key:'fpsAtMaxRes', label:'FPS at Max Resolution'},
     {key:'maxFps', label:'Max FPS'},
     {key:'resAtMaxFps', label:'Resolution at Max FPS'},
+    {section:'Camera Features'},
+    {key:'autoFocus', label:'Auto-Focus', rank:true},
+    {key:'icPoeCapable', label:'PoE Capable', rank:true},
   ];
 
   const IC_MODELS = [
-    { modelNumber: 'IDL-SR',   name: 'IdentiLynx SR',   status: 'retired',   image: 'sr.png',   specs: { maxResolution: '1280 x 960', fpsAtMaxRes: '30 fps', maxFps: '30 fps', resAtMaxFps: '1280 x 960' } },
-    { modelNumber: 'IDL-SR-2', name: 'IdentiLynx SR-2', status: 'available', image: 'sr-2.png', specs: { maxResolution: '1280 x 960', fpsAtMaxRes: '30 fps', maxFps: '30 fps', resAtMaxFps: '1280 x 960' } },
-    { modelNumber: 'IDL-HRS',  name: 'IdentiLynx HRS',  status: 'available', image: 'hrs.png',  specs: { maxResolution: '3840 x 2160', fpsAtMaxRes: '10 fps', maxFps: '60 fps', resAtMaxFps: '1280 x 720' } },
+    { modelNumber: 'IDL-SR',   name: 'IdentiLynx SR',   status: 'retired',   image: 'sr.png',   specs: { maxResolution: '1280 x 960', fpsAtMaxRes: '30 fps', maxFps: '30 fps', resAtMaxFps: '1280 x 960', autoFocus: 'Yes', icPoeCapable: 'Yes' } },
+    { modelNumber: 'IDL-SR-2', name: 'IdentiLynx SR-2', status: 'available', image: 'sr-2.png', specs: { maxResolution: '1280 x 960', fpsAtMaxRes: '30 fps', maxFps: '30 fps', resAtMaxFps: '1280 x 960', autoFocus: 'Yes', icPoeCapable: 'Yes' } },
+    { modelNumber: 'IDL-HRS',  name: 'IdentiLynx HRS',  status: 'available', image: 'hrs.png',  specs: { maxResolution: '3840 x 2160', fpsAtMaxRes: '10 fps', maxFps: '60 fps', resAtMaxFps: '1280 x 720', autoFocus: 'Yes', icPoeCapable: 'Yes' } },
   ];
 
   // Initial render for EtherLynx Cameras
