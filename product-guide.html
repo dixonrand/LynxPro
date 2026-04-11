@@ -9,8 +9,6 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
 :root{--bg:#F5EFD6;--bg-card:#FDFAF0;--bg-section:#EDE4BF;--gold:#E8A800;--ink:#111;--ink-2:#333;--ink-3:#555;--ink-4:#666;--ink-5:#888;--ink-6:#aaa;--nav-bg:#1a1a1a;--border:#111;--border-row:rgba(0,0,0,.12);--border-col:rgba(0,0,0,.08)}
-[data-theme="dark"]{--bg:#141414;--bg-card:#1e1e1e;--bg-section:#2a2a2a;--ink:#ddd;--ink-2:#bbb;--ink-3:#999;--ink-4:#888;--ink-5:#666;--ink-6:#555;--nav-bg:#0a0a0a;--border:#444;--border-row:rgba(255,255,255,.08);--border-col:rgba(255,255,255,.05)}
-[data-theme="midnight"]{--bg:#0f1729;--bg-card:#162038;--bg-section:#1d2a4a;--ink:#cdd5e5;--ink-2:#aab5cc;--ink-3:#8899bb;--ink-4:#7788aa;--ink-5:#5570aa;--ink-6:#445588;--nav-bg:#080e1a;--border:#2a3a5a;--border-row:rgba(255,255,255,.06);--border-col:rgba(255,255,255,.04)}
 html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:15px;min-height:100vh;display:flex;flex-direction:column}
 .hdr{background:var(--nav-bg);border-bottom:3px solid var(--gold);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .logo{display:flex;align-items:center;gap:14px}
@@ -85,8 +83,6 @@ footer span{color:var(--ink-3);font-weight:600}
   <div class="hdr-right">
     <div class="theme-picker">
       <button class="theme-dot" data-theme="classic" style="background:#F5EFD6" title="Classic"></button>
-      <button class="theme-dot" data-theme="dark" style="background:#1e1e1e" title="Dark"></button>
-      <button class="theme-dot" data-theme="midnight" style="background:#162038" title="Midnight"></button>
     </div>
     <span class="hdr-beta">In Beta</span>
   </div>
