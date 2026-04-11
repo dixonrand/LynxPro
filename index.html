@@ -9,14 +9,21 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
 html{color-scheme:light}
-:root{color-scheme:light;--bg:#F5EFD6;--bg-card:#FDFAF0;--tan:#EDE4BF;--gold:#E8A800;--gold-dark:#C48800;--ink:#111;--ink-3:#555;--ink-4:#888;--border:2px solid #111;--nav:#1a1a1a;--font:'Inter',sans-serif;--mono:'JetBrains Mono',monospace}
-html{background:#F5EFD6 !important}body{background:#F5EFD6 !important;color:#111 !important;font-family:var(--font);font-size:15px;min-height:100vh;display:flex;flex-direction:column}
+:root{color-scheme:light;--bg:#F5EFD6;--bg-card:#FDFAF0;--tan:#EDE4BF;--gold:#E8A800;--gold-dark:#C48800;--ink:#111;--ink-3:#555;--ink-4:#888;--border-c:#111;--border:2px solid var(--border-c);--nav:#1a1a1a;--font:'Inter',sans-serif;--mono:'JetBrains Mono',monospace}
+[data-theme="dark"]{--bg:#141414;--bg-card:#1e1e1e;--tan:#2a2a2a;--ink:#ddd;--ink-3:#999;--ink-4:#666;--border-c:#444;--nav:#0a0a0a}
+[data-theme="midnight"]{--bg:#0f1729;--bg-card:#162038;--tan:#1d2a4a;--ink:#cdd5e5;--ink-3:#8899bb;--ink-4:#5570aa;--border-c:#2a3a5a;--nav:#080e1a}
+html{background:var(--bg) !important}body{background:var(--bg) !important;color:var(--ink) !important;font-family:var(--font);font-size:15px;min-height:100vh;display:flex;flex-direction:column}
 .nav{background:var(--nav);border-bottom:3px solid var(--gold);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .nav-logo{display:flex;align-items:center;gap:12px}
 .nav-logo img{height:30px;width:auto;display:block}
 .nav-divider{width:1px;height:22px;background:rgba(255,255,255,.2)}
 .nav-wordmark{font-size:13px;font-weight:700;color:#fff;letter-spacing:.5px;text-transform:uppercase;opacity:.85}
-.nav-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid #111}
+.nav-right{display:flex;align-items:center;gap:14px}
+.theme-picker{display:flex;align-items:center;gap:6px}
+.theme-dot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.25);cursor:pointer;transition:transform .15s;padding:0;outline:none}
+.theme-dot:hover{transform:scale(1.2)}
+.theme-dot.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.nav-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border-c)}
 .hero{padding:28px 24px 20px;max-width:860px;margin:0 auto;text-align:center}
 .hero-brand{font-size:22px;font-weight:800;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px}
 .hero-title{font-size:clamp(28px,4.5vw,48px);font-weight:800;color:var(--ink);letter-spacing:-1.5px;line-height:1.08}
@@ -28,8 +35,8 @@ html{background:#F5EFD6 !important}body{background:#F5EFD6 !important;color:#111
 .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
 .tool-card{background:var(--bg-card);border:var(--border);display:flex;flex-direction:column;position:relative;overflow:hidden;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
 .tool-card.live{cursor:pointer}
-.tool-card.live:hover{transform:translateY(-3px);box-shadow:5px 5px 0 #111}
-.tool-card.live:active{transform:translateY(0);box-shadow:2px 2px 0 #111}
+.tool-card.live:hover{transform:translateY(-3px);box-shadow:5px 5px 0 var(--border-c)}
+.tool-card.live:active{transform:translateY(0);box-shadow:2px 2px 0 var(--border-c)}
 .tool-card.inactive{cursor:default;opacity:.72}
 .tool-accent{height:3px}
 .accent-gold{background:var(--gold)}
@@ -37,18 +44,18 @@ html{background:#F5EFD6 !important}body{background:#F5EFD6 !important;color:#111
 .accent-purple{background:#55009C}
 .accent-teal{background:#1A6B6B}
 .tool-body{padding:18px 20px 14px;flex:1;position:relative}
-.tool-icon{width:38px;height:38px;border:2px solid #111;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.tool-icon{width:38px;height:38px;border:2px solid var(--border-c);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
 .icon-gold{background:var(--gold)}
 .icon-slate{background:#4A5568}
 .icon-purple{background:#55009C}
 .icon-teal{background:#1A6B6B}
-.tool-icon svg{width:18px;height:18px;color:#111}
+.tool-icon svg{width:18px;height:18px;color:var(--ink)}
 .icon-slate svg,.icon-purple svg,.icon-teal svg{color:#fff !important}
 .tool-name{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.2px;margin-bottom:5px}
 .tool-desc{font-size:12px;color:var(--ink-3);line-height:1.55}
-.tool-footer{padding:10px 20px;background:var(--tan);border-top:1px solid rgba(0,0,0,.1);display:flex;align-items:center;justify-content:space-between}
+.tool-footer{padding:10px 20px;background:var(--tan);border-top:1px solid var(--border-c);display:flex;align-items:center;justify-content:space-between;opacity:.85}
 .tool-tags{display:flex;gap:4px;flex-wrap:wrap}
-.tool-tag{font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:2px 6px;background:#111;color:#FDFAF0}
+.tool-tag{font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:2px 6px;background:var(--ink);color:var(--bg-card)}
 .status{display:inline-flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;color:#fff}
 .status-live{background:#1A7A3A}
 .status-progress{background:#F5C518;color:#111}
@@ -60,16 +67,11 @@ html{background:#F5EFD6 !important}body{background:#F5EFD6 !important;color:#111
 .stat-l{font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-4);margin-top:3px;display:block}
 footer{border-top:var(--border);padding:16px 24px;text-align:center;font-size:11px;color:var(--ink-4);margin-top:auto}
 footer span{color:var(--ink-3);font-weight:600}
-@media (prefers-color-scheme: dark) {
-  html,body{background:#F5EFD6 !important;color:#111 !important}
-  .hero,.hero-title,.section-label,.section-count,.tool-name,.tool-desc{color:inherit !important}
-  .tool-card{background:#FDFAF0 !important}
-  .tool-footer{background:#EDE4BF !important}
-}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .tool-card{animation:fadeUp .25s ease forwards;opacity:0}
 .tool-card:nth-child(1){animation-delay:.04s}.tool-card:nth-child(2){animation-delay:.08s}.tool-card:nth-child(3){animation-delay:.12s}.tool-card:nth-child(4){animation-delay:.16s}.tool-card:nth-child(5){animation-delay:.2s}.tool-card:nth-child(6){animation-delay:.24s}.tool-card:nth-child(7){animation-delay:.28s}.tool-card:nth-child(8){animation-delay:.32s}.tool-card:nth-child(9){animation-delay:.36s}.tool-card:nth-child(10){animation-delay:.4s}.tool-card:nth-child(11){animation-delay:.44s}.tool-card:nth-child(12){animation-delay:.48s}.tool-card:nth-child(n+13){animation-delay:.52s}
 </style>
+<script>(function(){var t=localStorage.getItem('lynxpro-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
 </head>
 <body>
 
@@ -79,7 +81,14 @@ footer span{color:var(--ink-3);font-weight:600}
     <div class="nav-divider"></div>
     <span class="nav-wordmark">Lynx Pro</span>
   </div>
-  <span class="nav-beta">In Beta</span>
+  <div class="nav-right">
+    <div class="theme-picker">
+      <button class="theme-dot" data-theme="classic" style="background:#F5EFD6" title="Classic"></button>
+      <button class="theme-dot" data-theme="dark" style="background:#1e1e1e" title="Dark"></button>
+      <button class="theme-dot" data-theme="midnight" style="background:#162038" title="Midnight"></button>
+    </div>
+    <span class="nav-beta">In Beta</span>
+  </div>
 </nav>
 
 <div class="hero">
@@ -399,6 +408,20 @@ async function sendChat() {
   typing.style.color = '#111';
   msgs.scrollTop = msgs.scrollHeight;
 }
+
+// Theme switcher
+(function(){
+  var cur = localStorage.getItem('lynxpro-theme') || 'classic';
+  document.querySelectorAll('.theme-dot').forEach(function(dot){
+    if(dot.dataset.theme === cur) dot.classList.add('active');
+    dot.addEventListener('click', function(){
+      var theme = dot.dataset.theme;
+      document.documentElement.setAttribute('data-theme', theme === 'classic' ? '' : theme);
+      localStorage.setItem('lynxpro-theme', theme);
+      document.querySelectorAll('.theme-dot').forEach(function(d){ d.classList.toggle('active', d === dot); });
+    });
+  });
+})();
 </script>
 </body>
 </html>
