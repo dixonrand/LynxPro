@@ -118,6 +118,8 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .sl2{top:9px}
 .sl3{top:12px}
 .sl4{top:15px}
+/* Lane numbers */
+.lane-num{position:absolute;left:50%;transform:translateX(-50%);font-family:'Inter',sans-serif;font-weight:800;color:rgba(255,255,255,.75);text-align:center;line-height:1;pointer-events:none}
 </style>
 <script>
 (function(){var t=localStorage.getItem('lynxpro-theme');if(t)document.documentElement.setAttribute('data-theme',t)})();
@@ -168,10 +170,15 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
   <div class="track">
     <div class="track-texture"></div>
     <div class="curb"></div>
-    <div class="lane" style="top:22%"></div>
-    <div class="lane" style="top:42%"></div>
-    <div class="lane" style="top:62%"></div>
-    <div class="lane" style="top:82%"></div>
+    <div class="lane" style="top:20%"></div>
+    <div class="lane" style="top:40%"></div>
+    <div class="lane" style="top:60%"></div>
+    <div class="lane" style="top:80%"></div>
+    <div class="lane-num" style="top:4%;font-size:clamp(16px,3vh,32px)">1</div>
+    <div class="lane-num" style="top:24%;font-size:clamp(18px,3.5vh,38px)">2</div>
+    <div class="lane-num" style="top:44%;font-size:clamp(22px,4vh,44px)">3</div>
+    <div class="lane-num" style="top:64%;font-size:clamp(26px,5vh,52px)">4</div>
+    <div class="lane-num" style="top:84%;font-size:clamp(30px,6vh,60px)">5</div>
     <div class="finish-line"></div>
   </div>
 
