@@ -82,32 +82,17 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 /* ===== Person + Table Setup ===== */
 .setup{position:absolute;top:50%;left:39%;transform:translateX(-50%) scale(1.8);transform-origin:center bottom;z-index:20}
 
-/* Person (facing viewer, seated) */
-.person{position:relative;width:44px;height:70px;margin:0 8px 0 auto}
-/* Hair */
-.p-hair{position:absolute;top:0;left:9px;width:26px;height:9px;background:#a08040;border-radius:2px 2px 0 0}
-/* Head */
-.p-head{position:absolute;top:7px;left:9px;width:26px;height:24px;background:#dea96b;border-radius:3px}
-/* Eyes */
-.p-eye{position:absolute;width:4px;height:4px;background:#333;border-radius:50%}
-.p-eye-l{top:10px;left:6px}
-.p-eye-r{top:10px;right:6px}
-/* Mouth */
-.p-mouth{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:8px;height:2px;background:#c0835a;border-radius:1px}
-/* Torso (polo shirt) */
-.p-torso{position:absolute;top:31px;left:5px;width:34px;height:28px;background:#7b1fa2}
-.p-collar{position:absolute;top:0;left:50%;transform:translateX(-50%);width:12px;height:5px;background:#9c27b0;border-radius:0 0 3px 3px}
-/* Arms */
-.p-arm{position:absolute;top:36px;width:10px;height:22px;background:#dea96b;border-radius:2px}
-.p-arm-l{left:-2px}
-.p-arm-r{right:-2px}
-/* Left hand resting */
-.p-hand{position:absolute;bottom:-4px;width:8px;height:6px;background:#dea96b;border-radius:1px}
-.p-hand-l{left:1px}
-/* Right arm raised — upper arm stays, forearm points up */
-.p-arm-r{height:14px}
-.p-forearm{position:absolute;top:-16px;right:1px;width:8px;height:18px;background:#dea96b;border-radius:2px}
-.p-hand-r{position:absolute;top:-5px;left:0;width:8px;height:6px;background:#dea96b;border-radius:1px}
+/* Person (facing viewer, seated — athlete style) */
+.person{position:relative;width:44px;height:70px;margin:0 8px 0 auto;display:flex;flex-direction:column;align-items:center}
+.p-hair{width:8px;height:3px;background:#a08040;border-radius:1px 1px 0 0}
+.p-head{width:9px;height:8px;background:#dea96b;border-radius:2px}
+.p-torso{width:12px;height:11px;background:#7b1fa2;border-radius:1px}
+.p-shorts{width:10px;height:5px;background:#222}
+.p-arm{position:absolute;top:14px;width:5px;height:11px;background:#dea96b;border-radius:1px}
+.p-arm-l{left:8px}
+.p-arm-r{right:8px}
+.p-forearm{position:absolute;top:-10px;left:0;width:4px;height:12px;background:#dea96b;border-radius:1px}
+.p-hand-r{position:absolute;top:-4px;left:-1px;width:5px;height:4px;background:#dea96b;border-radius:1px}
 
 /* Table */
 .table-wrap{position:absolute;top:56px;left:-130px;width:180px;z-index:16}
@@ -127,12 +112,10 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .chair-leg-br{position:absolute;bottom:-14px;right:7px;width:3px;height:14px;background:#444;transform:rotate(3deg)}
 .chair-cross{position:absolute;bottom:-8px;left:6px;width:20px;height:2px;background:#444;transform:rotate(8deg)}
 .chair-cross2{position:absolute;bottom:-8px;left:6px;width:20px;height:2px;background:#444;transform:rotate(-8deg)}
-/* Person legs (seated, below table) */
-.p-legs{position:absolute;top:55px;left:8px;display:flex;gap:4px}
-.p-thigh{width:11px;height:6px;background:#333;border-radius:1px}
-.p-shin{width:6px;height:14px;background:#333;margin:0 auto}
-.p-shoe-p{width:8px;height:3px;background:#444;border-radius:0 0 2px 2px;margin:0 auto}
-.p-leg-wrap{display:flex;flex-direction:column;align-items:center}
+/* Person legs (seated) */
+.p-legs{position:absolute;top:30px;left:50%;transform:translateX(-50%);display:flex;gap:2px}
+.p-leg-p{width:3px;height:9px;background:#dea96b;border-radius:0 0 1px 1px}
+.p-shoe-p{width:4px;height:2px;background:#fff;border-radius:0 0 1px 1px}
 /* Stopwatch in hand */
 .stopwatch{position:absolute;top:-18px;left:-1px;z-index:17}
 .sw-ring{width:10px;height:12px;border:2px solid #888;border-radius:50%;background:#ddd;position:relative}
@@ -534,15 +517,10 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
   <div class="setup">
     <div class="person">
       <div class="p-hair"></div>
-      <div class="p-head">
-        <div class="p-eye p-eye-l"></div>
-        <div class="p-eye p-eye-r"></div>
-        <div class="p-mouth"></div>
-      </div>
-      <div class="p-torso">
-        <div class="p-collar"></div>
-      </div>
-      <div class="p-arm p-arm-l"><div class="p-hand p-hand-l"></div></div>
+      <div class="p-head"></div>
+      <div class="p-torso"></div>
+      <div class="p-shorts"></div>
+      <div class="p-arm p-arm-l"></div>
       <div class="p-arm p-arm-r"><div class="p-forearm"><div class="p-hand-r"><div class="stopwatch"><div class="sw-ring"><div class="sw-btn"></div><div class="sw-face"><div class="sw-hand"></div></div></div></div></div></div></div>
       <div class="chair">
         <div class="chair-backrest"></div>
@@ -557,8 +535,8 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
         <div class="chair-cross2"></div>
       </div>
       <div class="p-legs">
-        <div class="p-leg-wrap"><div class="p-thigh"></div><div class="p-shin"></div><div class="p-shoe-p"></div></div>
-        <div class="p-leg-wrap"><div class="p-thigh"></div><div class="p-shin"></div><div class="p-shoe-p"></div></div>
+        <div><div class="p-leg-p"></div><div class="p-shoe-p"></div></div>
+        <div><div class="p-leg-p"></div><div class="p-shoe-p"></div></div>
       </div>
     </div>
     <div class="table-wrap">
