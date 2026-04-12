@@ -142,14 +142,11 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .tri-post{width:3px;height:14px;background:#111;margin:0 auto}
 .tri-hub{width:8px;height:6px;background:#222;margin:0 auto;border-radius:1px;position:relative}
 .tri-legs-wrap{position:relative;width:28px;height:38px;margin:0 auto}
-.tri-leg{position:absolute;top:0;width:3px;background:#111;border-radius:0 0 1px 1px}
-.tri-leg-l{left:2px;height:38px;transform:rotate(10deg);transform-origin:top center}
-.tri-leg-r{right:2px;height:38px;transform:rotate(-10deg);transform-origin:top center}
-.tri-leg-c{left:50%;transform:translateX(-50%);height:36px}
-.tri-foot{position:absolute;bottom:-2px;width:5px;height:3px;background:#222;border-radius:0 0 2px 2px}
-.tri-foot-l{left:-1px}
-.tri-foot-r{right:-1px}
-.tri-foot-c{left:50%;transform:translateX(-50%)}
+.tri-leg{position:absolute;top:0;left:50%;width:3px;background:#111;border-radius:0 0 1px 1px;transform-origin:top center}
+.tri-leg::after{content:'';position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);width:5px;height:3px;background:#222;border-radius:0 0 2px 2px}
+.tri-leg-l{height:38px;transform:translateX(-50%) rotate(-12deg)}
+.tri-leg-r{height:38px;transform:translateX(-50%) rotate(12deg)}
+.tri-leg-c{height:36px;transform:translateX(-50%)}
 /* Starter official */
 .starter{position:absolute;top:62%;right:8%;z-index:20;transform:scale(2.8);transform-origin:bottom center;display:flex;flex-direction:column;align-items:center}
 .st-cap{width:14px;height:5px;background:#b71c1c;border-radius:2px 2px 0 0;position:relative}
@@ -464,9 +461,6 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
       <div class="tri-leg tri-leg-l"></div>
       <div class="tri-leg tri-leg-c"></div>
       <div class="tri-leg tri-leg-r"></div>
-      <div class="tri-foot tri-foot-l"></div>
-      <div class="tri-foot tri-foot-c"></div>
-      <div class="tri-foot tri-foot-r"></div>
     </div>
     </div>
   </div>
