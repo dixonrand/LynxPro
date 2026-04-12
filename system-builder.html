@@ -91,8 +91,6 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .p-arm{position:absolute;top:14px;width:5px;height:11px;background:#dea96b;border-radius:1px}
 .p-arm-l{left:8px}
 .p-arm-r{right:8px}
-.p-forearm{position:absolute;top:-10px;left:0;width:4px;height:12px;background:#dea96b;border-radius:1px}
-.p-hand-r{position:absolute;top:-4px;left:-1px;width:5px;height:4px;background:#dea96b;border-radius:1px}
 
 /* Table */
 .table-wrap{position:absolute;top:56px;left:-130px;width:180px;z-index:18}
@@ -104,13 +102,6 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .p-legs{position:absolute;top:30px;left:50%;transform:translateX(-50%);display:flex;gap:2px}
 .p-leg-p{width:3px;height:9px;background:#dea96b;border-radius:0 0 1px 1px}
 .p-shoe-p{width:4px;height:2px;background:#fff;border-radius:0 0 1px 1px}
-/* Stopwatch in hand */
-.stopwatch{position:absolute;top:-18px;left:-1px;z-index:17}
-.sw-ring{width:10px;height:12px;border:2px solid #888;border-radius:50%;background:#ddd;position:relative}
-.sw-btn{position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:3px;height:3px;background:#888;border-radius:1px 1px 0 0}
-.sw-face{position:absolute;top:2px;left:2px;width:6px;height:6px;border-radius:50%;background:#fff}
-.sw-hand{position:absolute;top:3px;left:4px;width:1px;height:3px;background:#c62828;transform-origin:bottom center;animation:sw-tick 1s steps(1) infinite}
-@keyframes sw-tick{0%{transform:rotate(0deg)}25%{transform:rotate(90deg)}50%{transform:rotate(180deg)}75%{transform:rotate(270deg)}100%{transform:rotate(360deg)}}
 /* Athletes */
 .athlete{position:absolute;left:44%;z-index:8;display:flex;flex-direction:column;align-items:center;transform:translateY(-50%) scale(3.5);transform-origin:center center}
 .ath-hair{width:8px;height:3px;background:#4a3728;border-radius:1px 1px 0 0}
@@ -501,7 +492,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
       <div class="p-torso"></div>
       <div class="p-shorts"></div>
       <div class="p-arm p-arm-l"></div>
-      <div class="p-arm p-arm-r"><div class="p-forearm"><div class="p-hand-r"><div class="stopwatch"><div class="sw-ring"><div class="sw-btn"></div><div class="sw-face"><div class="sw-hand"></div></div></div></div></div></div></div>
+      <div class="p-arm p-arm-r"></div>
       <div class="p-legs">
         <div><div class="p-leg-p"></div><div class="p-shoe-p"></div></div>
         <div><div class="p-leg-p"></div><div class="p-shoe-p"></div></div>
