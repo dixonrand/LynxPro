@@ -112,18 +112,13 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .table-leg{position:absolute;bottom:-32px;width:3px;height:32px;background:#e0e0e0}
 .tl-l{left:10px}
 .tl-r{right:10px}
-/* Laptop */
-.laptop{position:absolute;top:-4px;right:4px;width:48px;z-index:17}
-.laptop-base{width:48px;height:5px;background:#424242;border-radius:0 0 2px 2px}
-.laptop-screen{position:absolute;top:-26px;left:2px;width:44px;height:26px;background:#263238;border:2px solid #37474f;border-bottom:none;border-radius:2px 2px 0 0}
-.laptop-display{position:absolute;top:2px;left:2px;right:2px;bottom:0;background:linear-gradient(180deg,#0d47a1 0%,#1a237e 100%);overflow:hidden}
-/* Tiny FinishLynx UI on screen */
-.screen-bar{position:absolute;top:0;left:0;right:0;height:3px;background:#1565c0}
-.screen-line{position:absolute;left:2px;right:2px;height:1px;background:rgba(255,255,255,.3)}
-.sl1{top:6px}
-.sl2{top:9px}
-.sl3{top:12px}
-.sl4{top:15px}
+/* Stopwatch in hand */
+.stopwatch{position:absolute;top:36px;left:50%;transform:translateX(-50%);z-index:17}
+.sw-ring{width:10px;height:12px;border:2px solid #888;border-radius:50%;background:#ddd;position:relative}
+.sw-btn{position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:3px;height:3px;background:#888;border-radius:1px 1px 0 0}
+.sw-face{position:absolute;top:2px;left:2px;width:6px;height:6px;border-radius:50%;background:#fff}
+.sw-hand{position:absolute;top:3px;left:4px;width:1px;height:3px;background:#c62828;transform-origin:bottom center;animation:sw-tick 1s steps(1) infinite}
+@keyframes sw-tick{0%{transform:rotate(0deg)}25%{transform:rotate(90deg)}50%{transform:rotate(180deg)}75%{transform:rotate(270deg)}100%{transform:rotate(360deg)}}
 /* Athletes */
 .athlete{position:absolute;left:44%;z-index:8;display:flex;flex-direction:column;align-items:center;transform:translateY(-50%) scale(3.5);transform-origin:center center}
 .ath-hair{width:8px;height:3px;background:#4a3728;border-radius:1px 1px 0 0}
@@ -294,23 +289,19 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
       </div>
       <div class="p-arm p-arm-l"><div class="p-hand p-hand-l"></div></div>
       <div class="p-arm p-arm-r"><div class="p-hand p-hand-r"></div></div>
+      <div class="stopwatch">
+        <div class="sw-ring">
+          <div class="sw-btn"></div>
+          <div class="sw-face">
+            <div class="sw-hand"></div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="table-wrap">
       <div class="table-top"></div>
       <div class="table-leg tl-l"></div>
       <div class="table-leg tl-r"></div>
-      <div class="laptop">
-        <div class="laptop-screen">
-          <div class="laptop-display">
-            <div class="screen-bar"></div>
-            <div class="screen-line sl1"></div>
-            <div class="screen-line sl2"></div>
-            <div class="screen-line sl3"></div>
-            <div class="screen-line sl4"></div>
-          </div>
-        </div>
-        <div class="laptop-base"></div>
-      </div>
     </div>
   </div>
 </div>
