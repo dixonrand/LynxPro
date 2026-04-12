@@ -158,6 +158,20 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .eq-tt-code{font-family:'JetBrains Mono',monospace;font-size:5px;font-weight:700;color:#E8A800;letter-spacing:.3px}
 .eq-tt-name{font-size:5px;font-weight:600;color:rgba(255,255,255,.85);margin-top:1px}
 .tripod{position:absolute;top:48%;left:50%;transform:translateX(-50%) scale(2.2);z-index:18}
+/* Remote Positioner — 2L102 */
+.rp-wrap{position:relative;margin:0 auto;width:24px}
+.rp-top-plate{width:22px;height:3px;background:linear-gradient(180deg,#ccc,#aaa);margin:0 auto;border-radius:1px;position:relative}
+.rp-top-plate::before{content:'';position:absolute;top:0;left:4px;width:2px;height:2px;background:#888;border-radius:50%}
+.rp-top-plate::after{content:'';position:absolute;top:0;right:4px;width:2px;height:2px;background:#888;border-radius:50%}
+.rp-standoff{display:flex;justify-content:space-between;width:16px;margin:0 auto;padding:0 1px}
+.rp-rod{width:2px;height:6px;background:linear-gradient(180deg,#999,#777);border-radius:0 0 1px 1px}
+.rp-rod-cap{width:3px;height:2px;background:#333;border-radius:1px;margin:0 auto}
+.rp-center-knob{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:4px;height:4px;background:#222;border-radius:50%;border:1px solid #444}
+.rp-body{width:20px;height:8px;background:linear-gradient(180deg,#bbb,#a0a0a0);margin:0 auto;border-radius:1px;position:relative;border:1px solid #999}
+.rp-lynx-label{position:absolute;top:1px;right:1px;width:9px;height:5px;background:#55009C;border-radius:0 0 0 1px;display:flex;align-items:center;justify-content:center}
+.rp-lynx-label::after{content:'L';font-family:'Inter',sans-serif;font-size:3px;font-weight:900;color:#fff}
+.rp-port-l{position:absolute;top:2px;left:1px;width:3px;height:2px;background:#555;border-radius:0 0 1px 1px}
+.rp-port-r{position:absolute;top:5px;left:1px;width:3px;height:2px;background:#555;border-radius:0 0 1px 1px}
 /* Geared Mounting Head — BG3275 */
 .tri-mount{position:relative;margin:0 auto;width:20px}
 .mt-plate{width:16px;height:3px;background:#222;margin:0 auto;border-radius:1px}
@@ -459,6 +473,21 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 
   <!-- Tripod (centered on finish line, back in grass) -->
   <div class="tripod" id="eq-tripod-group" data-packages="diamond" style="display:none">
+    <div class="rp-wrap eq-item" id="eq-remote-positioner">
+      <div class="eq-tooltip"><div class="eq-tt-code">2L102</div><div class="eq-tt-name">Remote Positioner</div></div>
+      <div class="rp-top-plate"></div>
+      <div class="rp-standoff" style="position:relative">
+        <div><div class="rp-rod-cap"></div><div class="rp-rod"></div></div>
+        <div><div class="rp-rod-cap"></div><div class="rp-rod"></div></div>
+        <div><div class="rp-rod-cap"></div><div class="rp-rod"></div></div>
+        <div class="rp-center-knob"></div>
+      </div>
+      <div class="rp-body">
+        <div class="rp-port-l"></div>
+        <div class="rp-port-r"></div>
+        <div class="rp-lynx-label"></div>
+      </div>
+    </div>
     <div class="tri-mount eq-item" id="eq-mount-head">
       <div class="eq-tooltip"><div class="eq-tt-code">BG3275</div><div class="eq-tt-name">Geared Mounting Head</div></div>
       <div class="mt-plate"></div>
