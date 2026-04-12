@@ -145,7 +145,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .cam-wrap{position:relative;margin:0 auto;width:28px}
 .cam-body{width:22px;height:10px;margin:0 auto;position:relative;background:#1a1a1a;border:1px solid #333}
 .cam-top{position:absolute;top:-5px;left:-2px;right:-2px;height:6px;background:linear-gradient(180deg,#f0f0f0,#ddd);border:1px solid #ccc;border-bottom:none;border-radius:1px 1px 0 0}
-.cam-top::after{content:'';position:absolute;top:2px;left:50%;transform:translateX(-50%);width:2px;height:100%;background:#55009C}
+.cam-top::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:3px;height:100%;background:#55009C}
 .cam-lens-area{position:absolute;top:2px;left:50%;transform:translateX(-50%);width:8px;height:6px;background:#111;border-radius:1px}
 .cam-lens{position:absolute;top:1px;left:50%;transform:translateX(-50%);width:5px;height:5px;background:radial-gradient(circle,#2244aa 30%,#113366 60%,#333 100%);border-radius:50%;border:1px solid #444}
 /* Remote Positioner — 2L102 */
@@ -581,7 +581,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
   function updateEquipment(pkg){
     allEquipment.forEach(function(el){
       var pkgs = el.dataset.packages.split(',');
-      el.style.display = (pkg && pkgs.indexOf(pkg) !== -1) ? '' : 'none';
+      el.style.display = (pkg === 'custom' || (pkg && pkgs.indexOf(pkg) !== -1)) ? '' : 'none';
     });
   }
 
@@ -599,7 +599,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     pkgLabel.textContent = 'Existing Packages';
     selectedPkg = null;
     document.querySelectorAll('.pkg-item').forEach(function(p){ p.classList.remove('selected'); });
-    updateEquipment(null);
+    updateEquipment('custom');
   });
 
   modePackages.addEventListener('click', function(e){
@@ -629,6 +629,8 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
       pkgDropdown.classList.remove('open');
     }
   });
+
+  updateEquipment('custom');
 
   // --- Race simulation ---
   var athletes = document.querySelectorAll('.athlete');
