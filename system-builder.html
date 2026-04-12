@@ -125,12 +125,19 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .sl3{top:12px}
 .sl4{top:15px}
 /* Athletes */
-.athlete{position:absolute;right:34%;z-index:8;display:flex;flex-direction:column;align-items:center;transform:translateY(-50%) scale(3.5);transform-origin:center center}
+.athlete{position:absolute;right:34%;z-index:8;display:flex;flex-direction:column;align-items:center;transform:translateY(-50%) scale(3.5);transform-origin:center center;animation:wiggle 1.2s ease-in-out infinite alternate}
 .ath-hair{width:8px;height:3px;background:#4a3728;border-radius:1px 1px 0 0}
 .ath-head{width:9px;height:8px;background:#dea96b;border-radius:2px}
 .ath-torso{width:12px;height:11px;border-radius:1px}
 .ath-shorts{width:10px;height:5px;background:#222}
-.ath-legs{display:flex;gap:2px}
+.athlete:nth-child(2n){animation-duration:1s;animation-delay:-.3s}
+.athlete:nth-child(3n){animation-duration:1.4s;animation-delay:-.6s}
+.athlete:nth-child(5n){animation-duration:.9s;animation-delay:-.15s}
+@keyframes wiggle{0%{transform:translateY(-50%) scale(3.5) translateX(-1px) rotate(-.5deg)}25%{transform:translateY(-50%) scale(3.5) translateX(1px) rotate(.3deg)}50%{transform:translateY(-51%) scale(3.5) translateX(0) rotate(-.2deg)}75%{transform:translateY(-49%) scale(3.5) translateX(-1px) rotate(.4deg)}100%{transform:translateY(-50%) scale(3.5) translateX(1px) rotate(-.3deg)}}
+.ath-legs{display:flex;gap:2px;animation:shuffle .6s ease-in-out infinite alternate}
+.athlete:nth-child(2n) .ath-legs{animation-duration:.5s;animation-delay:-.2s}
+.athlete:nth-child(3n) .ath-legs{animation-duration:.7s;animation-delay:-.4s}
+@keyframes shuffle{0%{transform:translateY(0)}50%{transform:translateY(-1px)}100%{transform:translateY(0)}}
 .ath-leg{width:3px;height:9px;background:#dea96b;border-radius:0 0 1px 1px}
 .ath-shoes{display:flex;gap:2px}
 .ath-shoe{width:4px;height:2px;background:#fff;border-radius:0 0 1px 1px}
