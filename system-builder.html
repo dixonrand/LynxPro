@@ -158,9 +158,18 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .eq-tt-code{font-family:'JetBrains Mono',monospace;font-size:5px;font-weight:700;color:#E8A800;letter-spacing:.3px}
 .eq-tt-name{font-size:5px;font-weight:600;color:rgba(255,255,255,.85);margin-top:1px}
 .tripod{position:absolute;top:48%;left:50%;transform:translateX(-50%) scale(2.2);z-index:18}
-.tri-head{width:14px;height:5px;background:#333;border-radius:2px;margin:0 auto;position:relative}
-.tri-head::after{content:'';position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:8px;height:4px;background:#444;border-radius:2px}
-.tri-knob{position:absolute;top:-1px;right:-4px;width:4px;height:3px;background:#555;border-radius:1px}
+/* Geared Mounting Head — BG3275 */
+.tri-mount{position:relative;margin:0 auto;width:20px}
+.mt-plate{width:16px;height:3px;background:#222;margin:0 auto;border-radius:1px}
+.mt-body{width:12px;height:8px;background:#1a1a1a;margin:0 auto;border-radius:2px;position:relative}
+.mt-knob-l{position:absolute;top:2px;left:-4px;width:5px;height:5px;background:#111;border-radius:50%;border:1px solid #333}
+.mt-knob-l::after{content:'';position:absolute;top:1px;left:1px;width:2px;height:2px;background:#c62828;border-radius:50%}
+.mt-knob-r{position:absolute;top:2px;right:-4px;width:5px;height:5px;background:#111;border-radius:50%;border:1px solid #333}
+.mt-knob-r::after{content:'';position:absolute;top:1px;left:1px;width:2px;height:2px;background:#333;border-radius:50%}
+.mt-knob-b{position:absolute;bottom:-3px;left:50%;transform:translateX(-50%);width:5px;height:5px;background:#111;border-radius:50%;border:1px solid #333}
+.mt-level{position:absolute;top:0;left:50%;transform:translateX(-50%);width:4px;height:2px;background:#4caf50;border-radius:50%;opacity:.7}
+.mt-base{width:14px;height:3px;background:#2a2a2a;margin:0 auto;border-radius:0 0 2px 2px}
+.tri-head{width:14px;height:3px;background:#333;border-radius:2px;margin:0 auto;position:relative}
 .tri-collar{width:8px;height:3px;background:#333;border-radius:1px;margin:0 auto}
 .tri-upper{position:relative;width:20px;height:22px;margin:0 auto}
 .tri-uleg{position:absolute;top:0;width:3px;background:linear-gradient(180deg,#bbb,#aaa 50%,#999);border-radius:1px}
@@ -449,9 +458,21 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
   </div>
 
   <!-- Tripod (centered on finish line, back in grass) -->
-  <div class="tripod eq-item" id="eq-tripod" data-packages="diamond" style="display:none">
-    <div class="eq-tooltip"><div class="eq-tt-code">BG3036</div><div class="eq-tt-name">Heavy Duty Tripod w/ Leveling Guide</div></div>
-    <div class="tri-head"><div class="tri-knob"></div></div>
+  <div class="tripod" id="eq-tripod-group" data-packages="diamond" style="display:none">
+    <div class="tri-mount eq-item" id="eq-mount-head">
+      <div class="eq-tooltip"><div class="eq-tt-code">BG3275</div><div class="eq-tt-name">Geared Mounting Head</div></div>
+      <div class="mt-plate"></div>
+      <div class="mt-body">
+        <div class="mt-knob-l"></div>
+        <div class="mt-knob-r"></div>
+        <div class="mt-knob-b"></div>
+        <div class="mt-level"></div>
+      </div>
+      <div class="mt-base"></div>
+    </div>
+    <div class="tri-head eq-item" id="eq-tripod">
+      <div class="eq-tooltip"><div class="eq-tt-code">BG3036</div><div class="eq-tt-name">Heavy Duty Tripod w/ Leveling Guide</div></div>
+    </div>
     <div class="tri-collar"></div>
     <div class="tri-upper">
       <div class="tri-uleg tri-uleg-l"></div>
