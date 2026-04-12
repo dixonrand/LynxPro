@@ -500,20 +500,20 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
       });
     }, 6500);
 
-    // 9.5s: Hide near athletes, show far track runners going LEFT
+    // 8s: Hide near athletes, show far track runners going LEFT
     setTimeout(function(){
       athletes.forEach(function(a){ a.style.transition='none'; a.style.opacity='0'; });
       var colors=['#e53935','#1565c0','#2e7d32','#ef6c00'];
       var farDots=[];
       colors.forEach(function(c, i){
         var d=document.createElement('div');
-        d.style.cssText='position:absolute;width:8px;height:12px;background:'+c+';border-radius:1px;z-index:5;top:'+(15+i*20)+'%;left:110%;transition:left 3.5s linear';
+        d.style.cssText='position:absolute;width:14px;height:20px;background:'+c+';border-radius:2px;z-index:5;top:'+(10+i*22)+'%;left:110%;transition:left 5s linear';
         farTrack.appendChild(d);
         farDots.push(d);
-        setTimeout(function(){ d.style.left='-15%'; }, 50+i*120);
+        setTimeout(function(){ d.style.left='-15%'; }, 50+i*150);
       });
-      setTimeout(function(){ farDots.forEach(function(d){d.remove();}); }, 4200);
-    }, 9500);
+      setTimeout(function(){ farDots.forEach(function(d){d.remove();}); }, 5800);
+    }, 8000);
 
     // 13s: Athletes reappear from LEFT on near track, approach finish
     setTimeout(function(){
