@@ -82,16 +82,6 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 /* ===== Person + Table Setup ===== */
 .setup{position:absolute;top:48%;left:39%;transform:translateX(-50%) scale(1.8);transform-origin:center bottom;z-index:20}
 
-/* People (standing behind table — athlete style) */
-.people-row{position:absolute;top:10px;left:0;right:0;display:flex;justify-content:space-around;z-index:15}
-.person{display:flex;flex-direction:column;align-items:center;transform:scale(2.2);transform-origin:bottom center}
-.p-hair{width:8px;height:3px;background:#a08040;border-radius:1px 1px 0 0}
-.p-head{width:9px;height:8px;background:#dea96b;border-radius:2px}
-.p-torso{width:12px;height:11px;background:#7b1fa2;border-radius:1px}
-.p-shorts{width:10px;height:5px;background:#222}
-.p-arm{position:absolute;top:14px;width:5px;height:11px;background:#dea96b;border-radius:1px}
-.p-arm-l{left:8px}
-.p-arm-r{right:8px}
 
 /* Table */
 .table-wrap{position:absolute;top:56px;left:-130px;width:180px;z-index:18}
@@ -99,10 +89,6 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .table-leg{position:absolute;bottom:-32px;width:3px;height:32px;background:#e0e0e0}
 .tl-l{left:10px}
 .tl-r{right:10px}
-/* Person legs (seated) */
-.p-legs{position:absolute;top:30px;left:50%;transform:translateX(-50%);display:flex;gap:2px}
-.p-leg-p{width:3px;height:9px;background:#dea96b;border-radius:0 0 1px 1px}
-.p-shoe-p{width:4px;height:2px;background:#fff;border-radius:0 0 1px 1px}
 /* Athletes */
 .athlete{position:absolute;left:44%;z-index:8;display:flex;flex-direction:column;align-items:center;transform:translateY(-50%) scale(3.5);transform-origin:center center}
 .ath-hair{width:8px;height:3px;background:#4a3728;border-radius:1px 1px 0 0}
@@ -487,47 +473,6 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 
   <!-- Person + Table -->
   <div class="setup">
-    <div class="people-row">
-      <!-- Person 1: woman, dark hair, darker skin -->
-      <div class="person">
-        <div class="p-hair" style="background:#1a1a1a"></div>
-        <div class="p-head" style="background:#a0724a"></div>
-        <div class="p-torso"></div>
-        <div class="p-shorts"></div>
-        <div class="p-arm p-arm-l" style="background:#a0724a"></div>
-        <div class="p-arm p-arm-r" style="background:#a0724a"></div>
-        <div class="p-legs">
-          <div><div class="p-leg-p" style="background:#a0724a"></div><div class="p-shoe-p"></div></div>
-          <div><div class="p-leg-p" style="background:#a0724a"></div><div class="p-shoe-p"></div></div>
-        </div>
-      </div>
-      <!-- Person 2: man, dirty blond, medium skin -->
-      <div class="person">
-        <div class="p-hair" style="background:#a08040"></div>
-        <div class="p-head" style="background:#dea96b"></div>
-        <div class="p-torso"></div>
-        <div class="p-shorts"></div>
-        <div class="p-arm p-arm-l"></div>
-        <div class="p-arm p-arm-r"></div>
-        <div class="p-legs">
-          <div><div class="p-leg-p"></div><div class="p-shoe-p"></div></div>
-          <div><div class="p-leg-p"></div><div class="p-shoe-p"></div></div>
-        </div>
-      </div>
-      <!-- Person 3: woman, red hair, light skin -->
-      <div class="person">
-        <div class="p-hair" style="background:#c0441a"></div>
-        <div class="p-head" style="background:#f0c8a0"></div>
-        <div class="p-torso"></div>
-        <div class="p-shorts"></div>
-        <div class="p-arm p-arm-l" style="background:#f0c8a0"></div>
-        <div class="p-arm p-arm-r" style="background:#f0c8a0"></div>
-        <div class="p-legs">
-          <div><div class="p-leg-p" style="background:#f0c8a0"></div><div class="p-shoe-p"></div></div>
-          <div><div class="p-leg-p" style="background:#f0c8a0"></div><div class="p-shoe-p"></div></div>
-        </div>
-      </div>
-    </div>
     <div class="table-wrap">
       <div class="table-top"></div>
       <div class="table-leg tl-l"></div>
