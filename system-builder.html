@@ -83,7 +83,9 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .setup{position:absolute;top:48%;left:37%;transform:translateX(-50%) scale(1.8);transform-origin:center bottom;z-index:20}
 
 
-/* PoE Switch */
+/* Ethernet cables */
+.eth-cable{position:absolute;z-index:16;pointer-events:none}
+.eth-line{stroke:#2196f3;stroke-width:1.5;fill:none}
 .poe-switch{position:absolute;z-index:17}
 .poe-body{width:24px;height:8px;background:linear-gradient(180deg,#2a2a2a,#1a1a1a);border-radius:1px;position:relative;border:1px solid #333}
 .poe-ports{position:absolute;top:2px;left:2px;display:flex;gap:1px}
@@ -499,6 +501,13 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
         <div class="lp-screen"><div class="lp-display"></div></div>
         <div class="lp-base"></div>
       </div>
+      <!-- Ethernet cables -->
+      <svg class="eth-cable" data-packages="diamond" style="position:absolute;top:-4px;left:0;width:180px;height:40px;overflow:visible">
+        <!-- Primary laptop (right, ~152px) to switch (~120px) -->
+        <path class="eth-line" d="M152,12 L152,18 Q152,22 148,22 L124,22"/>
+        <!-- Meet Manager laptop (center, ~90px) to switch (~114px) -->
+        <path class="eth-line" d="M90,12 L90,18 Q90,22 94,22 L110,22"/>
+      </svg>
       <!-- PoE Switch (under table, center) -->
       <div class="poe-switch eq-item" id="eq-poe-switch" data-packages="diamond" style="top:22px;left:109px">
         <div class="eq-tooltip"><div class="eq-tt-code">PoE-Switch</div><div class="eq-tt-name">8-Port 10/100 Power over Ethernet Switch</div></div>
