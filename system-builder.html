@@ -36,35 +36,41 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .scene{position:relative;width:100%;height:calc(100vh - 56px);margin-top:56px;overflow:hidden}
 
 /* Sky */
-.sky{position:absolute;top:0;left:0;right:0;height:38%;background:linear-gradient(180deg,#0d47a1 0%,#1565c0 20%,#1e88e5 45%,#42a5f5 70%,#90caf9 100%)}
+.sky{position:absolute;top:0;left:0;right:0;height:28%;background:linear-gradient(180deg,#0d47a1 0%,#1565c0 25%,#1e88e5 50%,#42a5f5 75%,#90caf9 100%)}
 
 /* Clouds */
 .cloud{position:absolute;background:#fff;border-radius:20px;opacity:.65}
 .cloud::before,.cloud::after{content:'';position:absolute;background:#fff;border-radius:50%}
-.c1{top:10%;left:12%;width:100px;height:28px}
+.c1{top:12%;left:12%;width:100px;height:28px}
 .c1::before{top:-14px;left:18px;width:45px;height:28px}
 .c1::after{top:-9px;left:48px;width:35px;height:22px}
-.c2{top:16%;left:55%;width:70px;height:20px;opacity:.45}
+.c2{top:18%;left:55%;width:70px;height:20px;opacity:.45}
 .c2::before{top:-10px;left:12px;width:32px;height:20px}
 .c2::after{top:-6px;left:30px;width:24px;height:16px}
-.c3{top:6%;left:78%;width:55px;height:16px;opacity:.35}
+.c3{top:8%;left:78%;width:55px;height:16px;opacity:.35}
 .c3::before{top:-8px;left:10px;width:25px;height:16px}
 .c3::after{top:-5px;left:24px;width:18px;height:12px}
 
-/* Tree line */
-.trees{position:absolute;top:33%;left:0;right:0;height:10%;overflow:hidden}
-.tree-base{position:absolute;bottom:0;left:0;right:0;height:60%;background:#2e7d32}
+/* Tree line / grandstands behind far straight */
+.trees{position:absolute;top:24%;left:0;right:0;height:7%;overflow:hidden}
+.tree-base{position:absolute;bottom:0;left:0;right:0;height:55%;background:#2e7d32}
 .tree-tops{position:absolute;bottom:40%;left:0;right:0;height:60%;background:repeating-linear-gradient(90deg,transparent 0px,transparent 8px,#1b5e20 8px,#1b5e20 12px,transparent 12px,transparent 18px,#2e7d32 18px,#2e7d32 24px,transparent 24px,transparent 30px,#388e3c 30px,#388e3c 36px,transparent 36px,transparent 42px);mask-image:linear-gradient(180deg,transparent 0%,#000 100%);-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 100%)}
 
-/* Grass infield */
-.grass{position:absolute;top:42%;left:0;right:0;height:16%;background:linear-gradient(180deg,#388e3c 0%,#43a047 30%,#4caf50 60%,#66bb6a 100%)}
+/* Far straight (back side of the oval) */
+.far-track{position:absolute;top:30%;left:0;right:0;height:5%;background:linear-gradient(180deg,#a33020 0%,#b83828 50%,#a33020 100%)}
+.far-lane{position:absolute;left:0;right:0;height:1px;background:rgba(255,255,255,.4)}
+.far-curb-top{position:absolute;top:0;left:0;right:0;height:2px;background:#ccc}
+.far-curb-bot{position:absolute;bottom:0;left:0;right:0;height:3px;background:#ddd}
+
+/* Infield grass (center of the oval) */
+.grass{position:absolute;top:35%;left:0;right:0;height:22%;background:linear-gradient(180deg,#2e7d32 0%,#388e3c 15%,#43a047 40%,#4caf50 65%,#66bb6a 100%)}
 .grass-texture{position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.03) 0px,rgba(0,0,0,.03) 2px,transparent 2px,transparent 8px);opacity:.5}
 
-/* Track surface */
-.track{position:absolute;top:58%;left:0;right:0;bottom:0;background:linear-gradient(180deg,#c62828 0%,#d32f2f 15%,#c62828 40%,#b71c1c 70%,#a31515 100%)}
+/* Near straight (home side, close to viewer) */
+.track{position:absolute;top:57%;left:0;right:0;bottom:0;background:linear-gradient(180deg,#c62828 0%,#d32f2f 12%,#c62828 35%,#b71c1c 65%,#a31515 100%)}
 .track-texture{position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.04) 0px,rgba(0,0,0,.04) 1px,transparent 1px,transparent 4px);opacity:.6}
 
-/* Track curb (grass/track boundary) */
+/* Track curb (infield grass / near track boundary) */
 .curb{position:absolute;top:0;left:0;right:0;height:5px;background:#e0e0e0;border-bottom:2px solid #bbb}
 
 /* Lane lines */
@@ -74,7 +80,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .finish-line{position:absolute;right:30%;top:0;bottom:0;width:5px;background:#fff;z-index:10;box-shadow:0 0 8px rgba(255,255,255,.3)}
 
 /* ===== Person + Table Setup ===== */
-.setup{position:absolute;top:36%;left:42%;transform:translateX(-50%) scale(1.8);transform-origin:center bottom;z-index:20}
+.setup{position:absolute;top:38%;left:42%;transform:translateX(-50%) scale(1.8);transform-origin:center bottom;z-index:20}
 
 /* Person (facing viewer, seated) */
 .person{position:relative;width:44px;height:70px;margin:0 8px 0 auto}
@@ -163,7 +169,17 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     <div class="tree-base"></div>
   </div>
 
-  <!-- Grass infield -->
+  <!-- Far straight (back side of oval) -->
+  <div class="far-track">
+    <div class="far-curb-top"></div>
+    <div class="far-lane" style="top:25%"></div>
+    <div class="far-lane" style="top:45%"></div>
+    <div class="far-lane" style="top:65%"></div>
+    <div class="far-lane" style="top:85%"></div>
+    <div class="far-curb-bot"></div>
+  </div>
+
+  <!-- Infield grass (center of the oval) -->
   <div class="grass">
     <div class="grass-texture"></div>
   </div>
