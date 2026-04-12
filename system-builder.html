@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Builder &mdash; Lynx Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#E8A800;--nav-bg:#1a1a1a;--border:#111}
+[data-theme="finishlynx"]{--gold:#55009C;--nav-bg:#2d004f;--border:#55009C}
+[data-theme="glass"]{--gold:#E8A800;--nav-bg:rgba(0,0,0,.2);--border:rgba(255,255,255,.18)}
+body{font-family:'Inter',sans-serif;overflow:hidden}
+
+/* Nav */
+.hdr{background:var(--nav-bg);border-bottom:3px solid var(--gold);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:fixed;top:0;left:0;right:0;z-index:100}
+.logo{display:flex;align-items:center;gap:14px}
+.logo img{height:32px;width:auto}
+.logo-divider{width:1px;height:24px;background:rgba(255,255,255,.2)}
+.crumbs{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.3px;text-transform:uppercase}
+.crumb-link{opacity:.55;text-decoration:none;color:inherit;transition:opacity .15s}
+.crumb-link:hover{opacity:1}
+.crumb-sep{opacity:.35;font-weight:400;font-size:15px}
+.crumb-current{opacity:.95}
+.hdr-right{display:flex;align-items:center;gap:14px}
+.theme-picker{display:flex;align-items:center;gap:6px}
+.theme-dot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.25);cursor:pointer;transition:transform .15s;padding:0;outline:none}
+.theme-dot:hover{transform:scale(1.2)}
+.theme-dot.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.hdr-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border)}
+[data-theme="glass"] .hdr{backdrop-filter:blur(18px) saturate(170%);-webkit-backdrop-filter:blur(18px) saturate(170%);border-bottom:1px solid rgba(255,255,255,.15)}
+[data-theme="glass"] .hdr-beta{background:rgba(232,168,0,.3);border-color:rgba(232,168,0,.5);color:#fff}
+[data-theme="glass"] .theme-dot{border-color:rgba(255,255,255,.4)}
+
+/* ===== Scene ===== */
+.scene{position:relative;width:100%;height:calc(100vh - 56px);margin-top:56px;overflow:hidden}
+
+/* Sky */
+.sky{position:absolute;top:0;left:0;right:0;height:38%;background:linear-gradient(180deg,#0d47a1 0%,#1565c0 20%,#1e88e5 45%,#42a5f5 70%,#90caf9 100%)}
+
+/* Clouds */
+.cloud{position:absolute;background:#fff;border-radius:20px;opacity:.65}
+.cloud::before,.cloud::after{content:'';position:absolute;background:#fff;border-radius:50%}
+.c1{top:10%;left:12%;width:100px;height:28px}
+.c1::before{top:-14px;left:18px;width:45px;height:28px}
+.c1::after{top:-9px;left:48px;width:35px;height:22px}
+.c2{top:16%;left:55%;width:70px;height:20px;opacity:.45}
+.c2::before{top:-10px;left:12px;width:32px;height:20px}
+.c2::after{top:-6px;left:30px;width:24px;height:16px}
+.c3{top:6%;left:78%;width:55px;height:16px;opacity:.35}
+.c3::before{top:-8px;left:10px;width:25px;height:16px}
+.c3::after{top:-5px;left:24px;width:18px;height:12px}
+
+/* Tree line */
+.trees{position:absolute;top:33%;left:0;right:0;height:10%;overflow:hidden}
+.tree-base{position:absolute;bottom:0;left:0;right:0;height:60%;background:#2e7d32}
+.tree-tops{position:absolute;bottom:40%;left:0;right:0;height:60%;background:repeating-linear-gradient(90deg,transparent 0px,transparent 8px,#1b5e20 8px,#1b5e20 12px,transparent 12px,transparent 18px,#2e7d32 18px,#2e7d32 24px,transparent 24px,transparent 30px,#388e3c 30px,#388e3c 36px,transparent 36px,transparent 42px);mask-image:linear-gradient(180deg,transparent 0%,#000 100%);-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 100%)}
+
+/* Grass infield */
+.grass{position:absolute;top:42%;left:0;right:0;height:16%;background:linear-gradient(180deg,#388e3c 0%,#43a047 30%,#4caf50 60%,#66bb6a 100%)}
+.grass-texture{position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.03) 0px,rgba(0,0,0,.03) 2px,transparent 2px,transparent 8px);opacity:.5}
+
+/* Track surface */
+.track{position:absolute;top:58%;left:0;right:0;bottom:0;background:linear-gradient(180deg,#c62828 0%,#d32f2f 15%,#c62828 40%,#b71c1c 70%,#a31515 100%)}
+.track-texture{position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.04) 0px,rgba(0,0,0,.04) 1px,transparent 1px,transparent 4px);opacity:.6}
+
+/* Track curb (grass/track boundary) */
+.curb{position:absolute;top:0;left:0;right:0;height:5px;background:#e0e0e0;border-bottom:2px solid #bbb}
+
+/* Lane lines */
+.lane{position:absolute;left:0;right:0;height:2px;background:rgba(255,255,255,.75)}
+
+/* Finish line — vertical stripe across track */
+.finish-line{position:absolute;left:38%;top:0;bottom:0;width:5px;background:#fff;z-index:10;box-shadow:0 0 8px rgba(255,255,255,.3)}
+
+/* ===== Person + Table Setup ===== */
+.setup{position:absolute;top:36%;left:24%;z-index:20;transform-origin:bottom center}
+
+/* Person (facing viewer, seated) */
+.person{position:relative;width:44px;height:70px;margin:0 auto}
+/* Hair */
+.p-hair{position:absolute;top:0;left:9px;width:26px;height:9px;background:#5d4037;border-radius:2px 2px 0 0}
+/* Head */
+.p-head{position:absolute;top:7px;left:9px;width:26px;height:24px;background:#dea96b;border-radius:3px}
+/* Eyes */
+.p-eye{position:absolute;width:4px;height:4px;background:#333;border-radius:50%}
+.p-eye-l{top:10px;left:6px}
+.p-eye-r{top:10px;right:6px}
+/* Mouth */
+.p-mouth{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:8px;height:2px;background:#c0835a;border-radius:1px}
+/* Torso (polo shirt) */
+.p-torso{position:absolute;top:31px;left:5px;width:34px;height:28px;background:#1565c0}
+.p-collar{position:absolute;top:0;left:50%;transform:translateX(-50%);width:12px;height:5px;background:#1976d2;border-radius:0 0 3px 3px}
+/* Arms — resting forward on table */
+.p-arm{position:absolute;top:36px;width:10px;height:22px;background:#dea96b;border-radius:2px}
+.p-arm-l{left:-2px}
+.p-arm-r{right:-2px}
+/* Hands (forward on table) */
+.p-hand{position:absolute;bottom:-4px;width:8px;height:6px;background:#dea96b;border-radius:1px}
+.p-hand-l{left:1px}
+.p-hand-r{right:1px}
+
+/* Table */
+.table-wrap{position:absolute;top:62px;left:-38px;width:120px;z-index:16}
+.table-top{width:120px;height:6px;background:#f0f0f0;border:1px solid #ddd;box-shadow:0 2px 4px rgba(0,0,0,.15)}
+.table-leg{position:absolute;bottom:-32px;width:3px;height:32px;background:#e0e0e0}
+.tl-l{left:10px}
+.tl-r{right:10px}
+/* Laptop */
+.laptop{position:absolute;top:-4px;left:30px;width:48px;z-index:17}
+.laptop-base{width:48px;height:5px;background:#424242;border-radius:0 0 2px 2px}
+.laptop-screen{position:absolute;top:-26px;left:2px;width:44px;height:26px;background:#263238;border:2px solid #37474f;border-bottom:none;border-radius:2px 2px 0 0}
+.laptop-display{position:absolute;top:2px;left:2px;right:2px;bottom:0;background:linear-gradient(180deg,#0d47a1 0%,#1a237e 100%);overflow:hidden}
+/* Tiny FinishLynx UI on screen */
+.screen-bar{position:absolute;top:0;left:0;right:0;height:3px;background:#1565c0}
+.screen-line{position:absolute;left:2px;right:2px;height:1px;background:rgba(255,255,255,.3)}
+.sl1{top:6px}
+.sl2{top:9px}
+.sl3{top:12px}
+.sl4{top:15px}
+</style>
+<script>
+(function(){var t=localStorage.getItem('lynxpro-theme');if(t)document.documentElement.setAttribute('data-theme',t)})();
+</script>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo">
+    <img src="lynx-head-white-200x200.png" alt="Lynx Pro" onerror="this.style.display='none'">
+    <div class="logo-divider"></div>
+    <div class="crumbs">
+      <a href="index.html" class="crumb-link">Lynx Pro</a>
+      <span class="crumb-sep">&rsaquo;</span>
+      <span class="crumb-current">System Builder</span>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <div class="theme-picker">
+      <button class="theme-dot" data-theme="classic" style="background:#F5EFD6" title="Classic"></button>
+      <button class="theme-dot" data-theme="finishlynx" style="background:#55009C" title="FinishLynx"></button>
+      <button class="theme-dot" data-theme="glass" style="background:linear-gradient(180deg,#4a9ee8,#c04030)" title="Track"></button>
+    </div>
+    <span class="hdr-beta">In Beta</span>
+  </div>
+</div>
+
+<div class="scene">
+  <!-- Sky -->
+  <div class="sky">
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+  </div>
+
+  <!-- Tree line -->
+  <div class="trees">
+    <div class="tree-tops"></div>
+    <div class="tree-base"></div>
+  </div>
+
+  <!-- Grass infield -->
+  <div class="grass">
+    <div class="grass-texture"></div>
+  </div>
+
+  <!-- Track -->
+  <div class="track">
+    <div class="track-texture"></div>
+    <div class="curb"></div>
+    <div class="lane" style="top:22%"></div>
+    <div class="lane" style="top:42%"></div>
+    <div class="lane" style="top:62%"></div>
+    <div class="lane" style="top:82%"></div>
+    <div class="finish-line"></div>
+  </div>
+
+  <!-- Person + Table -->
+  <div class="setup">
+    <div class="person">
+      <div class="p-hair"></div>
+      <div class="p-head">
+        <div class="p-eye p-eye-l"></div>
+        <div class="p-eye p-eye-r"></div>
+        <div class="p-mouth"></div>
+      </div>
+      <div class="p-torso">
+        <div class="p-collar"></div>
+      </div>
+      <div class="p-arm p-arm-l"><div class="p-hand p-hand-l"></div></div>
+      <div class="p-arm p-arm-r"><div class="p-hand p-hand-r"></div></div>
+    </div>
+    <div class="table-wrap">
+      <div class="table-top"></div>
+      <div class="table-leg tl-l"></div>
+      <div class="table-leg tl-r"></div>
+      <div class="laptop">
+        <div class="laptop-screen">
+          <div class="laptop-display">
+            <div class="screen-bar"></div>
+            <div class="screen-line sl1"></div>
+            <div class="screen-line sl2"></div>
+            <div class="screen-line sl3"></div>
+            <div class="screen-line sl4"></div>
+          </div>
+        </div>
+        <div class="laptop-base"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var cur = localStorage.getItem('lynxpro-theme') || 'classic';
+  document.querySelectorAll('.theme-dot').forEach(function(dot){
+    if(dot.dataset.theme === cur) dot.classList.add('active');
+    dot.addEventListener('click', function(){
+      var theme = dot.dataset.theme;
+      document.documentElement.setAttribute('data-theme', theme === 'classic' ? '' : theme);
+      localStorage.setItem('lynxpro-theme', theme);
+      document.querySelectorAll('.theme-dot').forEach(function(d){ d.classList.toggle('active', d === dot); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
