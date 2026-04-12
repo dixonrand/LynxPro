@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>System Builder &mdash; Lynx Pro</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--gold:#E8A800;--nav-bg:#1a1a1a;--border:#111}
@@ -183,6 +183,10 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 @keyframes btnPulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.7;transform:scale(1.04)}}
 .sim-btn-arrow{width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #E8A800;animation:arrowBounce 1s ease-in-out infinite}
 @keyframes arrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+/* Race simulation UI */
+.race-clock{display:none;position:absolute;top:4%;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:clamp(20px,3.5vw,36px);font-weight:700;color:#fff;background:rgba(0,0,0,.65);padding:8px 24px;border-radius:6px;z-index:50;letter-spacing:2px}
+.race-text{position:absolute;top:25%;left:50%;transform:translateX(-50%);font-family:'Inter',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:6px;text-shadow:0 3px 12px rgba(0,0,0,.5);z-index:50;opacity:0;transition:opacity .3s ease;pointer-events:none}
+.gun-flash{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,.8);z-index:45;opacity:0;pointer-events:none;transition:opacity .1s ease}
 /* Lane numbers */
 .lane-num{position:absolute;left:54%;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(28px,5vh,56px);color:rgba(255,255,255,.8);text-align:center;line-height:1;pointer-events:none}
 /* Lane dash marks (left side) */
@@ -289,6 +293,11 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     <div class="finish-line"></div>
   </div>
 
+  <!-- Race UI overlays -->
+  <div class="race-clock" id="raceClock">0:00.00</div>
+  <div class="race-text" id="raceText"></div>
+  <div class="gun-flash" id="gunFlash"></div>
+
   <!-- Simulate Race button -->
   <div class="sim-btn-wrap">
     <div class="sim-btn">
@@ -359,6 +368,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 
 <script>
 (function(){
+  // Theme switcher
   var cur = localStorage.getItem('lynxpro-theme') || 'classic';
   document.querySelectorAll('.theme-dot').forEach(function(dot){
     if(dot.dataset.theme === cur) dot.classList.add('active');
@@ -369,26 +379,200 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
       document.querySelectorAll('.theme-dot').forEach(function(d){ d.classList.toggle('active', d === dot); });
     });
   });
-})();
 
-// Athlete fidgeting — JS-driven for truly independent random movement
-(function(){
+  // --- Race simulation ---
   var athletes = document.querySelectorAll('.athlete');
-  athletes.forEach(function(ath){
-    var base = 'translateY(-50%) scale(3.5)';
+  var starterArmL = document.querySelector('.st-arm-l');
+  var simBtnWrap = document.querySelector('.sim-btn-wrap');
+  var clockEl = document.getElementById('raceClock');
+  var textEl = document.getElementById('raceText');
+  var flashEl = document.getElementById('gunFlash');
+  var farTrack = document.querySelector('.far-track');
+  var base = 'translateY(-50%) scale(3.5)';
+  var fidgetActive = true;
+  var clockInterval, clockStart;
+
+  // Fidgeting
+  function fidget(ath){
+    if(!fidgetActive) return;
+    var dy = -(Math.random()*3.5+0.5);
+    var dx = (Math.random()-0.5)*0.8;
     ath.style.transition = 'transform .15s ease-out';
-    function fidget(){
-      var dy = -(Math.random() * 3.5 + 0.5); // bounce up 0.5–4%
-      var dx = (Math.random() - 0.5) * 0.8;  // tiny lateral
-      ath.style.transform = base + ' translateY(' + dy + '%) translateX(' + dx + 'px)';
+    ath.style.transform = base+' translateY('+dy+'%) translateX('+dx+'px)';
+    setTimeout(function(){
+      if(!fidgetActive) return;
+      ath.style.transform = base;
+    }, 120+Math.random()*80);
+    setTimeout(function(){ fidget(ath); }, 400+Math.random()*1800);
+  }
+  athletes.forEach(function(ath){
+    setTimeout(function(){ fidget(ath); }, Math.random()*2000);
+  });
+
+  // Clock
+  function formatTime(ms){
+    var s=Math.floor(ms/1000), cs=Math.floor((ms%1000)/10);
+    var m=Math.floor(s/60); s=s%60;
+    return m+':'+(s<10?'0':'')+s+'.'+(cs<10?'0':'')+cs;
+  }
+
+  // Text overlay
+  function showText(msg, dur){
+    textEl.textContent=msg;
+    textEl.style.opacity='1';
+    setTimeout(function(){ textEl.style.opacity='0'; }, dur||1200);
+  }
+
+  // Simulate button click
+  simBtnWrap.addEventListener('click', function(){
+    if(!fidgetActive) return;
+    fidgetActive = false;
+    simBtnWrap.style.opacity='0';
+    simBtnWrap.style.pointerEvents='none';
+
+    // Reset athletes to resting
+    athletes.forEach(function(a){ a.style.transition='none'; a.style.transform=base; });
+
+    // Show clock
+    clockEl.style.display='block';
+    clockEl.textContent='0:00.00';
+
+    // 0.5s: Starter raises gun arm
+    setTimeout(function(){
+      starterArmL.style.transition='transform 0.6s ease';
+      starterArmL.style.transformOrigin='bottom center';
+      starterArmL.style.transform='rotate(-100deg)';
+    }, 500);
+
+    // 1.5s: ON YOUR MARK
+    setTimeout(function(){ showText('ON YOUR MARK', 1500); }, 1500);
+
+    // 2.5s: Athletes walk to just before the line
+    setTimeout(function(){
+      athletes.forEach(function(a){
+        a.style.transition='transform 1.2s ease-out';
+        a.style.transform=base+' translateX(18px)';
+      });
+    }, 2500);
+
+    // 4.5s: SET
+    setTimeout(function(){ showText('SET', 1000); }, 4500);
+
+    // 5s: Athletes crouch
+    setTimeout(function(){
+      athletes.forEach(function(a){
+        a.style.transition='transform 0.4s ease';
+        a.style.transform=base+' translateX(18px) scaleY(0.82) translateY(-2%)';
+      });
+    }, 5000);
+
+    // 6.5s: BANG! Gun fires
+    setTimeout(function(){
+      // Flash
+      flashEl.style.transition='opacity .05s';
+      flashEl.style.opacity='1';
       setTimeout(function(){
-        ath.style.transform = base;
-      }, 120 + Math.random() * 80);
-      // next fidget: random wait 400–2200ms
-      setTimeout(fidget, 400 + Math.random() * 1800);
-    }
-    // stagger start so they don't all begin together
-    setTimeout(fidget, Math.random() * 2000);
+        flashEl.style.transition='opacity .3s';
+        flashEl.style.opacity='0';
+      }, 60);
+
+      // Starter recoil
+      starterArmL.style.transition='transform 0.15s ease';
+      starterArmL.style.transform='rotate(-120deg)';
+      setTimeout(function(){
+        starterArmL.style.transition='transform 0.3s ease';
+        starterArmL.style.transform='rotate(-100deg)';
+      }, 150);
+
+      showText('BANG!', 800);
+
+      // Start clock
+      clockStart=Date.now();
+      clockInterval=setInterval(function(){
+        clockEl.textContent=formatTime(Date.now()-clockStart);
+      }, 30);
+
+      // Athletes sprint RIGHT off screen
+      var sprintSpeeds=[1.8, 2.0, 1.9, 2.1];
+      athletes.forEach(function(a, i){
+        a.style.transition='transform '+sprintSpeeds[i]+'s cubic-bezier(0.15, 0, 0.4, 1)';
+        a.style.transform=base+' translateX(120vw)';
+      });
+    }, 6500);
+
+    // 9s: Hide near athletes, show far track runners going LEFT
+    setTimeout(function(){
+      athletes.forEach(function(a){ a.style.transition='none'; a.style.opacity='0'; });
+      var colors=['#e53935','#1565c0','#2e7d32','#ef6c00'];
+      var farDots=[];
+      colors.forEach(function(c, i){
+        var d=document.createElement('div');
+        d.style.cssText='position:absolute;width:8px;height:12px;background:'+c+';border-radius:1px;z-index:5;top:'+(15+i*20)+'%;left:110%;transition:left 2.5s linear';
+        farTrack.appendChild(d);
+        farDots.push(d);
+        setTimeout(function(){ d.style.left='-15%'; }, 50+i*120);
+      });
+      setTimeout(function(){ farDots.forEach(function(d){d.remove();}); }, 3200);
+    }, 9000);
+
+    // 12.5s: Athletes reappear from LEFT on near track, approach finish
+    setTimeout(function(){
+      athletes.forEach(function(a){
+        a.style.transition='none';
+        a.style.opacity='1';
+        a.style.transform=base+' translateX(-120vw)';
+      });
+      // Stagger slightly and different speeds to finish line
+      var finishSpeeds=[2.6, 2.8, 2.5, 3.0];
+      var stagger=[0, 80, 40, 120];
+      setTimeout(function(){
+        athletes.forEach(function(a, i){
+          setTimeout(function(){
+            a.style.transition='transform '+finishSpeeds[i]+'s cubic-bezier(0.05, 0, 0.15, 1)';
+            a.style.transform=base+' translateX(0)';
+          }, stagger[i]);
+        });
+      }, 50);
+    }, 12500);
+
+    // 15.5s: Athletes cross finish — stop clock, then decelerate differently
+    setTimeout(function(){
+      clearInterval(clockInterval);
+      var finalTime=formatTime(Date.now()-clockStart);
+      clockEl.textContent=finalTime;
+
+      // Each athlete overshoots past finish at different distances and speeds
+      var overshoot=[60, 100, 45, 140];
+      var decelTime=[1.5, 2.2, 1.2, 3.0];
+      var endRotate=[0, 2, -1, 3]; // lean
+      athletes.forEach(function(a, i){
+        a.style.transition='transform '+decelTime[i]+'s cubic-bezier(0, 0, 0.15, 1)';
+        a.style.transform=base+' translateX('+overshoot[i]+'px) rotate('+endRotate[i]+'deg)';
+      });
+    }, 15500);
+
+    // 20s: Reset everything
+    setTimeout(function(){
+      // Starter arm down
+      starterArmL.style.transition='transform 0.5s ease';
+      starterArmL.style.transform='';
+
+      // Move athletes back smoothly
+      athletes.forEach(function(a){
+        a.style.transition='transform 1.5s ease-in-out';
+        a.style.transform=base;
+      });
+
+      setTimeout(function(){
+        clockEl.style.display='none';
+        simBtnWrap.style.opacity='';
+        simBtnWrap.style.pointerEvents='';
+        fidgetActive=true;
+        athletes.forEach(function(ath){
+          setTimeout(function(){ fidget(ath); }, Math.random()*1500);
+        });
+      }, 2000);
+    }, 20000);
   });
 })();
 </script>
