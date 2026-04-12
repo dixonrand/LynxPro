@@ -83,7 +83,12 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .setup{position:absolute;top:48%;left:37%;transform:translateX(-50%) scale(1.8);transform-origin:center bottom;z-index:20}
 
 
-/* Laptops on table */
+/* PoE Switch */
+.poe-switch{position:absolute;z-index:17}
+.poe-body{width:24px;height:8px;background:linear-gradient(180deg,#2a2a2a,#1a1a1a);border-radius:1px;position:relative;border:1px solid #333}
+.poe-ports{position:absolute;top:2px;left:2px;display:flex;gap:1px}
+.poe-port{width:2px;height:3px;background:#444;border-radius:0 0 .5px .5px}
+.poe-front{position:absolute;bottom:0;left:0;right:0;height:2px;background:#111;border-radius:0 0 1px 1px}
 .laptop-eq{position:absolute;z-index:19}
 .lp-screen{width:18px;height:12px;background:#111;border:1px solid #333;border-bottom:none;border-radius:1px 1px 0 0}
 .lp-display{position:absolute;top:1px;left:1px;right:1px;bottom:0;background:#0d47a1}
@@ -493,6 +498,17 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
         <div class="eq-tooltip"><div class="eq-tt-code">Laptop</div><div class="eq-tt-name">FinishLynx - Primary</div></div>
         <div class="lp-screen"><div class="lp-display"></div></div>
         <div class="lp-base"></div>
+      </div>
+      <!-- PoE Switch (under table, center) -->
+      <div class="poe-switch eq-item" id="eq-poe-switch" data-packages="diamond" style="top:10px;left:68px">
+        <div class="eq-tooltip"><div class="eq-tt-code">PoE-Switch</div><div class="eq-tt-name">8-Port 10/100 Power over Ethernet Switch</div></div>
+        <div class="poe-body">
+          <div class="poe-ports">
+            <div class="poe-port"></div><div class="poe-port"></div><div class="poe-port"></div><div class="poe-port"></div>
+            <div class="poe-port"></div><div class="poe-port"></div><div class="poe-port"></div><div class="poe-port"></div>
+          </div>
+          <div class="poe-front"></div>
+        </div>
       </div>
     </div>
   </div>
