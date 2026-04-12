@@ -191,6 +191,20 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .status-val{font-size:12px;font-weight:800;color:#fff;letter-spacing:.3px}
 .status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px;vertical-align:middle}
 .status-dot.green{background:#4caf50;box-shadow:0 0 6px rgba(76,175,80,.6)}
+/* Results panel */
+.results-panel{position:absolute;top:12px;right:12px;z-index:50;font-family:'Inter',sans-serif;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:12px 18px;border-radius:6px;border:1px solid rgba(255,255,255,.12);min-width:210px}
+.rp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.rp-title{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.rp-method{font-size:10px;font-weight:700;letter-spacing:.3px;color:rgba(255,255,255,.55);margin-bottom:10px}
+.rp-sep{height:1px;background:rgba(255,255,255,.1);margin:8px 0}
+.rp-section{font-size:8px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px}
+.rp-entry{display:flex;align-items:center;gap:8px;padding:3px 0}
+.rp-place{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;color:rgba(255,255,255,.5);width:16px;text-align:center}
+.rp-color{width:8px;height:8px;border-radius:1px;flex-shrink:0}
+.rp-name{font-size:11px;font-weight:600;color:#fff;flex:1}
+.rp-lane{font-size:10px;color:rgba(255,255,255,.45)}
+.rp-time{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#fff}
+.rp-margin{font-size:8px;color:rgba(255,255,255,.4);margin-left:auto;font-family:'JetBrains Mono',monospace}
 /* Race simulation UI */
 .race-clock{display:none;position:absolute;top:4%;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:clamp(20px,3.5vw,36px);font-weight:700;color:#fff;background:rgba(0,0,0,.65);padding:8px 24px;border-radius:6px;z-index:50;letter-spacing:2px}
 .race-text{position:absolute;top:25%;left:50%;transform:translateX(-50%);font-family:'Inter',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:6px;text-shadow:0 3px 12px rgba(0,0,0,.5);z-index:50;opacity:0;transition:opacity .3s ease;pointer-events:none}
@@ -236,6 +250,20 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     <div class="status-row">
       <span class="status-label">Status</span>
       <span class="status-val"><span class="status-dot green"></span>Working</span>
+    </div>
+  </div>
+
+  <!-- Results panel -->
+  <div class="results-panel" id="resultsPanel">
+    <div class="rp-header"><span class="rp-title">Results</span></div>
+    <div class="rp-method">Method: Handwritten</div>
+    <div class="rp-sep"></div>
+    <div class="rp-section" id="rpSectionLabel">Start List</div>
+    <div id="rpEntries">
+      <div class="rp-entry"><span class="rp-place">1</span><div class="rp-color" style="background:#e53935"></div><span class="rp-name">Lane 1</span><span class="rp-lane">Red</span></div>
+      <div class="rp-entry"><span class="rp-place">2</span><div class="rp-color" style="background:#1565c0"></div><span class="rp-name">Lane 2</span><span class="rp-lane">Blue</span></div>
+      <div class="rp-entry"><span class="rp-place">3</span><div class="rp-color" style="background:#2e7d32"></div><span class="rp-name">Lane 3</span><span class="rp-lane">Green</span></div>
+      <div class="rp-entry"><span class="rp-place">4</span><div class="rp-color" style="background:#ef6c00"></div><span class="rp-name">Lane 4</span><span class="rp-lane">Orange</span></div>
     </div>
   </div>
 
@@ -409,8 +437,46 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
   var flashEl = document.getElementById('gunFlash');
   var farTrack = document.querySelector('.far-track');
   var base = 'translateY(-50%) scale(3.5)';
+  var rpSectionLabel = document.getElementById('rpSectionLabel');
+  var rpEntries = document.getElementById('rpEntries');
   var fidgetActive = true;
   var clockInterval, clockStart;
+
+  var runners = [
+    {name:'Lane 1', color:'#e53935', label:'Red'},
+    {name:'Lane 2', color:'#1565c0', label:'Blue'},
+    {name:'Lane 3', color:'#2e7d32', label:'Green'},
+    {name:'Lane 4', color:'#ef6c00', label:'Orange'}
+  ];
+
+  function showStartList(){
+    rpSectionLabel.textContent='Start List';
+    var html='';
+    runners.forEach(function(r, i){
+      html+='<div class="rp-entry"><span class="rp-place">'+(i+1)+'</span><div class="rp-color" style="background:'+r.color+'"></div><span class="rp-name">'+r.name+'</span><span class="rp-lane">'+r.label+'</span></div>';
+    });
+    rpEntries.innerHTML=html;
+  }
+
+  function showResults(elapsed){
+    rpSectionLabel.textContent='Final Results';
+    // Generate slightly random finish times around the elapsed clock
+    var baseSec = elapsed / 1000;
+    var times = runners.map(function(r, i){
+      var t = baseSec + (i * 0.15) + (Math.random() * 0.3 - 0.1);
+      return {runner: r, time: t, idx: i};
+    });
+    // Sort by time (fastest first)
+    times.sort(function(a, b){ return a.time - b.time; });
+
+    var html='';
+    times.forEach(function(t, place){
+      var timeStr = Math.floor(t.time / 60) + ':' + (t.time % 60 < 10 ? '0' : '') + (t.time % 60).toFixed(1);
+      html+='<div class="rp-entry"><span class="rp-place">'+(place+1)+'</span><div class="rp-color" style="background:'+t.runner.color+'"></div><span class="rp-name">'+t.runner.name+'</span><span class="rp-time">'+timeStr+'</span></div>';
+    });
+    html+='<div class="rp-sep"></div><div class="rp-margin">&#177; 0.2s (hand-timed)</div>';
+    rpEntries.innerHTML=html;
+  }
 
   // Fidgeting
   function fidget(ath){
@@ -558,8 +624,10 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     // 17s: Clock stops, athletes now decelerate past finish
     setTimeout(function(){
       clearInterval(clockInterval);
-      var finalTime=formatTime(Date.now()-clockStart);
+      var elapsed = Date.now()-clockStart;
+      var finalTime=formatTime(elapsed);
       clockEl.textContent=finalTime;
+      showResults(elapsed);
 
       // Each athlete overshoots past finish at different distances and speeds
       var overshoot=[100, 150, 75, 180];
@@ -587,6 +655,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
         clockEl.style.display='none';
         simBtnWrap.style.opacity='';
         simBtnWrap.style.pointerEvents='';
+        showStartList();
         fidgetActive=true;
         athletes.forEach(function(ath){
           setTimeout(function(){ fidget(ath); }, Math.random()*1500);
