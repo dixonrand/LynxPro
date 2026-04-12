@@ -493,65 +493,65 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
       }, 30);
 
       // Athletes sprint RIGHT off screen
-      var sprintSpeeds=[1.8, 2.0, 1.9, 2.1];
+      var sprintSpeeds=[2.8, 3.0, 2.9, 3.1];
       athletes.forEach(function(a, i){
-        a.style.transition='transform '+sprintSpeeds[i]+'s cubic-bezier(0.15, 0, 0.4, 1)';
+        a.style.transition='transform '+sprintSpeeds[i]+'s cubic-bezier(0.25, 0, 0.5, 1)';
         a.style.transform=base+' translateX(120vw)';
       });
     }, 6500);
 
-    // 9s: Hide near athletes, show far track runners going LEFT
+    // 9.5s: Hide near athletes, show far track runners going LEFT
     setTimeout(function(){
       athletes.forEach(function(a){ a.style.transition='none'; a.style.opacity='0'; });
       var colors=['#e53935','#1565c0','#2e7d32','#ef6c00'];
       var farDots=[];
       colors.forEach(function(c, i){
         var d=document.createElement('div');
-        d.style.cssText='position:absolute;width:8px;height:12px;background:'+c+';border-radius:1px;z-index:5;top:'+(15+i*20)+'%;left:110%;transition:left 2.5s linear';
+        d.style.cssText='position:absolute;width:8px;height:12px;background:'+c+';border-radius:1px;z-index:5;top:'+(15+i*20)+'%;left:110%;transition:left 3.5s linear';
         farTrack.appendChild(d);
         farDots.push(d);
         setTimeout(function(){ d.style.left='-15%'; }, 50+i*120);
       });
-      setTimeout(function(){ farDots.forEach(function(d){d.remove();}); }, 3200);
-    }, 9000);
+      setTimeout(function(){ farDots.forEach(function(d){d.remove();}); }, 4200);
+    }, 9500);
 
-    // 12.5s: Athletes reappear from LEFT on near track, approach finish
+    // 13s: Athletes reappear from LEFT on near track, approach finish
     setTimeout(function(){
       athletes.forEach(function(a){
         a.style.transition='none';
         a.style.opacity='1';
         a.style.transform=base+' translateX(-120vw)';
       });
-      // Stagger slightly and different speeds to finish line
-      var finishSpeeds=[2.6, 2.8, 2.5, 3.0];
-      var stagger=[0, 80, 40, 120];
+      // Consistent speed through finish — linear easing, slight stagger in start only
+      var finishSpeeds=[3.8, 3.9, 3.7, 4.0];
+      var stagger=[0, 50, 30, 80];
       setTimeout(function(){
         athletes.forEach(function(a, i){
           setTimeout(function(){
-            a.style.transition='transform '+finishSpeeds[i]+'s cubic-bezier(0.05, 0, 0.15, 1)';
-            a.style.transform=base+' translateX(0)';
+            a.style.transition='transform '+finishSpeeds[i]+'s linear';
+            a.style.transform=base+' translateX(40px)';
           }, stagger[i]);
         });
       }, 50);
-    }, 12500);
+    }, 13000);
 
-    // 15.5s: Athletes cross finish — stop clock, then decelerate differently
+    // 17s: Clock stops, athletes now decelerate past finish
     setTimeout(function(){
       clearInterval(clockInterval);
       var finalTime=formatTime(Date.now()-clockStart);
       clockEl.textContent=finalTime;
 
       // Each athlete overshoots past finish at different distances and speeds
-      var overshoot=[60, 100, 45, 140];
-      var decelTime=[1.5, 2.2, 1.2, 3.0];
-      var endRotate=[0, 2, -1, 3]; // lean
+      var overshoot=[100, 150, 75, 180];
+      var decelTime=[1.8, 2.5, 1.4, 3.2];
+      var endRotate=[0, 2, -1, 3];
       athletes.forEach(function(a, i){
-        a.style.transition='transform '+decelTime[i]+'s cubic-bezier(0, 0, 0.15, 1)';
+        a.style.transition='transform '+decelTime[i]+'s cubic-bezier(0, 0, 0.1, 1)';
         a.style.transform=base+' translateX('+overshoot[i]+'px) rotate('+endRotate[i]+'deg)';
       });
-    }, 15500);
+    }, 17000);
 
-    // 20s: Reset everything
+    // 22s: Reset everything
     setTimeout(function(){
       // Starter arm down
       starterArmL.style.transition='transform 0.5s ease';
@@ -572,7 +572,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
           setTimeout(function(){ fidget(ath); }, Math.random()*1500);
         });
       }, 2000);
-    }, 20000);
+    }, 22000);
   });
 })();
 </script>
