@@ -125,22 +125,21 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .sl3{top:12px}
 .sl4{top:15px}
 /* Athletes */
-.athlete{position:absolute;right:34%;z-index:8;display:flex;flex-direction:column;align-items:center;transform:translateY(-50%) scale(3.5);transform-origin:center center;animation:wiggle 2.8s cubic-bezier(.4,0,.6,1) infinite}
+.athlete{position:absolute;right:34%;z-index:8;display:flex;flex-direction:column;align-items:center;transform:translateY(-50%) scale(3.5);transform-origin:center center;animation:bounce1 1.6s ease-in-out infinite}
 .ath-hair{width:8px;height:3px;background:#4a3728;border-radius:1px 1px 0 0}
 .ath-head{width:9px;height:8px;background:#dea96b;border-radius:2px}
 .ath-torso{width:12px;height:11px;border-radius:1px}
 .ath-shorts{width:10px;height:5px;background:#222}
-.athlete:nth-child(2){animation-duration:3.2s;animation-delay:-1.1s}
-.athlete:nth-child(3){animation-duration:2.5s;animation-delay:-.4s}
-.athlete:nth-child(4){animation-duration:3.6s;animation-delay:-2s}
-.athlete:nth-child(5){animation-duration:2.1s;animation-delay:-1.5s}
-@keyframes wiggle{0%,18%{transform:translateY(-50%) scale(3.5)}20%{transform:translateY(-52%) scale(3.5) translateX(.5px) rotate(.3deg)}24%{transform:translateY(-50%) scale(3.5)}40%,55%{transform:translateY(-50%) scale(3.5)}58%{transform:translateY(-51.5%) scale(3.5) rotate(-.2deg)}61%{transform:translateY(-49.5%) scale(3.5) translateX(-.5px)}65%{transform:translateY(-50%) scale(3.5)}78%,85%{transform:translateY(-50%) scale(3.5)}87%{transform:translateY(-51%) scale(3.5) translateX(.3px) rotate(.2deg)}90%{transform:translateY(-50%) scale(3.5)}100%{transform:translateY(-50%) scale(3.5)}}
-.ath-legs{display:flex;gap:2px;animation:shuffle 2.4s ease-in-out infinite}
-.athlete:nth-child(2) .ath-legs{animation-duration:2.8s;animation-delay:-.8s}
-.athlete:nth-child(3) .ath-legs{animation-duration:2s;animation-delay:-1.3s}
-.athlete:nth-child(4) .ath-legs{animation-duration:3s;animation-delay:-.5s}
-.athlete:nth-child(5) .ath-legs{animation-duration:2.2s;animation-delay:-1.7s}
-@keyframes shuffle{0%,30%{transform:translateY(0)}33%{transform:translateY(-2px)}36%{transform:translateY(0)}60%,80%{transform:translateY(0)}82%{transform:translateY(-1.5px)}85%{transform:translateY(0)}100%{transform:translateY(0)}}
+.athlete:nth-child(2){animation-name:bounce2;animation-duration:1.9s}
+.athlete:nth-child(3){animation-name:bounce3;animation-duration:1.3s}
+.athlete:nth-child(4){animation-name:bounce4;animation-duration:2.2s}
+.athlete:nth-child(5){animation-name:bounce5;animation-duration:1.7s}
+@keyframes bounce1{0%,100%{transform:translateY(-50%) scale(3.5)}15%{transform:translateY(-52%) scale(3.5)}30%{transform:translateY(-50%) scale(3.5)}70%{transform:translateY(-50%) scale(3.5) translateX(.4px)}85%{transform:translateY(-51%) scale(3.5) translateX(-.3px)}}
+@keyframes bounce2{0%,100%{transform:translateY(-50%) scale(3.5)}25%{transform:translateY(-51.5%) scale(3.5) translateX(-.4px)}45%{transform:translateY(-50%) scale(3.5)}80%{transform:translateY(-52%) scale(3.5) translateX(.3px)}}
+@keyframes bounce3{0%,100%{transform:translateY(-50%) scale(3.5)}10%{transform:translateY(-51%) scale(3.5) translateX(.3px)}25%{transform:translateY(-50%) scale(3.5)}55%{transform:translateY(-52.5%) scale(3.5)}70%{transform:translateY(-50%) scale(3.5) translateX(-.4px)}}
+@keyframes bounce4{0%,100%{transform:translateY(-50%) scale(3.5)}20%{transform:translateY(-50%) scale(3.5) translateX(-.3px)}40%{transform:translateY(-51.5%) scale(3.5)}55%{transform:translateY(-50%) scale(3.5)}85%{transform:translateY(-52%) scale(3.5) translateX(.5px)}}
+@keyframes bounce5{0%,100%{transform:translateY(-50%) scale(3.5)}30%{transform:translateY(-52%) scale(3.5)}50%{transform:translateY(-50%) scale(3.5) translateX(-.4px)}65%{transform:translateY(-50%) scale(3.5)}90%{transform:translateY(-51%) scale(3.5) translateX(.3px)}}
+.ath-legs{display:flex;gap:2px}
 .ath-leg{width:3px;height:9px;background:#dea96b;border-radius:0 0 1px 1px}
 .ath-shoes{display:flex;gap:2px}
 .ath-shoe{width:4px;height:2px;background:#fff;border-radius:0 0 1px 1px}
