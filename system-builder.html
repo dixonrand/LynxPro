@@ -150,21 +150,25 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .ath-leg{width:3px;height:9px;background:#dea96b;border-radius:0 0 1px 1px}
 .ath-shoes{display:flex;gap:2px}
 .ath-shoe{width:4px;height:2px;background:#fff;border-radius:0 0 1px 1px}
-/* Tripod */
+/* Tripod — BG3036 Heavy Duty Tripod w/ Leveling Guide */
 .tripod{position:absolute;top:50%;left:50%;transform:translateX(-50%) scale(2);z-index:18}
-.tri-head{width:14px;height:4px;background:#222;border-radius:1px;margin:0 auto;position:relative}
-.tri-plate{width:18px;height:2px;background:#333;border-radius:1px;margin:0 auto}
-.tri-legs{position:relative;width:30px;height:28px;margin:0 auto}
-.tri-leg{position:absolute;top:0;width:3px;height:28px;background:#111;border-radius:0 0 1px 1px}
-.tri-leg-l{left:2px;transform:rotate(-12deg);transform-origin:top center}
-.tri-leg-r{right:2px;transform:rotate(12deg);transform-origin:top center}
-.tri-leg-c{left:50%;transform:translateX(-50%)}
-.tri-brace{position:absolute;top:16px;width:3px;height:10px;background:#1a1a1a}
-.tri-brace-l{left:5px;transform:rotate(-8deg);transform-origin:top center}
-.tri-brace-r{right:5px;transform:rotate(8deg);transform-origin:top center}
-.tri-foot{position:absolute;bottom:-2px;width:5px;height:3px;background:#111;border-radius:0 0 2px 2px}
-.tri-foot-l{left:0}
-.tri-foot-r{right:0}
+.tri-head{width:16px;height:5px;background:#333;border-radius:2px;margin:0 auto;position:relative}
+.tri-head::after{content:'';position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:8px;height:4px;background:#444;border-radius:2px}
+.tri-knob{position:absolute;top:-1px;right:-4px;width:4px;height:3px;background:#555;border-radius:1px}
+.tri-plate{width:18px;height:3px;background:#444;border-radius:1px;margin:0 auto}
+.tri-collar{width:10px;height:3px;background:#333;border-radius:1px;margin:0 auto}
+.tri-legs{position:relative;width:34px;height:32px;margin:0 auto}
+.tri-leg{position:absolute;top:0;width:3px;background:linear-gradient(180deg,#aaa,#999 30%,#888 60%,#777);border-radius:0 0 1px 1px}
+.tri-leg-l{left:2px;height:30px;transform:rotate(-14deg);transform-origin:top center}
+.tri-leg-r{right:2px;height:30px;transform:rotate(14deg);transform-origin:top center}
+.tri-leg-c{left:50%;transform:translateX(-50%);height:32px}
+.tri-joint{position:absolute;width:5px;height:3px;background:#333;border-radius:1px}
+.tri-joint-l{top:14px;left:3px;transform:rotate(-14deg)}
+.tri-joint-r{top:14px;right:3px;transform:rotate(14deg)}
+.tri-joint-c{top:15px;left:50%;transform:translateX(-50%)}
+.tri-foot{position:absolute;bottom:-2px;width:6px;height:4px;background:#333;border-radius:0 0 2px 2px}
+.tri-foot-l{left:-1px}
+.tri-foot-r{right:-1px}
 .tri-foot-c{left:50%;transform:translateX(-50%)}
 /* Starter official */
 .starter{position:absolute;top:62%;right:8%;z-index:20;transform:scale(2.8);transform-origin:bottom center;display:flex;flex-direction:column;align-items:center}
@@ -436,14 +440,16 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 
   <!-- Tripod (centered on finish line, back in grass) -->
   <div class="tripod" id="eq-tripod">
-    <div class="tri-head"></div>
+    <div class="tri-head"><div class="tri-knob"></div></div>
     <div class="tri-plate"></div>
+    <div class="tri-collar"></div>
     <div class="tri-legs">
       <div class="tri-leg tri-leg-l"></div>
       <div class="tri-leg tri-leg-c"></div>
       <div class="tri-leg tri-leg-r"></div>
-      <div class="tri-brace tri-brace-l"></div>
-      <div class="tri-brace tri-brace-r"></div>
+      <div class="tri-joint tri-joint-l"></div>
+      <div class="tri-joint tri-joint-c"></div>
+      <div class="tri-joint tri-joint-r"></div>
       <div class="tri-foot tri-foot-l"></div>
       <div class="tri-foot tri-foot-c"></div>
       <div class="tri-foot tri-foot-r"></div>
