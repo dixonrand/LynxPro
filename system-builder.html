@@ -201,8 +201,14 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .pkg-dropdown{position:absolute;top:100%;right:0;margin-top:6px;background:rgba(0,0,0,.65);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:8px 0;min-width:220px;display:none}
 .pkg-dropdown.open{display:block}
 .pkg-cat{font-size:9px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.35);padding:8px 16px 4px}
-.pkg-item{font-size:12px;font-weight:600;color:rgba(255,255,255,.75);padding:6px 16px;cursor:pointer;transition:background .1s}
+.pkg-item{font-size:12px;font-weight:600;color:rgba(255,255,255,.75);padding:6px 16px;cursor:pointer;transition:background .1s;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .pkg-item:hover{background:rgba(255,255,255,.1);color:#fff}
+.pkg-item.selected{background:rgba(255,255,255,.15);color:#fff}
+.pkg-badge{font-size:7px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:2px 5px;border-radius:2px;flex-shrink:0;white-space:nowrap}
+.pkg-badge.future{background:#8A1A1A;color:#fff}
+.pkg-badge.progress{background:#F5C518;color:#111}
+/* Selected package display */
+.mode-selected{font-size:9px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.3px;display:none;margin-top:2px;text-align:center}
 /* Results panel */
 .results-panel{position:absolute;top:12px;right:12px;z-index:50;font-family:'Inter',sans-serif;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:12px 18px;border-radius:6px;border:1px solid rgba(255,255,255,.12);min-width:210px}
 .rp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
@@ -256,22 +262,22 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
   <!-- Mode selector -->
   <div class="mode-bar" id="modeBar">
     <div class="mode-btn active" id="modeCustom">Custom Setup</div>
-    <div class="mode-btn" id="modePackages">Existing Packages ▾
+    <div class="mode-btn" id="modePackages"><span id="pkgLabel">Existing Packages</span> ▾
       <div class="pkg-dropdown" id="pkgDropdown">
         <div class="pkg-cat">Domestic</div>
-        <div class="pkg-item" data-pkg="scholastic">Scholastic</div>
-        <div class="pkg-item" data-pkg="bronze">Bronze</div>
-        <div class="pkg-item" data-pkg="silver">Silver</div>
-        <div class="pkg-item" data-pkg="gold">Gold</div>
-        <div class="pkg-item" data-pkg="platinum">Platinum</div>
-        <div class="pkg-item" data-pkg="diamond">Diamond</div>
+        <div class="pkg-item" data-pkg="scholastic"><span>Scholastic</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="bronze"><span>Bronze</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="silver"><span>Silver</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="gold"><span>Gold</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="platinum"><span>Platinum</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="diamond"><span>Diamond</span><span class="pkg-badge progress">In Progress</span></div>
         <div class="pkg-cat" style="border-top:1px solid rgba(255,255,255,.08);margin-top:4px">International</div>
-        <div class="pkg-item" data-pkg="competition">Competition</div>
-        <div class="pkg-item" data-pkg="competition-elite">Competition Elite</div>
-        <div class="pkg-item" data-pkg="championship">Championship</div>
-        <div class="pkg-item" data-pkg="championship-elite">Championship Elite</div>
-        <div class="pkg-item" data-pkg="grand-prix">Grand Prix</div>
-        <div class="pkg-item" data-pkg="grand-prix-elite">Grand Prix Elite</div>
+        <div class="pkg-item" data-pkg="competition"><span>Competition</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="competition-elite"><span>Competition Elite</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="championship"><span>Championship</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="championship-elite"><span>Championship Elite</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="grand-prix"><span>Grand Prix</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="grand-prix-elite"><span>Grand Prix Elite</span><span class="pkg-badge future">Future</span></div>
       </div>
     </div>
   </div>
@@ -469,15 +475,20 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
   var modeCustom = document.getElementById('modeCustom');
   var modePackages = document.getElementById('modePackages');
   var pkgDropdown = document.getElementById('pkgDropdown');
+  var pkgLabel = document.getElementById('pkgLabel');
+  var selectedPkg = null;
 
   modeCustom.addEventListener('click', function(){
     modeCustom.classList.add('active');
     modePackages.classList.remove('active');
     pkgDropdown.classList.remove('open');
+    pkgLabel.textContent = 'Existing Packages';
+    selectedPkg = null;
+    document.querySelectorAll('.pkg-item').forEach(function(p){ p.classList.remove('selected'); });
   });
 
   modePackages.addEventListener('click', function(e){
-    if(e.target.classList.contains('pkg-item')) return;
+    if(e.target.closest('.pkg-item')) return;
     modePackages.classList.add('active');
     modeCustom.classList.remove('active');
     pkgDropdown.classList.toggle('open');
@@ -485,8 +496,14 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 
   document.querySelectorAll('.pkg-item').forEach(function(item){
     item.addEventListener('click', function(){
+      var name = item.querySelector('span').textContent;
+      selectedPkg = item.dataset.pkg;
+      pkgLabel.textContent = name;
+      modePackages.classList.add('active');
+      modeCustom.classList.remove('active');
       pkgDropdown.classList.remove('open');
-      // Future: load package configuration
+      document.querySelectorAll('.pkg-item').forEach(function(p){ p.classList.remove('selected'); });
+      item.classList.add('selected');
     });
   });
 
