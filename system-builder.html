@@ -183,25 +183,16 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .mt-knob-b{position:absolute;bottom:-3px;left:50%;transform:translateX(-50%);width:5px;height:5px;background:#111;border-radius:50%;border:1px solid #333}
 .mt-level{position:absolute;top:0;left:50%;transform:translateX(-50%);width:4px;height:2px;background:#4caf50;border-radius:50%;opacity:.7}
 .mt-base{width:14px;height:3px;background:#2a2a2a;margin:0 auto;border-radius:0 0 2px 2px}
-.tri-head{width:14px;height:3px;background:#333;border-radius:2px;margin:0 auto;position:relative}
-.tri-collar{width:8px;height:3px;background:#333;border-radius:1px;margin:0 auto}
-.tri-upper{position:relative;width:20px;height:22px;margin:0 auto}
-.tri-uleg{position:absolute;top:0;width:3px;background:linear-gradient(180deg,#bbb,#aaa 50%,#999);border-radius:1px}
-.tri-uleg-l{left:1px;height:22px;transform:rotate(-6deg);transform-origin:top center}
-.tri-uleg-r{right:1px;height:22px;transform:rotate(6deg);transform-origin:top center}
-.tri-uleg-c{left:50%;transform:translateX(-50%);height:22px}
-.tri-joint{position:absolute;bottom:0;width:5px;height:3px;background:#333;border-radius:1px}
-.tri-joint-l{left:0}
-.tri-joint-r{right:0}
-.tri-joint-c{left:50%;transform:translateX(-50%)}
-.tri-lower{position:relative;width:44px;height:26px;margin:0 auto}
-.tri-lleg{position:absolute;top:0;width:3px;background:linear-gradient(180deg,#bbb,#aaa 50%,#999);border-radius:1px}
-.tri-lleg-l{left:2px;height:26px;transform:rotate(-18deg);transform-origin:top center}
-.tri-lleg-r{right:2px;height:26px;transform:rotate(18deg);transform-origin:top center}
-.tri-lleg-c{left:50%;transform:translateX(-50%);height:24px}
-.tri-foot{position:absolute;bottom:-2px;width:6px;height:4px;background:#333;border-radius:0 0 2px 2px}
-.tri-foot-l{left:-2px}
-.tri-foot-r{right:-2px}
+.tri-post{width:3px;height:14px;background:#111;margin:0 auto}
+.tri-hub{width:8px;height:6px;background:#222;margin:0 auto;border-radius:1px;position:relative}
+.tri-legs-wrap{position:relative;width:44px;height:30px;margin:0 auto}
+.tri-leg{position:absolute;top:0;width:3px;background:#111;border-radius:0 0 1px 1px}
+.tri-leg-l{left:2px;height:30px;transform:rotate(-22deg);transform-origin:top center}
+.tri-leg-r{right:2px;height:30px;transform:rotate(22deg);transform-origin:top center}
+.tri-leg-c{left:50%;transform:translateX(-50%);height:28px}
+.tri-foot{position:absolute;bottom:-2px;width:5px;height:3px;background:#222;border-radius:0 0 2px 2px}
+.tri-foot-l{left:-1px}
+.tri-foot-r{right:-1px}
 .tri-foot-c{left:50%;transform:translateX(-50%)}
 /* Starter official */
 .starter{position:absolute;top:62%;right:8%;z-index:20;transform:scale(2.8);transform-origin:bottom center;display:flex;flex-direction:column;align-items:center}
@@ -502,19 +493,12 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     <div class="tri-head"></div>
     <div class="eq-item" id="eq-tripod" style="position:relative">
       <div class="eq-tooltip"><div class="eq-tt-code">BG3036</div><div class="eq-tt-name">Heavy Duty Tripod w/ Leveling Guide</div></div>
-    <div class="tri-collar"></div>
-    <div class="tri-upper">
-      <div class="tri-uleg tri-uleg-l"></div>
-      <div class="tri-uleg tri-uleg-c"></div>
-      <div class="tri-uleg tri-uleg-r"></div>
-      <div class="tri-joint tri-joint-l"></div>
-      <div class="tri-joint tri-joint-c"></div>
-      <div class="tri-joint tri-joint-r"></div>
-    </div>
-    <div class="tri-lower">
-      <div class="tri-lleg tri-lleg-l"></div>
-      <div class="tri-lleg tri-lleg-c"></div>
-      <div class="tri-lleg tri-lleg-r"></div>
+    <div class="tri-post"></div>
+    <div class="tri-hub"></div>
+    <div class="tri-legs-wrap">
+      <div class="tri-leg tri-leg-l"></div>
+      <div class="tri-leg tri-leg-c"></div>
+      <div class="tri-leg tri-leg-r"></div>
       <div class="tri-foot tri-foot-l"></div>
       <div class="tri-foot tri-foot-c"></div>
       <div class="tri-foot tri-foot-r"></div>
