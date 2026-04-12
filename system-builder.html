@@ -265,19 +265,19 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     <div class="mode-btn" id="modePackages"><span id="pkgLabel">Existing Packages</span> ▾
       <div class="pkg-dropdown" id="pkgDropdown">
         <div class="pkg-cat">Domestic</div>
-        <div class="pkg-item" data-pkg="scholastic"><span>Scholastic</span><span class="pkg-badge future">Future</span></div>
-        <div class="pkg-item" data-pkg="bronze"><span>Bronze</span><span class="pkg-badge future">Future</span></div>
-        <div class="pkg-item" data-pkg="silver"><span>Silver</span><span class="pkg-badge future">Future</span></div>
-        <div class="pkg-item" data-pkg="gold"><span>Gold</span><span class="pkg-badge future">Future</span></div>
-        <div class="pkg-item" data-pkg="platinum"><span>Platinum</span><span class="pkg-badge future">Future</span></div>
-        <div class="pkg-item" data-pkg="diamond"><span>Diamond</span><span class="pkg-badge progress">In Progress</span></div>
+        <div class="pkg-item" data-pkg="scholastic" data-cat="Domestic"><span>Scholastic</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="bronze" data-cat="Domestic"><span>Bronze</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="silver" data-cat="Domestic"><span>Silver</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="gold" data-cat="Domestic"><span>Gold</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="platinum" data-cat="Domestic"><span>Platinum</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="diamond" data-cat="Domestic"><span>Diamond</span><span class="pkg-badge progress">In Progress</span></div>
         <div class="pkg-cat" style="border-top:1px solid rgba(255,255,255,.08);margin-top:4px">International</div>
-        <div class="pkg-item" data-pkg="competition"><span>Competition</span><span class="pkg-badge future">Future</span></div>
-        <div class="pkg-item" data-pkg="competition-elite"><span>Competition Elite</span><span class="pkg-badge future">Future</span></div>
-        <div class="pkg-item" data-pkg="championship"><span>Championship</span><span class="pkg-badge future">Future</span></div>
-        <div class="pkg-item" data-pkg="championship-elite"><span>Championship Elite</span><span class="pkg-badge future">Future</span></div>
-        <div class="pkg-item" data-pkg="grand-prix"><span>Grand Prix</span><span class="pkg-badge future">Future</span></div>
-        <div class="pkg-item" data-pkg="grand-prix-elite"><span>Grand Prix Elite</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="competition" data-cat="International"><span>Competition</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="competition-elite" data-cat="International"><span>Competition Elite</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="championship" data-cat="International"><span>Championship</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="championship-elite" data-cat="International"><span>Championship Elite</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="grand-prix" data-cat="International"><span>Grand Prix</span><span class="pkg-badge future">Future</span></div>
+        <div class="pkg-item" data-pkg="grand-prix-elite" data-cat="International"><span>Grand Prix Elite</span><span class="pkg-badge future">Future</span></div>
       </div>
     </div>
   </div>
@@ -497,8 +497,9 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
   document.querySelectorAll('.pkg-item').forEach(function(item){
     item.addEventListener('click', function(){
       var name = item.querySelector('span').textContent;
+      var cat = item.dataset.cat;
       selectedPkg = item.dataset.pkg;
-      pkgLabel.textContent = name;
+      pkgLabel.textContent = cat + ' - ' + name + ' Package';
       modePackages.classList.add('active');
       modeCustom.classList.remove('active');
       pkgDropdown.classList.remove('open');
