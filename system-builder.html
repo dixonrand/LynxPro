@@ -134,6 +134,28 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .ath-leg{width:3px;height:9px;background:#dea96b;border-radius:0 0 1px 1px}
 .ath-shoes{display:flex;gap:2px}
 .ath-shoe{width:4px;height:2px;background:#fff;border-radius:0 0 1px 1px}
+/* Starter official */
+.starter{position:absolute;top:52%;right:8%;z-index:20;transform:scale(2.8);transform-origin:bottom center;display:flex;flex-direction:column;align-items:center}
+.st-cap{width:14px;height:5px;background:#b71c1c;border-radius:2px 2px 0 0;position:relative}
+.st-cap::after{content:'';position:absolute;bottom:0;left:-1px;right:-1px;height:2px;background:#8b1515;border-radius:0 0 1px 1px}
+.st-head{width:12px;height:10px;background:#c9915a;border-radius:2px}
+.st-eye{position:absolute;width:2px;height:2px;background:#333;border-radius:50%}
+.st-eye-l{top:3px;left:2px}
+.st-eye-r{top:3px;right:2px}
+.st-jacket{width:18px;height:18px;background:#c62828;border-radius:1px;position:relative}
+.st-lapel{position:absolute;top:0;left:50%;transform:translateX(-50%);width:4px;height:8px;background:#d32f2f;border-radius:0 0 2px 2px}
+.st-shirt{position:absolute;top:0;left:50%;transform:translateX(-50%);width:4px;height:5px;background:#fff}
+.st-pants{width:14px;height:14px;background:#333;margin:0 auto}
+.st-arm{position:absolute;top:0;width:5px;height:18px;background:#c62828;border-radius:1px}
+.st-arm-l{left:-4px}
+.st-arm-r{right:-4px}
+.st-hand{position:absolute;bottom:-3px;width:4px;height:4px;background:#c9915a;border-radius:1px}
+.st-pistol{position:absolute;bottom:-3px;left:0;width:3px;height:6px;background:#444;border-radius:0 0 1px 1px}
+.st-pistol::after{content:'';position:absolute;top:0;left:3px;width:5px;height:2px;background:#555;border-radius:0 1px 1px 0}
+.st-legs{display:flex;gap:2px;margin:0 auto}
+.st-leg{width:5px;height:12px;background:#333;border-radius:0 0 1px 1px}
+.st-shoes-wrap{display:flex;gap:2px;margin:0 auto}
+.st-shoe{width:6px;height:3px;background:#222;border-radius:0 0 2px 2px}
 /* Lane numbers */
 .lane-num{position:absolute;left:54%;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(28px,5vh,56px);color:rgba(255,255,255,.8);text-align:center;line-height:1;pointer-events:none}
 /* Lane dash marks (left side) */
@@ -238,6 +260,24 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
       <div class="ath-shoes"><div class="ath-shoe"></div><div class="ath-shoe"></div></div>
     </div>
     <div class="finish-line"></div>
+  </div>
+
+  <!-- Starter official (right side, on grass) -->
+  <div class="starter">
+    <div class="st-cap"></div>
+    <div class="st-head">
+      <div class="st-eye st-eye-l"></div>
+      <div class="st-eye st-eye-r"></div>
+    </div>
+    <div class="st-jacket">
+      <div class="st-shirt"></div>
+      <div class="st-lapel"></div>
+      <div class="st-arm st-arm-l"><div class="st-hand"></div></div>
+      <div class="st-arm st-arm-r"><div class="st-hand"></div><div class="st-pistol"></div></div>
+    </div>
+    <div class="st-pants"></div>
+    <div class="st-legs"><div class="st-leg"></div><div class="st-leg"></div></div>
+    <div class="st-shoes-wrap"><div class="st-shoe"></div><div class="st-shoe"></div></div>
   </div>
 
   <!-- Person + Table -->
