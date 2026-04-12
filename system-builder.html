@@ -260,10 +260,10 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     <div class="rp-sep"></div>
     <div class="rp-section" id="rpSectionLabel">Start List</div>
     <div id="rpEntries">
-      <div class="rp-entry"><span class="rp-place">1</span><div class="rp-color" style="background:#e53935"></div><span class="rp-name">Lane 1</span><span class="rp-lane">Red</span></div>
-      <div class="rp-entry"><span class="rp-place">2</span><div class="rp-color" style="background:#1565c0"></div><span class="rp-name">Lane 2</span><span class="rp-lane">Blue</span></div>
-      <div class="rp-entry"><span class="rp-place">3</span><div class="rp-color" style="background:#2e7d32"></div><span class="rp-name">Lane 3</span><span class="rp-lane">Green</span></div>
-      <div class="rp-entry"><span class="rp-place">4</span><div class="rp-color" style="background:#ef6c00"></div><span class="rp-name">Lane 4</span><span class="rp-lane">Orange</span></div>
+      <div class="rp-entry"><span class="rp-place">1</span><div class="rp-color" style="background:#e53935"></div><span class="rp-name">Lane 1</span><span class="rp-time">&mdash;</span></div>
+      <div class="rp-entry"><span class="rp-place">2</span><div class="rp-color" style="background:#1565c0"></div><span class="rp-name">Lane 2</span><span class="rp-time">&mdash;</span></div>
+      <div class="rp-entry"><span class="rp-place">3</span><div class="rp-color" style="background:#2e7d32"></div><span class="rp-name">Lane 3</span><span class="rp-time">&mdash;</span></div>
+      <div class="rp-entry"><span class="rp-place">4</span><div class="rp-color" style="background:#ef6c00"></div><span class="rp-name">Lane 4</span><span class="rp-time">&mdash;</span></div>
     </div>
   </div>
 
@@ -453,7 +453,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     rpSectionLabel.textContent='Start List';
     var html='';
     runners.forEach(function(r, i){
-      html+='<div class="rp-entry"><span class="rp-place">'+(i+1)+'</span><div class="rp-color" style="background:'+r.color+'"></div><span class="rp-name">'+r.name+'</span><span class="rp-lane">'+r.label+'</span></div>';
+      html+='<div class="rp-entry"><span class="rp-place">'+(i+1)+'</span><div class="rp-color" style="background:'+r.color+'"></div><span class="rp-name">'+r.name+'</span><span class="rp-time">—</span></div>';
     });
     rpEntries.innerHTML=html;
   }
