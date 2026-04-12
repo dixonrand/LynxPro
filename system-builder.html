@@ -449,7 +449,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
   </div>
 
   <!-- Tripod (centered on finish line, back in grass) -->
-  <div class="tripod eq-item" id="eq-tripod">
+  <div class="tripod eq-item" id="eq-tripod" data-packages="diamond" style="display:none">
     <div class="eq-tooltip"><div class="eq-tt-code">BG3036</div><div class="eq-tt-name">Heavy Duty Tripod w/ Leveling Guide</div></div>
     <div class="tri-head"><div class="tri-knob"></div></div>
     <div class="tri-collar"></div>
@@ -524,6 +524,15 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     });
   });
 
+  // --- Equipment visibility ---
+  var allEquipment = document.querySelectorAll('[data-packages]');
+  function updateEquipment(pkg){
+    allEquipment.forEach(function(el){
+      var pkgs = el.dataset.packages.split(',');
+      el.style.display = (pkg && pkgs.indexOf(pkg) !== -1) ? '' : 'none';
+    });
+  }
+
   // --- Mode selector ---
   var modeCustom = document.getElementById('modeCustom');
   var modePackages = document.getElementById('modePackages');
@@ -538,6 +547,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     pkgLabel.textContent = 'Existing Packages';
     selectedPkg = null;
     document.querySelectorAll('.pkg-item').forEach(function(p){ p.classList.remove('selected'); });
+    updateEquipment(null);
   });
 
   modePackages.addEventListener('click', function(e){
@@ -558,6 +568,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
       pkgDropdown.classList.remove('open');
       document.querySelectorAll('.pkg-item').forEach(function(p){ p.classList.remove('selected'); });
       item.classList.add('selected');
+      updateEquipment(selectedPkg);
     });
   });
 
