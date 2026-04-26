@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talk to support — FinishLynx Support</title>
+<meta name="description" content="Get connected to FinishLynx support. Install TeamViewer first, then visit the support page.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img src="assets/logo-mark.png" alt="FinishLynx">
+    <span class="brand-text"><span class="finish">Finish</span><span class="lynx">Lynx</span></span>
+    <span class="brand-tag">Support</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="search.html">Search</a>
+    <a href="browse.html">Browse Docs</a>
+    <a href="support.html">Contact Support</a>
+  </nav>
+</header>
+
+<main class="page-wrap">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="current">Talk to support</span>
+  </nav>
+
+  <h1>Let's get you connected to a person</h1>
+  <p class="lede">
+    Before you call: install TeamViewer so support can see what you're seeing.
+    It's the fastest path to a fix.
+  </p>
+
+  <!-- Two-step layout from mockup 10.
+       Hard rules (spec slide 08, used verbatim):
+         · "Direct customers to download TeamViewer first before calling support."
+         · Support page URL is always the full www.finishlynx.com/support. -->
+  <div class="two-col">
+    <div class="card">
+      <h3>Step 1</h3>
+      <h2>Install TeamViewer</h2>
+      <p style="color: var(--muted); margin-bottom: 16px;">
+        Support uses TeamViewer to see your screen and walk through the issue with you.
+        Install it before you call so the session can start right away.
+      </p>
+      <a class="btn btn-primary" href="https://www.finishlynx.com/support" target="_blank" rel="noopener">
+        Download from finishlynx.com/support
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Step 2</h3>
+      <h2>Then visit the support page</h2>
+      <p style="color: var(--muted); margin-bottom: 16px;">
+        Phone numbers, hours, and contact options are all listed on the support page.
+        Don't lose your spot — open it in a new tab.
+      </p>
+      <a class="btn btn-ghost" href="https://www.finishlynx.com/support" target="_blank" rel="noopener">
+        Open www.finishlynx.com/support
+      </a>
+    </div>
+  </div>
+
+  <!-- Context summary appears here when the user reaches this page from a
+       resolution dead-end. Phase 8 (feedback + polish) will populate it
+       from the URL hash so the user can paste it to support. -->
+  <div class="card" style="background: var(--purple-light); border-color: var(--lynx-purple);">
+    <h3 style="color: var(--purple-dark);">Tell support what you've already tried</h3>
+    <p style="color: var(--ink);">
+      When this page is reached from inside a troubleshooting flow, the steps
+      you've already attempted will appear here for you to copy.
+      <br><span style="color: var(--muted); font-size: 13px;">(Wired up in Phase 8.)</span>
+    </p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  Unofficial guided troubleshooter for FinishLynx<sup>®</sup> photo-finish timing systems.
+  Product info at <a href="https://www.finishlynx.com" target="_blank" rel="noopener">finishlynx.com</a>.
+</footer>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>

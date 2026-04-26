@@ -1,0 +1,402 @@
+/*
+ * FinishLynx Support Portal
+ * Design system per Build Spec slide 09 — visual design system.
+ * All palette + typography values are exact from the spec.
+ */
+
+:root {
+  /* Brand palette — slide 09, exact values */
+  --lynx-purple:  #55009C;  /* Primary brand */
+  --purple-dark:  #3A006B;  /* Hover state */
+  --purple-light: #EFE5F8;  /* Callouts */
+  --ink:          #1A1430;  /* Text + headers */
+  --bg:           #F6F4FA;  /* Page background */
+  --success:      #1F8F4E;  /* Yes button */
+  --warn:         #C77B00;  /* Partially button */
+  --alert:        #C8102E;  /* No button only */
+
+  /* Derived neutrals */
+  --border:       rgba(26, 20, 48, 0.10);
+  --border-strong:rgba(26, 20, 48, 0.18);
+  --muted:        rgba(26, 20, 48, 0.65);
+  --faint:        rgba(26, 20, 48, 0.45);
+
+  /* Typography */
+  --font-body:    'Calibri', 'Arial', system-ui, -apple-system, sans-serif;
+  --font-mono:    'Consolas', 'Menlo', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+
+html { background: var(--bg); }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: var(--lynx-purple); }
+a:hover { color: var(--purple-dark); }
+
+code, pre { font-family: var(--font-mono); }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand img {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+/* Wordmark — Eras Demi ITC per spec; "Finish" regular + "Lynx" bold.
+   Without Eras Demi installed we fall back to Calibri/system-ui;
+   the regular/bold treatment carries the visual hierarchy. */
+.brand-text {
+  font-family: 'Eras Demi ITC', 'Calibri', 'Arial', sans-serif;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.brand-text .finish { font-weight: 400; color: var(--ink); }
+.brand-text .lynx   { font-weight: 700; color: var(--lynx-purple); }
+.brand-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--purple-dark);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: 8px;
+  padding: 3px 8px;
+  background: var(--purple-light);
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.site-nav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.site-nav a {
+  text-decoration: none;
+  color: var(--ink);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background .12s, color .12s;
+}
+.site-nav a:hover {
+  background: var(--purple-light);
+  color: var(--purple-dark);
+}
+.site-nav a.active {
+  background: var(--purple-light);
+  color: var(--lynx-purple);
+  font-weight: 600;
+}
+
+/* ---------- Layout ---------- */
+.page-wrap {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.breadcrumb a {
+  color: var(--lynx-purple);
+  text-decoration: none;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+  background: var(--purple-light);
+}
+.breadcrumb-sep {
+  color: var(--faint);
+  font-size: 12px;
+}
+.breadcrumb .current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---------- Headings ---------- */
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+  color: var(--ink);
+  line-height: 1.15;
+}
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--ink);
+  line-height: 1.25;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+.lede {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+
+/* ---------- Search bar ---------- */
+.search-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 40px;
+  background: #fff;
+  border: 2px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 1px 3px rgba(26, 20, 48, .04);
+  transition: border-color .12s;
+}
+.search-bar:focus-within {
+  border-color: var(--lynx-purple);
+}
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  padding: 10px 14px;
+  color: var(--ink);
+  font-family: inherit;
+}
+.search-bar input::placeholder { color: var(--faint); }
+.search-bar button {
+  background: var(--lynx-purple);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .12s;
+}
+.search-bar button:hover { background: var(--purple-dark); }
+
+/* ---------- Tile grid (landing) ---------- */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.tile {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color .15s, transform .15s, box-shadow .15s;
+  min-height: 96px;
+}
+.tile:hover {
+  border-color: var(--lynx-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(85, 0, 156, .10);
+  color: var(--ink);
+}
+.tile-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.tile-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: 20px 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+.site-footer a { color: var(--lynx-purple); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  transition: background .12s, transform .1s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--lynx-purple); color: #fff; }
+.btn-primary:hover { background: var(--purple-dark); color: #fff; }
+.btn-yes  { background: var(--success); color: #fff; }
+.btn-warn { background: var(--warn);    color: #fff; }
+.btn-alert{ background: var(--alert);   color: #fff; }
+.btn-ghost {
+  background: #fff;
+  color: var(--lynx-purple);
+  border: 1.5px solid var(--lynx-purple);
+}
+.btn-ghost:hover {
+  background: var(--purple-light);
+}
+
+/* ---------- Step list (resolution / talk-to-support) ---------- */
+.step-list {
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.step-list li {
+  counter-increment: step;
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.step-list li::before {
+  content: counter(step);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--lynx-purple);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* ---------- Two-column grid utility ---------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* ---------- Card / panel ---------- */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.card h2 { margin-bottom: 8px; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 720px) {
+  .site-header {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+  .site-nav {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .site-nav a {
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+  .page-wrap {
+    padding: 20px 16px 40px;
+  }
+  h1 { font-size: 24px; }
+  h2 { font-size: 18px; }
+  .tile-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .tile {
+    padding: 18px;
+    min-height: 64px;
+  }
+  .search-bar {
+    flex-direction: column;
+    padding: 8px;
+  }
+  .search-bar button {
+    width: 100%;
+    padding: 12px 24px;
+  }
+  .btn { min-height: 44px; padding: 12px 20px; }
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

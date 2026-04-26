@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinishLynx Support — Find a fix fast</title>
+<meta name="description" content="Guided troubleshooter for FinishLynx photo-finish timing systems. Pick a category to start, or search the doc library.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- Header (duplicated across pages — small enough to inline) -->
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img src="assets/logo-mark.png" alt="FinishLynx">
+    <span class="brand-text"><span class="finish">Finish</span><span class="lynx">Lynx</span></span>
+    <span class="brand-tag">Support</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="search.html">Search</a>
+    <a href="browse.html">Browse Docs</a>
+    <a href="support.html">Contact Support</a>
+  </nav>
+</header>
+
+<main class="page-wrap">
+
+  <h1>What's happening?</h1>
+  <p class="lede">Pick a category to start. Or search if you already know what you're looking for.</p>
+
+  <!-- Search bar (above the fold per spec) -->
+  <form class="search-bar" action="search.html" method="get" role="search">
+    <input
+      type="search"
+      name="q"
+      placeholder="🔍  Search known fixes, docs, and videos…"
+      aria-label="Search the support library"
+      autocomplete="off">
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Tile grid — 9 entry categories from mockup 01.
+       TODO (Phase 4+): wire each tile to its category page (e.g. tree.html#/camera).
+       For now they go to # so the navigation shell is visible but inert. -->
+  <section class="tile-grid" aria-label="Categories">
+    <a class="tile" href="#">
+      <div class="tile-title">Camera</div>
+      <div class="tile-desc">EtherLynx Vision, PRO, PRO X</div>
+    </a>
+    <a class="tile" href="#">
+      <div class="tile-title">FinishLynx Software</div>
+      <div class="tile-desc">Capture, results, scoreboards</div>
+    </a>
+    <a class="tile" href="#">
+      <div class="tile-title">Scoreboard / Display</div>
+      <div class="tile-desc">ResulTV, VDM, LED panels</div>
+    </a>
+    <a class="tile" href="#">
+      <div class="tile-title">Wind Gauge</div>
+      <div class="tile-desc">Lynx Wind, controller, cable</div>
+    </a>
+    <a class="tile" href="#">
+      <div class="tile-title">RadioLynx / Wireless</div>
+      <div class="tile-desc">Start sensor, signal loss</div>
+    </a>
+    <a class="tile" href="#">
+      <div class="tile-title">ReacTime</div>
+      <div class="tile-desc">False start, calibration</div>
+    </a>
+    <a class="tile" href="#">
+      <div class="tile-title">Transponder Timing</div>
+      <div class="tile-desc">MYLAPS, IPICO, BibTag</div>
+    </a>
+    <a class="tile" href="#">
+      <div class="tile-title">Networking / Setup</div>
+      <div class="tile-desc">IPs, switches, firewall</div>
+    </a>
+    <a class="tile" href="support.html">
+      <div class="tile-title">Something else</div>
+      <div class="tile-desc">Search or contact support</div>
+    </a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  Unofficial guided troubleshooter for FinishLynx<sup>®</sup> photo-finish timing systems.
+  Product info at <a href="https://www.finishlynx.com" target="_blank" rel="noopener">finishlynx.com</a>.
+</footer>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>

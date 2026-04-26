@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse all docs — FinishLynx Support</title>
+<meta name="description" content="Browse every FinishLynx datasheet, QSG, manual, brochure, and tutorial video. Filter by category and type.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img src="assets/logo-mark.png" alt="FinishLynx">
+    <span class="brand-text"><span class="finish">Finish</span><span class="lynx">Lynx</span></span>
+    <span class="brand-tag">Support</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="search.html">Search</a>
+    <a href="browse.html">Browse Docs</a>
+    <a href="support.html">Contact Support</a>
+  </nav>
+</header>
+
+<main class="page-wrap">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="current">Browse all docs</span>
+  </nav>
+
+  <h1>Browse all docs</h1>
+  <p class="lede">Every datasheet, QSG, manual, and tutorial video — sourced from the Lynx documentation library.</p>
+
+  <!-- Filter bar — wired up in Phase 3 once the entry list renders. -->
+  <form class="search-bar" role="search" onsubmit="return false;">
+    <input
+      type="search"
+      placeholder="🔍  Filter docs by keyword, category, or type…"
+      aria-label="Filter docs"
+      disabled>
+    <button type="submit" disabled>Filter</button>
+  </form>
+
+  <!-- Phase 3 will render every resources.json entry here, grouped by
+       category, with type filters and the same hover-card style as the
+       mockup on slide 06. -->
+  <div class="card">
+    <p style="color: var(--muted); font-size: 14px;">
+      <strong>Coming in Phase 3.</strong>
+      The full doc list (156 entries across 9 categories) renders here, with
+      filters for category and type. Data comes from <code>data/resources.json</code>.
+    </p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  Unofficial guided troubleshooter for FinishLynx<sup>®</sup> photo-finish timing systems.
+  Product info at <a href="https://www.finishlynx.com" target="_blank" rel="noopener">finishlynx.com</a>.
+</footer>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
