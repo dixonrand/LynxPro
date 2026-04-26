@@ -1,0 +1,1250 @@
+[
+  {
+    "title": "EtherLynx Professional Datasheet (5L300)",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/etherlynx_pro_datasheet.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the EtherLynx Professional (5L300) camera.",
+    "type": "datasheet"
+  },
+  {
+    "title": "EtherLynx Fusion Datasheet (5L400)",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/etherlynx_fusion_datasheet.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the EtherLynx Fusion (5L400) camera.",
+    "type": "datasheet"
+  },
+  {
+    "title": "EtherLynx Vision Datasheet (5L500)",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/etherlynx-vision-datasheet.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the EtherLynx Vision (5L500) camera.",
+    "type": "datasheet"
+  },
+  {
+    "title": "EtherLynx Vision PRO Datasheet (5L600)",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/5L600-Vision-PRO-datasheet.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the EtherLynx Vision PRO (5L600) camera.",
+    "type": "datasheet"
+  },
+  {
+    "title": "EtherLynx Vision PRO X Datasheet (5L700)",
+    "url": "https://finishlynx.com/wp-content/uploads/2026/03/EtherLynx-Vision-PRO-X-Datasheet-v6.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the EtherLynx Vision PRO X (5L700) camera.",
+    "type": "datasheet"
+  },
+  {
+    "title": "IdentiLynx SR Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/07/IdentiLynxSR-datasheet.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the IdentiLynx SR camera.",
+    "type": "datasheet"
+  },
+  {
+    "title": "IdentiLynx SR-2 Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/07/IdentiLynxSR-2-datasheet.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the IdentiLynx SR-2 camera.",
+    "type": "datasheet"
+  },
+  {
+    "title": "IdentiLynx HRS Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/07/IdentiLynxHRS-datasheet.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the IdentiLynx HRS camera.",
+    "type": "datasheet"
+  },
+  {
+    "title": "VeriLynx V30 Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/07/verilynxv30-datasheet.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the VeriLynx V30.",
+    "type": "datasheet"
+  },
+  {
+    "title": "VeriLynx V60 Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/07/verilynxv60-datasheet.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the VeriLynx V60.",
+    "type": "datasheet"
+  },
+  {
+    "title": "EtherLynx Vision Camera Setup QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/EtherLynx-Vision-Camera-QSG.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "QSGs",
+    "use": "Refer to this for initial setup, connections, and configuration of the EtherLynx Vision camera.",
+    "type": "qsg"
+  },
+  {
+    "title": "EtherLynx Vision PRO X QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2025/01/EtherLynx-Vision-PRO-X-Camera-QSG.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "QSGs",
+    "use": "Refer to this for initial setup, connections, and configuration of the EtherLynx Vision PRO X camera.",
+    "type": "qsg"
+  },
+  {
+    "title": "EtherLynx 2000+, Fusion, and Pro Camera QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/General-EtherLynx-Camera-QSG.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "QSGs",
+    "use": "Refer to this when troubleshooting EtherLynx Vision camera setup issues.",
+    "type": "qsg"
+  },
+  {
+    "title": "IdentiLynx SR-2 & HRS Video Camera Setup QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/07/IdentiLynx-SR_HRS-series-QSG.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup and configuration of IdentiLynx SR-2 and HRS cameras.",
+    "type": "qsg"
+  },
+  {
+    "title": "Export IdentiLynx Video to YouTube or File QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/FAQ-Export-IdentiLynx-Video.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "QSGs",
+    "use": "Refer to this when a customer is having trouble exporting video from IdentiLynx.",
+    "type": "qsg"
+  },
+  {
+    "title": "VeriLynx Field Event Video Verification Guide QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/07/VeriLynx_QSG.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup and operation of the VeriLynx false start detection system.",
+    "type": "qsg"
+  },
+  {
+    "title": "CS-C Mount Adapter User Guide",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/CS-C_Mount_Lenses.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Miscellaneous",
+    "use": "Refer to this when troubleshooting lens or focus issues, or when a customer asks about compatible lenses and mount adapters. C-Mount lenses require the CS-C 5mm ring adapter; CS-Mount lenses must not use the adapter.",
+    "type": "misc"
+  },
+  {
+    "title": "Lens Focal Length & Frame Rate Calculator XLSX",
+    "url": "https://finishlynx.com/wp-content/uploads/2025/01/Lens-Calc-2025.xlsx",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Miscellaneous",
+    "use": "Use this calculator to determine correct lens focal length and camera frame rate for a given setup.",
+    "type": "misc"
+  },
+  {
+    "title": "Camera BIOS Chip Replacement Guide",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/BIOS_Chip_Replacement.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Miscellaneous",
+    "use": "Refer to this for BIOS chip replacement procedure on supported camera hardware.",
+    "type": "misc"
+  },
+  {
+    "title": "Camera Boot Troubleshooting Guide",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/Camera_Boot_Troubleshooting_Guide.pdf",
+    "category": "Lynx-Sold Cameras",
+    "subcategory": "Miscellaneous",
+    "use": "Refer to this whenever any camera (EtherLynx, IdentiLynx, or VeriLynx) is not booting, showing a solid red boot light, or displaying an \"Error aligning camera\" message.",
+    "type": "misc"
+  },
+  {
+    "title": "MYLAPS BibTag System Brochure",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/09/BibTag_System_Brochure.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Manuals and User Guides",
+    "use": "Overview brochure for the MYLAPS BibTag transponder system sold by Lynx.",
+    "type": "manual"
+  },
+  {
+    "title": "MYLAPS BibTag Intro Guide",
+    "url": "https://finishlynx.com/wp-content/uploads/2025/11/MYLAPS-BibTag-Introduction-Letter.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Manuals and User Guides",
+    "use": "Introductory guide for setting up and using the MYLAPS BibTag system.",
+    "type": "manual"
+  },
+  {
+    "title": "MYLAPS BibTag System Manual",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/09/MYLAPS_BibTag_Timing-System_manual.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Manuals and User Guides",
+    "use": "Full reference manual for the MYLAPS BibTag transponder timing system.",
+    "type": "manual"
+  },
+  {
+    "title": "MYLAPS CCNET Guide",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/09/CCNET.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Manuals and User Guides",
+    "use": "Refer to this for MYLAPS CCNET configuration and integration.",
+    "type": "manual"
+  },
+  {
+    "title": "LinkGate EncRadio & DecRadio User Manual",
+    "url": "https://timing.microgate.it/sites/default/files/manuali/ENCRADIO_DECRADIO-User_Manual_2_0_EN.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Manuals and User Guides",
+    "use": "Refer to this for LinkGate EncRadio and DecRadio device setup and integration.",
+    "type": "manual"
+  },
+  {
+    "title": "Electronic Start Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2024/01/Electronic_Gun_datasheet.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the Lynx Electronic Start system.",
+    "type": "datasheet"
+  },
+  {
+    "title": "Electronic Start Plus Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2025/04/Electronic_Start_Plus_datasheet.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the Lynx Electronic Start Plus system.",
+    "type": "datasheet"
+  },
+  {
+    "title": "RadioLynx Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/RadioLynx_Datasheet.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the RadioLynx wireless start system.",
+    "type": "datasheet"
+  },
+  {
+    "title": "Remote Positioner Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/remote-positioner-datasheet.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the Lynx Remote Positioner.",
+    "type": "datasheet"
+  },
+  {
+    "title": "Lynx Wind Gauge Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/11/wind-gauge-lynx-2017.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the Lynx Wind Gauge.",
+    "type": "datasheet"
+  },
+  {
+    "title": "Standalone Wind Gauge and Controller Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/11/wind-gauge-standalone.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the Lynx Standalone Wind Gauge and Controller.",
+    "type": "datasheet"
+  },
+  {
+    "title": "Electronic Start System QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/Electronic_Start_QSG.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for Electronic Start system setup and operation.",
+    "type": "qsg"
+  },
+  {
+    "title": "Electronic Start Plus System QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2025/04/Electronic_Start_Plus_QSG.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for Electronic Start Plus system setup and operation.",
+    "type": "qsg"
+  },
+  {
+    "title": "RadioLynx Wireless Start Setup QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/RadioLynx_qsg.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for RadioLynx wireless start system setup.",
+    "type": "qsg"
+  },
+  {
+    "title": "Internal RadioLynx Wireless Start Setup QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/InternalRadioLynx_QSG.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for internal RadioLynx antenna setup and configuration.",
+    "type": "qsg"
+  },
+  {
+    "title": "RadioLynx Wireless Start Troubleshooting QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/RadioLynx-Troubleshooting.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this when troubleshooting RadioLynx wireless start issues.",
+    "type": "qsg"
+  },
+  {
+    "title": "Lynx Wind Gauge QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/06/Lynx-Wind-Gauge-QSG.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for Lynx Wind Gauge setup and operation.",
+    "type": "qsg"
+  },
+  {
+    "title": "Standalone Wind Gauge Controller QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2016/04/WG-SA-CTRL_QSG.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for Standalone Wind Gauge Controller setup and operation.",
+    "type": "qsg"
+  },
+  {
+    "title": "MYLAPS BibTag System QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/09/MYLAPS_BibTag_QSG.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for MYLAPS BibTag system quick setup.",
+    "type": "qsg"
+  },
+  {
+    "title": "MYLAPS Timing and Scoring QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/09/MYLAPS_TS_QSG.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for MYLAPS timing and scoring integration with FinishLynx.",
+    "type": "qsg"
+  },
+  {
+    "title": "AirLynx QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/10/QSG-AirLynx.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for AirLynx setup and operation.",
+    "type": "qsg"
+  },
+  {
+    "title": "LaserLynx QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/09/LaserLynx_qsg.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for LaserLynx laser distance measurement setup and operation.",
+    "type": "qsg"
+  },
+  {
+    "title": "IPICO Elite Reader QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/12/IPICO_Elite_QSG_08.2018.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for IPICO Elite Reader setup and integration.",
+    "type": "qsg"
+  },
+  {
+    "title": "IPICO Lite Reader QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/12/IPICO_Lite_QSG_08.2018.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "QSGs",
+    "use": "Refer to this for IPICO Lite Reader setup and integration.",
+    "type": "qsg"
+  },
+  {
+    "title": "FinishLynx Catalog V2",
+    "url": "https://www.catalogmachine.com/finishlynx/catalogs/lynx-catalog.html?view=flow",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Miscellaneous",
+    "use": "General product overview and full lineup reference.",
+    "type": "misc"
+  },
+  {
+    "title": "Remote Positioner Motor Home Repair",
+    "url": "https://finishlynx.com/remote-positioner-repair-guide/",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Miscellaneous",
+    "use": "Refer to this for field repair procedures for the Remote Positioner motor.",
+    "type": "misc"
+  },
+  {
+    "title": "Submit a Repair RMA to Lynx",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/QSG-RMA-repair-portal-1.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Miscellaneous",
+    "use": "Refer to this when a customer needs to submit a repair or return to Lynx.",
+    "type": "misc"
+  },
+  {
+    "title": "LDP Manual",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/01/LDP-Manual.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Miscellaneous",
+    "use": "Full reference for the Lynx Display Protocol (LDP).",
+    "type": "misc"
+  },
+  {
+    "title": "LDP Protocol",
+    "url": "https://finishlynx.com/wp-content/uploads/2021/11/LDP-Protocol.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Miscellaneous",
+    "use": "Technical protocol documentation for LDP integration.",
+    "type": "misc"
+  },
+  {
+    "title": "Lynx LapTime Protocol",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/Lynx_LapTime_Protocol.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Miscellaneous",
+    "use": "Technical protocol documentation for LapTime integration and scripting.",
+    "type": "misc"
+  },
+  {
+    "title": "FinishLynx Remote Control",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/01/FinishLynx-Remote-Control.pdf",
+    "category": "Lynx-Sold Timing Accessories",
+    "subcategory": "Miscellaneous",
+    "use": "Reference for FinishLynx remote control commands and configuration.",
+    "type": "misc"
+  },
+  {
+    "title": "1-Sided Field Display Assembly Instructions",
+    "url": "https://finishlynx.com/wp-content/uploads/2017/09/FLD_DSPLY_1S-Assembly-Instructions.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Manuals and User Guides",
+    "use": "Refer to this for assembly of the 1-sided Lynx field display.",
+    "type": "manual"
+  },
+  {
+    "title": "2-Sided Field Display Assembly Instructions",
+    "url": "https://finishlynx.com/wp-content/uploads/2017/09/FLD_DSPLY_2S-Assembly-Instructions.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Manuals and User Guides",
+    "use": "Refer to this for assembly of the 2-sided Lynx field display.",
+    "type": "manual"
+  },
+  {
+    "title": "3-Sided Field Display Assembly Instructions",
+    "url": "https://finishlynx.com/wp-content/uploads/2017/09/FLD_DSPLY_3S-Assembly-Instructions.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Manuals and User Guides",
+    "use": "Refer to this for assembly of the 3-sided Lynx field display.",
+    "type": "manual"
+  },
+  {
+    "title": "Installation of Foam Tape",
+    "url": "https://finishlynx.com/wp-content/uploads/2017/09/Installation-of-Foam-Tape-Instructions.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Manuals and User Guides",
+    "use": "Refer to this for foam tape installation on Lynx field displays.",
+    "type": "manual"
+  },
+  {
+    "title": "Installation Instructions for 1-Sided Field Display",
+    "url": "https://finishlynx.com/wp-content/uploads/2017/09/Installation-Instructions-for-FLD_DSPLY_1S.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Manuals and User Guides",
+    "use": "Refer to this for full installation of the 1-sided Lynx field display.",
+    "type": "manual"
+  },
+  {
+    "title": "MicroTab LED Display User Manual",
+    "url": "https://finishlynx.com/wp-content/uploads/2013/01/MicroTabLED_EN.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Manuals and User Guides",
+    "use": "Full reference for MicroTab LED scoreboard setup and operation.",
+    "type": "manual"
+  },
+  {
+    "title": "MicroTab Light LED Display User Manual",
+    "url": "https://finishlynx.com/wp-content/uploads/2013/01/MicroTabLEDLight_EN.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Manuals and User Guides",
+    "use": "Full reference for MicroTab Light LED display setup and operation.",
+    "type": "manual"
+  },
+  {
+    "title": "Portable-VDM Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2024/03/Portable-VDM_Datasheet.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the Lynx Portable-VDM display.",
+    "type": "datasheet"
+  },
+  {
+    "title": "1,2,3-Sided LED Video Infield Display Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2019/06/lynx-video-display-datasheet.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the Lynx 1,2,3-sided LED video infield display.",
+    "type": "datasheet"
+  },
+  {
+    "title": "Lynx 360 Display Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/08/lynx-360-display-datasheet.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the Lynx 360 Display.",
+    "type": "datasheet"
+  },
+  {
+    "title": "Lynx Portable Display Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2019/06/lynx-portable-display-datasheet.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the Lynx Portable Display.",
+    "type": "datasheet"
+  },
+  {
+    "title": "VeriLight Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2024/01/VeriLight_datasheet.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for the VeriLight false start light system.",
+    "type": "datasheet"
+  },
+  {
+    "title": "Portable-VDM with ScorePlus QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2024/03/Portable-VDM_QSG.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "QSGs",
+    "use": "Refer to this for Portable-VDM setup with ScorePlus software.",
+    "type": "qsg"
+  },
+  {
+    "title": "1-Sided LED Display — Electrical Setup QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2017/09/1-Sided_LED_Display_QSG.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "QSGs",
+    "use": "Refer to this for electrical setup of the 1-sided Lynx LED display.",
+    "type": "qsg"
+  },
+  {
+    "title": "2-Sided LED Display — Electrical Setup QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2017/09/2-Sided_LED_Display_QSG.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "QSGs",
+    "use": "Refer to this for electrical setup of the 2-sided Lynx LED display.",
+    "type": "qsg"
+  },
+  {
+    "title": "3-Sided LED Display — Electrical Setup QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2017/09/3-Sided_LED_Display_QSG.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "QSGs",
+    "use": "Refer to this for electrical setup of the 3-sided Lynx LED display.",
+    "type": "qsg"
+  },
+  {
+    "title": "1,2,3-Sided LED Video Infield Display QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2017/09/Lynx-Infield-Display_QSG.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup of the Lynx 1,2,3-sided LED video infield display.",
+    "type": "qsg"
+  },
+  {
+    "title": "Lynx 360 Display QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/09/Lynx_360_Display_QSG.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "QSGs",
+    "use": "Refer to this for Lynx 360 Display setup and operation.",
+    "type": "qsg"
+  },
+  {
+    "title": "360 Display Electrical (Single) QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/09/360-single_Display_Electrical_QSG.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "QSGs",
+    "use": "Refer to this for single electrical setup of the Lynx 360 Display.",
+    "type": "qsg"
+  },
+  {
+    "title": "360 Display Electrical (Double) QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/09/360-double_Display_Electrical_QSG.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "QSGs",
+    "use": "Refer to this for double electrical setup of the Lynx 360 Display.",
+    "type": "qsg"
+  },
+  {
+    "title": "Lynx Portable Display QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2019/06/Lynx_Portable_Display_QSG.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup and operation of the Lynx Portable Display.",
+    "type": "qsg"
+  },
+  {
+    "title": "VeriLight QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2024/01/VeriLight_QSG.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "QSGs",
+    "use": "Refer to this for VeriLight false start light system setup and operation.",
+    "type": "qsg"
+  },
+  {
+    "title": "Lynx LED Video Options",
+    "url": "https://finishlynx.com/wp-content/uploads/2024/03/Lynx_LED_Display_Options.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Miscellaneous",
+    "use": "Overview of available Lynx LED scoreboard and display options.",
+    "type": "misc"
+  },
+  {
+    "title": "Network COM Port (NCP) Plug-In QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/07/FinishLynx_NCP_Plugin.pdf",
+    "category": "Lynx-Sold Scoreboards and Displays",
+    "subcategory": "Miscellaneous",
+    "use": "Refer to this for setup of the Network COM Port (NCP) plug-in for serial scoreboard communication. NCP comes standard and pre-installed in FinishLynx 13.00 and later — customers without it just need to install the latest FinishLynx software.",
+    "type": "misc"
+  },
+  {
+    "title": "FinishLynx Online Manual",
+    "url": "https://help.finishlynx.com/Content/Home.htm",
+    "category": "Lynx-Sold Software",
+    "subcategory": "Manuals and User Guides",
+    "use": "Primary reference for all FinishLynx software features, settings, and operations.",
+    "type": "manual"
+  },
+  {
+    "title": "ResulTV Manual",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/ResulTV-Manual.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "Manuals and User Guides",
+    "use": "Full reference for ResulTV scoreboard display software setup and operation.",
+    "type": "manual"
+  },
+  {
+    "title": "LynxPad User Guide",
+    "url": "https://finishlynx.com/wp-content/uploads/2025/05/LynxPad_3_30_U_G.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "Manuals and User Guides",
+    "use": "Full reference for LynxPad meet management software.",
+    "type": "manual"
+  },
+  {
+    "title": "ReacTime Manual",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/rt_1.20_r.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "Manuals and User Guides",
+    "use": "Full reference for ReacTime reaction time measurement software.",
+    "type": "manual"
+  },
+  {
+    "title": "LynxPad Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/lynxpad_datasheet.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for LynxPad meet management software.",
+    "type": "datasheet"
+  },
+  {
+    "title": "ReacTime Product Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/rt_info.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for ReacTime reaction time measurement software.",
+    "type": "datasheet"
+  },
+  {
+    "title": "ResulTV Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/resultv_datasheet.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for ResulTV scoreboard display software.",
+    "type": "datasheet"
+  },
+  {
+    "title": "ResulTV-VDM Datasheet",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/resultv-vdm_datasheet.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "Datasheets",
+    "use": "Product specs and features for ResulTV-VDM scoreboard display software.",
+    "type": "datasheet"
+  },
+  {
+    "title": "FieldLynx QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2016/09/FieldLynx_QSG.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup and operation of the full FieldLynx field events system.",
+    "type": "qsg"
+  },
+  {
+    "title": "FieldLynx Lite QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2015/04/FieldLynx_Lite_QSG.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup and operation of FieldLynx Lite. Note: Lite does not support meet management database connections.",
+    "type": "qsg"
+  },
+  {
+    "title": "NetExchange QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/08/NES_3-0_Install_QSG.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for NetExchange setup and configuration.",
+    "type": "qsg"
+  },
+  {
+    "title": "ReacTime Championship Setup QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/QS_champ.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for ReacTime setup in a championship meet configuration.",
+    "type": "qsg"
+  },
+  {
+    "title": "ReacTime Official Starter Instructions QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/RT_qsg_official_starter.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for ReacTime setup using an official starting system.",
+    "type": "qsg"
+  },
+  {
+    "title": "ReacTime Recall Starter Instructions QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/RT_qsg_recall_starter.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for ReacTime setup using a recall starter configuration.",
+    "type": "qsg"
+  },
+  {
+    "title": "ReacTime Training Setup QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/RT_qsg_training.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for ReacTime setup in a training environment.",
+    "type": "qsg"
+  },
+  {
+    "title": "ResulTV QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/05/ResulTV_QSG.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for initial ResulTV scoreboard display setup.",
+    "type": "qsg"
+  },
+  {
+    "title": "ResulTV-VDM QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/ResulTV-VDM_QSG.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for initial ResulTV-VDM scoreboard display setup.",
+    "type": "qsg"
+  },
+  {
+    "title": "XCScore QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2025/08/XCScore_QSG.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for XCScore cross country scoring system setup.",
+    "type": "qsg"
+  },
+  {
+    "title": "LynxPad QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/08/LynxPad_3-1_qsg.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for quick LynxPad setup and configuration.",
+    "type": "qsg"
+  },
+  {
+    "title": "Networking (Windows 10) QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/NetworkingWindows10.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for network setup and configuration on Windows 10 systems.",
+    "type": "qsg"
+  },
+  {
+    "title": "Networking (Windows 11) QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/04/NetworkingWindows11.pdf",
+    "category": "Lynx-Sold Software",
+    "subcategory": "QSGs",
+    "use": "Refer to this for network setup and configuration on Windows 11 systems.",
+    "type": "qsg"
+  },
+  {
+    "title": "US High School Track Scholastic Package QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/07/scholastic-vision-qsg.pdf",
+    "category": "Lynx-Sold Domestic Packages",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup of the US High School Track Scholastic package.",
+    "type": "qsg"
+  },
+  {
+    "title": "US High School Track Bronze Package QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/07/bronze-vision-qsg.pdf",
+    "category": "Lynx-Sold Domestic Packages",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup of the US High School Track Bronze package.",
+    "type": "qsg"
+  },
+  {
+    "title": "US High School Track Silver Package QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/07/silver-vision-qsg.pdf",
+    "category": "Lynx-Sold Domestic Packages",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup of the US High School Track Silver package.",
+    "type": "qsg"
+  },
+  {
+    "title": "US High School Track Gold Package QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/07/gold-vision-qsg.pdf",
+    "category": "Lynx-Sold Domestic Packages",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup of the US High School Track Gold package.",
+    "type": "qsg"
+  },
+  {
+    "title": "US High School Track Platinum Package QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/07/platinum-vision-qsg.pdf",
+    "category": "Lynx-Sold Domestic Packages",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup of the US High School Track Platinum package.",
+    "type": "qsg"
+  },
+  {
+    "title": "US High School Track Diamond Package QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2012/07/Diamond-Vision-QSG.pdf",
+    "category": "Lynx-Sold Domestic Packages",
+    "subcategory": "QSGs",
+    "use": "Refer to this for setup of the US High School Track Diamond package.",
+    "type": "qsg"
+  },
+  {
+    "title": "Track Domestic Packages Comparison",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/domestic_packages_compare.pdf",
+    "category": "Lynx-Sold Domestic Packages",
+    "subcategory": "QSGs",
+    "use": "Reference for comparing all domestic Lynx timing packages and what each includes.",
+    "type": "qsg"
+  },
+  {
+    "title": "EtherLynx Vision (Competition Package) QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/competition_vision_qsg.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Athletics (Track) Packages QSGs",
+    "use": "Refer to this for setup of the EtherLynx Vision Competition international athletics package.",
+    "type": "qsg"
+  },
+  {
+    "title": "EtherLynx Vision (Competition Elite Package) QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/competition_elite_vision_qsg.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Athletics (Track) Packages QSGs",
+    "use": "Refer to this for setup of the EtherLynx Vision Competition Elite international athletics package.",
+    "type": "qsg"
+  },
+  {
+    "title": "EtherLynx Vision (Championship Package) QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/06/championship_vision_qsg.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Athletics (Track) Packages QSGs",
+    "use": "Refer to this for setup of the EtherLynx Vision Championship international athletics package.",
+    "type": "qsg"
+  },
+  {
+    "title": "EtherLynx Vision (Championship Elite Package) QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/championship_elite_vision_qsg.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Athletics (Track) Packages QSGs",
+    "use": "Refer to this for setup of the EtherLynx Vision Championship Elite international athletics package.",
+    "type": "qsg"
+  },
+  {
+    "title": "EtherLynx Vision (Grand Prix Package) QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/06/grand_prix_vision_qsg.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Athletics (Track) Packages QSGs",
+    "use": "Refer to this for setup of the EtherLynx Vision Grand Prix international athletics package.",
+    "type": "qsg"
+  },
+  {
+    "title": "EtherLynx Vision (Grand Prix Elite Package) QSG",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/06/grand_prix_elite_vision_qsg.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Athletics (Track) Packages QSGs",
+    "use": "Refer to this for setup of the EtherLynx Vision Grand Prix Elite international athletics package.",
+    "type": "qsg"
+  },
+  {
+    "title": "Athletics Packages — Vision (Complete Brochure)",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/Athletics-Packages-Vision-2017.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Athletics (Track) Packages Brochures",
+    "use": "Full brochure covering all EtherLynx Vision international athletics track packages.",
+    "type": "brochure"
+  },
+  {
+    "title": "Athletics Field — Competition and Competition Elite Package",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/08/Field_Comp_CompElite.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Athletics (Field) Packages Brochures",
+    "use": "Brochure for the international Athletics Field Competition and Competition Elite packages.",
+    "type": "brochure"
+  },
+  {
+    "title": "Athletics Field — Championship and Championship Elite Package",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/08/Field_Champ_ChampElite.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Athletics (Field) Packages Brochures",
+    "use": "Brochure for the international Athletics Field Championship and Championship Elite packages.",
+    "type": "brochure"
+  },
+  {
+    "title": "Athletics Field — Grand Prix and Grand Prix Elite Package",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/08/Field_GP_GPElite.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Athletics (Field) Packages Brochures",
+    "use": "Brochure for the international Athletics Field Grand Prix and Grand Prix Elite packages.",
+    "type": "brochure"
+  },
+  {
+    "title": "Cross Country Triad Solution",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/09/Lynx_Triad.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Cross Country Packages Brochures",
+    "use": "Brochure for the Lynx Triad cross country timing solution.",
+    "type": "brochure"
+  },
+  {
+    "title": "Road Cycling Package — Bronze",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/07/Road_Cycling_Bronze.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Cycling and BMX Packages Brochures",
+    "use": "Brochure for the Lynx Road Cycling Bronze package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Road Cycling Package — Silver",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/07/Road_Cycling_Silver.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Cycling and BMX Packages Brochures",
+    "use": "Brochure for the Lynx Road Cycling Silver package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Road Cycling Package — Gold",
+    "url": "https://finishlynx.com/wp-content/uploads/2023/07/Road_Cycling_Gold.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Cycling and BMX Packages Brochures",
+    "use": "Brochure for the Lynx Road Cycling Gold package.",
+    "type": "brochure"
+  },
+  {
+    "title": "BMX Cycling Package — Bronze",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/BMX_Cycling_-_Bronze_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Cycling and BMX Packages Brochures",
+    "use": "Brochure for the Lynx BMX Cycling Bronze package.",
+    "type": "brochure"
+  },
+  {
+    "title": "BMX Cycling Package — Silver",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/BMX_Cycling_-_Silver_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Cycling and BMX Packages Brochures",
+    "use": "Brochure for the Lynx BMX Cycling Silver package.",
+    "type": "brochure"
+  },
+  {
+    "title": "BMX Cycling Package — Gold",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/BMX_Cycling_-_Gold_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Cycling and BMX Packages Brochures",
+    "use": "Brochure for the Lynx BMX Cycling Gold package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Velodrome Package Diagrams",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/08/Velo_Package_Diagrams.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Cycling and BMX Packages Brochures",
+    "use": "Diagram reference for Lynx velodrome timing package configurations.",
+    "type": "brochure"
+  },
+  {
+    "title": "Rowing and Paddling — Bronze",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/Rowing_-_Bronze_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Rowing and Regatta Packages Brochures",
+    "use": "Brochure for the Lynx Rowing and Paddling Bronze package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Rowing and Paddling — Silver",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/Rowing_-_Silver_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Rowing and Regatta Packages Brochures",
+    "use": "Brochure for the Lynx Rowing and Paddling Silver package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Rowing and Paddling — Gold",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/Rowing_-_Gold_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Rowing and Regatta Packages Brochures",
+    "use": "Brochure for the Lynx Rowing and Paddling Gold package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Short Track Speed Skating Package — Bronze",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/ST-Bronze_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Speed Skating Packages",
+    "use": "Brochure for the Lynx Short Track Speed Skating Bronze package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Short Track Speed Skating Package — Silver",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/ST-Silver_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Speed Skating Packages",
+    "use": "Brochure for the Lynx Short Track Speed Skating Silver package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Short Track Speed Skating Package — Gold",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/ST-Gold_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Speed Skating Packages",
+    "use": "Brochure for the Lynx Short Track Speed Skating Gold package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Short Track Speed Skating Package — Transponder Lap Timing",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/ST-LAP_T_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Speed Skating Packages",
+    "use": "Brochure for the Lynx Short Track Speed Skating Transponder Lap Timing package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Short Track Speed Skating Package — Manual Lap Timing",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/ST-LAP_M_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Speed Skating Packages",
+    "use": "Brochure for the Lynx Short Track Speed Skating Manual Lap Timing package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Long Track Speed Skating Package — Bronze",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/LT-Bronze-info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Speed Skating Packages",
+    "use": "Brochure for the Lynx Long Track Speed Skating Bronze package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Long Track Speed Skating Package — Silver",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/lt-silver_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Speed Skating Packages",
+    "use": "Brochure for the Lynx Long Track Speed Skating Silver package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Long Track Speed Skating Package — Gold",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/lt-gold_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Speed Skating Packages",
+    "use": "Brochure for the Lynx Long Track Speed Skating Gold package.",
+    "type": "brochure"
+  },
+  {
+    "title": "Long Track Speed Skating Package — Transponder Lap Timing",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/06/LT-LAP_T_info.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Speed Skating Packages",
+    "use": "Brochure for the Lynx Long Track Speed Skating Transponder Lap Timing package.",
+    "type": "brochure"
+  },
+  {
+    "title": "MyLaps Detection Loop Install",
+    "url": "https://finishlynx.com/wp-content/uploads/2024/08/MYLAPS_Prochip_Detection-loop_install_ice.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Speed Skating Packages",
+    "use": "Refer to this for MyLaps detection loop installation in speed skating configurations.",
+    "type": "brochure"
+  },
+  {
+    "title": "IdentiLynx Video Camera Packages",
+    "url": "https://finishlynx.com/wp-content/uploads/2022/09/IdentiLynx_packages.pdf",
+    "category": "Lynx-Sold International Packages",
+    "subcategory": "Cameras for Chip Timing Packages",
+    "use": "Reference for IdentiLynx camera packages used in chip timing configurations.",
+    "type": "brochure"
+  },
+  {
+    "title": "Display Timing and Results Data with Custom Scoreboard Scripts (.LSS)",
+    "url": "https://finishlynx.com/support/display-and-scoreboard-scripts/",
+    "category": "Lynx-Sold and Third-Party Scoreboards and Displays",
+    "subcategory": "Lynx Display and Scoreboard Scripts",
+    "use": "Refer to this for creating and using custom .LSS scoreboard scripts to display timing and results data on third-party scoreboards.",
+    "type": "guide"
+  },
+  {
+    "title": "Track & Field Interfaces for Scoreboards & Displays Setup Guide",
+    "url": "https://www.daktronics.com/web-documents/customer-service-manuals/dd3059635.pdf",
+    "category": "Lynx-Sold and Third-Party Scoreboards and Displays",
+    "subcategory": "Daktronics",
+    "use": "Refer to this for setting up Daktronics scoreboard and display integration with FinishLynx.",
+    "type": "guide"
+  },
+  {
+    "title": "HyTek Serial Connection Setup",
+    "url": "https://support.activenetwork.com/hytekswimming/articles/en_US/Article/Interface-with-FinishLynx-Serial-Connection",
+    "category": "Third-Party Meet Management Software",
+    "subcategory": "HyTek",
+    "use": "Refer to this for setting up a serial connection between HyTek and FinishLynx.",
+    "type": "guide"
+  },
+  {
+    "title": "HyTek File Sharing Setup",
+    "url": "https://hytek.active.com/User_Guides_HTML/TFMM6/filesharing.htm",
+    "category": "Third-Party Meet Management Software",
+    "subcategory": "HyTek",
+    "use": "Refer to this for setting up file sharing between HyTek and FinishLynx.",
+    "type": "guide"
+  },
+  {
+    "title": "HyTek Getting Results from FinishLynx",
+    "url": "https://hytek.active.com/User_Guides_HTML/TFMM5/index.html?gettingresultsfromfinishlyn.htm",
+    "category": "Third-Party Meet Management Software",
+    "subcategory": "HyTek",
+    "use": "Refer to this for pulling results from FinishLynx into HyTek.",
+    "type": "guide"
+  },
+  {
+    "title": "MeetPro2 Manual",
+    "url": "https://www.tfmeetpro.com/MeetPro_Manual.pdf",
+    "category": "Third-Party Meet Management Software",
+    "subcategory": "MileSplit / Direct Athletics",
+    "use": "Full reference manual for MeetPro meet management software integration with FinishLynx.",
+    "type": "manual"
+  },
+  {
+    "title": "Using AthleticRUNMEET with Fully Automatic Timing",
+    "url": "https://support.athletic.net/article/5h21gv5rct-using-run-meet-with-fully-automatic-timing",
+    "category": "Third-Party Meet Management Software",
+    "subcategory": "Athletic.Net",
+    "use": "Refer to this for AthleticNET RunMeet integration with FinishLynx FAT systems.",
+    "type": "guide"
+  },
+  {
+    "title": "Setup Basics",
+    "url": "https://www.youtube.com/watch?v=I1SGn7Jr4A8",
+    "category": "YouTube Videos",
+    "subcategory": "Remote Training Webinars",
+    "use": "Refer to this for a full walkthrough of FinishLynx setup basics. Camera alignment walkthrough begins at the 33-minute mark.",
+    "type": "video"
+  },
+  {
+    "title": "Error Messages & Troubleshooting",
+    "url": "https://www.youtube.com/watch?v=bvpejJaLMz4",
+    "category": "YouTube Videos",
+    "subcategory": "Remote Training Webinars",
+    "use": "Refer to this for guidance on common FinishLynx error messages and troubleshooting steps.",
+    "type": "video"
+  },
+  {
+    "title": "Evaluation & Workflows",
+    "url": "https://www.youtube.com/watch?v=Sg1D0opBxCk",
+    "category": "YouTube Videos",
+    "subcategory": "Remote Training Webinars",
+    "use": "Refer to this for guidance on evaluating photo finish images and FinishLynx workflows.",
+    "type": "video"
+  },
+  {
+    "title": "Meet Management Software",
+    "url": "https://www.youtube.com/watch?v=y04OcfLTC0o",
+    "category": "YouTube Videos",
+    "subcategory": "Remote Training Webinars",
+    "use": "Refer to this for guidance on integrating FinishLynx with meet management software. Covers LynxPad specifically but also discusses the connection between FinishLynx and meet management programs generally.",
+    "type": "video"
+  },
+  {
+    "title": "Scholastic Package Setup",
+    "url": "https://www.youtube.com/watch?v=Ohxy1z9s7eA",
+    "category": "YouTube Videos",
+    "subcategory": "Remote Training Webinars",
+    "use": "Refer to this for setup guidance specific to the Scholastic package.",
+    "type": "video"
+  },
+  {
+    "title": "ResulTV Data Display Software",
+    "url": "https://www.youtube.com/watch?v=VenHkYw-b1o",
+    "category": "YouTube Videos",
+    "subcategory": "Remote Training Webinars",
+    "use": "Refer to this for guidance on setting up and using ResulTV scoreboard display software.",
+    "type": "video"
+  },
+  {
+    "title": "Field Events",
+    "url": "https://www.youtube.com/watch?v=8zr2srQD8_A",
+    "category": "YouTube Videos",
+    "subcategory": "Remote Training Webinars",
+    "use": "Refer to this for guidance on setting up and using FieldLynx for field events.",
+    "type": "video"
+  },
+  {
+    "title": "Lighting & Image Optimization",
+    "url": "https://www.youtube.com/watch?v=V0HmmE3Fk0U",
+    "category": "YouTube Videos",
+    "subcategory": "Remote Training Webinars",
+    "use": "Refer to this for guidance on lighting setup and optimizing photo finish image quality.",
+    "type": "video"
+  },
+  {
+    "title": "ResulTV Data Display Software",
+    "url": "https://www.youtube.com/watch?v=VenHkYw-b1o&t=9s",
+    "category": "YouTube Videos",
+    "subcategory": "Remote Training Webinars",
+    "use": "Refer to this for guidance on setting up and using ResulTV scoreboard display software.",
+    "type": "video"
+  },
+  {
+    "title": "Fix Out-of-Focus 8-48mm Lens",
+    "url": "https://www.youtube.com/watch?v=WypcUC6aXBQ&t=87s",
+    "category": "YouTube Videos",
+    "subcategory": "Troubleshooting Videos",
+    "use": "Refer to this when a Vision camera with the C-Mount 8-48mm lens is still out of focus despite the correct 5mm CS-C spacer being installed. Shows the silver screw fix for lenses that drift or cannot hold focus.",
+    "type": "video"
+  },
+  {
+    "title": "IdentiLynx HRS/SR Lens Repair",
+    "url": "https://www.youtube.com/watch?v=VZPrH4E-Rus",
+    "category": "YouTube Videos",
+    "subcategory": "Troubleshooting Videos",
+    "use": "Refer to this when an IdentiLynx HRS or SR camera has been dropped and is unable to focus properly due to the lens being knocked out of place from the fall.",
+    "type": "video"
+  },
+  {
+    "title": "Tutorial: Integrate FinishLynx with Hy-Tek Meet Manager",
+    "url": "https://www.youtube.com/watch?v=J1tee4wGH24&t=1s",
+    "category": "YouTube Videos",
+    "subcategory": "Tutorial Videos",
+    "use": "Refer to this for a step-by-step tutorial on integrating FinishLynx with Hy-Tek Meet Manager.",
+    "type": "video"
+  },
+  {
+    "title": "IdentiLynx Full-Frame Video Camera - Basic Setup",
+    "url": "https://www.youtube.com/watch?v=_SIAce5NmQA",
+    "category": "YouTube Videos",
+    "subcategory": "Tutorial Videos",
+    "use": "Refer to this for basic setup guidance for the IdentiLynx full-frame video camera.",
+    "type": "video"
+  },
+  {
+    "title": "Manually Align a FinishLynx Vision Camera",
+    "url": "https://www.youtube.com/watch?v=2_D202MSQnc",
+    "category": "YouTube Videos",
+    "subcategory": "Tutorial Videos",
+    "use": "Refer to this for manual camera alignment without a remote positioner or remote lens. Send this to customers who need to align their camera by hand.",
+    "type": "video"
+  }
+]
