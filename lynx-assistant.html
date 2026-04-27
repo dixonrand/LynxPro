@@ -75,6 +75,14 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
 .msg-assistant .msg-bubble h4:first-child{margin-top:0}
 .msg-assistant .msg-bubble hr{border:none;border-top:1px solid var(--border-row);margin:18px 0}
 .msg-assistant .msg-bubble blockquote{border-left:3px solid var(--gold);padding:2px 0 2px 12px;margin:10px 0;color:var(--ink-3);font-style:normal}
+/* Tables — clean, modern, no chrome */
+.msg-assistant .msg-bubble table{border-collapse:collapse;margin:14px 0;font-size:14px;max-width:100%;display:block;overflow-x:auto}
+.msg-assistant .msg-bubble thead{border-bottom:1px solid var(--ink-5)}
+.msg-assistant .msg-bubble th,.msg-assistant .msg-bubble td{padding:9px 0;text-align:left;vertical-align:top;line-height:1.55}
+.msg-assistant .msg-bubble th:not(:last-child),.msg-assistant .msg-bubble td:not(:last-child){padding-right:28px}
+.msg-assistant .msg-bubble th{font-weight:700;color:var(--ink-3);font-size:11px;text-transform:uppercase;letter-spacing:.8px}
+.msg-assistant .msg-bubble tbody tr{border-bottom:1px solid var(--border-row)}
+.msg-assistant .msg-bubble tbody tr:last-child{border-bottom:none}
 /* Caret while typewriting */
 .msg-assistant .msg-bubble.typing-active::after{content:'';display:inline-block;width:7px;height:1.05em;background:var(--ink-3);margin-left:2px;vertical-align:-2px;animation:caretBlink 1s steps(2) infinite}
 @keyframes caretBlink{50%{opacity:0}}
@@ -476,6 +484,26 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
       // Already-formatted HTML blocks pass through
       if(/^<(h[1-6]|hr|pre)\b/.test(block) || /^ CB\d+ $/.test(block)){
         html += block;
+        return;
+      }
+      // GFM-style table: header row, separator row, then any number of body rows
+      var tLines = block.split('\n');
+      if(tLines.length >= 2 && tLines[0].indexOf('|') !== -1 &&
+         /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(tLines[1])){
+        var parseRow = function(line){
+          return line.replace(/^\s*\|/, '').replace(/\|\s*$/, '').split('|').map(function(c){ return c.trim(); });
+        };
+        var headerCells = parseRow(tLines[0]);
+        var bodyRows = tLines.slice(2).filter(function(l){ return l.trim(); }).map(parseRow);
+        html += '<table><thead><tr>';
+        headerCells.forEach(function(c){ html += '<th>' + c + '</th>'; });
+        html += '</tr></thead><tbody>';
+        bodyRows.forEach(function(row){
+          html += '<tr>';
+          row.forEach(function(c){ html += '<td>' + c + '</td>'; });
+          html += '</tr>';
+        });
+        html += '</tbody></table>';
         return;
       }
       // Blockquote: every line starts with >
