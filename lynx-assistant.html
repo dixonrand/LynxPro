@@ -119,10 +119,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
 .send-btn:hover{background:var(--purple);color:#fff}
 .send-btn:disabled{opacity:.4;cursor:not-allowed}
 
-/* Status bar */
-.status-bar{text-align:center;padding:6px;font-size:11px;color:var(--ink-6)}
-.status-bar a{color:var(--gold);text-decoration:none}
-
 /* New chat button */
 .new-chat{position:absolute;top:68px;right:16px;background:var(--bg-card);border:1px solid var(--border-row);border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:var(--ink-4);cursor:pointer;font-family:inherit;transition:border-color .12s}
 .new-chat:hover{border-color:var(--gold);color:var(--ink)}
@@ -269,7 +265,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
     <textarea class="input-box" id="inputBox" placeholder="Ask a question about FinishLynx…" rows="1"></textarea>
     <button class="send-btn" id="sendBtn">Send</button>
   </div>
-  <div class="status-bar">Powered by your Claude Project &middot; <a href="https://www.finishlynx.com/support" target="_blank">finishlynx.com/support</a></div>
 </div>
 
 <script>
@@ -403,7 +398,13 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
       })
     }).then(function(res){
       hideTyping();
-      if(!res.ok) throw new Error('API error: ' + res.status);
+      if(!res.ok){
+        var msg;
+        if(res.status === 429) msg = 'Lynx Assistant is busy right now. Please wait a moment and try again.';
+        else if(res.status >= 500) msg = 'Lynx Assistant is temporarily unavailable. Try again shortly.';
+        else msg = 'Lynx Assistant could not respond (error ' + res.status + '). Please try again.';
+        throw new Error(msg);
+      }
 
       var bubble = appendMsg('assistant', '');
       bubble.classList.add('typing-active');
@@ -476,7 +477,11 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
 
     }).catch(function(err){
       hideTyping();
-      appendMsg('assistant', 'Sorry, something went wrong: ' + err.message);
+      var msg = err && err.message ? err.message : 'Something went wrong. Please try again.';
+      if(/^(failed to fetch|network|load failed)/i.test(msg)){
+        msg = 'Could not reach Lynx Assistant. Check your connection and try again.';
+      }
+      appendMsg('assistant', msg);
       streaming = false;
       sendBtn.disabled = false;
     });
