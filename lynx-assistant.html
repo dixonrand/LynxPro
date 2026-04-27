@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Lynx Assistant &mdash; Lynx Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+:root{--bg:#F5EFD6;--bg-card:#FDFAF0;--bg-section:#EDE4BF;--gold:#E8A800;--ink:#111;--ink-2:#333;--ink-3:#555;--ink-4:#666;--ink-5:#888;--ink-6:#aaa;--nav-bg:#1a1a1a;--border:#111;--border-row:rgba(0,0,0,.12);--purple:#55009C}
+[data-theme="finishlynx"]{--bg:#e9e9e9;--bg-card:#fff;--bg-section:#efe8f5;--gold:#55009C;--ink:#222;--ink-2:#333;--ink-3:#555;--ink-4:#666;--ink-5:#888;--ink-6:#aaa;--nav-bg:#2d004f;--border:#55009C;--purple:#55009C}
+[data-theme="glass"]{--bg:transparent;--bg-card:rgba(255,255,255,.08);--bg-section:rgba(255,255,255,.1);--gold:#E8A800;--ink:#fff;--ink-2:rgba(255,255,255,.9);--ink-3:rgba(255,255,255,.7);--ink-4:rgba(255,255,255,.6);--ink-5:rgba(255,255,255,.45);--ink-6:rgba(255,255,255,.3);--nav-bg:rgba(0,0,0,.2);--border:rgba(255,255,255,.18);--purple:#9c5cce}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:15px;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+[data-theme="glass"] html{background:linear-gradient(180deg,#2080d8 0%,#45a8f0 18%,#1d6820 30%,#3a9535 38%,#c43525 42%,#8a1c0c 100%) fixed;min-height:100vh}
+[data-theme="glass"] body{background:transparent}
+
+/* Header */
+.hdr{background:var(--nav-bg);border-bottom:3px solid var(--gold);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.logo{display:flex;align-items:center;gap:14px}
+.logo img{height:32px;width:auto;display:block}
+.logo-divider{width:1px;height:24px;background:rgba(255,255,255,.2)}
+.crumbs{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.3px;text-transform:uppercase}
+.crumb-link{opacity:.55;text-decoration:none;color:inherit;transition:opacity .15s}
+.crumb-link:hover{opacity:1}
+.crumb-sep{opacity:.35;font-weight:400;font-size:15px}
+.crumb-current{opacity:.95}
+.hdr-right{display:flex;align-items:center;gap:14px}
+.theme-picker{display:flex;align-items:center;gap:6px}
+.theme-dot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.25);cursor:pointer;transition:transform .15s;padding:0;outline:none}
+.theme-dot:hover{transform:scale(1.2)}
+.theme-dot.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.hdr-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border)}
+[data-theme="glass"] .hdr{backdrop-filter:blur(18px) saturate(170%);-webkit-backdrop-filter:blur(18px) saturate(170%);border-bottom:1px solid rgba(255,255,255,.15)}
+[data-theme="glass"] .hdr-beta{background:rgba(232,168,0,.3);border-color:rgba(232,168,0,.5);color:#fff}
+[data-theme="glass"] .theme-dot{border-color:rgba(255,255,255,.4)}
+
+/* Chat layout */
+.chat-wrap{flex:1;display:flex;flex-direction:column;max-width:800px;width:100%;margin:0 auto;overflow:hidden}
+
+/* Messages area */
+.messages{flex:1;overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:16px}
+.msg{display:flex;gap:10px;max-width:85%;animation:msgIn .2s ease}
+.msg-user{align-self:flex-end;flex-direction:row-reverse}
+.msg-assistant{align-self:flex-start}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.msg-avatar{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+.msg-user .msg-avatar{background:var(--gold);color:#111}
+.msg-assistant .msg-avatar{background:var(--purple);color:#fff}
+
+.msg-bubble{padding:10px 14px;border-radius:12px;font-size:14px;line-height:1.55;word-break:break-word}
+.msg-user .msg-bubble{background:var(--gold);color:#111;border-bottom-right-radius:4px}
+.msg-assistant .msg-bubble{background:var(--bg-card);border:1px solid var(--border-row);color:var(--ink);border-bottom-left-radius:4px}
+.msg-bubble p{margin-bottom:8px}
+.msg-bubble p:last-child{margin-bottom:0}
+.msg-bubble code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--bg-section);padding:1px 4px;border-radius:3px}
+.msg-bubble pre{background:var(--bg-section);padding:10px 12px;border-radius:6px;overflow-x:auto;margin:6px 0;font-size:12px}
+.msg-bubble pre code{background:none;padding:0}
+.msg-bubble ol,.msg-bubble ul{margin:6px 0 6px 18px}
+.msg-bubble li{margin-bottom:4px}
+.msg-bubble strong{font-weight:700}
+
+/* Typing indicator */
+.typing{display:flex;gap:4px;padding:12px 16px;align-self:flex-start}
+.typing-dot{width:6px;height:6px;border-radius:50%;background:var(--ink-5);animation:typePulse 1.2s ease-in-out infinite}
+.typing-dot:nth-child(2){animation-delay:.2s}
+.typing-dot:nth-child(3){animation-delay:.4s}
+@keyframes typePulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+
+/* Welcome state */
+.welcome{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;gap:16px}
+.welcome-icon{width:64px;height:64px;background:var(--purple);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.welcome-icon img{width:36px;height:36px}
+.welcome h2{font-size:22px;font-weight:800;letter-spacing:-.3px}
+.welcome p{font-size:14px;color:var(--ink-4);max-width:420px;line-height:1.55}
+.suggestions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:8px}
+.suggestion{background:var(--bg-card);border:1px solid var(--border-row);padding:8px 14px;border-radius:20px;font-size:13px;color:var(--ink-3);cursor:pointer;transition:border-color .12s,background .12s;font-family:inherit}
+.suggestion:hover{border-color:var(--gold);background:var(--bg-section);color:var(--ink)}
+
+/* Input area */
+.input-area{padding:12px 20px 20px;border-top:1px solid var(--border-row);flex-shrink:0;background:var(--bg)}
+[data-theme="glass"] .input-area{background:transparent;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.input-row{display:flex;gap:8px;align-items:flex-end}
+.input-box{flex:1;border:2px solid var(--border-row);border-radius:10px;padding:10px 14px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg-card);outline:none;resize:none;min-height:44px;max-height:120px;line-height:1.4;transition:border-color .12s}
+.input-box:focus{border-color:var(--gold)}
+.input-box::placeholder{color:var(--ink-5)}
+.send-btn{background:var(--gold);color:#111;border:none;border-radius:10px;padding:10px 18px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;transition:background .12s;min-height:44px;white-space:nowrap}
+.send-btn:hover{background:var(--purple);color:#fff}
+.send-btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* Status bar */
+.status-bar{text-align:center;padding:6px;font-size:11px;color:var(--ink-6)}
+.status-bar a{color:var(--gold);text-decoration:none}
+
+/* New chat button */
+.new-chat{position:absolute;top:68px;right:16px;background:var(--bg-card);border:1px solid var(--border-row);border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;color:var(--ink-4);cursor:pointer;font-family:inherit;transition:border-color .12s}
+.new-chat:hover{border-color:var(--gold);color:var(--ink)}
+
+@media(max-width:720px){
+  .messages{padding:16px 12px}
+  .input-area{padding:10px 12px 16px}
+  .msg{max-width:92%}
+  .welcome h2{font-size:18px}
+  .suggestions{flex-direction:column;align-items:stretch}
+}
+</style>
+<script>
+(function(){var t=localStorage.getItem('lynxpro-theme');if(t)document.documentElement.setAttribute('data-theme',t)})();
+</script>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo">
+    <img src="lynx-head-white-200x200.png" alt="Lynx Pro" onerror="this.style.display='none'">
+    <div class="logo-divider"></div>
+    <div class="crumbs">
+      <a href="index.html" class="crumb-link">Lynx Pro</a>
+      <span class="crumb-sep">&rsaquo;</span>
+      <span class="crumb-current">Lynx Assistant</span>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <div class="theme-picker">
+      <button class="theme-dot" data-theme="classic" style="background:#F5EFD6" title="Classic"></button>
+      <button class="theme-dot" data-theme="finishlynx" style="background:#55009C" title="FinishLynx"></button>
+      <button class="theme-dot" data-theme="glass" style="background:linear-gradient(180deg,#4a9ee8,#c04030)" title="Track"></button>
+    </div>
+    <span class="hdr-beta">In Beta</span>
+  </div>
+</div>
+
+<button class="new-chat" id="newChat" style="display:none" title="Start over">+ New Chat</button>
+
+<div class="chat-wrap">
+  <!-- Welcome screen (shown before first message) -->
+  <div class="welcome" id="welcome">
+    <div class="welcome-icon">
+      <img src="lynx-head-white-200x200.png" alt="" onerror="this.parentNode.textContent='🐱'">
+    </div>
+    <h2>Lynx Assistant</h2>
+    <p>Ask anything about FinishLynx setup, troubleshooting, cameras, software, scoreboards, or timing accessories.</p>
+    <div class="suggestions">
+      <button class="suggestion" data-q="How do I fix 'Error aligning camera'?">Error aligning camera</button>
+      <button class="suggestion" data-q="How do I set up RadioLynx wireless start?">RadioLynx setup</button>
+      <button class="suggestion" data-q="My scoreboard isn't displaying results">Scoreboard not working</button>
+      <button class="suggestion" data-q="How do I connect FinishLynx to HyTek?">HyTek integration</button>
+    </div>
+  </div>
+
+  <!-- Messages (hidden until first message) -->
+  <div class="messages" id="messages" style="display:none"></div>
+</div>
+
+<div class="input-area">
+  <div class="input-row">
+    <textarea class="input-box" id="inputBox" placeholder="Ask a question about FinishLynx…" rows="1"></textarea>
+    <button class="send-btn" id="sendBtn">Send</button>
+  </div>
+  <div class="status-bar">Powered by your Claude Project &middot; <a href="https://www.finishlynx.com/support" target="_blank">finishlynx.com/support</a></div>
+</div>
+
+<script>
+(function(){
+  // ============================================================
+  // CONFIGURATION — update this URL after deploying the Worker
+  // ============================================================
+  var WORKER_URL = '';  // e.g. 'https://lynx-chat.your-subdomain.workers.dev'
+
+  // Theme switcher
+  var cur = localStorage.getItem('lynxpro-theme') || 'classic';
+  document.querySelectorAll('.theme-dot').forEach(function(dot){
+    if(dot.dataset.theme === cur) dot.classList.add('active');
+    dot.addEventListener('click', function(){
+      var theme = dot.dataset.theme;
+      document.documentElement.setAttribute('data-theme', theme === 'classic' ? '' : theme);
+      localStorage.setItem('lynxpro-theme', theme);
+      document.querySelectorAll('.theme-dot').forEach(function(d){ d.classList.toggle('active', d === dot); });
+    });
+  });
+
+  var welcomeEl = document.getElementById('welcome');
+  var messagesEl = document.getElementById('messages');
+  var inputBox = document.getElementById('inputBox');
+  var sendBtn = document.getElementById('sendBtn');
+  var newChatBtn = document.getElementById('newChat');
+  var history = [];  // {role, content}
+  var streaming = false;
+
+  // Auto-resize textarea
+  inputBox.addEventListener('input', function(){
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+  });
+
+  // Send on Enter (Shift+Enter for newline)
+  inputBox.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' && !e.shiftKey){
+      e.preventDefault();
+      send();
+    }
+  });
+
+  sendBtn.addEventListener('click', send);
+
+  // Suggestion buttons
+  document.querySelectorAll('.suggestion').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      inputBox.value = btn.dataset.q;
+      send();
+    });
+  });
+
+  // New chat
+  newChatBtn.addEventListener('click', function(){
+    history = [];
+    messagesEl.innerHTML = '';
+    messagesEl.style.display = 'none';
+    welcomeEl.style.display = '';
+    newChatBtn.style.display = 'none';
+    inputBox.value = '';
+    inputBox.style.height = 'auto';
+  });
+
+  function send(){
+    var text = inputBox.value.trim();
+    if(!text || streaming) return;
+
+    // Switch from welcome to chat
+    if(welcomeEl.style.display !== 'none'){
+      welcomeEl.style.display = 'none';
+      messagesEl.style.display = 'flex';
+      newChatBtn.style.display = '';
+    }
+
+    // Add user message
+    history.push({role:'user', content:text});
+    appendMsg('user', text);
+    inputBox.value = '';
+    inputBox.style.height = 'auto';
+
+    // Check if Worker is configured
+    if(!WORKER_URL){
+      appendMsg('assistant', 'The Lynx Assistant is not connected yet. To enable it:\n\n1. Deploy the Cloudflare Worker from `support/scripts/cloudflare-worker.js`\n2. Add your Anthropic API key as an environment variable\n3. Paste the Worker URL into the `WORKER_URL` constant in this page\'s script\n\nSee the deployment guide in the repo for details.');
+      return;
+    }
+
+    callAPI();
+  }
+
+  function appendMsg(role, content){
+    var div = document.createElement('div');
+    div.className = 'msg msg-' + role;
+    var avatar = document.createElement('div');
+    avatar.className = 'msg-avatar';
+    avatar.textContent = role === 'user' ? 'You' : 'Lx';
+    var bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.innerHTML = formatMarkdown(content);
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return bubble;
+  }
+
+  function showTyping(){
+    var div = document.createElement('div');
+    div.className = 'typing';
+    div.id = 'typing';
+    div.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+  function hideTyping(){
+    var el = document.getElementById('typing');
+    if(el) el.remove();
+  }
+
+  function callAPI(){
+    streaming = true;
+    sendBtn.disabled = true;
+    showTyping();
+
+    fetch(WORKER_URL, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        messages: history,
+        max_tokens: 2048
+      })
+    }).then(function(res){
+      hideTyping();
+      if(!res.ok) throw new Error('API error: ' + res.status);
+
+      var bubble = appendMsg('assistant', '');
+      var fullText = '';
+
+      // Parse SSE stream
+      var reader = res.body.getReader();
+      var decoder = new TextDecoder();
+      var buffer = '';
+
+      function read(){
+        reader.read().then(function(result){
+          if(result.done){
+            history.push({role:'assistant', content:fullText});
+            streaming = false;
+            sendBtn.disabled = false;
+            return;
+          }
+          buffer += decoder.decode(result.value, {stream:true});
+          var lines = buffer.split('\n');
+          buffer = lines.pop();
+
+          lines.forEach(function(line){
+            if(!line.startsWith('data: ')) return;
+            var data = line.slice(6).trim();
+            if(data === '[DONE]') return;
+            try{
+              var evt = JSON.parse(data);
+              if(evt.type === 'content_block_delta' && evt.delta && evt.delta.text){
+                fullText += evt.delta.text;
+                bubble.innerHTML = formatMarkdown(fullText);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+              }
+            }catch(e){}
+          });
+          read();
+        });
+      }
+      read();
+
+    }).catch(function(err){
+      hideTyping();
+      appendMsg('assistant', 'Sorry, something went wrong: ' + err.message);
+      streaming = false;
+      sendBtn.disabled = false;
+    });
+  }
+
+  // Simple markdown → HTML (handles bold, code, code blocks, lists, paragraphs)
+  function formatMarkdown(md){
+    if(!md) return '';
+    // Code blocks
+    md = md.replace(/```(\w*)\n([\s\S]*?)```/g, function(_,lang,code){
+      return '<pre><code>' + esc(code.trim()) + '</code></pre>';
+    });
+    // Inline code
+    md = md.replace(/`([^`]+)`/g, '<code>$1</code>');
+    // Bold
+    md = md.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    // Split into paragraphs
+    var blocks = md.split(/\n\n+/);
+    var html = '';
+    blocks.forEach(function(block){
+      block = block.trim();
+      if(!block) return;
+      if(block.startsWith('<pre>')) { html += block; return; }
+      // Numbered list
+      if(/^\d+[\.\)]\s/.test(block)){
+        var items = block.split(/\n/).filter(Boolean);
+        html += '<ol>';
+        items.forEach(function(li){ html += '<li>' + li.replace(/^\d+[\.\)]\s*/, '') + '</li>'; });
+        html += '</ol>';
+        return;
+      }
+      // Bullet list
+      if(/^[-*]\s/.test(block)){
+        var items = block.split(/\n/).filter(Boolean);
+        html += '<ul>';
+        items.forEach(function(li){ html += '<li>' + li.replace(/^[-*]\s*/, '') + '</li>'; });
+        html += '</ul>';
+        return;
+      }
+      // Line breaks within a paragraph
+      html += '<p>' + block.replace(/\n/g, '<br>') + '</p>';
+    });
+    return html;
+  }
+
+  function esc(s){
+    return String(s||'').replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; });
+  }
+})();
+</script>
+</body>
+</html>
