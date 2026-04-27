@@ -28,11 +28,11 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .hero-brand{font-size:clamp(36px,5.5vw,64px);font-weight:800;color:var(--gold);letter-spacing:clamp(3px,.6vw,7px);text-transform:uppercase;margin-bottom:10px}
 .hero-title{font-size:clamp(28px,4.5vw,48px);font-weight:800;color:var(--ink);letter-spacing:-1.5px;line-height:1.08}
 .hero-title span{color:var(--gold)}
-.section{margin:0 auto;padding:0 24px 32px;width:100%}
+.section{max-width:1900px;margin:0 auto;padding:0 24px 32px;width:100%}
 .section-hdr{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:10px;border-bottom:var(--border)}
 .section-label{font-size:11px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--ink-4)}
 .section-count{font-family:var(--mono);font-size:11px;color:var(--ink-4);margin-left:auto}
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),500px));gap:14px;justify-content:center}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px}
 .tool-card{background:var(--bg-card);border:var(--border);display:flex;flex-direction:column;position:relative;overflow:hidden;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
 .tool-card.live{cursor:pointer}
 .tool-card.live:hover{transform:translateY(-3px);box-shadow:5px 5px 0 var(--border-c)}
