@@ -223,12 +223,12 @@ async function fetchCachedRepoFile(path) {
   const cache = caches.default;
   const cacheKey = new Request(url);
 
-  let cached = await cache.match(cacheKey);
+  const cached = await cache.match(cacheKey);
   if (cached) return cached.text();
 
-  const fresh = await fetch(url, {
-    cf: { cacheTtl: KNOWLEDGE_CACHE_SECONDS, cacheEverything: true },
-  });
+  // Bypass Cloudflare edge cache so failures don't stick — only successful
+  // responses go into our explicit cache.put below.
+  const fresh = await fetch(url, { cf: { cacheTtl: 0, cacheEverything: false } });
   if (!fresh.ok) {
     throw new Error('Failed to fetch ' + url + ' (' + fresh.status + ')');
   }
