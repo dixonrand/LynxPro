@@ -1,6 +1,6 @@
 # FAQ — Ranked
 
-Ranked list of the most common FinishLynx support topics, in order of how often they come up. This list mirrors the starter prompt chips on the Lynx Assistant landing page.
+Ranked list of the most common FinishLynx support topics, in order of how often they come up. This list mirrors the starter prompt chips on the Lynx Support landing page.
 
 ---
 
