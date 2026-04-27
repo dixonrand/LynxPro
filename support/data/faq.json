@@ -1,0 +1,247 @@
+[
+  {
+    "id": "etherlynx-vision-vision-pro-vision-pro-x",
+    "title": "EtherLynx Vision / Vision PRO / Vision PRO X",
+    "section": "Product Rules & Gotchas",
+    "type": "tip",
+    "content": "- C-Mount lenses require the CS-C 5mm ring adapter installed between the lens and camera body. CS-Mount lenses must NOT use the adapter. Incorrect adapter usage causes persistent blurry images that cannot be resolved through focus adjustment.\n- \"Error aligning camera\" is always caused by the camera not booting correctly. Always refer to the Camera Boot Troubleshooting Guide.\n- Camera LED states: flashing amber = waiting for FinishLynx; solid green = powered on; flashing red = booting/waiting (normal); solid red persisting beyond ~1 minute = boot failure.\n- Camera IPs are auto-assigned by FinishLynx — they are not manually configured by the user.\n- Image orientation (which direction competitors face in the image) is determined by the direction competitors move across the lens, not which side of the track the camera is on.\n- Silver screw fix applies to drifting or out-of-focus Vision lenses. Refer to the YouTube fix video.\n- VDM upgrade codes are per-camera and tied to a specific serial number. \"Invalid code\" error may appear even when the code was actually accepted — always restart the camera and FinishLynx before concluding the code failed.\n- A faulty Ethernet cable between the PoE injector and camera can present as a missing network adapter. Isolation method: connect a USB-to-Ethernet adapter directly to a second computer — if no network appears in Windows Settings, the cable is faulty."
+  },
+  {
+    "id": "identilynx",
+    "title": "IdentiLynx",
+    "section": "Product Rules & Gotchas",
+    "type": "tip",
+    "content": "- IdentiLynx Automatic capture mode (not IdentiLynx Motion) is correct when used alongside an EtherLynx camera.\n- Video blackout during capture that reproduces across multiple cables and PoE switch ports indicates a hardware defect — escalate to RMA."
+  },
+  {
+    "id": "finishlynx-software",
+    "title": "FinishLynx Software",
+    "section": "Product Rules & Gotchas",
+    "type": "tip",
+    "content": "- FinishLynx Lite installs to `C:\\LynxLite`, not `C:\\Lynx`.\n- FinishLynx software upgrades are always free.\n- NCP (Network COM Port) plug-in is bundled in FinishLynx 13.00 and later — no separate install needed.\n- \"Run as Administrator\" on the read laptop causes Z: drive visibility issues in FinishLynx — this setting should be unchecked.\n- Virtual Photo Beam Unit is a software-based ACM, not physical hardware.\n- LynxPad splits checkbox only appears when the Results view is set to By Heat.\n- Single Event Mode: two events can be timed from the same image by evaluating and saving the first event, loading the second start list, and using File > Save As for the second.\n- Multi-User Mode: set the second laptop to Hardware Type None to open events in reader mode while capture is active on the primary laptop."
+  },
+  {
+    "id": "fieldlynx-fieldlynx-lite",
+    "title": "FieldLynx / FieldLynx Lite",
+    "section": "Product Rules & Gotchas",
+    "type": "tip",
+    "content": "- FieldLynx Lite does NOT support meet management database connections (e.g., sending field series to LynxPad). Full FieldLynx does.\n- FieldLynx Lite only supports peripherals such as lasers and scoreboards."
+  },
+  {
+    "id": "radiolynx",
+    "title": "RadioLynx",
+    "section": "Product Rules & Gotchas",
+    "type": "tip",
+    "content": "- When configuring RadioLynx, always set Wired Start Sensor to None on the Inputs tab first."
+  },
+  {
+    "id": "acm-automatic-capture-mode",
+    "title": "ACM (Automatic Capture Mode)",
+    "section": "Product Rules & Gotchas",
+    "type": "tip",
+    "content": "- Uncheck \"Allow button override\" in `File > Options > General` when setting up ACM."
+  },
+  {
+    "id": "resultv-resultv-vdm",
+    "title": "ResulTV / ResulTV-VDM",
+    "section": "Product Rules & Gotchas",
+    "type": "tip",
+    "content": "- \"Running\" status on a scoreboard in FinishLynx only means FinishLynx is sending data — it does not confirm the scoreboard is receiving it.\n- The Portable Display requires HDMI video input. It cannot receive or generate graphics from a raw Ethernet/network connection. The RJ45 port on the display carries internal LED panel data, not standard Ethernet."
+  },
+  {
+    "id": "software-install-paths",
+    "title": "Software Install Paths",
+    "section": "Default Settings & Values",
+    "type": "reference",
+    "content": "- FinishLynx: `C:\\Lynx`\n- FinishLynx Lite: `C:\\LynxLite`\n- Meet directory: `C:\\Meets`"
+  },
+  {
+    "id": "firewall",
+    "title": "Firewall",
+    "section": "Default Settings & Values",
+    "type": "reference",
+    "content": "- Always use `C:\\Lynx\\Lynx.exe` when adding FinishLynx to Windows Firewall exceptions. Steps go through Windows Security, not Control Panel."
+  },
+  {
+    "id": "hardware-type",
+    "title": "Hardware Type",
+    "section": "Default Settings & Values",
+    "type": "reference",
+    "content": "- Set to None when using a second laptop in Multi-User Mode or when timing without a camera."
+  },
+  {
+    "id": "laptime-from-image",
+    "title": "LapTime From Image",
+    "section": "Default Settings & Values",
+    "type": "reference",
+    "content": "- Required when using Manual Start without a camera, or when adding split capability to a read laptop. Requires a restart after setup for status to change from Not Loaded to Running."
+  },
+  {
+    "id": "plugin-downloads-path",
+    "title": "Plugin Downloads Path",
+    "section": "Default Settings & Values",
+    "type": "reference",
+    "content": "- Support > Update Your Software & Plug-ins > FinishLynx > Product Downloads > FinishLynx Software Plug-ins"
+  },
+  {
+    "id": "general-escalation-path",
+    "title": "General Escalation Path",
+    "section": "Support Workflow",
+    "type": "workflow",
+    "content": "1. Troubleshoot via email using documentation and Known Fixes.\n2. If unresolved, ask customer to download TeamViewer before recommending a call: [www.finishlynx.com/support](http://www.finishlynx.com/support)\n3. Only recommend calling support as a last resort after all troubleshooting is exhausted."
+  },
+  {
+    "id": "loaner-replacement-policy",
+    "title": "Loaner / Replacement Policy",
+    "section": "Support Workflow",
+    "type": "workflow",
+    "content": "- Loaners are only offered for brand-new hardware with a confirmed hardware defect.\n- For defective new cameras: direct customer to submit an RMA, then ship a replacement once received.\n- Loaners are not offered for older units."
+  },
+  {
+    "id": "software-upgrade-policy",
+    "title": "Software Upgrade Policy",
+    "section": "Support Workflow",
+    "type": "workflow",
+    "content": "- FinishLynx software upgrades are always free.\n- Direct customers to [www.finishlynx.com/support](http://www.finishlynx.com/support) to download the latest version."
+  },
+  {
+    "id": "rma-process",
+    "title": "RMA Process",
+    "section": "Support Workflow",
+    "type": "workflow",
+    "content": "- Direct customer to submit a Repair/Replacement RMA via the RMA portal.\n- Refer to the Submit a Repair RMA to Lynx document in the Document Index."
+  },
+  {
+    "id": "teamviewer",
+    "title": "TeamViewer",
+    "section": "Support Workflow",
+    "type": "workflow",
+    "content": "- Always direct the customer to download TeamViewer before a support call.\n- Download link: [www.finishlynx.com/support](http://www.finishlynx.com/support)\n- Disable Wi-Fi after a remote session ends, not during — TeamViewer depends on the connection remaining active."
+  },
+  {
+    "id": "camera-not-found-not-loading",
+    "title": "Camera Not Found / Not Loading",
+    "section": "Troubleshooting Patterns",
+    "type": "troubleshooting",
+    "content": "1. Check LED state — flashing red is normal during boot; solid red beyond ~1 minute is a boot failure.\n2. Refer to Camera Boot Troubleshooting Guide.\n3. Check Ethernet cable between PoE injector and camera — a faulty cable can present as a missing network adapter.\n4. Check network adapter settings and IP configuration on the computer.\n5. Refer to Networking Guide for the customer's OS version."
+  },
+  {
+    "id": "blurry-or-out-of-focus-image",
+    "title": "Blurry or Out-of-Focus Image",
+    "section": "Troubleshooting Patterns",
+    "type": "troubleshooting",
+    "content": "1. Verify CS-C adapter usage — C-Mount needs adapter, CS-Mount must not use adapter.\n2. Check focus ring and software focus settings.\n3. For Vision lenses that drift or won't hold focus — refer to silver screw fix video."
+  },
+  {
+    "id": "scoreboard-not-displaying-results",
+    "title": "Scoreboard Not Displaying Results",
+    "section": "Troubleshooting Patterns",
+    "type": "troubleshooting",
+    "content": "1. Confirm FinishLynx shows \"Running\" — this only means data is being sent, not received.\n2. Check scoreboard cable connections.\n3. Verify correct COM port or IP settings in Scoreboard Options.\n4. Confirm correct .LSS script is loaded.\n5. Check NCP plugin is active (FinishLynx 13+) or installed."
+  },
+  {
+    "id": "wireless-start-not-triggering",
+    "title": "Wireless Start Not Triggering",
+    "section": "Troubleshooting Patterns",
+    "type": "troubleshooting",
+    "content": "1. Confirm Wired Start Sensor is set to None on the Inputs tab.\n2. Check RadioLynx frequency settings.\n3. Refer to RadioLynx Troubleshooting QSG."
+  },
+  {
+    "id": "database-meet-management-not-connecting",
+    "title": "Database / Meet Management Not Connecting",
+    "section": "Troubleshooting Patterns",
+    "type": "troubleshooting",
+    "content": "1. Confirm file sharing is enabled and both computers are on the same network.\n2. Check Event Directory path is accessible from both machines.\n3. Confirm correct interface type (HY-WIRE, FAT, etc.) is selected in meet management software.\n4. Check for bad Ethernet cable between meet management computer and network switch — this is an early check when network issues lack an obvious cause."
+  },
+  {
+    "id": "z-drive-not-visible-on-read-laptop",
+    "title": "Z: Drive Not Visible on Read Laptop",
+    "section": "Troubleshooting Patterns",
+    "type": "troubleshooting",
+    "content": "1. Confirm \"Run as Administrator\" is unchecked for FinishLynx on the read laptop."
+  },
+  {
+    "id": "resultv-vs-resultv-vdm",
+    "title": "ResulTV vs. ResulTV-VDM",
+    "section": "Product Recommendations & Sales Awareness",
+    "type": "reference",
+    "content": "Before recommending either, ask:\n1. What are the pixel dimensions of the scoreboard?\n2. How customizable does the customer want the layout?\n\n- **ResulTV** — more flexible, more expensive. Layout is fully customizable.\n- **ResulTV-VDM** — simpler, less expensive. Locked to scoreboard dimensions but colors, fonts, and fields are customizable. Greg currently leans toward VDM for most customers.\n- Lynx configures the screen size in advance, then ships the key and dongle to the customer."
+  },
+  {
+    "id": "fieldlynx-vs-fieldlynx-lite",
+    "title": "FieldLynx vs. FieldLynx Lite",
+    "section": "Product Recommendations & Sales Awareness",
+    "type": "reference",
+    "content": "- If customer needs to send field series results to LynxPad or another meet management system, they need full FieldLynx. FieldLynx Lite cannot do this.\n- FieldLynx Lite supports peripherals only (lasers, scoreboards)."
+  },
+  {
+    "id": "domestic-package-awareness",
+    "title": "Domestic Package Awareness",
+    "section": "Product Recommendations & Sales Awareness",
+    "type": "reference",
+    "content": "- Refer to the Track Domestic Packages Comparison document for a full breakdown of what each tier includes.\n- Package tiers: Scholastic, Bronze, Silver, Gold, Platinum, Diamond."
+  },
+  {
+    "id": "general-sales-notes",
+    "title": "General Sales Notes",
+    "section": "Product Recommendations & Sales Awareness",
+    "type": "reference",
+    "content": "- FinishLynx has no API. Integrations use .LIF file export or scoreboard output via .LSS files.\n- Always confirm what meet management software a customer is using before recommending an integration path."
+  },
+  {
+    "id": "finishlynx-api",
+    "title": "FinishLynx API",
+    "section": "Integration & Export",
+    "type": "integration",
+    "content": "- FinishLynx has no API.\n- Third-party integrations use one of two methods:\n  1. **.LIF text file export** — FinishLynx writes results to a .LIF file that meet management software reads.\n  2. **Scoreboard output over serial or TCP via .LSS files** — FinishLynx sends data to a scoreboard or display using a script file.\n- Always attach an example .LSS file when responding to integration questions about scoreboards."
+  },
+  {
+    "id": "lif-file-format",
+    "title": "LIF File Format",
+    "section": "Integration & Export",
+    "type": "integration",
+    "content": "- The .LIF file is a plain text comma-delimited format.\n- Reference: FinishLynx Database Files documentation in the online manual.\n- Quote event names containing commas (e.g., `\"Men 10,000 Metres\"`).\n- Omit wind and reaction time fields for 400m+ events."
+  },
+  {
+    "id": "meet-management-integrations",
+    "title": "Meet Management Integrations",
+    "section": "Integration & Export",
+    "type": "integration",
+    "content": "- **HyTek**: Uses HY-WIRE serial connection or file sharing. Refer to HyTek Serial Connection Setup and HyTek File Sharing Setup documents.\n- **MeetPro**: Uses FAT interface. Refer to MeetPro2 Manual.\n- **AthleticNET RunMeet**: Refer to Using AthleticRUNMEET with Fully Automatic Timing document."
+  },
+  {
+    "id": "scoreboard-scripts-lss",
+    "title": "Scoreboard Scripts (.LSS)",
+    "section": "Integration & Export",
+    "type": "integration",
+    "content": "- Scoreboard scripts control what data is displayed and how.\n- Refer to Display Timing and Results Data with Custom Scoreboard Scripts (.LSS) document.\n- Daktronics integration: refer to Track & Field Interfaces for Scoreboards & Displays Setup Guide."
+  },
+  {
+    "id": "standard-setup",
+    "title": "Standard Setup",
+    "section": "Networking",
+    "type": "networking",
+    "content": "- FinishLynx cameras receive IP addresses auto-assigned by FinishLynx — they are not manually configured.\n- All computers and cameras should be on the same local network.\n- Refer to the Networking Guide for the customer's OS (Windows 10 or Windows 11)."
+  },
+  {
+    "id": "common-failure-points",
+    "title": "Common Failure Points",
+    "section": "Networking",
+    "type": "networking",
+    "content": "- Bad Ethernet cable between meet management computer and network switch — check this early when network or shared folder issues have no obvious cause.\n- Faulty cable between PoE injector and camera can present as a missing network adapter. Test by connecting a USB-to-Ethernet adapter directly to a second computer — if no network appears in Windows Settings, the cable is faulty.\n- Network adapter power management settings can cause dropped connections — disable power saving on the adapter.\n- Wi-Fi should be disabled after a remote support call ends, not during (TeamViewer dependency)."
+  },
+  {
+    "id": "vonets-vap11g-300",
+    "title": "Vonets VAP11G-300",
+    "section": "Networking",
+    "type": "networking",
+    "content": "- Used as a wireless bridge to extend the FinishLynx network wirelessly.\n- Refer to Vonets setup documentation when assisting customers with AirLynx or wireless camera extension configurations."
+  },
+  {
+    "id": "multi-computer-setups",
+    "title": "Multi-Computer Setups",
+    "section": "Networking",
+    "type": "networking",
+    "content": "- Both computers must have access to the same Event Directory (shared network folder) for Multi-User Mode to work.\n- To view event images (not just results) on a second laptop while a race is ongoing, both computers must also have access to the `C:\\Lynx\\Temp` folder on the primary computer. Images are first stored in the Temp folder during an active race — without correct permissions, images will not carry over to the second laptop.\n- \"Run as Administrator\" on the read laptop causes Z: drive visibility issues — this should be unchecked."
+  }
+]
