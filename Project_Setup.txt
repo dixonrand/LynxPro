@@ -1,0 +1,4 @@
+PROJECT NAME: Lynx Knowledge
+
+PROJECT DESCRIPTION:
+Lynx System Developers knowledge base for FinishLynx products, software, troubleshooting, and support. Covers technical support, sales, training, and onboarding across the full Lynx product line.
