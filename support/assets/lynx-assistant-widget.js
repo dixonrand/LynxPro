@@ -72,6 +72,7 @@
       '  <div class="lynx-widget-header-logo"><img src="' + LOGO_URL + '" alt=""></div>',
       '  <div class="lynx-widget-header-title">Lynx Assistant</div>',
       '  <span class="lynx-widget-header-beta">BETA</span>',
+      '  <button class="lynx-widget-header-btn" id="lynxWidgetNewChat" title="New chat" aria-label="New chat">&#43;</button>',
       '  <button class="lynx-widget-header-btn" id="lynxWidgetExpand" title="Open in full page" aria-label="Open in full page">&#8599;</button>',
       '  <button class="lynx-widget-header-btn" id="lynxWidgetClose" title="Close" aria-label="Close">&times;</button>',
       '</div>',
@@ -204,6 +205,7 @@
     var chipsEl    = panel.querySelector('#lynxWidgetChips');
     var inputEl    = panel.querySelector('#lynxWidgetInput');
     var sendBtn    = panel.querySelector('#lynxWidgetSend');
+    var newChatBtn = panel.querySelector('#lynxWidgetNewChat');
     var expandBtn  = panel.querySelector('#lynxWidgetExpand');
     var closeBtn   = panel.querySelector('#lynxWidgetClose');
 
@@ -235,6 +237,7 @@
     // ---- Event handlers --------------------------------------------------
     launcher.addEventListener('click', openPanel);
     closeBtn.addEventListener('click', closePanel);
+    newChatBtn.addEventListener('click', resetChat);
     expandBtn.addEventListener('click', function () {
       window.location.href = resolveFullPagePath();
     });
@@ -261,6 +264,18 @@
       panel.classList.add('is-hidden');
       launcher.classList.remove('is-hidden');
       setOpenState(false);
+    }
+
+    function resetChat() {
+      if (streaming) return;
+      history = [];
+      saveHistory(history);
+      messagesEl.innerHTML = '';
+      messagesEl.hidden = true;
+      welcomeEl.hidden = false;
+      inputEl.value = '';
+      inputEl.style.height = 'auto';
+      setTimeout(function () { inputEl.focus(); }, 30);
     }
 
     function renderMessage(role, content) {
@@ -387,13 +402,7 @@
         inputEl.value = text;
         send();
       },
-      reset: function () {
-        history = [];
-        saveHistory(history);
-        messagesEl.innerHTML = '';
-        messagesEl.hidden = true;
-        welcomeEl.hidden = false;
-      }
+      reset: resetChat
     };
   }
 
