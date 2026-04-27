@@ -38,6 +38,10 @@
   animation:lynx-widget-slide-in .22s ease-out;
 }
 .lynx-widget-panel.is-hidden{display:none}
+/* Make the [hidden] attribute actually win over .lynx-widget-welcome /
+   .lynx-widget-messages display:flex, so the welcome screen goes away
+   the moment a real conversation starts. */
+.lynx-widget-panel [hidden]{display:none !important}
 @keyframes lynx-widget-slide-in{
   from{opacity:0;transform:translateY(16px) scale(.96)}
   to{opacity:1;transform:translateY(0) scale(1)}
