@@ -1,0 +1,50 @@
+name: Extract Docs
+
+# Downloads every PDF listed in support/data/resources.json, extracts its
+# text via pdftotext, and commits the result to support/data/extracted/.
+# The Lynx Assistant Worker reads these files at chat time so the bot can
+# quote directly from FinishLynx documentation.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Mondays at 06:00 UTC — picks up any updated PDFs published by Lynx
+    - cron: '0 6 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - 'support/data/resources.json'
+      - 'support/scripts/extract-docs.js'
+      - '.github/workflows/extract-docs.yml'
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install poppler-utils
+        run: sudo apt-get update -qq && sudo apt-get install -y poppler-utils
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run extraction
+        run: node support/scripts/extract-docs.js
+
+      - name: Commit extracted docs
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add support/data/extracted/
+          if git diff --cached --quiet; then
+            echo "No changes to extracted docs."
+          else
+            git commit -m "Update extracted docs (auto)"
+            git push
+          fi
