@@ -16,7 +16,9 @@
   // ---- Config -----------------------------------------------------------
   var WORKER_URL  = 'https://lynx-bot.dixonrand2017.workers.dev';
   var FULL_PAGE   = 'lynx-assistant.html';
-  var LOGO_URL    = 'https://dixonrand.github.io/lynx-head-512-200x200.png';
+  // Pull the logo from the repo via raw.githubusercontent.com so it works
+  // regardless of how the site is deployed (User Pages, custom domain, etc).
+  var LOGO_URL    = 'https://raw.githubusercontent.com/dixonrand/LynxPro/main/lynx-head-512-200x200.png';
   var STARTERS = [
     'Error aligning camera',
     'RadioLynx setup',
@@ -37,6 +39,17 @@
   }
 
   // ---- DOM construction --------------------------------------------------
+  // If the lynx-head image fails to load, swap it out for a clean
+  // text glyph so the launcher never shows a broken-image icon.
+  function applyLogoFallback(imgEl) {
+    imgEl.onerror = function () {
+      var span = document.createElement('span');
+      span.textContent = 'Lx';
+      span.style.cssText = 'color:#fff;font-weight:800;font-size:22px;letter-spacing:.5px;font-family:Inter,system-ui,sans-serif';
+      imgEl.replaceWith(span);
+    };
+  }
+
   function buildLauncher() {
     var btn = document.createElement('button');
     btn.className = 'lynx-widget-launcher';
@@ -45,6 +58,7 @@
     var img = document.createElement('img');
     img.src = LOGO_URL;
     img.alt = '';
+    applyLogoFallback(img);
     btn.appendChild(img);
     return btn;
   }
@@ -180,6 +194,10 @@
     var panel = buildPanel();
     document.body.appendChild(launcher);
     document.body.appendChild(panel);
+
+    // Wire fallbacks for the header + welcome logo images too
+    panel.querySelectorAll('.lynx-widget-header-logo img, .lynx-widget-welcome-icon img')
+      .forEach(applyLogoFallback);
 
     var welcomeEl  = panel.querySelector('#lynxWidgetWelcome');
     var messagesEl = panel.querySelector('#lynxWidgetMessages');
