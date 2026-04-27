@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
-<title>Lynx Assistant &mdash; Lynx Pro</title>
+<title>Lynx Support &mdash; Lynx Pro</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
@@ -148,7 +148,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
     <div class="crumbs">
       <a href="index.html" class="crumb-link">Lynx Pro</a>
       <span class="crumb-sep">&rsaquo;</span>
-      <span class="crumb-current">Lynx Assistant</span>
+      <span class="crumb-current">Lynx Support</span>
     </div>
   </div>
   <div class="hdr-right">
@@ -169,7 +169,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
     <div class="welcome-icon">
       <img src="lynx-head-white-200x200.png" alt="" onerror="this.parentNode.textContent='🐱'">
     </div>
-    <h2>Lynx Assistant</h2>
+    <h2>Lynx Support</h2>
     <p>Ask anything about FinishLynx setup, troubleshooting, cameras, software, scoreboards, or timing accessories.</p>
     <div class="suggestions">
       <div class="sugg-group">
@@ -353,7 +353,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
 
     // Check if Worker is configured
     if(!WORKER_URL){
-      appendMsg('assistant', 'The Lynx Assistant is not connected yet. To enable it:\n\n1. Deploy the Cloudflare Worker from `support/scripts/cloudflare-worker.js`\n2. Add your Anthropic API key as an environment variable\n3. Paste the Worker URL into the `WORKER_URL` constant in this page\'s script\n\nSee the deployment guide in the repo for details.');
+      appendMsg('assistant', 'Lynx Support is not connected yet. To enable it:\n\n1. Deploy the Cloudflare Worker from `support/scripts/cloudflare-worker.js`\n2. Add your Anthropic API key as an environment variable\n3. Paste the Worker URL into the `WORKER_URL` constant in this page\'s script\n\nSee the deployment guide in the repo for details.');
       return;
     }
 
