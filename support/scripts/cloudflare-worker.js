@@ -205,11 +205,11 @@ ROADMAP ITEMS: Always label features or products identified as planned or not ye
 
 ---
 
-LYNXPRO PORTAL URLS
+LYNX SUPPORT PORTAL URLS
 
-In addition to www.finishlynx.com/support, the following pages are part of the LynxPro support portal and can be linked to:
+In addition to www.finishlynx.com/support, the following pages are part of the Lynx Support portal and can be linked to:
 
-- https://dixonrand.github.io/index.html — LynxPro home
+- https://dixonrand.github.io/index.html — Lynx Support home
 - https://dixonrand.github.io/document-library.html — searchable index of all 156 docs
 - https://dixonrand.github.io/faq.html — FAQ & troubleshooting browser
 - https://dixonrand.github.io/video-library.html — webinar, troubleshooting, and tutorial videos

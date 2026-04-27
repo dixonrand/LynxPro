@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
- * Lynx Support — floating chat widget
+ * Lynx Assistant — floating chat widget
  *
  * Self-contained IIFE. Drops a launcher button + chat popup onto whatever
  * page it's loaded on. Chat history persists across pages via localStorage
@@ -54,7 +54,7 @@
     var btn = document.createElement('button');
     btn.className = 'lynx-widget-launcher';
     btn.id = 'lynxWidgetLauncher';
-    btn.setAttribute('aria-label', 'Open Lynx Support');
+    btn.setAttribute('aria-label', 'Open Lynx Assistant');
     var img = document.createElement('img');
     img.src = LOGO_URL;
     img.alt = '';
@@ -70,7 +70,7 @@
     panel.innerHTML = [
       '<div class="lynx-widget-header">',
       '  <div class="lynx-widget-header-logo"><img src="' + LOGO_URL + '" alt=""></div>',
-      '  <div class="lynx-widget-header-title">Lynx Support</div>',
+      '  <div class="lynx-widget-header-title">Lynx Assistant</div>',
       '  <span class="lynx-widget-header-beta">BETA</span>',
       '  <button class="lynx-widget-header-btn" id="lynxWidgetNewChat" title="New chat" aria-label="New chat">&#43;</button>',
       '  <button class="lynx-widget-header-btn" id="lynxWidgetExpand" title="Open in full page" aria-label="Open in full page">&#8599;</button>',
@@ -78,7 +78,7 @@
       '</div>',
       '<div class="lynx-widget-welcome" id="lynxWidgetWelcome">',
       '  <div class="lynx-widget-welcome-icon"><img src="' + LOGO_URL + '" alt=""></div>',
-      '  <h3>Lynx Support</h3>',
+      '  <h3>Lynx Assistant</h3>',
       '  <p>Ask anything about FinishLynx setup, troubleshooting, products, packages, or meet day tips.</p>',
       '  <div class="lynx-widget-welcome-chips" id="lynxWidgetChips"></div>',
       '</div>',
