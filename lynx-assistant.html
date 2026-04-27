@@ -100,11 +100,13 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
 .welcome-icon img{width:36px;height:36px}
 .welcome h2{font-size:22px;font-weight:800;letter-spacing:-.3px}
 .welcome p{font-size:14px;color:var(--ink-4);max-width:480px;line-height:1.55}
-.suggestions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:6px;width:100%;max-width:none;padding:0 12px}
+.suggestions{display:flex;flex-direction:column;gap:18px;align-items:stretch;width:100%;max-width:1100px;margin:6px auto 0;padding:0 12px}
+.sugg-group{display:flex;flex-direction:column;gap:8px}
+.sugg-cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--ink-4);text-align:left;padding:0 2px}
+.sugg-row{display:flex;flex-wrap:wrap;gap:8px}
 .suggestion{background:var(--bg-card);border:1px solid var(--border-row);padding:7px 13px;border-radius:20px;font-size:13px;color:var(--ink-3);cursor:pointer;transition:border-color .12s,background .12s,transform .1s;font-family:inherit;text-align:left}
 .suggestion:hover{border-color:var(--gold);background:var(--bg-section);color:var(--ink)}
 .suggestion:active{transform:scale(.97)}
-.suggestion .num{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-5);font-weight:600;margin-right:6px}
 
 /* Input area */
 .input-area{padding:12px 20px 20px;border-top:1px solid var(--border-row);flex-shrink:0;background:var(--bg)}
@@ -130,7 +132,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
   .input-area{padding:10px 12px 16px}
   .msg{max-width:92%}
   .welcome h2{font-size:18px}
-  .suggestions{flex-direction:column;align-items:stretch}
+  .sugg-row{justify-content:flex-start}
 }
 </style>
 <script>
@@ -170,56 +172,91 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
     <h2>Lynx Assistant</h2>
     <p>Ask anything about FinishLynx setup, troubleshooting, cameras, software, scoreboards, or timing accessories.</p>
     <div class="suggestions">
-      <button class="suggestion" data-q="What does &quot;Error aligning camera&quot; mean and how do I fix it?"><span class="num">01</span>Error aligning camera</button>
-      <button class="suggestion" data-q="How do the EtherLynx Vision PRO X, Vision PRO, and Vision compare? Which should I buy?"><span class="num">02</span>Vision PRO X vs PRO vs Vision</button>
-      <button class="suggestion" data-q="My scoreboard says &quot;Running&quot; in FinishLynx but isn't showing data. What's wrong?"><span class="num">03</span>Scoreboard not displaying</button>
-      <button class="suggestion" data-q="Compare the domestic packages: Scholastic, Bronze, Silver, Gold, Platinum, and Diamond. What's in each?"><span class="num">04</span>Domestic package comparison</button>
-      <button class="suggestion" data-q="When do I need the CS-C 5mm ring adapter? What's the difference between C-Mount and CS-Mount lenses?"><span class="num">05</span>C-Mount vs CS-Mount lenses</button>
-      <button class="suggestion" data-q="Should I use ResulTV or ResulTV-VDM? What are the differences?"><span class="num">06</span>ResulTV vs ResulTV-VDM</button>
-      <button class="suggestion" data-q="My RadioLynx wireless start isn't triggering. How do I troubleshoot?"><span class="num">07</span>RadioLynx not triggering</button>
-      <button class="suggestion" data-q="What do the different camera LED states mean (amber, green, red, flashing)?"><span class="num">08</span>Camera LED states</button>
-      <button class="suggestion" data-q="Walk me through a pre-meet day checklist before the first race."><span class="num">09</span>Pre-meet day checklist</button>
-      <button class="suggestion" data-q="How do I manually align the camera before the first race?"><span class="num">10</span>Manually align the camera</button>
-      <button class="suggestion" data-q="My camera image is blurry and won't focus. What should I check first?"><span class="num">11</span>Image is blurry</button>
-      <button class="suggestion" data-q="How do I connect FinishLynx to HyTek? Should I use serial or file sharing?"><span class="num">12</span>HyTek integration</button>
-      <button class="suggestion" data-q="When should I use FinishLynx Lite vs full FinishLynx?"><span class="num">13</span>FinishLynx vs FinishLynx Lite</button>
-      <button class="suggestion" data-q="When should I use FieldLynx Lite vs full FieldLynx?"><span class="num">14</span>FieldLynx vs FieldLynx Lite</button>
-      <button class="suggestion" data-q="I got an &quot;Invalid code&quot; error on a ResulTV-VDM upgrade. What should I do?"><span class="num">15</span>VDM upgrade code &quot;Invalid&quot;</button>
-      <button class="suggestion" data-q="What capture mode should I use on IdentiLynx when paired with an EtherLynx camera?"><span class="num">16</span>IdentiLynx capture mode</button>
-      <button class="suggestion" data-q="How do I set up Multi-User Mode with a second laptop in reader mode during a live race?"><span class="num">17</span>Multi-User Mode setup</button>
-      <button class="suggestion" data-q="The Z: drive isn't visible on my read laptop. How do I fix it?"><span class="num">18</span>Z: drive not visible</button>
-      <button class="suggestion" data-q="Compare the international packages: Competition, Championship, Grand Prix, and their Elite versions."><span class="num">19</span>International packages</button>
-      <button class="suggestion" data-q="Where do I download FinishLynx plug-ins?"><span class="num">20</span>Where to download plug-ins</button>
-      <button class="suggestion" data-q="My capture button or spacebar isn't working in FinishLynx. How do I fix it?"><span class="num">21</span>Capture button / spacebar</button>
-      <button class="suggestion" data-q="How do I add FinishLynx to Windows Firewall correctly?"><span class="num">22</span>Add to Windows Firewall</button>
-      <button class="suggestion" data-q="How do I get the latest version of FinishLynx? Are upgrades free?"><span class="num">23</span>Software upgrades</button>
-      <button class="suggestion" data-q="How do I set up TeamViewer for a remote support session?"><span class="num">24</span>TeamViewer setup</button>
-      <button class="suggestion" data-q="How do I time two events from the same race image in Single Event Mode?"><span class="num">25</span>Two events from one image</button>
-      <button class="suggestion" data-q="What is Fully Automatic Timing (FAT)?"><span class="num">26</span>What is FAT?</button>
-      <button class="suggestion" data-q="What is a .LIF file and how does meet management software use it?"><span class="num">27</span>What is a .LIF file?</button>
-      <button class="suggestion" data-q="What is the NCP (Network COM Port) plug-in and do I need to install it?"><span class="num">28</span>NCP plugin</button>
-      <button class="suggestion" data-q="A bad Ethernet or PoE cable might be the problem. How do I diagnose it?"><span class="num">29</span>Bad Ethernet / PoE cable</button>
-      <button class="suggestion" data-q="Walk me through networking setup on Windows 10 or Windows 11 for FinishLynx."><span class="num">30</span>Networking guide</button>
-      <button class="suggestion" data-q="How do I set up Automatic Capture Mode (ACM)?"><span class="num">31</span>ACM setup</button>
-      <button class="suggestion" data-q="What is a .LSS scoreboard script and where do I find one for my display?"><span class="num">32</span>What is a .LSS script?</button>
-      <button class="suggestion" data-q="Compare IdentiLynx HRS, SR-2, and SR. Which video camera should I get?"><span class="num">33</span>IdentiLynx HRS vs SR-2 vs SR</button>
-      <button class="suggestion" data-q="Compare VeriLynx V30 and V60. Which optical-finish backup is right for me?"><span class="num">34</span>VeriLynx V30 vs V60</button>
-      <button class="suggestion" data-q="Which meet management software integrates with FinishLynx?"><span class="num">35</span>Meet management options</button>
-      <button class="suggestion" data-q="The splits checkbox is missing in LynxPad. Why?"><span class="num">36</span>LynxPad splits missing</button>
-      <button class="suggestion" data-q="How should I format a customer-facing FinishLynx support email?"><span class="num">37</span>Customer email format</button>
-      <button class="suggestion" data-q="What is the Lynx loaner and RMA policy for defective hardware?"><span class="num">38</span>Loaner / RMA policy</button>
-      <button class="suggestion" data-q="What's the difference between C:\Lynx, C:\LynxLite, and C:\Meets?"><span class="num">39</span>File paths explained</button>
-      <button class="suggestion" data-q="My 8-48mm Vision lens is out of focus. What is the silver screw fix?"><span class="num">40</span>Silver screw lens fix</button>
-      <button class="suggestion" data-q="When should I set Hardware Type to None?"><span class="num">41</span>When to set Hardware Type None</button>
-      <button class="suggestion" data-q="What is LapTime From Image and when do I need it?"><span class="num">42</span>LapTime From Image</button>
-      <button class="suggestion" data-q="How do I figure out which way competitors will face in the photo finish image?"><span class="num">43</span>Image orientation rule</button>
-      <button class="suggestion" data-q="Should I disable Wi-Fi during a TeamViewer session?"><span class="num">44</span>Wi-Fi during TeamViewer</button>
-      <button class="suggestion" data-q="My IdentiLynx video blacks out during capture. Is it broken?"><span class="num">45</span>IdentiLynx video blackout</button>
-      <button class="suggestion" data-q="How do I export IdentiLynx video to YouTube or a file?"><span class="num">46</span>Export IdentiLynx video</button>
-      <button class="suggestion" data-q="What packages does Lynx offer for cycling, rowing, speed skating, and cross country?"><span class="num">47</span>Other sport packages</button>
-      <button class="suggestion" data-q="Why does the Portable LED Display only accept HDMI and not Ethernet?"><span class="num">48</span>LED Display HDMI</button>
-      <button class="suggestion" data-q="Does FinishLynx have an API for custom integrations?"><span class="num">49</span>FinishLynx has no API</button>
-      <button class="suggestion" data-q="Compare the legacy EtherLynx Fusion, Pro, and 2000+ cameras."><span class="num">50</span>Fusion vs Pro vs 2000+</button>
+      <div class="sugg-group">
+        <div class="sugg-cat">Cameras &amp; Hardware</div>
+        <div class="sugg-row">
+          <button class="suggestion" data-q="How do the EtherLynx Vision PRO X, Vision PRO, and Vision compare? Which should I buy?">Vision PRO X vs PRO vs Vision</button>
+          <button class="suggestion" data-q="Compare IdentiLynx HRS, SR-2, and SR. Which video camera should I get?">IdentiLynx HRS vs SR-2 vs SR</button>
+          <button class="suggestion" data-q="Compare VeriLynx V30 and V60. Which optical-finish backup is right for me?">VeriLynx V30 vs V60</button>
+          <button class="suggestion" data-q="Compare the legacy EtherLynx Fusion, Pro, and 2000+ cameras.">Fusion vs Pro vs 2000+</button>
+          <button class="suggestion" data-q="When do I need the CS-C 5mm ring adapter? What's the difference between C-Mount and CS-Mount lenses?">C-Mount vs CS-Mount lenses</button>
+          <button class="suggestion" data-q="What do the different camera LED states mean (amber, green, red, flashing)?">Camera LED states</button>
+          <button class="suggestion" data-q="My 8-48mm Vision lens is out of focus. What is the silver screw fix?">Silver screw lens fix</button>
+          <button class="suggestion" data-q="Why does the Portable LED Display only accept HDMI and not Ethernet?">LED Display HDMI</button>
+        </div>
+      </div>
+
+      <div class="sugg-group">
+        <div class="sugg-cat">Setup &amp; Networking</div>
+        <div class="sugg-row">
+          <button class="suggestion" data-q="Walk me through a pre-meet day checklist before the first race.">Pre-meet day checklist</button>
+          <button class="suggestion" data-q="How do I manually align the camera before the first race?">Manually align the camera</button>
+          <button class="suggestion" data-q="What capture mode should I use on IdentiLynx when paired with an EtherLynx camera?">IdentiLynx capture mode</button>
+          <button class="suggestion" data-q="How do I set up Multi-User Mode with a second laptop in reader mode during a live race?">Multi-User Mode setup</button>
+          <button class="suggestion" data-q="How do I set up TeamViewer for a remote support session?">TeamViewer setup</button>
+          <button class="suggestion" data-q="Should I disable Wi-Fi during a TeamViewer session?">Wi-Fi during TeamViewer</button>
+          <button class="suggestion" data-q="Walk me through networking setup on Windows 10 or Windows 11 for FinishLynx.">Networking guide</button>
+          <button class="suggestion" data-q="How do I add FinishLynx to Windows Firewall correctly?">Add to Windows Firewall</button>
+          <button class="suggestion" data-q="How do I set up Automatic Capture Mode (ACM)?">ACM setup</button>
+          <button class="suggestion" data-q="When should I set Hardware Type to None?">When to set Hardware Type None</button>
+        </div>
+      </div>
+
+      <div class="sugg-group">
+        <div class="sugg-cat">Software &amp; Plug-ins</div>
+        <div class="sugg-row">
+          <button class="suggestion" data-q="When should I use FinishLynx Lite vs full FinishLynx?">FinishLynx vs FinishLynx Lite</button>
+          <button class="suggestion" data-q="When should I use FieldLynx Lite vs full FieldLynx?">FieldLynx vs FieldLynx Lite</button>
+          <button class="suggestion" data-q="Should I use ResulTV or ResulTV-VDM? What are the differences?">ResulTV vs ResulTV-VDM</button>
+          <button class="suggestion" data-q="How do I get the latest version of FinishLynx? Are upgrades free?">Software upgrades</button>
+          <button class="suggestion" data-q="Where do I download FinishLynx plug-ins?">Where to download plug-ins</button>
+          <button class="suggestion" data-q="What is the NCP (Network COM Port) plug-in and do I need to install it?">NCP plugin</button>
+          <button class="suggestion" data-q="How do I connect FinishLynx to HyTek? Should I use serial or file sharing?">HyTek integration</button>
+          <button class="suggestion" data-q="Which meet management software integrates with FinishLynx?">Meet management options</button>
+          <button class="suggestion" data-q="What's the difference between C:\Lynx, C:\LynxLite, and C:\Meets?">File paths explained</button>
+          <button class="suggestion" data-q="Does FinishLynx have an API for custom integrations?">FinishLynx has no API</button>
+        </div>
+      </div>
+
+      <div class="sugg-group">
+        <div class="sugg-cat">Files &amp; Workflow</div>
+        <div class="sugg-row">
+          <button class="suggestion" data-q="What is a .LIF file and how does meet management software use it?">What is a .LIF file?</button>
+          <button class="suggestion" data-q="What is a .LSS scoreboard script and where do I find one for my display?">What is a .LSS script?</button>
+          <button class="suggestion" data-q="What is Fully Automatic Timing (FAT)?">What is FAT?</button>
+          <button class="suggestion" data-q="How do I figure out which way competitors will face in the photo finish image?">Image orientation rule</button>
+          <button class="suggestion" data-q="How do I time two events from the same race image in Single Event Mode?">Two events from one image</button>
+          <button class="suggestion" data-q="What is LapTime From Image and when do I need it?">LapTime From Image</button>
+          <button class="suggestion" data-q="How do I export IdentiLynx video to YouTube or a file?">Export IdentiLynx video</button>
+        </div>
+      </div>
+
+      <div class="sugg-group">
+        <div class="sugg-cat">Troubleshooting</div>
+        <div class="sugg-row">
+          <button class="suggestion" data-q="What does &quot;Error aligning camera&quot; mean and how do I fix it?">Error aligning camera</button>
+          <button class="suggestion" data-q="My scoreboard says &quot;Running&quot; in FinishLynx but isn't showing data. What's wrong?">Scoreboard not displaying</button>
+          <button class="suggestion" data-q="My camera image is blurry and won't focus. What should I check first?">Image is blurry</button>
+          <button class="suggestion" data-q="My RadioLynx wireless start isn't triggering. How do I troubleshoot?">RadioLynx not triggering</button>
+          <button class="suggestion" data-q="I got an &quot;Invalid code&quot; error on a ResulTV-VDM upgrade. What should I do?">VDM upgrade code &quot;Invalid&quot;</button>
+          <button class="suggestion" data-q="The Z: drive isn't visible on my read laptop. How do I fix it?">Z: drive not visible</button>
+          <button class="suggestion" data-q="My capture button or spacebar isn't working in FinishLynx. How do I fix it?">Capture button / spacebar</button>
+          <button class="suggestion" data-q="A bad Ethernet or PoE cable might be the problem. How do I diagnose it?">Bad Ethernet / PoE cable</button>
+          <button class="suggestion" data-q="The splits checkbox is missing in LynxPad. Why?">LynxPad splits missing</button>
+          <button class="suggestion" data-q="My IdentiLynx video blacks out during capture. Is it broken?">IdentiLynx video blackout</button>
+        </div>
+      </div>
+
+      <div class="sugg-group">
+        <div class="sugg-cat">Packages &amp; Policy</div>
+        <div class="sugg-row">
+          <button class="suggestion" data-q="Compare the domestic packages: Scholastic, Bronze, Silver, Gold, Platinum, and Diamond. What's in each?">Domestic package comparison</button>
+          <button class="suggestion" data-q="Compare the international packages: Competition, Championship, Grand Prix, and their Elite versions.">International packages</button>
+          <button class="suggestion" data-q="What packages does Lynx offer for cycling, rowing, speed skating, and cross country?">Other sport packages</button>
+          <button class="suggestion" data-q="What is the Lynx loaner and RMA policy for defective hardware?">Loaner / RMA policy</button>
+          <button class="suggestion" data-q="How should I format a customer-facing FinishLynx support email?">Customer email format</button>
+        </div>
+      </div>
     </div>
   </div>
 
