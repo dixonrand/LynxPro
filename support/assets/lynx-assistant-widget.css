@@ -1,0 +1,224 @@
+/* ---------------------------------------------------------------------------
+ * Lynx Assistant — floating widget styles
+ *
+ * Self-contained, scoped to .lynx-widget-*. Inherits theme CSS variables
+ * (--gold, --ink, --bg-card, --purple, etc.) from each LynxPro page so it
+ * recolours automatically with the user's theme choice.
+ * --------------------------------------------------------------------------- */
+
+/* Launcher button — always pinned bottom-right */
+.lynx-widget-launcher{
+  position:fixed;bottom:24px;right:24px;
+  width:60px;height:60px;border-radius:50%;
+  background:#55009C;border:3px solid #E8A800;
+  cursor:pointer;z-index:9998;
+  box-shadow:0 6px 18px rgba(0,0,0,.32);
+  display:flex;align-items:center;justify-content:center;
+  padding:0;overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.lynx-widget-launcher:hover{transform:scale(1.08);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.lynx-widget-launcher:active{transform:scale(.96)}
+.lynx-widget-launcher img{width:100%;height:100%;object-fit:cover;display:block}
+.lynx-widget-launcher.is-hidden{display:none}
+
+/* Panel */
+.lynx-widget-panel{
+  position:fixed;bottom:24px;right:24px;
+  width:400px;height:min(620px, calc(100vh - 48px));
+  background:var(--bg-card,#FDFAF0);
+  color:var(--ink,#111);
+  border:2px solid #111;
+  border-radius:14px;
+  box-shadow:0 12px 40px rgba(0,0,0,.28);
+  display:flex;flex-direction:column;
+  overflow:hidden;z-index:9999;
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+  font-size:14px;line-height:1.5;
+  animation:lynx-widget-slide-in .22s ease-out;
+}
+.lynx-widget-panel.is-hidden{display:none}
+@keyframes lynx-widget-slide-in{
+  from{opacity:0;transform:translateY(16px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* Header */
+.lynx-widget-header{
+  flex-shrink:0;display:flex;align-items:center;gap:10px;
+  padding:12px 14px;background:#1a1a1a;color:#fff;
+  border-bottom:3px solid #E8A800;
+}
+.lynx-widget-header-logo{
+  width:30px;height:30px;border-radius:50%;
+  background:#55009C;border:2px solid #E8A800;
+  flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;
+}
+.lynx-widget-header-logo img{width:100%;height:100%;object-fit:cover}
+.lynx-widget-header-title{flex:1;font-weight:800;letter-spacing:.4px;font-size:14px}
+.lynx-widget-header-beta{
+  font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
+  background:#E8A800;color:#111;padding:2px 7px;border-radius:3px;margin-right:4px;
+}
+.lynx-widget-header-btn{
+  background:transparent;border:none;color:rgba(255,255,255,.7);
+  width:28px;height:28px;border-radius:6px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;line-height:1;font-family:inherit;
+  transition:background .12s, color .12s;
+}
+.lynx-widget-header-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+
+/* Messages area — same modern minimal styling as the full page chat */
+.lynx-widget-messages{
+  flex:1;overflow-y:auto;
+  padding:18px 16px 6px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.lynx-widget-msg{display:flex;flex-direction:column;animation:lynx-msg-in .2s ease}
+@keyframes lynx-msg-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.lynx-widget-msg.user{align-items:flex-end}
+.lynx-widget-msg.assistant{align-items:flex-start}
+
+.lynx-widget-msg.user .lynx-widget-bubble{
+  background:#E8A800;color:#111;
+  padding:8px 12px;border-radius:14px 14px 4px 14px;
+  max-width:88%;font-weight:500;font-size:13.5px;
+  word-break:break-word;
+}
+.lynx-widget-msg.assistant .lynx-widget-bubble{
+  /* No bubble for assistant — text directly on background, modern look */
+  background:transparent;color:var(--ink,#111);
+  padding:0;max-width:100%;
+  font-size:13.5px;line-height:1.55;
+  word-break:break-word;
+}
+
+/* Markdown formatting inside assistant messages */
+.lynx-widget-msg.assistant .lynx-widget-bubble p{margin:0 0 8px}
+.lynx-widget-msg.assistant .lynx-widget-bubble p:last-child{margin-bottom:0}
+.lynx-widget-msg.assistant .lynx-widget-bubble h1{font-size:16px;font-weight:700;letter-spacing:-.2px;margin:14px 0 6px;color:var(--ink,#111)}
+.lynx-widget-msg.assistant .lynx-widget-bubble h2{font-size:14px;font-weight:700;margin:12px 0 6px;color:var(--ink,#111)}
+.lynx-widget-msg.assistant .lynx-widget-bubble h3{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin:12px 0 4px;color:var(--ink-3,#555)}
+.lynx-widget-msg.assistant .lynx-widget-bubble h4{font-size:12.5px;font-weight:700;margin:10px 0 3px;color:var(--ink-2,#333)}
+.lynx-widget-msg.assistant .lynx-widget-bubble h1:first-child,
+.lynx-widget-msg.assistant .lynx-widget-bubble h2:first-child,
+.lynx-widget-msg.assistant .lynx-widget-bubble h3:first-child,
+.lynx-widget-msg.assistant .lynx-widget-bubble h4:first-child{margin-top:0}
+.lynx-widget-msg.assistant .lynx-widget-bubble strong{font-weight:700;color:var(--ink,#111)}
+.lynx-widget-msg.assistant .lynx-widget-bubble em{font-style:italic}
+.lynx-widget-msg.assistant .lynx-widget-bubble code{
+  font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11.5px;background:rgba(0,0,0,.06);padding:1px 5px;border-radius:3px;
+}
+.lynx-widget-msg.assistant .lynx-widget-bubble pre{
+  background:rgba(0,0,0,.06);padding:8px 10px;border-radius:6px;
+  overflow-x:auto;margin:6px 0;font-size:11.5px;
+}
+.lynx-widget-msg.assistant .lynx-widget-bubble pre code{background:none;padding:0;font-size:11.5px}
+.lynx-widget-msg.assistant .lynx-widget-bubble ol,
+.lynx-widget-msg.assistant .lynx-widget-bubble ul{margin:4px 0 8px 18px;padding:0}
+.lynx-widget-msg.assistant .lynx-widget-bubble li{margin-bottom:3px}
+.lynx-widget-msg.assistant .lynx-widget-bubble hr{border:none;border-top:1px solid rgba(0,0,0,.12);margin:12px 0}
+.lynx-widget-msg.assistant .lynx-widget-bubble blockquote{
+  border-left:3px solid #E8A800;padding:1px 0 1px 10px;margin:8px 0;color:var(--ink-3,#555);
+}
+.lynx-widget-msg.assistant .lynx-widget-bubble a{color:#C48800;text-decoration:underline}
+.lynx-widget-msg.assistant .lynx-widget-bubble table{border-collapse:collapse;margin:10px 0;font-size:12.5px;display:block;overflow-x:auto;max-width:100%}
+.lynx-widget-msg.assistant .lynx-widget-bubble thead{border-bottom:1px solid rgba(0,0,0,.4)}
+.lynx-widget-msg.assistant .lynx-widget-bubble th,
+.lynx-widget-msg.assistant .lynx-widget-bubble td{padding:6px 0;text-align:left;vertical-align:top;line-height:1.5}
+.lynx-widget-msg.assistant .lynx-widget-bubble th:not(:last-child),
+.lynx-widget-msg.assistant .lynx-widget-bubble td:not(:last-child){padding-right:18px}
+.lynx-widget-msg.assistant .lynx-widget-bubble th{font-weight:700;color:var(--ink-3,#555);font-size:10px;text-transform:uppercase;letter-spacing:.7px}
+.lynx-widget-msg.assistant .lynx-widget-bubble tbody tr{border-bottom:1px solid rgba(0,0,0,.08)}
+
+/* Typing indicator */
+.lynx-widget-typing{display:flex;gap:4px;padding:8px 0;align-items:center}
+.lynx-widget-typing .dot{width:6px;height:6px;border-radius:50%;background:rgba(0,0,0,.3);animation:lynx-pulse 1.2s ease-in-out infinite}
+.lynx-widget-typing .dot:nth-child(2){animation-delay:.18s}
+.lynx-widget-typing .dot:nth-child(3){animation-delay:.36s}
+@keyframes lynx-pulse{0%,100%{opacity:.3;transform:scale(.85)}50%{opacity:1;transform:scale(1)}}
+
+/* Welcome state */
+.lynx-widget-welcome{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:24px 18px;gap:14px;
+}
+.lynx-widget-welcome-icon{
+  width:54px;height:54px;border-radius:50%;
+  background:#55009C;border:3px solid #E8A800;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.lynx-widget-welcome-icon img{width:100%;height:100%;object-fit:cover}
+.lynx-widget-welcome h3{font-size:17px;font-weight:800;letter-spacing:-.2px;color:var(--ink,#111);margin:0}
+.lynx-widget-welcome p{font-size:12.5px;color:var(--ink-4,#666);max-width:300px;line-height:1.5;margin:0}
+.lynx-widget-welcome-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:6px}
+.lynx-widget-chip{
+  background:var(--bg-card,#FDFAF0);
+  border:1px solid rgba(0,0,0,.18);
+  color:var(--ink-3,#555);
+  font-family:inherit;font-size:11.5px;
+  padding:6px 11px;border-radius:18px;cursor:pointer;
+  transition:border-color .12s, background .12s, color .12s;
+}
+.lynx-widget-chip:hover{border-color:#E8A800;background:rgba(232,168,0,.08);color:var(--ink,#111)}
+
+/* Input area */
+.lynx-widget-input-wrap{
+  flex-shrink:0;border-top:1px solid rgba(0,0,0,.1);
+  padding:10px 12px 12px;display:flex;gap:8px;align-items:flex-end;
+  background:var(--bg-card,#FDFAF0);
+}
+.lynx-widget-input{
+  flex:1;border:1.5px solid rgba(0,0,0,.18);border-radius:8px;
+  padding:8px 12px;font-family:inherit;font-size:13px;
+  background:#fff;color:var(--ink,#111);
+  outline:none;resize:none;min-height:38px;max-height:96px;line-height:1.4;
+  transition:border-color .12s;
+}
+.lynx-widget-input:focus{border-color:#E8A800}
+.lynx-widget-input::placeholder{color:var(--ink-5,#888)}
+.lynx-widget-send{
+  background:#E8A800;color:#111;border:none;border-radius:8px;
+  padding:0 14px;font-weight:700;font-size:13px;font-family:inherit;
+  cursor:pointer;min-height:38px;white-space:nowrap;
+  transition:background .12s, color .12s;
+}
+.lynx-widget-send:hover{background:#55009C;color:#fff}
+.lynx-widget-send:disabled{opacity:.4;cursor:not-allowed}
+
+.lynx-widget-footer{
+  flex-shrink:0;padding:6px;text-align:center;font-size:10px;color:var(--ink-6,#aaa);
+  background:var(--bg-card,#FDFAF0);
+}
+.lynx-widget-footer a{color:#E8A800;text-decoration:none}
+
+/* Mobile — fullscreen panel */
+@media (max-width:540px){
+  .lynx-widget-panel{
+    bottom:0;right:0;left:0;top:0;
+    width:100%;height:100%;
+    border-radius:0;border:none;
+  }
+  .lynx-widget-launcher{bottom:16px;right:16px;width:54px;height:54px}
+}
+
+/* Glass theme tweak — soften borders */
+[data-theme="glass"] .lynx-widget-panel{
+  background:rgba(20,20,20,.86);
+  backdrop-filter:blur(16px) saturate(160%);
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  border-color:rgba(255,255,255,.16);
+  color:#fff;
+}
+[data-theme="glass"] .lynx-widget-input{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.2)}
+[data-theme="glass"] .lynx-widget-input::placeholder{color:rgba(255,255,255,.5)}
+[data-theme="glass"] .lynx-widget-input-wrap{background:transparent;border-top-color:rgba(255,255,255,.12)}
+[data-theme="glass"] .lynx-widget-footer{background:transparent}
+[data-theme="glass"] .lynx-widget-chip{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.8)}
+[data-theme="glass"] .lynx-widget-chip:hover{background:rgba(232,168,0,.18);color:#fff}
+[data-theme="glass"] .lynx-widget-msg.assistant .lynx-widget-bubble{color:#fff}
+[data-theme="glass"] .lynx-widget-msg.assistant .lynx-widget-bubble code{background:rgba(255,255,255,.12)}
+[data-theme="glass"] .lynx-widget-msg.assistant .lynx-widget-bubble pre{background:rgba(0,0,0,.3)}

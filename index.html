@@ -354,11 +354,9 @@ footer span{color:var(--ink-3);font-weight:600}
 
 <footer><span>Lynx Pro</span> — FinishLynx Operator Platform &nbsp;·&nbsp; Lynx System Developers, Inc.</footer>
 
-<!-- Floating AI Chat Button -->
-<a href="lynx-assistant.html" id="chat-btn" style="position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;cursor:pointer;z-index:999;box-shadow:0 4px 16px rgba(0,0,0,.35);overflow:hidden;border:3px solid #E8A800;transition:transform .2s;display:block" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
-  <img src="lynx-head-512-200x200.png" alt="Lynx Assistant" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.display='none';document.getElementById('chat-btn').style.background='#55009C';document.getElementById('chat-fallback').style.display='flex'">
-  <div id="chat-fallback" style="display:none;position:absolute;inset:0;background:#55009C;align-items:center;justify-content:center;font-size:22px">&#129409;</div>
-</a>
+<!-- Lynx Assistant floating widget — injects launcher + chat popup -->
+<link rel="stylesheet" href="support/assets/lynx-assistant-widget.css">
+<script src="support/assets/lynx-assistant-widget.js" defer></script>
 
 
 <script>
