@@ -7,8 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--gold:#E8A800;--nav-bg:#1a1a1a;--border:#111}
-[data-theme="finishlynx"]{--gold:#55009C;--nav-bg:#2d004f;--border:#55009C}
+:root{--bg:#FFFFFF;--bg-card:#FFFFFF;--bg-section:#F5F2FA;--gold:#E8A800;--ink:#111;--ink-2:#333;--ink-3:#555;--ink-4:#666;--ink-5:#888;--ink-6:#aaa;--nav-bg:#2d004f;--border:#E5E5E5;--border-row:rgba(0,0,0,.08);--purple:#55009C}
+[data-theme="warm"]{--bg:#F5EFD6;--bg-card:#FDFAF0;--bg-section:#EDE4BF;--gold:#E8A800;--ink:#111;--ink-2:#333;--ink-3:#555;--ink-4:#666;--ink-5:#888;--ink-6:#aaa;--nav-bg:#1a1a1a;--border:#111;--border-row:rgba(0,0,0,.12);--purple:#55009C}
 [data-theme="glass"]{--gold:#E8A800;--nav-bg:rgba(0,0,0,.2);--border:rgba(255,255,255,.18)}
 body{font-family:'Inter',sans-serif;overflow:hidden}
 
@@ -243,7 +243,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .lane-dash{position:absolute;left:48%;width:3px;height:8px;background:rgba(255,255,255,.6)}
 </style>
 <script>
-(function(){var t=localStorage.getItem('lynxpro-theme');if(t)document.documentElement.setAttribute('data-theme',t)})();
+(function(){var t=localStorage.getItem('lynxpro-theme');if(t==='classic'){t='warm';localStorage.setItem('lynxpro-theme','warm');}else if(t==='finishlynx'){t='';localStorage.removeItem('lynxpro-theme');}if(t)document.documentElement.setAttribute('data-theme',t)})();
 </script>
 </head>
 <body>
@@ -260,8 +260,8 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
   </div>
   <div class="hdr-right">
     <div class="theme-picker">
-      <button class="theme-dot" data-theme="classic" style="background:#F5EFD6" title="Classic"></button>
-      <button class="theme-dot" data-theme="finishlynx" style="background:#55009C" title="FinishLynx"></button>
+      <button class="theme-dot" data-theme="modern" style="background:#fff" title="Modern"></button>
+      <button class="theme-dot" data-theme="warm" style="background:#F5EFD6" title="Warm"></button>
       <button class="theme-dot" data-theme="glass" style="background:linear-gradient(180deg,#4a9ee8,#c04030)" title="Track"></button>
     </div>
     <span class="hdr-beta">In Beta</span>
@@ -530,12 +530,12 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 <script>
 (function(){
   // Theme switcher
-  var cur = localStorage.getItem('lynxpro-theme') || 'classic';
+  var saved = localStorage.getItem('lynxpro-theme');if(saved==='finishlynx'){saved=null;localStorage.removeItem('lynxpro-theme');}else if(saved==='classic'){saved='warm';localStorage.setItem('lynxpro-theme','warm');}var cur = saved || 'modern';
   document.querySelectorAll('.theme-dot').forEach(function(dot){
     if(dot.dataset.theme === cur) dot.classList.add('active');
     dot.addEventListener('click', function(){
       var theme = dot.dataset.theme;
-      document.documentElement.setAttribute('data-theme', theme === 'classic' ? '' : theme);
+      document.documentElement.setAttribute('data-theme', theme === 'modern' ? '' : theme);
       localStorage.setItem('lynxpro-theme', theme);
       document.querySelectorAll('.theme-dot').forEach(function(d){ d.classList.toggle('active', d === dot); });
     });
