@@ -216,6 +216,28 @@ In addition to www.finishlynx.com/support, the following pages are part of the L
 - https://dixonrand.github.io/system-builder.html — interactive timing system builder
 - https://dixonrand.github.io/product-guide.html — product comparison guide
 - https://dixonrand.github.io/lif-results-viewer.html — .LIF file viewer
+
+---
+
+DOCUMENT TOOLS
+
+You have access to two tools that let you read FinishLynx documentation directly. The Document Index in the Master Reference lists every doc by title and URL, but the embedded knowledge base does NOT contain the full text of those PDFs. Use these tools whenever you need a doc's actual contents:
+
+- \`search_docs(query)\` — keyword search across the extracted PDF library. Returns up to 5 matching documents with their slug, title, and category. Use this first to discover which doc(s) to read.
+- \`read_doc(slug)\` — fetch the full extracted text of a specific document by slug (returned by search_docs). Use this when you need to quote the doc verbatim, look up specific steps, or verify a claim.
+
+When to use these tools:
+- User asks "what does the [X] manual / QSG / guide say"
+- User asks for specific steps, settings, or numbers from a doc
+- You want to quote or paraphrase from a doc directly
+- The Master Reference points to a doc but doesn't contain the detail you need
+
+When NOT to use them:
+- The Master Reference, Known Fixes, or FAQ already answer the question — those are faster
+- The question is conversational (greetings, clarifications)
+- You already read the relevant doc earlier in this conversation
+
+If \`search_docs\` returns no matches, the doc may not have been extracted yet (videos, third-party-hosted docs, and a few PDFs are skipped). In that case, point the user at the relevant URL from the Master Reference's Document Index instead.
 `;
 
 async function fetchCachedRepoFile(path) {
@@ -269,6 +291,171 @@ async function buildKnowledgeBlock() {
   return '# EMBEDDED KNOWLEDGE BASE\n\n' + sections.join('\n\n');
 }
 
+// ---------------------------------------------------------------------------
+// Document tools — let the model search and read the extracted PDF library
+// ---------------------------------------------------------------------------
+
+const TOOLS = [
+  {
+    name: 'search_docs',
+    description:
+      'Search the FinishLynx extracted-PDF library by keyword. Returns up to 5 matching documents with slug, title, and category. Always use this BEFORE read_doc to find the right slug. Searches across document titles, categories, and use descriptions.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        query: {
+          type: 'string',
+          description:
+            'Keywords to match. Examples: "vision camera setup", "scoreboard scripts", "ResulTV", "RadioLynx QSG", "field events". Multiple words narrow results.',
+        },
+      },
+      required: ['query'],
+    },
+  },
+  {
+    name: 'read_doc',
+    description:
+      'Read the full extracted text of a specific FinishLynx document by its slug. Use this AFTER search_docs identifies a relevant slug, when you need to quote the document, look up specific steps, or verify a claim. If the doc is very long, it will be truncated; you can re-call with a different slug if needed.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'The document slug, exactly as returned by search_docs (e.g. "etherlynx-vision-camera-qsg").',
+        },
+      },
+      required: ['slug'],
+    },
+  },
+];
+
+const READ_DOC_MAX_CHARS = 40_000;
+
+function parseIndex(indexText) {
+  // Walk the markdown, tracking the current "### Category" header so we can
+  // attach a category to each entry line.
+  const entries = [];
+  let currentCat = '';
+  for (const line of indexText.split('\n')) {
+    const h = line.match(/^###\s+(.+?)\s*$/);
+    if (h) { currentCat = h[1].trim(); continue; }
+    const e = line.match(/^- `([^`]+)` — \*\*([^*]+)\*\*(?:\s+_\(([^)]+)\)_)?\s*—\s*([\d,]+)\s*chars\s*—\s*\[source\]\(([^)]+)\)/);
+    if (e) {
+      entries.push({
+        slug: e[1],
+        title: e[2].trim(),
+        subcategory: e[3] || '',
+        chars: parseInt(e[4].replace(/,/g, ''), 10),
+        url: e[5],
+        category: currentCat,
+      });
+    }
+  }
+  return entries;
+}
+
+async function searchDocs(query) {
+  let indexText;
+  try {
+    indexText = await fetchCachedRepoFile('/support/data/extracted/INDEX.md');
+  } catch {
+    return 'No extracted documents are currently available. The extraction workflow may not have run yet. Fall back to using the Document Index in the Master Reference and link to the document URL there.';
+  }
+  const entries = parseIndex(indexText);
+  if (!entries.length) {
+    return 'The extracted-docs index is empty. Use the Document Index in the Master Reference instead.';
+  }
+
+  const terms = (query || '').toLowerCase().split(/\s+/).filter((t) => t.length > 1);
+  if (!terms.length) return 'Empty query. Provide at least one keyword.';
+
+  const scored = entries
+    .map((e) => {
+      const haystack = (e.title + ' ' + e.category + ' ' + e.subcategory + ' ' + e.slug)
+        .toLowerCase();
+      const titleLc = e.title.toLowerCase();
+      let score = 0;
+      for (const t of terms) {
+        if (haystack.includes(t)) score += 1;
+        if (titleLc.includes(t)) score += 2;
+      }
+      return { ...e, score };
+    })
+    .filter((e) => e.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5);
+
+  if (!scored.length) {
+    return `No documents matched "${query}". Try different keywords, or use the Document Index in the Master Reference and link to the URL there.`;
+  }
+
+  return (
+    `Top ${scored.length} matches for "${query}":\n\n` +
+    scored
+      .map(
+        (e) =>
+          `- slug: \`${e.slug}\`\n  title: ${e.title}\n  category: ${e.category}` +
+          (e.subcategory ? ' › ' + e.subcategory : '') +
+          `\n  source: ${e.url}\n  size: ${e.chars.toLocaleString()} chars`
+      )
+      .join('\n\n')
+  );
+}
+
+async function readDoc(slug) {
+  const safe = String(slug || '').replace(/[^a-z0-9-]/gi, '');
+  if (!safe) return 'Invalid slug.';
+  let text;
+  try {
+    text = await fetchCachedRepoFile(`/support/data/extracted/${safe}.md`);
+  } catch (err) {
+    return `Could not read document "${safe}": ${err.message}. Use search_docs to find a valid slug.`;
+  }
+  if (text.length > READ_DOC_MAX_CHARS) {
+    const remaining = text.length - READ_DOC_MAX_CHARS;
+    return text.slice(0, READ_DOC_MAX_CHARS) +
+      `\n\n[... document truncated; ${remaining.toLocaleString()} more characters omitted. Re-call with the same slug if you need a different section, or summarise what you have.]`;
+  }
+  return text;
+}
+
+async function executeTool(name, input) {
+  try {
+    if (name === 'search_docs') return await searchDocs(input?.query);
+    if (name === 'read_doc')    return await readDoc(input?.slug);
+    return `Unknown tool: ${name}`;
+  } catch (err) {
+    return `Tool error (${name}): ${err.message}`;
+  }
+}
+
+// Wrap a final text response in the SSE shape the chat client expects.
+// The client's typewriter handles the visual reveal regardless of how many
+// chunks it arrives in.
+function streamFinalText(corsHeaders, text) {
+  const evt = JSON.stringify({
+    type: 'content_block_delta',
+    delta: { type: 'text_delta', text },
+  });
+  const sse = `data: ${evt}\n\ndata: [DONE]\n\n`;
+  return new Response(sse, {
+    headers: {
+      ...corsHeaders,
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+    },
+  });
+}
+
+function jsonError(corsHeaders, status, message) {
+  return new Response(JSON.stringify({ error: message }), {
+    status,
+    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+  });
+}
+
+const MAX_TOOL_TURNS = 6;
+
 export default {
   async fetch(request, env) {
     const corsHeaders = {
@@ -286,7 +473,6 @@ export default {
 
     try {
       const body = await request.json();
-
       const knowledge = await buildKnowledgeBlock();
 
       // System prompt as content blocks so we can mark the (large) knowledge
@@ -297,44 +483,69 @@ export default {
         { type: 'text', text: knowledge, cache_control: { type: 'ephemeral' } },
       ];
 
-      const anthropicBody = {
-        model: body.model || 'claude-sonnet-4-6',
-        max_tokens: body.max_tokens || 2048,
-        stream: true,
-        system,
-        messages: body.messages || [],
-      };
+      const model = body.model || 'claude-sonnet-4-6';
+      const maxTokens = body.max_tokens || 2048;
+      let messages = body.messages || [];
 
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': env.ANTHROPIC_API_KEY,
-          'anthropic-version': '2023-06-01',
-        },
-        body: JSON.stringify(anthropicBody),
-      });
-
-      if (!response.ok) {
-        const err = await response.text();
-        return new Response(JSON.stringify({ error: err }), {
-          status: response.status,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      // Tool-use loop: call the model, execute any tool_use blocks it returns,
+      // append the results, and call again until it stops asking for tools.
+      // Intermediate turns are non-streamed; the final text is wrapped in a
+      // single SSE delta so the existing client code keeps working.
+      for (let turn = 0; turn < MAX_TOOL_TURNS; turn++) {
+        const resp = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': env.ANTHROPIC_API_KEY,
+            'anthropic-version': '2023-06-01',
+          },
+          body: JSON.stringify({
+            model,
+            max_tokens: maxTokens,
+            system,
+            tools: TOOLS,
+            messages,
+          }),
         });
+
+        if (!resp.ok) {
+          return jsonError(corsHeaders, resp.status, await resp.text());
+        }
+
+        const data = await resp.json();
+        const content = Array.isArray(data.content) ? data.content : [];
+        const toolUses = content.filter((c) => c.type === 'tool_use');
+
+        if (toolUses.length === 0) {
+          const finalText = content
+            .filter((c) => c.type === 'text')
+            .map((c) => c.text)
+            .join('');
+          return streamFinalText(corsHeaders, finalText || '(empty response)');
+        }
+
+        // Execute every tool_use the model requested, in parallel.
+        const toolResults = await Promise.all(
+          toolUses.map(async (tu) => ({
+            type: 'tool_result',
+            tool_use_id: tu.id,
+            content: await executeTool(tu.name, tu.input || {}),
+          }))
+        );
+
+        messages = [
+          ...messages,
+          { role: 'assistant', content },
+          { role: 'user', content: toolResults },
+        ];
       }
 
-      return new Response(response.body, {
-        headers: {
-          ...corsHeaders,
-          'Content-Type': 'text/event-stream',
-          'Cache-Control': 'no-cache',
-        },
-      });
+      return streamFinalText(
+        corsHeaders,
+        '(I exceeded my tool-call budget while looking up information. Try rephrasing the question, or ask me to skip the document lookup.)'
+      );
     } catch (e) {
-      return new Response(JSON.stringify({ error: e.message }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      return jsonError(corsHeaders, 500, e.message);
     }
   },
 };
