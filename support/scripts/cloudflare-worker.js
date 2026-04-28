@@ -5,18 +5,24 @@
  * adds the API key server-side, and injects the LynxPro system prompt
  * + embedded knowledge base.
  *
- * Knowledge files are fetched at runtime from the GitHub repo and cached
- * by Cloudflare for 1 hour. Anthropic prompt caching reduces per-request
- * cost for the (large) system prompt.
+ * Knowledge files are fetched at runtime from GitHub, pinned to the
+ * current `main` commit SHA. The SHA is rechecked every SHA_CACHE_SECONDS
+ * so a new commit propagates to every chat session within that window —
+ * no manual cache purge needed. File bodies are then cached against the
+ * immutable SHA-pinned URL for KNOWLEDGE_CACHE_SECONDS. Anthropic prompt
+ * caching reduces per-request cost for the (large) system prompt.
  *
  * Deploy:
  *   1. Paste this file into a Cloudflare Worker
  *   2. Add ANTHROPIC_API_KEY (encrypted) under Settings → Variables and Secrets
  *   3. Deploy
- *   4. Knowledge updates: just commit to the repo — cache TTLs out within 1 hour
+ *   4. Knowledge updates: just commit to the repo — picked up within
+ *      ~SHA_CACHE_SECONDS automatically.
  */
 
-const REPO_RAW_BASE = 'https://raw.githubusercontent.com/dixonrand/LynxPro/main';
+const REPO_OWNER = 'dixonrand';
+const REPO_NAME = 'LynxPro';
+const REPO_BRANCH = 'main';
 
 const KNOWLEDGE_FILES = [
   { path: '/Lynx_Master_Reference.md',          label: 'Lynx_Master_Reference.md' },
@@ -24,7 +30,9 @@ const KNOWLEDGE_FILES = [
   { path: '/support/data/faq.json',             label: 'FAQ Entries (faq.json)', json: true },
 ];
 
-const KNOWLEDGE_CACHE_SECONDS = 3600; // 1 hour CDN cache for repo files
+const SHA_CACHE_SECONDS = 60;          // recheck commit SHA every 60s
+const KNOWLEDGE_CACHE_SECONDS = 3600;  // file body cache (keyed by SHA, so safe to keep long)
+
 
 const SYSTEM_PROMPT_HEADER = `You are an expert Lynx System Developers knowledge assistant.
 
@@ -240,8 +248,53 @@ When NOT to use them:
 If \`search_docs\` returns no matches, the doc may not have been extracted yet (videos, third-party-hosted docs, and a few PDFs are skipped). In that case, point the user at the relevant URL from the Master Reference's Document Index instead.
 `;
 
+// Resolve the current `main` commit SHA, with a short edge cache so
+// repeated requests within SHA_CACHE_SECONDS reuse one GitHub API call.
+// Falls back to the branch name on any failure (rate-limit, network),
+// which preserves prior behavior.
+async function fetchHeadSha() {
+  const apiUrl = 'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME +
+    '/commits/' + REPO_BRANCH;
+  const cache = caches.default;
+  const cacheKey = new Request(apiUrl);
+
+  const cached = await cache.match(cacheKey);
+  if (cached) {
+    try {
+      const sha = JSON.parse(await cached.text()).sha;
+      if (sha) return sha;
+    } catch (_) { /* fall through and refetch */ }
+  }
+
+  try {
+    const fresh = await fetch(apiUrl, {
+      headers: {
+        'User-Agent': 'lynxpro-worker',
+        'Accept': 'application/vnd.github+json',
+      },
+      cf: { cacheTtl: 0, cacheEverything: false },
+    });
+    if (!fresh.ok) return REPO_BRANCH;
+    const text = await fresh.text();
+    await cache.put(cacheKey, new Response(text, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'public, max-age=' + SHA_CACHE_SECONDS,
+      },
+    }));
+    return JSON.parse(text).sha || REPO_BRANCH;
+  } catch (_) {
+    return REPO_BRANCH;
+  }
+}
+
 async function fetchCachedRepoFile(path) {
-  const url = REPO_RAW_BASE + path;
+  // Pin to the current commit SHA so each commit produces a fresh cache key.
+  // When the SHA flips, every Worker invocation immediately fetches the new
+  // file body — no need to manually purge or wait on a TTL.
+  const ref = await fetchHeadSha();
+  const url = 'https://raw.githubusercontent.com/' + REPO_OWNER + '/' + REPO_NAME +
+    '/' + ref + path;
   const cache = caches.default;
   const cacheKey = new Request(url);
 
