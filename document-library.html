@@ -51,6 +51,11 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .doc-entry{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:var(--bg-card);border:1px solid var(--border-row);margin-bottom:6px;text-decoration:none;color:var(--ink);transition:border-color .12s,background .12s}
 .doc-entry:hover{border-color:var(--gold);background:var(--bg-section)}
 .doc-type-badge{flex-shrink:0;font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:3px 7px;border:1.5px solid var(--border);background:var(--bg-section);color:var(--ink-3);min-width:36px;text-align:center}
+.doc-type-badge.datasheet{background:#55009C;color:#fff;border-color:#55009C}
+.doc-type-badge.qsg{background:#1A6B6B;color:#fff;border-color:#1A6B6B}
+.doc-type-badge.manual{background:#4A5568;color:#fff;border-color:#4A5568}
+.doc-type-badge.brochure{background:#E8A800;color:#111;border-color:#E8A800}
+.doc-type-badge.guide{background:#2C7A7A;color:#fff;border-color:#2C7A7A}
 .doc-type-badge.video{background:#c62828;color:#fff;border-color:#c62828}
 .doc-info{flex:1;min-width:0}
 .doc-title{font-size:14px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:2px}
@@ -180,8 +185,7 @@ footer span{color:var(--ink-3);font-weight:600}
       html += '<div class="cat-section">';
       html += '<div class="cat-header"><span class="cat-name">'+esc(cat)+'</span><span class="cat-count">'+docs.length+'</span></div>';
       docs.forEach(function(d){
-        var isVideo = d.type === 'video';
-        var badgeClass = isVideo ? 'doc-type-badge video' : 'doc-type-badge';
+        var badgeClass = 'doc-type-badge ' + (d.type || '');
         var label = d.type === 'qsg' ? 'QSG' : d.type === 'misc' ? 'DOC' : d.type.toUpperCase().slice(0,4);
         if(d.type === 'datasheet') label = 'DATA';
         if(d.type === 'manual') label = 'MAN';
