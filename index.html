@@ -24,10 +24,28 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .theme-dot:hover{transform:scale(1.2)}
 .theme-dot.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 .nav-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border-c)}
-.hero{padding:28px 24px 20px;max-width:860px;margin:0 auto;text-align:center}
-.hero-brand{font-size:clamp(36px,5.5vw,64px);font-weight:800;color:var(--gold);letter-spacing:clamp(3px,.6vw,7px);text-transform:uppercase;margin-bottom:10px}
-.hero-title{font-size:clamp(28px,4.5vw,48px);font-weight:800;color:var(--ink);letter-spacing:-1.5px;line-height:1.08}
-.hero-title span{color:var(--gold)}
+.hero{padding:48px 24px 32px;max-width:920px;margin:0 auto;text-align:center}
+.hero-brand-small{font-size:13px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;opacity:.85}
+.hero-prompt{font-size:clamp(30px,4vw,52px);font-weight:800;color:var(--ink);letter-spacing:-1.2px;line-height:1.1;margin-bottom:6px}
+.hero-prompt span{color:var(--gold)}
+.hero-sub{font-size:14px;color:var(--ink-3);max-width:640px;margin:0 auto 28px;line-height:1.55}
+.hero-input-row{display:flex;gap:10px;align-items:flex-end;background:var(--bg-card);border:2px solid var(--border-c);padding:10px;box-shadow:6px 6px 0 var(--border-c);transition:box-shadow .15s,transform .15s}
+.hero-input-row:focus-within{box-shadow:8px 8px 0 var(--gold);transform:translate(-2px,-2px)}
+.hero-input{flex:1;border:0;outline:0;resize:none;background:transparent;padding:14px 12px;font-family:inherit;font-size:18px;color:var(--ink);min-height:60px;line-height:1.4}
+.hero-input::placeholder{color:var(--ink-4);opacity:.7}
+.hero-send{background:var(--gold);color:#111;border:0;padding:14px 28px;font-family:inherit;font-size:14px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;align-self:stretch;transition:background .15s}
+.hero-send:hover{background:#55009C;color:#fff}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+.hero-chip{background:var(--bg-card);border:1px solid var(--border-c);color:var(--ink-3);font-family:inherit;font-size:12px;font-weight:600;padding:7px 14px;border-radius:20px;text-decoration:none;transition:border-color .12s,color .12s,background .12s;cursor:pointer}
+.hero-chip:hover{border-color:var(--gold);color:var(--ink);background:#FFF8E8}
+.hero-chip-icon{font-size:11px;color:var(--ink-4);margin-right:5px}
+[data-theme="warm"] .hero-input-row{box-shadow:5px 5px 0 #111}
+[data-theme="glass"] .hero-prompt{color:#fff}
+[data-theme="glass"] .hero-input-row{background:rgba(255,255,255,.1);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border-radius:20px;border:1px solid rgba(255,255,255,.22);box-shadow:0 8px 32px rgba(0,0,0,.18)}
+[data-theme="glass"] .hero-input{color:#fff}
+[data-theme="glass"] .hero-input::placeholder{color:rgba(255,255,255,.55)}
+[data-theme="glass"] .hero-send{border-radius:14px}
+[data-theme="glass"] .hero-chip{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .section{max-width:1900px;margin:0 auto;padding:0 24px 32px;width:100%}
 .section-hdr{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:10px;border-bottom:var(--border)}
 .section-label{font-size:11px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--ink-4)}
@@ -115,7 +133,20 @@ footer span{color:var(--ink-3);font-weight:600}
 </nav>
 
 <div class="hero">
-  <div class="hero-brand">Lynx Support</div>
+  <div class="hero-brand-small">Lynx Support · Lynx Assistant</div>
+  <h1 class="hero-prompt">Ask anything <span>about FinishLynx</span></h1>
+  <p class="hero-sub">Setup, troubleshooting, cameras, evaluation — instant answers powered by Lynx documentation.</p>
+  <form class="hero-input-row" action="lynx-assistant.html" method="get" onsubmit="var q=this.q.value.trim();if(q){location.href='lynx-assistant.html?q='+encodeURIComponent(q);return false;}return true;">
+    <textarea class="hero-input" name="q" rows="2" placeholder="How do I align the camera before a meet?"></textarea>
+    <button type="submit" class="hero-send">Ask &rarr;</button>
+  </form>
+  <div class="hero-chips">
+    <a class="hero-chip" href="lynx-assistant.html?q=How%20do%20I%20align%20the%20camera%20before%20the%20first%20race%3F"><span class="hero-chip-icon">›</span>Camera alignment</a>
+    <a class="hero-chip" href="lynx-assistant.html?q=Compare%20the%20domestic%20packages%3A%20Scholastic%2C%20Bronze%2C%20Silver%2C%20Gold%2C%20Platinum%2C%20Diamond"><span class="hero-chip-icon">›</span>Compare packages</a>
+    <a class="hero-chip" href="lynx-assistant.html?q=Where%20do%20I%20find%20the%20.LSS%20scoreboard%20script%20for%20my%20display%3F"><span class="hero-chip-icon">›</span>Scoreboard scripts</a>
+    <a class="hero-chip" href="lynx-assistant.html?q=My%20RadioLynx%20wireless%20start%20isn%27t%20triggering"><span class="hero-chip-icon">›</span>RadioLynx not triggering</a>
+    <a class="hero-chip" href="lynx-assistant.html?q=Walk%20me%20through%20a%20pre-meet%20day%20checklist"><span class="hero-chip-icon">›</span>Pre-meet checklist</a>
+  </div>
 </div>
 
 
@@ -124,21 +155,9 @@ footer span{color:var(--ink-3);font-weight:600}
 <div class="section">
   <div class="section-hdr">
     <span class="section-label">Support &amp; Resources</span>
-    <span class="section-count">4 tools</span>
+    <span class="section-count">3 tools</span>
   </div>
   <div class="tool-grid">
-    <a class="tool-card live" href="lynx-assistant.html">
-      <div class="tool-accent accent-purple"></div>
-      <div class="tool-body">
-        <div class="tool-icon icon-purple"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-7l-4 3v-3H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M7 9h.01M10 9h.01M13 9h.01"/></svg></div>
-        <div class="status status-live" style="position:absolute;top:18px;right:20px">LIVE <span class="arrow">&rarr;</span></div><div class="tool-name">Lynx Assistant</div>
-        <div class="tool-desc">Ask the Lynx Assistant anything about FinishLynx — setup, troubleshooting, products, evaluation. Get instant answers powered by Lynx documentation.</div>
-      </div>
-      <div class="tool-footer">
-        <div class="tool-tags"><span class="tool-tag">AI</span><span class="tool-tag">Chat</span></div>
-
-      </div>
-    </a>
     <a class="tool-card live" href="video-library.html">
       <div class="tool-accent accent-purple"></div>
       <div class="tool-body">
