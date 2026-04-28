@@ -23,7 +23,7 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .hdr-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border)}
 
 /* Layout */
-.wrap{max-width:1200px;margin:0 auto;padding:20px 24px 48px;width:100%;flex:1}
+.wrap{max-width:1900px;margin:0 auto;padding:20px 24px 48px;width:100%;flex:1}
 .page-header{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .page-title{font-size:28px;font-weight:800;letter-spacing:-.5px}
 .doc-count{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-5)}
@@ -47,9 +47,18 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .cat-name{font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-5)}
 .cat-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-6)}
 
-/* Doc entry */
-.doc-entry{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:var(--bg-card);border:1px solid var(--border-row);margin-bottom:6px;text-decoration:none;color:var(--ink);transition:border-color .12s,background .12s}
-.doc-entry:hover{border-color:var(--gold);background:var(--bg-section)}
+/* Doc grid — adaptive columns inside each category */
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:10px}
+
+/* Doc entry as a card with a colored left border based on type */
+.doc-entry{--type-color:var(--ink-6);display:flex;align-items:flex-start;gap:12px;padding:14px 16px 14px 14px;background:var(--bg-card);border:1px solid var(--border-row);border-left:4px solid var(--type-color);text-decoration:none;color:var(--ink);transition:transform .15s,border-color .15s,box-shadow .15s}
+.doc-entry:hover{transform:translateY(-2px);border-color:var(--type-color);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.doc-entry.datasheet{--type-color:#55009C}
+.doc-entry.qsg{--type-color:#1A6B6B}
+.doc-entry.manual{--type-color:#4A5568}
+.doc-entry.brochure{--type-color:#E8A800}
+.doc-entry.guide{--type-color:#2C7A7A}
+.doc-entry.video{--type-color:#c62828}
 .doc-type-badge{flex-shrink:0;font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:3px 7px;border:1.5px solid var(--border);background:var(--bg-section);color:var(--ink-3);min-width:36px;text-align:center}
 .doc-type-badge.datasheet{background:#55009C;color:#fff;border-color:#55009C}
 .doc-type-badge.qsg{background:#1A6B6B;color:#fff;border-color:#1A6B6B}
@@ -184,19 +193,21 @@ footer span{color:var(--ink-3);font-weight:600}
       var docs = groups[cat];
       html += '<div class="cat-section">';
       html += '<div class="cat-header"><span class="cat-name">'+esc(cat)+'</span><span class="cat-count">'+docs.length+'</span></div>';
+      html += '<div class="doc-grid">';
       docs.forEach(function(d){
-        var badgeClass = 'doc-type-badge ' + (d.type || '');
-        var label = d.type === 'qsg' ? 'QSG' : d.type === 'misc' ? 'DOC' : d.type.toUpperCase().slice(0,4);
-        if(d.type === 'datasheet') label = 'DATA';
-        if(d.type === 'manual') label = 'MAN';
-        if(d.type === 'brochure') label = 'BRCH';
-        if(d.type === 'guide') label = 'GUIDE';
-        if(d.type === 'video') label = 'VID';
+        var type = d.type || '';
+        var badgeClass = 'doc-type-badge ' + type;
+        var label = type === 'qsg' ? 'QSG' : type === 'misc' ? 'DOC' : type.toUpperCase().slice(0,4);
+        if(type === 'datasheet') label = 'DATA';
+        if(type === 'manual') label = 'MAN';
+        if(type === 'brochure') label = 'BRCH';
+        if(type === 'guide') label = 'GUIDE';
+        if(type === 'video') label = 'VID';
 
         var meta = esc(cat);
         if(d.subcategory) meta += ' &rsaquo; ' + esc(d.subcategory);
 
-        html += '<a class="doc-entry" href="'+esc(d.url)+'" target="_blank" rel="noopener">';
+        html += '<a class="doc-entry ' + esc(type) + '" href="'+esc(d.url)+'" target="_blank" rel="noopener">';
         html += '<span class="'+badgeClass+'">'+label+'</span>';
         html += '<div class="doc-info">';
         html += '<div class="doc-title">'+esc(d.title)+'</div>';
@@ -204,6 +215,7 @@ footer span{color:var(--ink-3);font-weight:600}
         if(d.use) html += '<div class="doc-use">'+esc(d.use)+'</div>';
         html += '</div></a>';
       });
+      html += '</div>';
       html += '</div>';
     });
 
