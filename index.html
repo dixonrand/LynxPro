@@ -55,15 +55,15 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .tool-card:has(.accent-purple){background:linear-gradient(160deg,#3a0867 0%,#55009C 70%,#7E2BC4 100%);color:#fff;box-shadow:0 6px 22px rgba(45,0,79,.32)}
 .tool-card:has(.accent-slate){background:linear-gradient(160deg,#1e2530 0%,#2f3b4c 70%,#4A5568 100%);color:#fff;box-shadow:0 6px 22px rgba(30,37,48,.32)}
 .tool-card:has(.accent-teal){background:linear-gradient(160deg,#0a3535 0%,#0f4646 70%,#1A6B6B 100%);color:#fff;box-shadow:0 6px 22px rgba(10,53,53,.32)}
-.tool-card:has(.accent-gold){background:linear-gradient(160deg,#7a5300 0%,#b07e00 70%,#E8A800 100%);color:#111;box-shadow:0 6px 22px rgba(184,124,0,.32)}
+.tool-card:has(.accent-gold){background:linear-gradient(160deg,#7a5300 0%,#b07e00 70%,#E8A800 100%);color:#fff;box-shadow:0 6px 22px rgba(184,124,0,.32)}
 .tool-card:has(.accent-purple) .tool-name,
 .tool-card:has(.accent-slate)  .tool-name,
-.tool-card:has(.accent-teal)   .tool-name{color:#fff}
-.tool-card:has(.accent-gold)   .tool-name{color:#111}
+.tool-card:has(.accent-teal)   .tool-name,
+.tool-card:has(.accent-gold)   .tool-name{color:#fff}
 .tool-card:has(.accent-purple) .tool-desc,
 .tool-card:has(.accent-slate)  .tool-desc,
-.tool-card:has(.accent-teal)   .tool-desc{color:rgba(255,255,255,.82)}
-.tool-card:has(.accent-gold)   .tool-desc{color:rgba(0,0,0,.7)}
+.tool-card:has(.accent-teal)   .tool-desc,
+.tool-card:has(.accent-gold)   .tool-desc{color:rgba(255,255,255,.82)}
 .tool-card:has(.accent-purple) .tool-icon,
 .tool-card:has(.accent-slate)  .tool-icon,
 .tool-card:has(.accent-teal)   .tool-icon{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25)}
@@ -75,7 +75,7 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .tool-card .tool-footer{background:rgba(0,0,0,.22);border-top:1px solid rgba(255,255,255,.1);opacity:1}
 .tool-card:has(.accent-gold) .tool-footer{background:rgba(0,0,0,.15);border-top:1px solid rgba(0,0,0,.15)}
 .tool-card .tool-tag{background:rgba(255,255,255,.18);color:#fff}
-.tool-card:has(.accent-gold) .tool-tag{background:rgba(0,0,0,.18);color:#111}
+.tool-card:has(.accent-gold) .tool-tag{background:rgba(0,0,0,.18);color:#fff}
 .tool-card.live:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.32) !important}
 .tool-card{background:var(--bg-card);border:var(--border);display:flex;flex-direction:column;position:relative;overflow:hidden;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
 .tool-card.live{cursor:pointer}
@@ -225,11 +225,11 @@ footer span{color:var(--ink-3);font-weight:600}
 
       </div>
     </a>
-    <a class="tool-card inactive" href="packages-guide.html">
+    <a class="tool-card live" href="packages-guide.html">
       <div class="tool-accent accent-slate"></div>
       <div class="tool-body">
         <div class="tool-icon icon-slate"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l7-3 7 3v8l-7 3-7-3z"/><path d="M3 6l7 3 7-3"/><path d="M10 9v8"/></svg></div>
-        <div class="status status-future" style="position:absolute;top:18px;right:20px">FUTURE</div><div class="tool-name">Package Comparison</div>
+        <div class="status status-live" style="position:absolute;top:18px;right:20px">LIVE <span class="arrow">&rarr;</span></div><div class="tool-name">Package Comparison</div>
         <div class="tool-desc">Browse the Lynx track package tiers — Scholastic, Bronze, Silver, Gold, Platinum, and Diamond — and compare what each one includes.</div>
       </div>
       <div class="tool-footer">

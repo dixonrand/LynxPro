@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Package Comparison &mdash; Lynx Support</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+:root{--bg:#FFFFFF;--bg-card:#FFFFFF;--bg-section:#EAE0F2;--gold:#E8A800;--ink:#111;--ink-2:#333;--ink-3:#555;--ink-4:#666;--ink-5:#888;--ink-6:#aaa;--nav-bg:#2d004f;--border:#C7C7C7;--border-row:rgba(0,0,0,.16);--purple:#55009C}
+html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:15px;min-height:100vh;display:flex;flex-direction:column}
+.hdr{background:var(--nav-bg);border-bottom:3px solid var(--gold);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:14px}
+.logo img{height:32px;width:auto;display:block}
+.logo-divider{width:1px;height:24px;background:rgba(255,255,255,.2)}
+.crumbs{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#fff;letter-spacing:.3px;text-transform:uppercase}
+.crumb-link{opacity:.55;text-decoration:none;color:inherit;transition:opacity .15s}
+.crumb-link:hover{opacity:1}
+.crumb-sep{opacity:.35;font-weight:400;font-size:15px}
+.crumb-current{opacity:.95}
+.hdr-right{display:flex;align-items:center;gap:14px}
+.hdr-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border)}
+.wrap{margin:0 auto;padding:16px 16px 28px;width:100%;flex:1}
+
+.intro{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:14px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+.intro-text{max-width:780px}
+.intro-title{font-size:20px;font-weight:800;letter-spacing:-.3px;margin-bottom:5px}
+.intro-sub{font-size:13px;color:var(--ink-3);line-height:1.55}
+.intro-actions{display:flex;gap:8px;flex-wrap:wrap}
+.intro-link{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:7px 12px;border:1.5px solid var(--border);background:var(--bg-card);color:var(--ink);text-decoration:none;transition:transform .12s,box-shadow .12s,background .15s}
+.intro-link:hover{background:var(--bg-section);transform:translateY(-2px);box-shadow:3px 3px 0 var(--border)}
+
+.sub-tabs{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.sub-tab{background:transparent;border:1.5px solid var(--border);color:var(--ink);font-family:inherit;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:5px 14px;cursor:pointer;transition:background .15s}
+.sub-tab:hover{background:var(--bg-section)}
+.sub-tab.active{background:var(--ink);color:var(--bg-card)}
+
+.compare{background:var(--bg-card);border:2px solid var(--border);overflow:hidden}
+.cmp-row{display:flex;align-items:stretch}
+.cmp-row + .cmp-row,.cmp-section + .cmp-row,.cmp-row + .cmp-section{border-top:1px solid var(--border-row)}
+.cmp-cell{flex:1 1 0;min-width:0;max-width:100%;background:var(--bg-card);padding:12px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;border-left:1px solid var(--border-row);transition:max-width .55s cubic-bezier(.4,0,.2,1),padding .55s cubic-bezier(.4,0,.2,1),opacity .3s ease,border-left-width .55s cubic-bezier(.4,0,.2,1)}
+.cmp-row > .cmp-cell:first-child{border-left:0}
+
+.cmp-tier-header{padding:0;min-height:auto;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0}
+.cmp-tier-stripe{height:6px;width:100%}
+.cmp-tier-body{padding:12px 10px 14px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.cmp-tier-name{font-size:14px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);line-height:1.1}
+.cmp-tier-price{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.2px}
+.cmp-tier-tagline{font-size:10px;color:var(--ink-4);line-height:1.4;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+
+.cmp-img-cell{padding:14px 8px;height:120px}
+.cmp-img-cell img{max-width:100%;max-height:90px;width:auto;height:auto;display:block;object-fit:contain}
+.cmp-img-placeholder{font-size:9px;color:var(--ink-6);font-style:italic;letter-spacing:.3px;text-transform:uppercase}
+
+.cmp-section{background:var(--bg-section);padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--ink-3);text-align:left}
+.cmp-spec{font-size:12px;font-weight:700;line-height:1.45;color:var(--ink-2);min-height:46px}
+.cmp-spec-label{font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-5);margin-bottom:3px}
+
+.check{display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#1A7A3A;line-height:1}
+.check-double{display:inline-flex;align-items:baseline;gap:1px}
+.check-double .check{font-size:14px}
+.check-note{font-size:8px;color:var(--ink-5);font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-top:3px}
+.dash{display:inline-flex;align-items:center;justify-content:center;color:var(--ink-6);font-weight:700;font-size:14px}
+
+.tag-pill{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:3px 7px;background:var(--ink);color:var(--bg-card);border:1px solid var(--ink)}
+.tag-pill.lite{background:var(--bg-card);color:var(--ink)}
+
+.cmp-link-cell{padding:14px 10px;min-height:60px}
+.cmp-link{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:6px 10px;border:1.5px solid var(--border);background:var(--bg-card);color:var(--ink);text-decoration:none;transition:background .15s,transform .12s,box-shadow .12s;white-space:nowrap}
+.cmp-link:hover{background:var(--bg-section);transform:translateY(-1px);box-shadow:2px 2px 0 var(--border)}
+
+.compare[data-filter="recommended"] .cmp-cell[data-tier="scholastic"],
+.compare[data-filter="recommended"] .cmp-cell[data-tier="bronze"]{max-width:0;padding-left:0;padding-right:0;opacity:0;border-left-width:0;pointer-events:none}
+
+.legend{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;margin-top:14px;padding:10px 14px;background:var(--bg-card);border:1.5px solid var(--border);font-size:11px;color:var(--ink-3)}
+.legend-item{display:inline-flex;align-items:center;gap:6px}
+.legend-item .check{font-size:14px}
+
+/* Mobile: keep readable column widths and let the whole comparison scroll. */
+@media (max-width:760px){
+  .compare{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch}
+  .cmp-row{width:max-content;min-width:100%}
+  .cmp-section{min-width:100%}
+  .cmp-cell{flex:0 0 150px;min-width:150px;max-width:150px}
+  .compare[data-filter="recommended"] .cmp-cell[data-tier="scholastic"],
+  .compare[data-filter="recommended"] .cmp-cell[data-tier="bronze"]{flex-basis:0;min-width:0;max-width:0}
+  .cmp-img-cell{height:96px}
+  .cmp-img-cell img{max-height:72px}
+  .intro{flex-direction:column;align-items:flex-start}
+}
+
+footer{border-top:2px solid var(--border);padding:16px 24px;text-align:center;font-size:11px;color:var(--ink-5)}
+footer span{color:var(--ink-3);font-weight:600}
+</style>
+<script>try{localStorage.removeItem('lynxpro-theme')}catch(e){}</script>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo">
+    <img src="lynx-head-white-200x200.png" alt="Lynx Support" onerror="this.style.display='none'">
+    <div class="logo-divider"></div>
+    <div class="crumbs">
+      <a href="index.html" class="crumb-link">Lynx Support</a>
+      <span class="crumb-sep">&rsaquo;</span>
+      <span class="crumb-current">Package Comparison</span>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <span class="hdr-beta">In Beta</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="intro">
+    <div class="intro-text">
+      <div class="intro-title">US High School Track Packages</div>
+      <div class="intro-sub">The six domestic Lynx timing packages &mdash; Scholastic through Diamond &mdash; share the same Fully Automatic Timing core but differ in camera count, frame rate, lens, software tier, and the wireless, display, and low-light add-ons each one bundles. Pricing and contents below are sourced from the Track Domestic Packages comparison datasheet.</div>
+    </div>
+    <div class="intro-actions">
+      <a class="intro-link" href="https://finishlynx.com/wp-content/uploads/2022/06/domestic_packages_compare.pdf" target="_blank" rel="noopener">Datasheet PDF &rarr;</a>
+      <a class="intro-link" href="product-guide.html">Product Comparison &rarr;</a>
+    </div>
+  </div>
+
+  <div class="sub-tabs">
+    <button class="sub-tab active" data-sub="all">All Packages</button>
+    <button class="sub-tab" data-sub="recommended">Silver &amp; Above</button>
+  </div>
+
+  <div class="compare" data-parent="track-domestic" data-filter="all"></div>
+
+  <div class="legend">
+    <span class="legend-item"><span class="check">&#10003;</span> Included</span>
+    <span class="legend-item"><span class="check-double"><span class="check">&#10003;</span><span class="check">&#10003;</span></span> Included on both cameras</span>
+    <span class="legend-item"><span class="dash">&mdash;</span> Not included</span>
+    <span class="legend-item">* Power-Over-Ethernet network switch replaces the standard injector.</span>
+  </div>
+
+</div>
+
+<footer><span>Lynx Support</span> &mdash; Package Comparison</footer>
+
+<script>
+(function(){
+  // ----- Track Domestic Package tiers, ordered Scholastic -> Diamond -----
+  // Stripe colors echo the tier names; sourced from the comparison datasheet.
+  const TIERS = [
+    { slug:'scholastic', name:'Scholastic', price:'$5,375',  tagline:'Entry-level timing for varsity meets', color:'linear-gradient(90deg,#7B8FA1,#A5B4C4)', cameraImage:'5L510 Photo.png',  cameraAlt:'EtherLynx Vision Scholastic 5L510', qsg:'https://finishlynx.com/wp-content/uploads/2012/07/scholastic-vision-qsg.pdf' },
+    { slug:'bronze',     name:'Bronze',     price:'$8,595',  tagline:'Adds plug-in & multi-camera support',  color:'linear-gradient(90deg,#7a4a1f,#cd7f32)', cameraImage:'5L500 Photo.png',  cameraAlt:'EtherLynx Vision 5L500',           qsg:'https://finishlynx.com/wp-content/uploads/2012/07/bronze-vision-qsg.pdf' },
+    { slug:'silver',     name:'Silver',     price:'$12,195', tagline:'High-res 2,000 fps + motorized lens',  color:'linear-gradient(90deg,#8a8a8a,#c0c0c0)', cameraImage:'5L500 Photo.png',  cameraAlt:'EtherLynx Vision 5L500',           qsg:'https://finishlynx.com/wp-content/uploads/2012/07/silver-vision-qsg.pdf' },
+    { slug:'gold',       name:'Gold',       price:'$18,995', tagline:'Internal RadioLynx + IdentiLynx + LED',color:'linear-gradient(90deg,#b07e00,#E8A800)', cameraImage:'5L500 Photo.png',  cameraAlt:'EtherLynx Vision 5L500',           qsg:'https://finishlynx.com/wp-content/uploads/2012/07/gold-vision-qsg.pdf' },
+    { slug:'platinum',   name:'Platinum',   price:'$28,795', tagline:'Two cameras + portable LED display',   color:'linear-gradient(90deg,#9aa0a6,#d4d6d8)', cameraImage:'5L500 Photo.png',  cameraAlt:'EtherLynx Vision 5L500',           qsg:'https://finishlynx.com/wp-content/uploads/2012/07/platinum-vision-qsg.pdf' },
+    { slug:'diamond',    name:'Diamond',    price:'$44,995', tagline:'Infield video + LuxBoost + battery',   color:'linear-gradient(90deg,#5fbcd6,#b9f2ff)', cameraImage:'5L600 Photo.png',  cameraAlt:'EtherLynx Vision Pro 5L600',       qsg:'https://finishlynx.com/wp-content/uploads/2012/07/Diamond-Vision-QSG.pdf' },
+  ];
+
+  // Per-tier core specs. Each entry is keyed by row.key.
+  const TIER_SPECS = {
+    scholastic: { cameras:'1', cameraModel:'5L510 Vision Scholastic', frameRate:'600 fps', lens:'2.8&ndash;10mm Manual Zoom', software:'<span class="tag-pill lite">Lite</span>', display:'&mdash;' },
+    bronze:     { cameras:'1', cameraModel:'5L500 Vision',            frameRate:'1,000 fps', lens:'2.8&ndash;10mm Manual Zoom', software:'<span class="tag-pill">Full</span>', display:'&mdash;' },
+    silver:     { cameras:'1', cameraModel:'5L500 Vision',            frameRate:'2,000 fps', lens:'Motorized Zoom',             software:'<span class="tag-pill">Full</span>', display:'&mdash;' },
+    gold:       { cameras:'1', cameraModel:'5L500 Vision',            frameRate:'2,000 fps', lens:'Motorized Zoom',             software:'<span class="tag-pill">Full</span>', display:'9-Digit LED' },
+    platinum:   { cameras:'2', cameraModel:'5L500 Vision &times;2',   frameRate:'2,000 fps &times;2', lens:'Motorized Zoom &times;2', software:'<span class="tag-pill">Full</span>', display:'Portable LED Display' },
+    diamond:    { cameras:'2', cameraModel:'5L500 Vision &times;2',   frameRate:'2,000 fps &times;2', lens:'Motorized Zoom &times;2', software:'<span class="tag-pill">Full</span>', display:'Infield Video Display' },
+  };
+
+  // Spec rows. Use {section:''} for headers, {key, label} for value rows,
+  // {row:[...]} for explicit per-tier values keyed by tier slug.
+  const SPECS = [
+    {section:'Core Hardware'},
+    {key:'cameras',        label:'Photo-Finish Cameras'},
+    {key:'cameraModel',    label:'EtherLynx Camera Model'},
+    {key:'frameRate',      label:'Standard Frame Rate', rank:true},
+    {key:'lens',           label:'Lens'},
+    {key:'software',       label:'FinishLynx Software'},
+    {key:'display',        label:'Included Display'},
+
+    {section:'Included with Every Package'},
+    {row:'all', label:'EasyAlign — Full-Frame Video Alignment'},
+    {row:'all', label:'Full-Color Photo-Finish Images'},
+    {row:'all', label:'Wired Start System'},
+    {row:'all', label:'All Necessary Ethernet &amp; Camera Cables'},
+    {row:'all', label:'Water-Resistant Housing'},
+    {row:'all', label:'Custom FinishLynx Carrying Case'},
+    {row:'all', label:'LynxPad Meet Management Software'},
+    {row:'all', label:'Tech Support &amp; 1-Year Renewable Warranty'},
+    {row:'all', label:'Camera Tripods &amp; Mounting Hardware'},
+    {row:'all', label:'Support for RadioLynx Wireless Start'},
+    {row:{ scholastic:'check', bronze:'check', silver:'check', gold:'check-star', platinum:'check-star', diamond:'check-star' }, label:'Power-Over-Ethernet Injector', note:'star=Network switch'},
+    {row:{ scholastic:'check', bronze:'check', silver:'check', gold:'check', platinum:'double', diamond:'double' }, label:'Internal On-Board Level'},
+
+    {section:'Bronze and Above'},
+    {row:{ scholastic:'dash', bronze:'check', silver:'check', gold:'check', platinum:'check', diamond:'check' }, label:'Support for Lynx Software Plug-Ins'},
+    {row:{ scholastic:'dash', bronze:'check', silver:'check', gold:'check', platinum:'check', diamond:'check' }, label:'Support for Multiple FinishLynx Cameras'},
+    {row:{ scholastic:'dash', bronze:'check', silver:'check', gold:'check', platinum:'check', diamond:'check' }, label:'Support for IdentiLynx 2-D Video Camera'},
+    {row:{ scholastic:'dash', bronze:'check', silver:'check', gold:'check', platinum:'check', diamond:'check' }, label:'Serial Scoreboard Interface (Running Time &amp; Results)'},
+    {row:{ scholastic:'dash', bronze:'check', silver:'check', gold:'check', platinum:'check', diamond:'check' }, label:'Wind Gauge Interface (Automatic Wind Reading Import)'},
+
+    {section:'Silver and Above'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'check', gold:'check', platinum:'check', diamond:'check' }, label:'Auto Capture &amp; Virtual Photoeye Plug-in'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'check', gold:'check', platinum:'check', diamond:'check' }, label:'High-Resolution (2,000 fps) Images'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'check', gold:'check', platinum:'double', diamond:'double' }, label:'Remote Positioner (Remote Camera Adjustment)'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'check', gold:'check', platinum:'double', diamond:'double' }, label:'Motorized Lens (Remote Lens Adjustment)'},
+
+    {section:'Gold and Above'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'dash', gold:'check', platinum:'check', diamond:'check' }, label:'IdentiLynx Full-Frame Video Camera'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'dash', gold:'check', platinum:'check', diamond:'check' }, label:'Internal RadioLynx Wireless Start System'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'dash', gold:'check', platinum:'check', diamond:'check' }, label:'Power-Over-Ethernet Network Switch'},
+
+    {section:'Platinum and Above'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'dash', gold:'dash', platinum:'check', diamond:'double' }, label:'Video Display Module (VDM) for HDMI Output'},
+
+    {section:'Diamond Only'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'dash', gold:'dash', platinum:'dash', diamond:'double' }, label:'LuxBoost Low-Light Capture'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'dash', gold:'dash', platinum:'dash', diamond:'double' }, label:'Internal Camera Battery'},
+    {row:{ scholastic:'dash', bronze:'dash', silver:'dash', gold:'dash', platinum:'dash', diamond:'check' }, label:'Weather-Proof Wind Gauge'},
+
+    {section:'Quick Start Guide'},
+    {key:'qsg', label:'Tier-Specific QSG'},
+  ];
+
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function rankVal(raw){
+    if(raw==null||raw==='')return 0;
+    var s=String(raw).replace(/<[^>]+>/g,'');
+    var n=parseFloat(s.replace(/,/g,''));
+    return isNaN(n)?0:n;
+  }
+
+  function markCell(token){
+    if (token === 'check')      return '<span class="check">&#10003;</span>';
+    if (token === 'check-star') return '<span class="check-double"><span class="check">&#10003;</span><span class="check-note" style="margin:0 0 0 2px">*</span></span>';
+    if (token === 'double')     return '<span class="check-double"><span class="check">&#10003;</span><span class="check">&#10003;</span></span>';
+    if (token === 'dash')       return '<span class="dash">&mdash;</span>';
+    return esc(token);
+  }
+
+  function tierAttr(t){
+    return ' data-tier="' + esc(t.slug) + '"';
+  }
+
+  function buildCompare(tiers, specs){
+    if (!tiers.length) return '<div class="cmp-empty">No packages to show yet.</div>';
+    let html = '';
+
+    // Tier header row: stripe + tier name + price + tagline
+    html += '<div class="cmp-row">';
+    tiers.forEach(t => {
+      html += '<div class="cmp-cell cmp-tier-header"' + tierAttr(t) + '>';
+      html += '<div class="cmp-tier-stripe" style="background:' + t.color + '"></div>';
+      html += '<div class="cmp-tier-body">';
+      html += '<div class="cmp-tier-name">' + esc(t.name) + '</div>';
+      html += '<div class="cmp-tier-price">' + esc(t.price) + '</div>';
+      if (t.tagline) html += '<div class="cmp-tier-tagline">' + esc(t.tagline) + '</div>';
+      html += '</div></div>';
+    });
+    html += '</div>';
+
+    // Camera image row
+    html += '<div class="cmp-row">';
+    tiers.forEach(t => {
+      html += '<div class="cmp-cell cmp-img-cell"' + tierAttr(t) + '>';
+      html += t.cameraImage
+        ? '<img src="' + esc(t.cameraImage) + '" alt="' + esc(t.cameraAlt || t.name) + '" onerror="this.outerHTML=\'<div class=&quot;cmp-img-placeholder&quot;>No image yet</div>\'">'
+        : '<div class="cmp-img-placeholder">No image yet</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    // Spec rows / sections
+    specs.forEach(row => {
+      if (row.section) {
+        html += '<div class="cmp-section">' + esc(row.section) + '</div>';
+        return;
+      }
+
+      // Pre-compute gold heatmap if row is ranked
+      var rankings = null;
+      if (row.rank && row.key) {
+        var parsed = tiers.map(t => rankVal((TIER_SPECS[t.slug] || {})[row.key]));
+        var maxV = Math.max.apply(null, parsed);
+        var minV = Math.min.apply(null, parsed);
+        if (maxV > minV && maxV > 0) rankings = parsed.map(v => v / maxV);
+      }
+
+      html += '<div class="cmp-row">';
+      tiers.forEach((t, i) => {
+        var val;
+        var extraClass = '';
+        if (row.row === 'all') {
+          val = markCell('check');
+        } else if (row.row && typeof row.row === 'object') {
+          val = markCell(row.row[t.slug] || 'dash');
+        } else if (row.key === 'qsg') {
+          val = t.qsg
+            ? '<a class="cmp-link" href="' + esc(t.qsg) + '" target="_blank" rel="noopener">' + esc(t.name) + ' QSG &rarr;</a>'
+            : '<span class="dash">&mdash;</span>';
+          extraClass = ' cmp-link-cell';
+        } else {
+          var raw = (TIER_SPECS[t.slug] && TIER_SPECS[t.slug][row.key] != null) ? TIER_SPECS[t.slug][row.key] : '&mdash;';
+          val = raw;
+        }
+        var gold = (rankings && rankings[i] > 0) ? ' style="box-shadow:inset 0 0 0 999px rgba(232,168,0,' + (rankings[i] * 0.22).toFixed(3) + ')"' : '';
+        html += '<div class="cmp-cell cmp-spec' + extraClass + '"' + tierAttr(t) + gold + '>';
+        if (row.label) html += '<div class="cmp-spec-label">' + row.label + '</div>';
+        html += val + '</div>';
+      });
+      html += '</div>';
+    });
+
+    return html;
+  }
+
+  // Initial render
+  const compareBox = document.querySelector('.compare[data-parent="track-domestic"]');
+  if (compareBox) {
+    compareBox.innerHTML = buildCompare(TIERS, SPECS);
+    compareBox.querySelectorAll('.cmp-row').forEach(row => {
+      row.style.height = row.offsetHeight + 'px';
+    });
+  }
+
+  // Sub-tab filter wiring (All Packages / Silver & Above)
+  const subTabs = document.querySelectorAll('.sub-tabs .sub-tab');
+  subTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const sub = tab.dataset.sub;
+      subTabs.forEach(t => t.classList.toggle('active', t === tab));
+      if (compareBox) compareBox.dataset.filter = sub;
+    });
+  });
+})();
+</script>
+
+<link rel="stylesheet" href="support/assets/lynx-assistant-widget.css">
+<script src="support/assets/lynx-assistant-widget.js" defer></script>
+</body>
+</html>
