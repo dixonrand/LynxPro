@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Mockup F — Chapter banners + light cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+html{color-scheme:light}
+:root{color-scheme:light;--bg:#FFFFFF;--bg-card:#FFFFFF;--tan:#EAE0F2;--gold:#E8A800;--gold-dark:#C48800;--ink:#111;--ink-3:#555;--ink-4:#5d5d5d;--border-c:#C7C7C7;--border:1px solid var(--border-c);--nav:#2d004f;--font:'Inter',sans-serif;--mono:'JetBrains Mono',monospace}
+[data-theme="warm"]{--bg:#F5EFD6;--bg-card:#FDFAF0;--tan:#EDE4BF;--gold:#E8A800;--gold-dark:#C48800;--ink:#111;--ink-3:#555;--ink-4:#888;--border-c:#111;--border:2px solid var(--border-c);--nav:#1a1a1a}
+html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;min-height:100vh;display:flex;flex-direction:column}
+.nav{background:var(--nav);border-bottom:3px solid var(--gold);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo img{height:30px;width:auto;display:block}
+.nav-divider{width:1px;height:22px;background:rgba(255,255,255,.2)}
+.nav-wordmark{font-size:13px;font-weight:700;color:#fff;letter-spacing:.5px;text-transform:uppercase;opacity:.85}
+.nav-right{display:flex;align-items:center;gap:14px}
+.theme-picker{display:flex;align-items:center;gap:6px}
+.theme-dot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.25);cursor:pointer;transition:transform .15s;padding:0;outline:none}
+.theme-dot:hover{transform:scale(1.2)}
+.theme-dot.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.nav-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border-c)}
+.hero{position:relative;padding:56px 24px 48px;text-align:center;background:linear-gradient(135deg,#2d004f 0%,#55009C 60%,#7E2BC4 100%);border-bottom:3px solid #1a002f;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 18%,rgba(232,168,0,.22) 0%,transparent 55%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:920px;margin:0 auto}
+.hero-avatar{width:64px;height:64px;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.28);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.hero-avatar img{width:38px;height:38px;display:block}
+.hero-brand-small{font-size:12px;font-weight:800;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:9px}
+.hero-live-dot{width:8px;height:8px;border-radius:50%;background:#1A7A3A;display:inline-block;box-shadow:0 0 0 4px rgba(26,122,58,.25);animation:heroPulse 1.6s ease-in-out infinite}
+@keyframes heroPulse{0%,100%{opacity:1}50%{opacity:.45}}
+.hero-prompt{font-size:clamp(32px,4.4vw,56px);font-weight:800;color:#fff;letter-spacing:-1.2px;line-height:1.08;margin-bottom:8px}
+.hero-prompt span{color:var(--gold)}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.78);max-width:640px;margin:0 auto 30px;line-height:1.55}
+.hero-input-row{display:flex;gap:10px;align-items:flex-end;background:#fff;border:2px solid rgba(255,255,255,.6);padding:10px;box-shadow:6px 6px 0 rgba(0,0,0,.45);transition:box-shadow .15s,transform .15s}
+.hero-input-row:focus-within{box-shadow:8px 8px 0 var(--gold);transform:translate(-2px,-2px)}
+.hero-input{flex:1;border:0;outline:0;resize:none;background:transparent;padding:14px 12px;font-family:inherit;font-size:18px;color:#111;min-height:60px;line-height:1.4}
+.hero-input::placeholder{color:#888;opacity:.85}
+.hero-send{background:var(--gold);color:#111;border:0;padding:14px 28px;font-family:inherit;font-size:14px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;align-self:stretch;transition:background .15s,color .15s}
+.hero-send:hover{background:#fff}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.hero-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.9);font-family:inherit;font-size:12px;font-weight:600;padding:7px 14px;border-radius:20px;text-decoration:none;transition:border-color .12s,color .12s,background .12s;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hero-chip:hover{background:rgba(232,168,0,.25);border-color:rgba(232,168,0,.55);color:#fff}
+.hero-chip-icon{font-size:11px;color:var(--gold);margin-right:5px;font-weight:800}
+[data-theme="warm"] .hero{background:linear-gradient(135deg,#1a002f 0%,#3d0070 60%,#55009C 100%);border-bottom-color:#000}
+[data-theme="warm"] .hero-input-row{box-shadow:5px 5px 0 #000}
+.section{max-width:1900px;margin:0 auto;padding:0 24px 32px;width:100%}
+.hero + .section{padding-top:24px}
+/* Bold full-bleed chapter banner per section */
+.section-hdr{position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;margin-bottom:22px;padding:22px 26px;border:0;border-radius:14px;color:#fff}
+.section:has(.accent-purple) .section-hdr{background:linear-gradient(110deg,#3a0867 0%,#55009C 70%,#7E2BC4 100%)}
+.section:has(.accent-slate)  .section-hdr{background:linear-gradient(110deg,#1e2530 0%,#2f3b4c 70%,#4A5568 100%)}
+.section:has(.accent-teal)   .section-hdr{background:linear-gradient(110deg,#0a3535 0%,#0f4646 70%,#1A6B6B 100%)}
+.section:has(.accent-gold)   .section-hdr{background:linear-gradient(110deg,#7a5300 0%,#b07e00 70%,#E8A800 100%);color:#111}
+.section-hdr::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 88% 50%,rgba(255,255,255,.12) 0%,transparent 60%);pointer-events:none}
+.section-step{position:relative;font-family:var(--mono);font-size:clamp(40px,5vw,64px);font-weight:800;color:rgba(255,255,255,.55);line-height:1;letter-spacing:-1px}
+.section:has(.accent-gold) .section-step{color:rgba(0,0,0,.45)}
+.section-text{position:relative;display:flex;flex-direction:column;gap:5px;min-width:0}
+.section-label{font-size:clamp(20px,2vw,28px);font-weight:800;letter-spacing:-.4px;color:#fff;text-transform:none}
+.section:has(.accent-gold) .section-label{color:#111}
+.section-sub{font-size:13px;color:rgba(255,255,255,.78);line-height:1.5;max-width:60ch}
+.section:has(.accent-gold) .section-sub{color:rgba(0,0,0,.65)}
+.section-count{position:relative;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.6px}
+.section:has(.accent-gold) .section-count{color:rgba(0,0,0,.55)}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px}
+.tool-card{background:var(--bg-card);border:var(--border);display:flex;flex-direction:column;position:relative;overflow:hidden;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+.tool-card.live{cursor:pointer}
+.tool-card.live:hover{transform:translateY(-3px);box-shadow:5px 5px 0 var(--border-c)}
+.tool-card.live:active{transform:translateY(0);box-shadow:2px 2px 0 var(--border-c)}
+.tool-card.inactive{cursor:default;opacity:.72}
+.tool-accent{height:3px}
+.accent-gold{background:var(--gold)}
+.accent-slate{background:#4A5568}
+.accent-purple{background:#55009C}
+.accent-teal{background:#1A6B6B}
+.tool-body{padding:18px 20px 14px;flex:1;position:relative}
+.tool-icon{width:38px;height:38px;border:2px solid var(--border-c);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.icon-gold{background:var(--gold)}
+.icon-slate{background:#4A5568}
+.icon-purple{background:#55009C}
+.icon-teal{background:#1A6B6B}
+.tool-icon svg{width:18px;height:18px;color:var(--ink)}
+.icon-slate svg,.icon-purple svg,.icon-teal svg{color:#fff !important}
+.tool-name{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.2px;margin-bottom:5px}
+.tool-desc{font-size:12px;color:var(--ink-3);line-height:1.55}
+.tool-footer{padding:10px 20px;background:var(--tan);border-top:1px solid var(--border-c);display:flex;align-items:center;justify-content:space-between;opacity:.85}
+.tool-tags{display:flex;gap:4px;flex-wrap:wrap}
+.tool-tag{font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:2px 6px;background:var(--ink);color:var(--bg-card)}
+.status{display:inline-flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;color:#fff}
+.status-live{background:#1A7A3A}
+.status-progress{background:#F5C518;color:#111}
+.status-future{background:#8A1A1A}
+.arrow{font-size:14px;margin-left:4px;transition:transform .15s}
+.tool-card.live:hover .arrow{transform:translateX(3px)}
+.stats-strip{background:var(--bg-card);border:var(--border);padding:14px 24px;display:flex;gap:28px;flex-wrap:wrap;margin-bottom:32px}
+.stat-v{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.5px;display:block}
+.stat-l{font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-4);margin-top:3px;display:block}
+footer{border-top:var(--border);padding:16px 24px;text-align:center;font-size:11px;color:var(--ink-4);margin-top:auto}
+footer span{color:var(--ink-3);font-weight:600}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.tool-card{animation:fadeUp .25s ease forwards;opacity:0}
+.tool-card:nth-child(1){animation-delay:.04s}.tool-card:nth-child(2){animation-delay:.08s}.tool-card:nth-child(3){animation-delay:.12s}.tool-card:nth-child(4){animation-delay:.16s}.tool-card:nth-child(5){animation-delay:.2s}.tool-card:nth-child(6){animation-delay:.24s}.tool-card:nth-child(7){animation-delay:.28s}.tool-card:nth-child(8){animation-delay:.32s}.tool-card:nth-child(9){animation-delay:.36s}.tool-card:nth-child(10){animation-delay:.4s}.tool-card:nth-child(11){animation-delay:.44s}.tool-card:nth-child(12){animation-delay:.48s}.tool-card:nth-child(n+13){animation-delay:.52s}
+</style>
+<script>(function(){var t=localStorage.getItem('lynxpro-theme');if(t==='classic'){t='warm';localStorage.setItem('lynxpro-theme','warm');}else if(t==='finishlynx'||t==='glass'){t='';localStorage.removeItem('lynxpro-theme');}if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="lynx-head-white-200x200.png" alt="Lynx Support" onerror="this.style.display='none'">
+    <div class="nav-divider"></div>
+    <span class="nav-wordmark">Lynx Support</span>
+  </div>
+  <div class="nav-right">
+    <div class="theme-picker">
+      <button class="theme-dot" data-theme="modern" style="background:#fff" title="Modern"></button>
+      <button class="theme-dot" data-theme="warm" style="background:#F5EFD6" title="Warm"></button>
+    </div>
+    <span class="nav-beta">In Beta</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-avatar"><img src="lynx-head-white-200x200.png" alt="" onerror="this.style.display='none'"></div>
+    <div class="hero-brand-small"><span class="hero-live-dot"></span>Lynx Assistant · Live</div>
+    <h1 class="hero-prompt">Ask anything <span>about FinishLynx</span></h1>
+    <p class="hero-sub">Setup, troubleshooting, cameras, evaluation — instant answers powered by Lynx documentation.</p>
+    <form class="hero-input-row" action="lynx-assistant.html" method="get" onsubmit="var q=this.q.value.trim();if(q){location.href='lynx-assistant.html?q='+encodeURIComponent(q);return false;}return true;">
+      <textarea class="hero-input" name="q" rows="2" placeholder="How do I align the camera before a meet?"></textarea>
+      <button type="submit" class="hero-send">Ask &rarr;</button>
+    </form>
+    <div class="hero-chips">
+      <a class="hero-chip" href="lynx-assistant.html?q=How%20do%20I%20align%20the%20camera%20before%20the%20first%20race%3F"><span class="hero-chip-icon">›</span>Camera alignment</a>
+      <a class="hero-chip" href="lynx-assistant.html?q=Compare%20the%20domestic%20packages%3A%20Scholastic%2C%20Bronze%2C%20Silver%2C%20Gold%2C%20Platinum%2C%20Diamond"><span class="hero-chip-icon">›</span>Compare packages</a>
+      <a class="hero-chip" href="lynx-assistant.html?q=Where%20do%20I%20find%20the%20.LSS%20scoreboard%20script%20for%20my%20display%3F"><span class="hero-chip-icon">›</span>Scoreboard scripts</a>
+      <a class="hero-chip" href="lynx-assistant.html?q=My%20RadioLynx%20wireless%20start%20isn%27t%20triggering"><span class="hero-chip-icon">›</span>RadioLynx not triggering</a>
+      <a class="hero-chip" href="lynx-assistant.html?q=Walk%20me%20through%20a%20pre-meet%20day%20checklist"><span class="hero-chip-icon">›</span>Pre-meet checklist</a>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- SUPPORT & RESOURCES -->
+<div class="section">
+  <div class="section-hdr">
+    <span class="section-step">01</span>
+    <span class="section-text">
+      <span class="section-label">Discover</span>
+      <span class="section-sub">Find answers, browse manuals, and watch the videos that get you up and running.</span>
+    </span>
+    <span class="section-count">3 tools</span>
+  </div>
+  <div class="tool-grid">
+    <a class="tool-card live" href="video-library.html">
+      <div class="tool-accent accent-purple"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-purple"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="16" height="12" rx="1"/><polygon points="8,7 14,10 8,13" fill="currentColor" stroke="none"/></svg></div>
+        <div class="status status-live" style="position:absolute;top:18px;right:20px">LIVE <span class="arrow">&rarr;</span></div><div class="tool-name">Video Library</div>
+        <div class="tool-desc">Browse categorized FinishLynx training and setup videos. Filter by topic or camera model and watch directly in the platform.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Video</span><span class="tool-tag">Training</span></div>
+
+      </div>
+    </a>
+    <a class="tool-card live" href="document-library.html">
+      <div class="tool-accent accent-purple"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-purple"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h8l4 4v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M12 2v4h4"/><path d="M7 9h6M7 13h4"/></svg></div>
+        <div class="status status-live" style="position:absolute;top:18px;right:20px">LIVE <span class="arrow">&rarr;</span></div><div class="tool-name">Document Library</div>
+        <div class="tool-desc">Browse manuals, quick start guides, and technical documents for all FinishLynx products in one organized, searchable place.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Manuals</span><span class="tool-tag">Guides</span></div>
+
+      </div>
+    </a>
+    <a class="tool-card live" href="faq.html">
+      <div class="tool-accent accent-purple"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-purple"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="8"/><path d="M10 14v.5"/><path d="M10 11a2 2 0 1 0-2-2"/></svg></div>
+        <div class="status status-live" style="position:absolute;top:18px;right:20px">LIVE <span class="arrow">&rarr;</span></div><div class="tool-name">FAQ &amp; Troubleshooting</div>
+        <div class="tool-desc">Search or browse common FinishLynx issues and confirmed solutions. Organized by product, symptom, and resolution type.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Support</span><span class="tool-tag">FAQ</span></div>
+
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- SETUP & HARDWARE -->
+<div class="section">
+  <div class="section-hdr">
+    <span class="section-step">02</span>
+    <span class="section-text">
+      <span class="section-label">Plan &amp; Build</span>
+      <span class="section-sub">Pick the right gear, compare packages, and map your system from camera to scoreboard.</span>
+    </span>
+    <span class="section-count">4 tools</span>
+  </div>
+  <div class="tool-grid">
+    <a class="tool-card live" href="product-guide.html">
+      <div class="tool-accent accent-slate"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-slate"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="5" width="8" height="10" rx="1"/><rect x="11" y="5" width="8" height="10" rx="1"/><path d="M9 10h2"/></svg></div>
+        <div class="status status-progress" style="position:absolute;top:18px;right:20px">IN PROGRESS</div><div class="tool-name">Product Guide</div>
+        <div class="tool-desc">View and compare key specs for cameras, lenses, scoreboards and displays, start and false start detection systems, software, plug-ins, upgrades and more side-by-side.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Cameras</span><span class="tool-tag">Specs</span></div>
+        
+      </div>
+    </a>
+    <a class="tool-card live" href="system-builder.html">
+      <div class="tool-accent accent-slate"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-slate"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/><rect x="2" y="11" width="7" height="7" rx="1"/><path d="M14.5 11v7M11 14.5h7"/></svg></div>
+        <div class="status status-progress" style="position:absolute;top:18px;right:20px">IN PROGRESS</div><div class="tool-name">System Builder</div>
+        <div class="tool-desc">Select cameras, lenses, accessories, and add-ons. Mark items as owned or needed and get a full system breakdown with a clean export summary.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Hardware</span><span class="tool-tag">Planning</span></div>
+        
+      </div>
+    </a>
+    <a class="tool-card inactive" href="tool-lens-helper.html">
+      <div class="tool-accent accent-slate"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-slate"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><circle cx="10" cy="10" r="3"/><path d="M10 1v2M10 17v2M1 10h2M17 10h2"/></svg></div>
+        <div class="status status-future" style="position:absolute;top:18px;right:20px">FUTURE</div><div class="tool-name">Lens Helper</div>
+        <div class="tool-desc">Enter your setup distance and camera position to get recommended lens options. Takes the guesswork out of lens selection at the finish line.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Lenses</span><span class="tool-tag">Setup</span></div>
+        
+      </div>
+    </a>
+    <a class="tool-card inactive" href="packages-guide.html">
+      <div class="tool-accent accent-slate"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-slate"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l7-3 7 3v8l-7 3-7-3z"/><path d="M3 6l7 3 7-3"/><path d="M10 9v8"/></svg></div>
+        <div class="status status-future" style="position:absolute;top:18px;right:20px">FUTURE</div><div class="tool-name">Packages Guide</div>
+        <div class="tool-desc">Browse the Lynx track package tiers — Scholastic, Bronze, Silver, Gold, Platinum, and Diamond — and compare what each one includes.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Packages</span><span class="tool-tag">Compare</span></div>
+
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- TRAINING & INTELLIGENCE -->
+<div class="section">
+  <div class="section-hdr">
+    <span class="section-step">03</span>
+    <span class="section-text">
+      <span class="section-label">Train Your Crew</span>
+      <span class="section-sub">Walk through setups, sharpen evaluation, and get the team meet-ready.</span>
+    </span>
+    <span class="section-count">4 tools</span>
+  </div>
+  <div class="tool-grid">
+    <a class="tool-card inactive" href="tool-academy.html">
+      <div class="tool-accent accent-teal"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-teal"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L2 6l8 4 8-4-8-4z"/><path d="M2 10l8 4 8-4"/><path d="M2 14l8 4 8-4"/></svg></div>
+        <div class="status status-future" style="position:absolute;top:18px;right:20px">FUTURE</div><div class="tool-name">Lynx Academy</div>
+        <div class="tool-desc">Browse structured training content for FinishLynx operators. Guides, walkthroughs, and best practices organized by skill level and topic.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Training</span><span class="tool-tag">Learn</span></div>
+
+      </div>
+    </a>
+    <a class="tool-card inactive" href="tool-evaluation-practice.html">
+      <div class="tool-accent accent-teal"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-teal"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="16" height="12" rx="1"/><path d="M7 10h6M10 7v6"/></svg></div>
+        <div class="status status-future" style="position:absolute;top:18px;right:20px">FUTURE</div><div class="tool-name">Evaluation Practice</div>
+        <div class="tool-desc">View simulated photo-finish images and practice placing evaluation lines. Get instant feedback to sharpen your evaluation technique.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Practice</span><span class="tool-tag">Evaluation</span></div>
+
+      </div>
+    </a>
+    <a class="tool-card inactive" href="tool-setup-simulator.html">
+      <div class="tool-accent accent-teal"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-teal"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 3"/></svg></div>
+        <div class="status status-future" style="position:absolute;top:18px;right:20px">FUTURE</div><div class="tool-name">Setup Simulator</div>
+        <div class="tool-desc">Walk through connecting a full FinishLynx system step by step. Get instant feedback on whether each connection is correct or incorrect.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Simulator</span><span class="tool-tag">Training</span></div>
+
+      </div>
+    </a>
+    <a class="tool-card inactive" href="tool-profile-maker.html">
+      <div class="tool-accent accent-teal"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-teal"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h12v3H4zM4 9h8M4 13h10M4 17h6"/></svg></div>
+        <div class="status status-future" style="position:absolute;top:18px;right:20px">FUTURE</div><div class="tool-name">Profile Maker</div>
+        <div class="tool-desc">Select configuration options for your FinishLynx setup and generate downloadable configuration files ready to load into software.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Config</span><span class="tool-tag">Export</span></div>
+
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- RACE & OPERATIONS -->
+<div class="section">
+  <div class="section-hdr">
+    <span class="section-step">04</span>
+    <span class="section-text">
+      <span class="section-label">Run the Meet</span>
+      <span class="section-sub">Race-day execution: start lists, .LIF editing, results display, and layouts.</span>
+    </span>
+    <span class="section-count">4 tools</span>
+  </div>
+  <div class="tool-grid">
+    <a class="tool-card inactive" href="tool-start-list.html">
+      <div class="tool-accent accent-gold"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-gold"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5h10M5 9h8M5 13h10M5 17h6"/></svg></div>
+        <div class="status status-future" style="position:absolute;top:18px;right:20px">FUTURE</div><div class="tool-name">Start List Maker</div>
+        <div class="tool-desc">Input athlete and event data to generate a clean, formatted start list. Ready to print or export for race day use.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Race Day</span><span class="tool-tag">Export</span></div>
+
+      </div>
+    </a>
+    <a class="tool-card inactive" href="tool-lif-editor.html">
+      <div class="tool-accent accent-gold"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-gold"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2l4 4-10 10H4v-4L14 2z"/></svg></div>
+        <div class="status status-future" style="position:absolute;top:18px;right:20px">FUTURE</div><div class="tool-name">LIF Editor</div>
+        <div class="tool-desc">Upload a .LIF file, view the structured data, edit fields directly, and download the updated file. Fix errors without touching a text editor.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">.LIF</span><span class="tool-tag">Edit</span></div>
+
+      </div>
+    </a>
+    <a class="tool-card live" href="lif-results-viewer.html?v=2">
+      <div class="tool-accent accent-gold"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-gold"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="8" width="2" height="9" rx=".3"/><rect x="6" y="5" width="2" height="12" rx=".3"/><rect x="10" y="2" width="2" height="15" rx=".3"/><rect x="14" y="6" width="2" height="11" rx=".3"/></svg></div>
+        <div class="status status-live" style="position:absolute;top:18px;right:20px">LIVE <span class="arrow">→</span></div><div class="tool-name">Results Viewer</div>
+        <div class="tool-desc">Load any .LIF file folder and instantly view full meet results — podium, heats, reaction times, performance leaderboards, and custom PDF export.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">.LIF</span><span class="tool-tag">Results</span><span class="tool-tag">PDF</span></div>
+      </div>
+    </a>
+    <a class="tool-card inactive" href="tool-layout-designer.html">
+      <div class="tool-accent accent-gold"></div>
+      <div class="tool-body">
+        <div class="tool-icon icon-gold"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="16" height="12" rx="1"/><path d="M6 18h8M10 14v4"/></svg></div>
+        <div class="status status-future" style="position:absolute;top:18px;right:20px">FUTURE</div><div class="tool-name">Layout Designer</div>
+        <div class="tool-desc">Select or customize scoreboard layouts visually and export the corresponding .LSS layout script ready to load into FinishLynx.</div>
+      </div>
+      <div class="tool-footer">
+        <div class="tool-tags"><span class="tool-tag">Scoreboard</span><span class="tool-tag">.LSS</span></div>
+
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer><span>Lynx Support</span> — FinishLynx Operator Platform &nbsp;·&nbsp; Lynx System Developers, Inc.</footer>
+
+<!-- Lynx Assistant floating widget — injects launcher + chat popup -->
+<link rel="stylesheet" href="support/assets/lynx-assistant-widget.css">
+<script src="support/assets/lynx-assistant-widget.js" defer></script>
+
+
+<script>
+// Theme switcher
+(function(){
+  var saved = localStorage.getItem('lynxpro-theme');if(saved==='finishlynx'){saved=null;localStorage.removeItem('lynxpro-theme');}else if(saved==='classic'){saved='warm';localStorage.setItem('lynxpro-theme','warm');}var cur = saved || 'modern';
+  document.querySelectorAll('.theme-dot').forEach(function(dot){
+    if(dot.dataset.theme === cur) dot.classList.add('active');
+    dot.addEventListener('click', function(){
+      var theme = dot.dataset.theme;
+      document.documentElement.setAttribute('data-theme', theme === 'modern' ? '' : theme);
+      localStorage.setItem('lynxpro-theme', theme);
+      document.querySelectorAll('.theme-dot').forEach(function(d){ d.classList.toggle('active', d === dot); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
