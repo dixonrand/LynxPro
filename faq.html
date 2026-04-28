@@ -23,7 +23,7 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .hdr-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border)}
 
 /* Layout */
-.wrap{max-width:900px;margin:0 auto;padding:24px 24px 64px;width:100%;flex:1}
+.wrap{max-width:1900px;margin:0 auto;padding:24px 24px 64px;width:100%;flex:1}
 .page-header{margin-bottom:20px}
 .page-title{font-size:28px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px}
 .page-sub{font-size:14px;color:var(--ink-4);line-height:1.5}
@@ -40,21 +40,28 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .faq-tab.active{background:var(--ink);color:var(--bg-card)}
 .faq-tab .tab-count{font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.55;margin-left:4px}
 
-/* FAQ entry */
-.faq-entry{border:1px solid var(--border-row);margin-bottom:8px;background:var(--bg-card);overflow:hidden}
+/* FAQ entry — type-colored left border, brand palette badges */
+.faq-entry{--type-color:var(--ink-6);border:1px solid var(--border-row);border-left:4px solid var(--type-color);margin-bottom:8px;background:var(--bg-card);overflow:hidden;transition:border-color .15s}
+.faq-entry.troubleshooting{--type-color:#c62828}
+.faq-entry.tip{--type-color:#E8A800}
+.faq-entry.reference{--type-color:#4A5568}
+.faq-entry.workflow{--type-color:#55009C}
+.faq-entry.integration{--type-color:#1A6B6B}
+.faq-entry.networking{--type-color:#2C7A7A}
 .faq-header{display:flex;align-items:center;gap:10px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .12s}
 .faq-header:hover{background:var(--bg-section)}
+.faq-entry:hover{border-color:var(--type-color)}
 .faq-chevron{flex-shrink:0;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--ink-5);transition:transform .2s}
 .faq-entry.open .faq-chevron{transform:rotate(90deg)}
 .faq-badge{flex-shrink:0;font-size:8px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 6px;border:1.5px solid var(--border);color:var(--ink-4);white-space:nowrap}
 .faq-badge.troubleshooting{background:#c62828;color:#fff;border-color:#c62828}
-.faq-badge.tip{background:var(--gold);color:#111;border-color:var(--gold)}
-.faq-badge.integration{background:#1565c0;color:#fff;border-color:#1565c0}
-.faq-badge.networking{background:#2e7d32;color:#fff;border-color:#2e7d32}
-.faq-badge.reference{background:var(--bg-section);color:var(--ink-3)}
-.faq-badge.workflow{background:var(--ink);color:var(--bg-card);border-color:var(--ink)}
+.faq-badge.tip{background:#E8A800;color:#111;border-color:#E8A800}
+.faq-badge.reference{background:#4A5568;color:#fff;border-color:#4A5568}
+.faq-badge.workflow{background:#55009C;color:#fff;border-color:#55009C}
+.faq-badge.integration{background:#1A6B6B;color:#fff;border-color:#1A6B6B}
+.faq-badge.networking{background:#2C7A7A;color:#fff;border-color:#2C7A7A}
 .faq-title{font-size:14px;font-weight:700;color:var(--ink);flex:1}
-.faq-body{display:none;padding:0 16px 16px 44px;font-size:13px;line-height:1.7;color:var(--ink-2)}
+.faq-body{display:none;padding:0 16px 16px 44px;font-size:13px;line-height:1.7;color:var(--ink-2);max-width:80ch}
 .faq-entry.open .faq-body{display:block}
 .faq-body ul,.faq-body ol{margin:8px 0;padding-left:20px}
 .faq-body li{margin-bottom:6px}
@@ -224,7 +231,7 @@ var allFaq = [];
       html += '<div class="faq-section-label">'+esc(section)+'</div>';
       groups[section].forEach(function(e){
         var isOpen = openIds[e.id];
-        html += '<div class="faq-entry'+(isOpen?' open':'')+'" id="faq-'+e.id+'" data-id="'+e.id+'">';
+        html += '<div class="faq-entry '+esc(e.type||'')+(isOpen?' open':'')+'" id="faq-'+e.id+'" data-id="'+e.id+'">';
         html += '<div class="faq-header" onclick="toggleFaq(this)">';
         html += '<span class="faq-chevron">&#9654;</span>';
         html += '<span class="faq-badge '+e.type+'">'+(TYPE_LABELS[e.type]||e.type)+'</span>';
