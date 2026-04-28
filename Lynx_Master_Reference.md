@@ -93,7 +93,6 @@ All documents available in this project or via public URL. Organized by product 
 - **File Status:** In Folder
 - **Use:** Refer to this for setup and configuration of IdentiLynx SR-2 and HRS cameras.
 
-
 ##### Export IdentiLynx Video to YouTube or File QSG
 - **URL:** https://finishlynx.com/wp-content/uploads/2012/08/FAQ-Export-IdentiLynx-Video.pdf
 - **File Status:** In Folder
@@ -103,8 +102,6 @@ All documents available in this project or via public URL. Organized by product 
 - **URL:** https://finishlynx.com/wp-content/uploads/2022/07/VeriLynx_QSG.pdf
 - **File Status:** In Folder
 - **Use:** Refer to this for setup and operation of the VeriLynx false start detection system.
-
-
 
 ---
 
@@ -119,6 +116,9 @@ All documents available in this project or via public URL. Organized by product 
 - **URL:** https://finishlynx.com/wp-content/uploads/2025/01/Lens-Calc-2025.xlsx
 - **File Status:** In Folder
 - **Use:** Use this calculator to determine correct lens focal length and camera frame rate for a given setup.
+- **Also available in the FinishLynx Online Manual:** https://help.finishlynx.com/Content/OnlineManual/LensCalculator.htm
+- **Navigation path in manual:** help.finishlynx.com > Resources > Lens & Mounts > Lens Calculator
+- **Note:** The online manual version is the preferred link to share with customers — easier to access and always up to date.
 
 ##### Camera BIOS Chip Replacement Guide
 - **URL:** https://finishlynx.com/wp-content/uploads/2022/06/BIOS_Chip_Replacement.pdf
@@ -856,8 +856,6 @@ All documents available in this project or via public URL. Organized by product 
 
 ---
 
----
-
 ### 9. YouTube Videos
 
 #### Remote Training Webinars
@@ -894,10 +892,6 @@ All documents available in this project or via public URL. Organized by product 
 - **URL:** https://www.youtube.com/watch?v=V0HmmE3Fk0U
 - **Use:** Refer to this for guidance on lighting setup and optimizing photo finish image quality.
 
-##### ResulTV Data Display Software
-- **URL:** https://www.youtube.com/watch?v=VenHkYw-b1o&t=9s
-- **Use:** Refer to this for guidance on setting up and using ResulTV scoreboard display software.
-
 ---
 
 #### Troubleshooting Videos
@@ -905,6 +899,14 @@ All documents available in this project or via public URL. Organized by product 
 ##### Fix Out-of-Focus 8-48mm Lens
 - **URL:** https://www.youtube.com/watch?v=WypcUC6aXBQ&t=87s
 - **Use:** Refer to this when a Vision camera with the C-Mount 8-48mm lens is still out of focus despite the correct 5mm CS-C spacer being installed. Shows the silver screw fix for lenses that drift or cannot hold focus.
+
+##### Auto-Focus Feature in FinishLynx 13.10
+- **URL:** https://youtu.be/4UT237icjiA
+- **Use:** Refer to this when a customer is setting up a motorized lens for the first time or cannot achieve focus. FinishLynx 13.10 includes an auto-focus feature that simplifies initial lens focus setup.
+
+##### RadioLynx Port Connection on Vision Camera
+- **URL:** https://youtu.be/qTjgV3CDVO4?t=96
+- **Use:** Refer to this when a Vision-series camera owner is using the RadioLynx serial cable. Shows how to connect the RadioLynx receiver directly to the RadioLynx port on the camera, bypassing the serial connector entirely.
 
 ##### IdentiLynx HRS/SR Lens Repair
 - **URL:** https://www.youtube.com/watch?v=VZPrH4E-Rus
@@ -949,6 +951,9 @@ All documents available in this project or via public URL. Organized by product 
 ### FinishLynx Software
 
 - FinishLynx Lite installs to `C:\LynxLite`, not `C:\Lynx`.
+- FinishLynx Lite only loads Scholastic cameras — full FinishLynx is required for all other camera models.
+- FinishLynx Lite does NOT support scoreboard or display output of any kind — full FinishLynx is required for any scoreboard integration.
+- FinishLynx Lite does NOT support meet management database connections — full FinishLynx is required.
 - FinishLynx software upgrades are always free.
 - NCP (Network COM Port) plug-in is bundled in FinishLynx 13.00 and later — no separate install needed.
 - "Run as Administrator" on the read laptop causes Z: drive visibility issues in FinishLynx — this setting should be unchecked.
@@ -965,6 +970,9 @@ All documents available in this project or via public URL. Organized by product 
 ### RadioLynx
 
 - When configuring RadioLynx, always set Wired Start Sensor to None on the Inputs tab first.
+- Vision-series camera owners can connect the RadioLynx receiver directly to the RadioLynx port on the camera, bypassing the serial connector entirely — this is the recommended approach and eliminates a potential point of failure.
+- The blue wire in the RadioLynx serial connector does not connect to anything — a disconnected blue wire is normal and not a fault.
+- Replacement RadioLynx Receiver Serial Cable: $79.00 — contact Nora Landry (Domestic Sales): nlandry@finishlynx.com
 
 ### ACM (Automatic Capture Mode)
 
@@ -996,6 +1004,14 @@ All documents available in this project or via public URL. Organized by product 
 ### Plugin Downloads Path
 - Support > Update Your Software & Plug-ins > FinishLynx > Product Downloads > FinishLynx Software Plug-ins
 
+### USB Capture Button Driver Download
+- Drivers available on the FinishLynx Product Downloads page: https://finishlynx.com/product/software/finishlynx-results-software/ (Product Downloads tab, scroll to bottom).
+- **Two drivers — confirm cable type first:**
+  - Newer USB-XLR cable (direct USB): https://finishlynx.com/wp-content/uploads/2012/07/CDM2123620_Setup.exe
+  - Older USB-to-serial adapter cable: https://finishlynx.com/wp-content/uploads/2022/06/uc232a_windows_setup_v1.0.084.zip
+- After installing, confirm COM port in Device Manager (Ports section) and assign in File > Options > General tab in FinishLynx.
+- USB cable must be connected BEFORE opening FinishLynx.
+
 ---
 
 ## Support Workflow
@@ -1013,10 +1029,19 @@ All documents available in this project or via public URL. Organized by product 
 ### Software Upgrade Policy
 - FinishLynx software upgrades are always free.
 - Direct customers to [www.finishlynx.com/support](http://www.finishlynx.com/support) to download the latest version.
+- There are no installation limits — FinishLynx can be installed on any number of computers with the same serial number. No licensing issues with running it on multiple machines simultaneously.
+- Serial number can always be found in FinishLynx under Help > About on any existing installation.
 
 ### RMA Process
 - Direct customer to submit a Repair/Replacement RMA via the RMA portal.
 - Refer to the Submit a Repair RMA to Lynx document in the Document Index.
+- **Domestic (US) customers only** — European customers should be directed to Matsport, not this portal.
+
+### International Repair Routing
+- **Europe:** Direct all hardware service and repair requests to Matsport — the FinishLynx European service center.
+  - Matsport website: https://www.matsport.com/PBCPPlayer.asp?ID=2329404
+  - Do NOT direct European customers to the domestic RMA portal.
+- French-language emails or non-US addresses are indicators to route to the appropriate regional center rather than the domestic RMA process.
 
 ### TeamViewer
 - Always direct the customer to download TeamViewer before a support call.
@@ -1055,17 +1080,51 @@ All documents available in this project or via public URL. Organized by product 
 
 ## Troubleshooting Patterns
 
+### "No Cameras Enabled" / "Error Capturing" Despite Camera Visible in Alignment
+1. Check camera status bar — confirm Capture is set to Yes. Click to toggle if showing No.
+2. If Capture is already Yes, go to File > Options > Event tab.
+3. Check Event Template setting — if a template is active, it may be overriding camera settings with a different or disabled camera.
+4. Set Event Template to None, click OK, and retest.
+5. Note: static IP configuration is not needed — FinishLynx assigns camera IPs automatically.
+
+### Camera Not Found After New Computer Setup
+1. Confirm FinishLynx is updated to latest version on the new computer.
+2. Ensure switch is powered on and Ethernet is connected BEFORE opening FinishLynx — camera IP will not appear if network is not active at launch.
+3. Go to File > Options > General tab — set Hardware Type to Ethernet or Detect. Close and reopen FinishLynx.
+4. After reopening, check File > Options > Camera Network — the computer's IP address should be visible. If not, the network connection is not being recognized.
+5. Check Windows Firewall — add C:\Lynx\Lynx.exe as allowed through Windows Security. Refer to Camera Boot Troubleshooting Guide.
+6. If using USB-C to Ethernet adapter: confirm adapter is recognized in Windows Settings > Network and assigned an IP on the correct subnet.
+7. If unresolved, direct customer to install TeamViewer: www.finishlynx.com/support
+
 ### Camera Not Found / Not Loading
 1. Check LED state — flashing red is normal during boot; solid red beyond ~1 minute is a boot failure.
-2. Refer to Camera Boot Troubleshooting Guide.
-3. Check Ethernet cable between PoE injector and camera — a faulty cable can present as a missing network adapter.
-4. Check network adapter settings and IP configuration on the computer.
-5. Refer to Networking Guide for the customer's OS version.
+2. **Disable Wi-Fi** on the computer — go to Control Panel > Network and Sharing Center > Change adapter settings, right-click Wi-Fi adapter and disable. Reopen FinishLynx and retest. Wi-Fi being active is one of the most common reasons a camera fails to load on a laptop.
+3. Refer to Camera Boot Troubleshooting Guide.
+4. Check Ethernet cable between PoE injector and camera — a faulty cable can present as a missing network adapter.
+5. Check network adapter settings and IP configuration on the computer.
+6. Refer to Networking Guide for the customer's OS version.
+7. If solid red Boot light persists across multiple PoE switch ports AND a PoE injector — likely internal firmware USB failure. On light may be green (power present) while Boot stays solid red. Ask customer to photo serial number label on bottom of camera, get shipping address, and inform of ~$50 domestic ($35 USB + ~$15 shipping). Ship replacement USB pre-loaded with correct firmware. Customer removes 4 screws from outer corners of front plate, swaps USB, replaces plate.
+
+### Camera Height and Tripod Placement
+- Standard camera height: 6–7 feet on a stable tripod placed directly on the ground.
+- Target angle: approximately 30–40 degrees from lane one.
+- Do not place a tripod on a table — introduces instability and wobble that affects alignment.
+- Only go higher than 6–7 feet with a heavy, weighted tripod that can resist wind and movement at extended height.
+- Stability is always the priority over height.
 
 ### Blurry or Out-of-Focus Image
 1. Verify CS-C adapter usage — C-Mount needs adapter, CS-Mount must not use adapter.
 2. Check focus ring and software focus settings.
 3. For Vision lenses that drift or won't hold focus — refer to silver screw fix video.
+4. If customer is unsure which lens to use — refer to the Lens Calculator in the FinishLynx Online Manual: https://help.finishlynx.com/Content/OnlineManual/LensCalculator.htm (navigate via help.finishlynx.com > Resources > Lens & Mounts > Lens Calculator).
+
+### FinishLynx and ResulTV Not Connecting (Same Laptop or Network)
+1. Confirm FinishLynx is version 13.x or later — Network scoreboard options are not available in older versions. Update from www.finishlynx.com/support.
+2. In FinishLynx Scoreboard > Options, set connection type to Network.
+3. Set one application to Listen and the other to Connect — they cannot both be the same mode.
+4. Use loopback IP 127.0.0.1 when both applications are on the same laptop.
+5. Set port to a valid number (e.g., 1024) in both applications — port 0 is invalid and will always result in "Not Connected."
+6. Confirm the same port number is entered in both FinishLynx and ResulTV.
 
 ### Scoreboard Not Displaying Results
 1. Confirm FinishLynx shows "Running" — this only means data is being sent, not received.
@@ -1074,10 +1133,68 @@ All documents available in this project or via public URL. Organized by product 
 4. Confirm correct .LSS script is loaded.
 5. Check NCP plugin is active (FinishLynx 13+) or installed.
 
+### Severe Glare / Overexposure from Sun
+1. Best solution: reposition camera to the opposite side of the track so sun is behind the camera — this is the only reliable fix.
+2. If repositioning is not possible: use FinishLynx post-capture image enhancement — Enhance, Quick Adjust, and Multiple Region Enhancement tools.
+3. Multiple Region Enhancement is useful when part of the finish line is in bright sun and another part is in shadow.
+4. Reference: Online Manual Image Quality — https://help.finishlynx.com/Content/OnlineManual/ImageQuality.htm
+5. No filter or camera setting will fully compensate for direct sun into the lens.
+
+### Wind Gauge Not Responding / No Power Light
+1. Determine connection method — directly to camera back, via Connection Box (C-Box), or via SeriaLynx.
+2. If using C-Box: confirm black and red power plug is in the 12V ports — NOT a photo-eye port. These look similar and are easy to confuse.
+3. If connected to camera: confirm cable is in the correct port on the camera back.
+4. If using SeriaLynx:
+   - In FinishLynx Wind Gauge settings: set Module = Lynx, Serial Port = Network (Connect), enter SeriaLynx IP address and port number. SeriaLynx IP must be on the same subnet as the FinishLynx laptop.
+   - Access SeriaLynx browser dashboard (navigate to its IP in a browser) and configure serial port settings: Baud 9600, Data Bits 8, Parity None, Stop Bits 1.
+   - Use Network Connect only — not Listen, not UDP.
+   - Confirm wind gauge power source.
+5. If power light comes on but still not connecting in FinishLynx: check COM port and wind gauge settings in FinishLynx software.
+6. Refer to Lynx Wind Gauge QSG for connection diagram: https://finishlynx.com/wp-content/uploads/2012/08/LynxWindGauge_QSG.pdf
+
+### Camera Settings for Challenging Lighting Conditions
+- **Default outdoors (variable light):** Set Gain Method to AGC. Enable Auto Iris if using a remote control lens. These two settings together handle most variable natural lighting automatically.
+- **Dark / artificial lighting:** Open iris (Auto Iris recommended), add LuxBoost upgrade (Vision-series only), reduce frame rate slightly, and supplement with physical spotlights at the finish line.
+- **Sunny / direct sun:** AGC + Auto Iris handles this automatically — do not use Manual Gain unless lighting is stable and controlled.
+- Manual Gain is appropriate only for stable, controlled indoor lighting with no variation.
+- Reference: Online Manual Gain Control Tools — https://help.finishlynx.com/Content/OnlineManual/Gain.htm
+
+### Dark or Unreadable Images in Low-Light / Night Conditions
+1. Confirm camera is Vision-series (5L500, 5L600, 5L700) — LuxBoost is only available on Vision-series cameras.
+2. If LuxBoost is not installed, recommend the upgrade — contact Nora Landry (Domestic Sales): nlandry@finishlynx.com. SKUs: 5LLUX4, 5LLUX8, LuxUpgrade8.
+3. If LuxBoost is installed, enable it in Camera Settings — manually set to 2x–4x, or enable Auto LuxBoost.
+4. As a secondary measure, reduce frame rate slightly to allow more light per frame (trade-off: lower temporal resolution — not ideal for sprints).
+5. Recommend additional physical lighting at the finish line if LuxBoost alone is insufficient.
+
+### Race Times Wildly Incorrect (e.g., 16 Hours)
+1. Open the affected event — go to Event menu > Select Start and choose the correct start trigger. This recalculates elapsed time correctly.
+2. Check Camera Settings > Inputs tab — if using RadioLynx, confirm Wired Start Sensor is set to None.
+3. Watch for "some start sensors failed to arm" pop-up when loading events — address before starting the race.
+4. Do not re-arm and save without selecting the correct start — this preserves the incorrect time.
+
 ### Wireless Start Not Triggering
 1. Confirm Wired Start Sensor is set to None on the Inputs tab.
 2. Check RadioLynx frequency settings.
 3. Refer to RadioLynx Troubleshooting QSG.
+
+### Customer Requests Older FinishLynx Version / Legacy Camera Compatibility
+1. Newer FinishLynx always supports older cameras — downgrading is never needed or recommended.
+2. Check the serial number — if it looks like a Lite license, confirm whether customer is running FinishLynx Lite.
+3. FinishLynx Lite only loads Scholastic cameras — non-Scholastic cameras require the full version.
+4. Ask customer to check the serial number label on the bottom of any borrowed camera to identify the model.
+5. Direct customer to www.finishlynx.com/support to download the latest version (always free).
+
+### Times Rounding to Tenths in Meet Management Software
+1. In FinishLynx, go to File > Options > Database tab.
+2. Set Time Precision to Thousandths.
+3. If still rounding to tenths after this change, confirm whether a Manual Start is being used — manual start times are inherently limited to tenth-of-a-second precision. A fully automatic start signal is required for hundredths/thousandths precision.
+
+### LIF File Error 3002 — Error Writing LIF File
+1. Go to File > Options > Database tab.
+2. Check the Output Directory — this is where FinishLynx writes the LIF file on save.
+3. Verify the path exists and is accessible (especially if it's a network path).
+4. Verify FinishLynx has write permission to that directory.
+5. Correct the path if needed and retry saving.
 
 ### Database / Meet Management Not Connecting
 1. Confirm file sharing is enabled and both computers are on the same network.
@@ -1108,6 +1225,11 @@ Before recommending either, ask:
 ### Domestic Package Awareness
 - Refer to the Track Domestic Packages Comparison document for a full breakdown of what each tier includes.
 - Package tiers: Scholastic, Bronze, Silver, Gold, Platinum, Diamond.
+
+### LinkGate
+- Lynx sells and supports LinkGate (EncRadio/DecRadio) units directly — customers do not need to contact the manufacturer (Microgate) for purchases or support.
+- For domestic purchase inquiries, direct to Nora Landry: nlandry@finishlynx.com
+- If a LinkGate transmitter is showing intermittent power or screen fading, ask for more detail before recommending replacement — may be a battery issue that can be repaired.
 
 ### General Sales Notes
 - FinishLynx has no API. Integrations use .LIF file export or scoreboard output via .LSS files.
@@ -1150,6 +1272,7 @@ Before recommending either, ask:
 - Refer to the Networking Guide for the customer's OS (Windows 10 or Windows 11).
 
 ### Common Failure Points
+- **Wi-Fi enabled on the computer** — FinishLynx may bind to the wireless adapter instead of the wired Ethernet adapter, preventing camera discovery. Disable Wi-Fi before opening FinishLynx: Control Panel > Network and Sharing Center > Change adapter settings > disable wireless adapter.
 - Bad Ethernet cable between meet management computer and network switch — check this early when network or shared folder issues have no obvious cause.
 - Faulty cable between PoE injector and camera can present as a missing network adapter. Test by connecting a USB-to-Ethernet adapter directly to a second computer — if no network appears in Windows Settings, the cable is faulty.
 - Network adapter power management settings can cause dropped connections — disable power saving on the adapter.
@@ -1163,3 +1286,11 @@ Before recommending either, ask:
 - Both computers must have access to the same Event Directory (shared network folder) for Multi-User Mode to work.
 - To view event images (not just results) on a second laptop while a race is ongoing, both computers must also have access to the `C:\Lynx\Temp` folder on the primary computer. Images are first stored in the Temp folder during an active race — without correct permissions, images will not carry over to the second laptop.
 - "Run as Administrator" on the read laptop causes Z: drive visibility issues — this should be unchecked.
+
+---
+
+## Lynx Internal Contacts
+
+### Sales
+- **Nora Landry** — Domestic Sales — nlandry@finishlynx.com
+  - Primary contact for domestic customers purchasing upgrades, new hardware, and packages.
