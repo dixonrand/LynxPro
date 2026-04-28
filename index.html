@@ -48,10 +48,42 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 [data-theme="warm"] .hero-input-row{box-shadow:5px 5px 0 #000}
 .section{max-width:1900px;margin:0 auto;padding:0 24px 32px;width:100%}
 .hero + .section{padding-top:36px}
-.section-hdr{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:10px;border-bottom:var(--border)}
-.section-label{font-size:11px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--ink-4)}
-.section-count{font-family:var(--mono);font-size:11px;color:var(--ink-4);margin-left:auto}
+/* Journey-numbered editorial section headers */
+.section-hdr{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:18px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--border-c)}
+.section-step{font-family:var(--mono);font-size:clamp(40px,5vw,68px);font-weight:800;color:var(--gold);line-height:1;letter-spacing:-1px;opacity:.85;align-self:center}
+.section-text{display:flex;flex-direction:column;gap:4px;min-width:0}
+.section-label{font-size:clamp(20px,2vw,28px);font-weight:800;letter-spacing:-.4px;color:var(--ink);text-transform:none}
+.section-sub{font-size:13px;color:var(--ink-3);line-height:1.5;max-width:60ch}
+.section-count{font-family:var(--mono);font-size:11px;color:var(--ink-4);align-self:end;padding-bottom:4px;text-transform:uppercase;letter-spacing:.6px}
 .tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px}
+/* Dark cards: each card inherits its accent color as a gradient surface */
+.tool-card{border:0 !important;box-shadow:none}
+.tool-card .tool-accent{display:none}
+.tool-card:has(.accent-purple){background:linear-gradient(160deg,#3a0867 0%,#55009C 70%,#7E2BC4 100%);color:#fff;box-shadow:0 6px 22px rgba(45,0,79,.32)}
+.tool-card:has(.accent-slate){background:linear-gradient(160deg,#1e2530 0%,#2f3b4c 70%,#4A5568 100%);color:#fff;box-shadow:0 6px 22px rgba(30,37,48,.32)}
+.tool-card:has(.accent-teal){background:linear-gradient(160deg,#0a3535 0%,#0f4646 70%,#1A6B6B 100%);color:#fff;box-shadow:0 6px 22px rgba(10,53,53,.32)}
+.tool-card:has(.accent-gold){background:linear-gradient(160deg,#7a5300 0%,#b07e00 70%,#E8A800 100%);color:#111;box-shadow:0 6px 22px rgba(184,124,0,.32)}
+.tool-card:has(.accent-purple) .tool-name,
+.tool-card:has(.accent-slate)  .tool-name,
+.tool-card:has(.accent-teal)   .tool-name{color:#fff}
+.tool-card:has(.accent-gold)   .tool-name{color:#111}
+.tool-card:has(.accent-purple) .tool-desc,
+.tool-card:has(.accent-slate)  .tool-desc,
+.tool-card:has(.accent-teal)   .tool-desc{color:rgba(255,255,255,.82)}
+.tool-card:has(.accent-gold)   .tool-desc{color:rgba(0,0,0,.7)}
+.tool-card:has(.accent-purple) .tool-icon,
+.tool-card:has(.accent-slate)  .tool-icon,
+.tool-card:has(.accent-teal)   .tool-icon{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25)}
+.tool-card:has(.accent-purple) .tool-icon svg,
+.tool-card:has(.accent-slate)  .tool-icon svg,
+.tool-card:has(.accent-teal)   .tool-icon svg{color:#fff}
+.tool-card:has(.accent-gold) .tool-icon{background:rgba(0,0,0,.15);border-color:rgba(0,0,0,.2)}
+.tool-card:has(.accent-gold) .tool-icon svg{color:#111}
+.tool-card .tool-footer{background:rgba(0,0,0,.22);border-top:1px solid rgba(255,255,255,.1);opacity:1}
+.tool-card:has(.accent-gold) .tool-footer{background:rgba(0,0,0,.15);border-top:1px solid rgba(0,0,0,.15)}
+.tool-card .tool-tag{background:rgba(255,255,255,.18);color:#fff}
+.tool-card:has(.accent-gold) .tool-tag{background:rgba(0,0,0,.18);color:#111}
+.tool-card.live:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.32) !important}
 .tool-card{background:var(--bg-card);border:var(--border);display:flex;flex-direction:column;position:relative;overflow:hidden;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
 .tool-card.live{cursor:pointer}
 .tool-card.live:hover{transform:translateY(-3px);box-shadow:5px 5px 0 var(--border-c)}
@@ -134,7 +166,11 @@ footer span{color:var(--ink-3);font-weight:600}
 <!-- SUPPORT & RESOURCES -->
 <div class="section">
   <div class="section-hdr">
-    <span class="section-label">Support &amp; Resources</span>
+    <span class="section-step">01</span>
+    <span class="section-text">
+      <span class="section-label">Discover</span>
+      <span class="section-sub">Find answers, browse manuals, and watch the videos that get you up and running.</span>
+    </span>
     <span class="section-count">3 tools</span>
   </div>
   <div class="tool-grid">
@@ -180,7 +216,11 @@ footer span{color:var(--ink-3);font-weight:600}
 <!-- SETUP & HARDWARE -->
 <div class="section">
   <div class="section-hdr">
-    <span class="section-label">Setup &amp; Hardware</span>
+    <span class="section-step">02</span>
+    <span class="section-text">
+      <span class="section-label">Plan &amp; Build</span>
+      <span class="section-sub">Pick the right gear, compare packages, and map your system from camera to scoreboard.</span>
+    </span>
     <span class="section-count">4 tools</span>
   </div>
   <div class="tool-grid">
@@ -238,7 +278,11 @@ footer span{color:var(--ink-3);font-weight:600}
 <!-- TRAINING & INTELLIGENCE -->
 <div class="section">
   <div class="section-hdr">
-    <span class="section-label">Training &amp; Intelligence</span>
+    <span class="section-step">03</span>
+    <span class="section-text">
+      <span class="section-label">Train Your Crew</span>
+      <span class="section-sub">Walk through setups, sharpen evaluation, and get the team meet-ready.</span>
+    </span>
     <span class="section-count">4 tools</span>
   </div>
   <div class="tool-grid">
@@ -296,7 +340,11 @@ footer span{color:var(--ink-3);font-weight:600}
 <!-- RACE & OPERATIONS -->
 <div class="section">
   <div class="section-hdr">
-    <span class="section-label">Race &amp; Operations</span>
+    <span class="section-step">04</span>
+    <span class="section-text">
+      <span class="section-label">Run the Meet</span>
+      <span class="section-sub">Race-day execution: start lists, .LIF editing, results display, and layouts.</span>
+    </span>
     <span class="section-count">4 tools</span>
   </div>
   <div class="tool-grid">
