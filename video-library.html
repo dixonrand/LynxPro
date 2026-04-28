@@ -22,7 +22,7 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .hdr-right{display:flex;align-items:center;gap:14px}
 .hdr-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border)}
 
-.wrap{max-width:1100px;margin:0 auto;padding:24px 24px 64px;width:100%;flex:1}
+.wrap{max-width:1900px;margin:0 auto;padding:24px 24px 64px;width:100%;flex:1}
 .page-header{margin-bottom:8px}
 .page-title{font-size:28px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px}
 .page-sub{font-size:14px;color:var(--ink-4);margin-bottom:20px}
@@ -35,9 +35,12 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .vid-tab .tab-count{font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.55;margin-left:4px}
 
 /* Video grid */
-.vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.vid-card{background:var(--bg-card);border:1px solid var(--border-row);overflow:hidden;transition:border-color .15s,transform .15s,box-shadow .15s}
-.vid-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:16px}
+.vid-card{--cat-color:var(--ink-6);background:var(--bg-card);border:1px solid var(--border-row);border-top:4px solid var(--cat-color);overflow:hidden;transition:border-color .15s,transform .15s,box-shadow .15s}
+.vid-card:hover{transform:translateY(-2px);border-color:var(--cat-color);box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.vid-card.cat-training{--cat-color:#1A6B6B}
+.vid-card.cat-tutorial{--cat-color:#55009C}
+.vid-card.cat-troubleshooting{--cat-color:#c62828}
 
 /* Thumbnail with play button overlay */
 .vid-thumb{position:relative;width:100%;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden}
@@ -148,7 +151,11 @@ var allVids = [];
     filtered.forEach(function(v, i){
       var ytId = getYouTubeId(v.url);
       var thumb = ytId ? 'https://img.youtube.com/vi/'+ytId+'/mqdefault.jpg' : '';
-      html += '<div class="vid-card">';
+      var sub = (v.subcategory || '').toLowerCase();
+      var catClass = sub.indexOf('training') !== -1 ? 'cat-training'
+                   : sub.indexOf('troubleshoot') !== -1 ? 'cat-troubleshooting'
+                   : sub.indexOf('tutorial') !== -1 ? 'cat-tutorial' : '';
+      html += '<div class="vid-card ' + catClass + '">';
       html += '<div class="vid-thumb" data-id="'+esc(ytId)+'" data-idx="'+i+'" onclick="playVideo(this)">';
       if(thumb) html += '<img src="'+esc(thumb)+'" alt="'+esc(v.title)+'" loading="lazy">';
       html += '<div class="play-btn"></div>';
