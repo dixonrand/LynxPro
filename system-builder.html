@@ -9,7 +9,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#FFFFFF;--bg-card:#FFFFFF;--bg-section:#EAE0F2;--gold:#E8A800;--ink:#111;--ink-2:#333;--ink-3:#555;--ink-4:#666;--ink-5:#888;--ink-6:#aaa;--nav-bg:#2d004f;--border:#C7C7C7;--border-row:rgba(0,0,0,.16);--purple:#55009C}
 [data-theme="warm"]{--bg:#F5EFD6;--bg-card:#FDFAF0;--bg-section:#EDE4BF;--gold:#E8A800;--ink:#111;--ink-2:#333;--ink-3:#555;--ink-4:#666;--ink-5:#888;--ink-6:#aaa;--nav-bg:#1a1a1a;--border:#111;--border-row:rgba(0,0,0,.12);--purple:#55009C}
-[data-theme="glass"]{--gold:#E8A800;--nav-bg:rgba(0,0,0,.2);--border:rgba(255,255,255,.18)}
 body{font-family:'Inter',sans-serif;overflow:hidden}
 
 /* Nav */
@@ -28,9 +27,6 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .theme-dot:hover{transform:scale(1.2)}
 .theme-dot.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 .hdr-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border)}
-[data-theme="glass"] .hdr{backdrop-filter:blur(18px) saturate(170%);-webkit-backdrop-filter:blur(18px) saturate(170%);border-bottom:1px solid rgba(255,255,255,.15)}
-[data-theme="glass"] .hdr-beta{background:rgba(232,168,0,.3);border-color:rgba(232,168,0,.5);color:#fff}
-[data-theme="glass"] .theme-dot{border-color:rgba(255,255,255,.4)}
 
 /* ===== Scene ===== */
 .scene{position:relative;width:100%;height:calc(100vh - 56px);margin-top:56px;overflow:hidden}
@@ -243,7 +239,7 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
 .lane-dash{position:absolute;left:48%;width:3px;height:8px;background:rgba(255,255,255,.6)}
 </style>
 <script>
-(function(){var t=localStorage.getItem('lynxpro-theme');if(t==='classic'){t='warm';localStorage.setItem('lynxpro-theme','warm');}else if(t==='finishlynx'){t='';localStorage.removeItem('lynxpro-theme');}if(t)document.documentElement.setAttribute('data-theme',t)})();
+(function(){var t=localStorage.getItem('lynxpro-theme');if(t==='classic'){t='warm';localStorage.setItem('lynxpro-theme','warm');}else if(t==='finishlynx'||t==='glass'){t='';localStorage.removeItem('lynxpro-theme');}if(t)document.documentElement.setAttribute('data-theme',t)})();
 </script>
 </head>
 <body>
@@ -262,7 +258,6 @@ body{font-family:'Inter',sans-serif;overflow:hidden}
     <div class="theme-picker">
       <button class="theme-dot" data-theme="modern" style="background:#fff" title="Modern"></button>
       <button class="theme-dot" data-theme="warm" style="background:#F5EFD6" title="Warm"></button>
-      <button class="theme-dot" data-theme="glass" style="background:linear-gradient(180deg,#4a9ee8,#c04030)" title="Track"></button>
     </div>
     <span class="hdr-beta">In Beta</span>
   </div>

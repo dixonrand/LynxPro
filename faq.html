@@ -10,7 +10,6 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
 :root{--bg:#FFFFFF;--bg-card:#FFFFFF;--bg-section:#EAE0F2;--gold:#E8A800;--ink:#111;--ink-2:#333;--ink-3:#555;--ink-4:#666;--ink-5:#888;--ink-6:#aaa;--nav-bg:#2d004f;--border:#C7C7C7;--border-row:rgba(0,0,0,.16);--purple:#55009C}
 [data-theme="warm"]{--bg:#F5EFD6;--bg-card:#FDFAF0;--bg-section:#EDE4BF;--gold:#E8A800;--ink:#111;--ink-2:#333;--ink-3:#555;--ink-4:#666;--ink-5:#888;--ink-6:#aaa;--nav-bg:#1a1a1a;--border:#111;--border-row:rgba(0,0,0,.12);--purple:#55009C}
-[data-theme="glass"]{--bg:transparent;--bg-card:rgba(255,255,255,.08);--bg-section:rgba(255,255,255,.1);--gold:#E8A800;--ink:#fff;--ink-2:rgba(255,255,255,.9);--ink-3:rgba(255,255,255,.7);--ink-4:rgba(255,255,255,.6);--ink-5:rgba(255,255,255,.45);--ink-6:rgba(255,255,255,.3);--nav-bg:rgba(0,0,0,.2);--border:rgba(255,255,255,.18);--border-row:rgba(255,255,255,.1);--border-col:rgba(255,255,255,.06)}
 html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:15px;min-height:100vh;display:flex;flex-direction:column}
 .hdr{background:var(--nav-bg);border-bottom:3px solid var(--gold);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .logo{display:flex;align-items:center;gap:14px}
@@ -27,11 +26,6 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 .theme-dot:hover{transform:scale(1.2)}
 .theme-dot.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 .hdr-beta{background:var(--gold);color:#111;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border)}
-[data-theme="glass"] html{background:linear-gradient(180deg,#2080d8 0%,#45a8f0 18%,#1d6820 30%,#3a9535 38%,#c43525 42%,#8a1c0c 100%) fixed;min-height:100vh}
-[data-theme="glass"] body{background:transparent}
-[data-theme="glass"] .hdr{backdrop-filter:blur(18px) saturate(170%);-webkit-backdrop-filter:blur(18px) saturate(170%);border-bottom:1px solid rgba(255,255,255,.15)}
-[data-theme="glass"] .hdr-beta{background:rgba(232,168,0,.3);border-color:rgba(232,168,0,.5);color:#fff}
-[data-theme="glass"] .theme-dot{border-color:rgba(255,255,255,.4)}
 
 /* Layout */
 .wrap{max-width:900px;margin:0 auto;padding:24px 24px 64px;width:100%;flex:1}
@@ -76,9 +70,6 @@ html{background:var(--bg)}body{background:var(--bg);color:var(--ink);font-family
 /* Empty state */
 .empty{text-align:center;padding:40px 24px;color:var(--ink-5);font-size:14px}
 
-/* Glass overrides */
-[data-theme="glass"] .faq-entry{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-[data-theme="glass"] .faq-search{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 
 footer{border-top:2px solid var(--border);padding:16px 24px;text-align:center;font-size:11px;color:var(--ink-5)}
 footer span{color:var(--ink-3);font-weight:600}
@@ -93,7 +84,7 @@ footer span{color:var(--ink-3);font-weight:600}
 }
 </style>
 <script>
-(function(){var t=localStorage.getItem('lynxpro-theme');if(t==='classic'){t='warm';localStorage.setItem('lynxpro-theme','warm');}else if(t==='finishlynx'){t='';localStorage.removeItem('lynxpro-theme');}if(t)document.documentElement.setAttribute('data-theme',t)})();
+(function(){var t=localStorage.getItem('lynxpro-theme');if(t==='classic'){t='warm';localStorage.setItem('lynxpro-theme','warm');}else if(t==='finishlynx'||t==='glass'){t='';localStorage.removeItem('lynxpro-theme');}if(t)document.documentElement.setAttribute('data-theme',t)})();
 </script>
 </head>
 <body>
@@ -112,7 +103,6 @@ footer span{color:var(--ink-3);font-weight:600}
     <div class="theme-picker">
       <button class="theme-dot" data-theme="modern" style="background:#fff" title="Modern"></button>
       <button class="theme-dot" data-theme="warm" style="background:#F5EFD6" title="Warm"></button>
-      <button class="theme-dot" data-theme="glass" style="background:linear-gradient(180deg,#4a9ee8,#c04030)" title="Track"></button>
     </div>
     <span class="hdr-beta">In Beta</span>
   </div>
