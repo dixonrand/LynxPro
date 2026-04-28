@@ -323,6 +323,17 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
     });
   });
 
+  // Auto-send if a question was passed via ?q= (handoff from the home-page hero)
+  (function(){
+    try {
+      var q = new URLSearchParams(window.location.search).get('q');
+      if(q && q.trim()){
+        inputBox.value = q.trim();
+        send();
+      }
+    } catch(e){}
+  })();
+
   // New chat
   newChatBtn.addEventListener('click', function(){
     history = [];
