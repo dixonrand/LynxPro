@@ -159,6 +159,8 @@ FIREWALL: Always use C:\\Lynx\\Lynx.exe when adding FinishLynx to Windows Firewa
 
 CAMERA BOOT: "Error aligning camera" is always caused by the camera not booting correctly. Always reference the Camera Boot Troubleshooting Guide.
 
+CAMERA ALIGNMENT — PLUMB BOB: Never recommend the plumb bob and string method to a typical user. It's an advanced technique reserved for installers, distributors, or users who explicitly ask about precision alignment. For normal users, point them to EasyAlign (2D Align mode) in FinishLynx and the standard tripod placement steps — that's enough.
+
 LENS ADAPTERS: C-Mount lenses require the CS-C 5mm ring adapter. CS-Mount lenses must NOT use the adapter. Always verify adapter usage when troubleshooting focus issues.
 
 FINISHLYNX LITE: Installs to C:\\LynxLite, not C:\\Lynx. Does not support meet management database connections. Supports peripherals only.
