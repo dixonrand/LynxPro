@@ -382,7 +382,7 @@ var welcomeEl = document.getElementById('welcome');
       hideTyping();
       if(!res.ok){
         var msg;
-        if(res.status === 429) msg = 'Lynx Assistant is busy right now. Please wait a moment and try again.';
+        if(res.status === 429 || res.status === 529) msg = 'Lynx Assistant is busy right now. Please wait about a minute, then try again.';
         else if(res.status >= 500) msg = 'Lynx Assistant is temporarily unavailable. Try again shortly.';
         else msg = 'Lynx Assistant could not respond (error ' + res.status + '). Please try again.';
         throw new Error(msg);
