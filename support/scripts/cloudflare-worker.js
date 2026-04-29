@@ -24,11 +24,15 @@ const REPO_OWNER = 'dixonrand';
 const REPO_NAME = 'LynxPro';
 const REPO_BRANCH = 'main';
 
+// Inline knowledge: kept small enough to stay well under per-minute input
+// token limits even on a cold cache. Larger sources (Known Fixes, the
+// extracted PDF library) are exposed as on-demand tools — see TOOLS.
 const KNOWLEDGE_FILES = [
   { path: '/Lynx_Master_Reference.md',          label: 'Lynx_Master_Reference.md' },
-  { path: '/FinishLynx_Known_Fixes.md',         label: 'FinishLynx_Known_Fixes.md' },
   { path: '/support/data/faq.json',             label: 'FAQ Entries (faq.json)', json: true },
 ];
+
+const KNOWN_FIXES_PATH = '/FinishLynx_Known_Fixes.md';
 
 const SHA_CACHE_SECONDS = 60;          // recheck commit SHA every 60s
 const KNOWLEDGE_CACHE_SECONDS = 3600;  // file body cache (keyed by SHA, so safe to keep long)
@@ -50,11 +54,15 @@ This tool is currently English-only.
 
 KNOWLEDGE BASE STRUCTURE
 
-The full knowledge base is embedded inline at the end of this system prompt. Always consult it before answering. It contains:
+You have access to two layers of knowledge.
 
+INLINE — embedded at the end of this system prompt. Always consult before answering:
 - Lynx_Master_Reference.md — the primary operational reference. Contains the full document index with URLs and usage notes, product rules and gotchas, default settings, support workflow, email and communication standards, troubleshooting patterns, product recommendations, integration notes, and networking guidance. Always consult this first.
-- FinishLynx_Known_Fixes.md — confirmed real-world solutions from actual support cases. Entries marked Confirmed Fix have been verified in the field. Prioritize these over general documentation when a match exists.
 - FAQ Entries (faq.json) — curated quick-reference Q&A entries derived from the Master Reference.
+
+ON-DEMAND — accessed via the tools described in DOCUMENT TOOLS below:
+- FinishLynx_Known_Fixes.md — confirmed real-world solutions from actual support cases. Entries marked Confirmed Fix have been verified in the field. Use \`search_known_fixes\` whenever the question is about a symptom, error, or troubleshooting scenario — these field-confirmed fixes outrank generic documentation when they match.
+- FinishLynx PDF library — manuals, QSGs, datasheets, troubleshooting guides. Searched via \`search_docs\`, read via \`read_doc\`.
 
 The Master Reference's Document Index lists URLs for the full FinishLynx Online Manual, Product QSGs, Datasheets, Troubleshooting Guides, Manuals (ResulTV, LynxPad, ReacTime, etc.), Third-Party Docs (MeetPro2, HyTek, AthleticNET RunMeet, Daktronics, MYLAPS, LinkGate, MicroTab), Package QSGs and Brochures, and YouTube videos (Remote Training Webinars, Troubleshooting Videos, Tutorial Videos). When the user asks for documentation, hand them the relevant URL from that index.
 
@@ -229,21 +237,22 @@ In addition to www.finishlynx.com/support, the following pages are part of the L
 
 DOCUMENT TOOLS
 
-You have access to two tools that let you read FinishLynx documentation directly. The Document Index in the Master Reference lists every doc by title and URL, but the embedded knowledge base does NOT contain the full text of those PDFs. Use these tools whenever you need a doc's actual contents:
+You have three tools for fetching content that is not inlined in this system prompt. Use them as follows.
 
-- \`search_docs(query)\` — keyword search across the extracted PDF library. Returns up to 5 matching documents with their slug, title, and category. Use this first to discover which doc(s) to read.
+- \`search_known_fixes(query)\` — keyword search across FinishLynx_Known_Fixes.md. Returns up to 3 full matching entries (title, issue, symptoms, likely causes, confirmed fix, steps, products, notes). Use this WHENEVER the question involves a symptom, error message, hardware misbehavior, or other troubleshooting scenario. These confirmed real-world fixes outrank generic documentation when they match.
+- \`search_docs(query)\` — keyword search across the extracted FinishLynx PDF library (manuals, QSGs, datasheets, troubleshooting guides). Returns up to 5 matching documents with slug, title, and category. Use this first to discover which doc(s) to read.
 - \`read_doc(slug)\` — fetch the full extracted text of a specific document by slug (returned by search_docs). Use this when you need to quote the doc verbatim, look up specific steps, or verify a claim.
 
 When to use these tools:
-- User asks "what does the [X] manual / QSG / guide say"
-- User asks for specific steps, settings, or numbers from a doc
-- You want to quote or paraphrase from a doc directly
-- The Master Reference points to a doc but doesn't contain the detail you need
+- Troubleshooting question → call \`search_known_fixes\` first; if no good match, fall back to \`search_docs\` / \`read_doc\` or the Master Reference.
+- "What does the [X] manual / QSG / guide say" → \`search_docs\` then \`read_doc\`.
+- Need specific steps, settings, or numbers from a doc → \`search_docs\` then \`read_doc\`.
+- Want to quote or paraphrase from a doc directly → \`read_doc\`.
 
 When NOT to use them:
-- The Master Reference, Known Fixes, or FAQ already answer the question — those are faster
-- The question is conversational (greetings, clarifications)
-- You already read the relevant doc earlier in this conversation
+- The Master Reference or FAQ already answer the question — those are faster.
+- The question is conversational (greetings, clarifications).
+- You already read the relevant entry/doc earlier in this conversation.
 
 If \`search_docs\` returns no matches, the doc may not have been extracted yet (videos, third-party-hosted docs, and a few PDFs are skipped). In that case, point the user at the relevant URL from the Master Reference's Document Index instead.
 `;
@@ -350,6 +359,22 @@ async function buildKnowledgeBlock() {
 
 const TOOLS = [
   {
+    name: 'search_known_fixes',
+    description:
+      'Search FinishLynx_Known_Fixes.md (confirmed real-world support fixes) by keyword. Returns up to 3 full matching entries — title, issue, symptoms, likely causes, confirmed fix, steps, products, notes. Use this WHENEVER the question involves a symptom, error message, hardware misbehavior, or other troubleshooting scenario. These field-confirmed fixes outrank generic documentation when they match.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        query: {
+          type: 'string',
+          description:
+            'Keywords describing the symptom, error, or product. Examples: "blurry image vision camera", "spacebar capture", "VDM upgrade invalid code", "RadioLynx not triggering", "IdentiLynx pink".',
+        },
+      },
+      required: ['query'],
+    },
+  },
+  {
     name: 'search_docs',
     description:
       'Search the FinishLynx extracted-PDF library by keyword. Returns up to 5 matching documents with slug, title, and category. Always use this BEFORE read_doc to find the right slug. Searches across document titles, categories, and use descriptions.',
@@ -381,12 +406,89 @@ const TOOLS = [
     },
     // Cache breakpoint on the last tool — folds the tool block into the same
     // cached prefix as the system prompt, so per-request input tokens (and
-    // thus ITPM consumption) stay low across the tool-use loop.
-    cache_control: { type: 'ephemeral' },
+    // thus ITPM consumption) stay low across the tool-use loop. The 1h TTL
+    // keeps the cache warm across normal idle gaps between users; the
+    // default 5m TTL was short enough that nearly every conversation paid
+    // the full uncached input-token cost on its first request.
+    cache_control: { type: 'ephemeral', ttl: '1h' },
   },
 ];
 
+const KNOWN_FIXES_MAX_HITS = 3;
 const READ_DOC_MAX_CHARS = 40_000;
+
+// Parse FinishLynx_Known_Fixes.md into one entry per "### " heading.
+// The file uses `---` as a visual separator between entries, but we key on
+// the H3 heading instead so the parser doesn't depend on separator style.
+function parseKnownFixes(text) {
+  const entries = [];
+  const lines = text.split('\n');
+  let inFixes = false;
+  let current = null;
+  for (const line of lines) {
+    if (/^##\s+Confirmed Fixes\b/i.test(line)) { inFixes = true; continue; }
+    if (!inFixes) continue;
+    const h3 = line.match(/^###\s+(.+?)\s*$/);
+    if (h3) {
+      if (current) entries.push(current);
+      current = { title: h3[1].trim(), body: '' };
+      continue;
+    }
+    if (current) {
+      // Strip horizontal-rule separators between entries.
+      if (/^---+\s*$/.test(line)) continue;
+      current.body += line + '\n';
+    }
+  }
+  if (current) entries.push(current);
+  // Drop the example/template entry whose title is the literal placeholder.
+  return entries
+    .filter((e) => !/^\[.*\]$/.test(e.title))
+    .map((e) => ({ title: e.title, body: e.body.trim() }));
+}
+
+async function searchKnownFixes(query) {
+  let raw;
+  try {
+    raw = await fetchCachedRepoFile(KNOWN_FIXES_PATH);
+  } catch (err) {
+    return `Could not load FinishLynx_Known_Fixes.md: ${err.message}`;
+  }
+  const entries = parseKnownFixes(raw);
+  if (!entries.length) {
+    return 'FinishLynx_Known_Fixes.md is empty or could not be parsed.';
+  }
+
+  const terms = (query || '').toLowerCase().split(/\s+/).filter((t) => t.length > 1);
+  if (!terms.length) return 'Empty query. Provide at least one keyword.';
+
+  const scored = entries
+    .map((e) => {
+      const titleLc = e.title.toLowerCase();
+      const bodyLc = e.body.toLowerCase();
+      let score = 0;
+      for (const t of terms) {
+        if (titleLc.includes(t)) score += 3;
+        // Count body occurrences (capped) so multi-mention entries rank higher.
+        let idx = 0, hits = 0;
+        while ((idx = bodyLc.indexOf(t, idx)) !== -1 && hits < 5) { hits++; idx += t.length; }
+        score += hits;
+      }
+      return { ...e, score };
+    })
+    .filter((e) => e.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, KNOWN_FIXES_MAX_HITS);
+
+  if (!scored.length) {
+    return `No Known Fixes matched "${query}". Try different keywords (symptom, product, or error message), or fall back to search_docs / the Master Reference.`;
+  }
+
+  return (
+    `Top ${scored.length} Known Fixes for "${query}":\n\n` +
+    scored.map((e) => `### ${e.title}\n\n${e.body}`).join('\n\n---\n\n')
+  );
+}
 
 function parseIndex(indexText) {
   // Walk the markdown, tracking the current "### Category" header so we can
@@ -478,8 +580,9 @@ async function readDoc(slug) {
 
 async function executeTool(name, input) {
   try {
-    if (name === 'search_docs') return await searchDocs(input?.query);
-    if (name === 'read_doc')    return await readDoc(input?.slug);
+    if (name === 'search_known_fixes') return await searchKnownFixes(input?.query);
+    if (name === 'search_docs')        return await searchDocs(input?.query);
+    if (name === 'read_doc')           return await readDoc(input?.slug);
     return `Unknown tool: ${name}`;
   } catch (err) {
     return `Tool error (${name}): ${err.message}`;
@@ -585,7 +688,11 @@ export default {
       // cached tokens for repeat requests within a 5-minute window.
       const system = [
         { type: 'text', text: SYSTEM_PROMPT_HEADER },
-        { type: 'text', text: knowledge, cache_control: { type: 'ephemeral' } },
+        // 1h TTL keeps the system-prompt cache warm across normal idle gaps
+        // between users; the default 5m TTL was short enough that nearly
+        // every conversation paid the full uncached input-token cost on
+        // its first request.
+        { type: 'text', text: knowledge, cache_control: { type: 'ephemeral', ttl: '1h' } },
       ];
 
       const model = body.model || 'claude-sonnet-4-6';
