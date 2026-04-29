@@ -40,7 +40,10 @@ body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-s
 .msg-assistant .msg-avatar{background:var(--purple);color:#fff}
 
 .msg-bubble{font-size:14px;line-height:1.6;word-break:break-word}
-.msg-user .msg-bubble{background:var(--gold);color:#111;border-radius:14px;border-bottom-right-radius:4px;padding:10px 14px}
+/* User: no bubble — gold prose hugged to the right edge, slightly larger
+   than the assistant body so each turn has a clear visual anchor. */
+.msg-user .msg-avatar{display:none}
+.msg-user .msg-bubble{background:none;border:none;border-radius:0;padding:6px 2px;color:var(--gold);font-size:19px;font-weight:700;line-height:1.4;letter-spacing:-.2px;text-align:right}
 /* Assistant: no bubble, no avatar — clean prose directly on the background */
 .msg-assistant{max-width:100%;width:100%}
 .msg-assistant .msg-avatar{display:none}
