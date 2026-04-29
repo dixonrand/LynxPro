@@ -379,6 +379,10 @@ const TOOLS = [
       },
       required: ['slug'],
     },
+    // Cache breakpoint on the last tool — folds the tool block into the same
+    // cached prefix as the system prompt, so per-request input tokens (and
+    // thus ITPM consumption) stay low across the tool-use loop.
+    cache_control: { type: 'ephemeral' },
   },
 ];
 
@@ -509,6 +513,54 @@ function jsonError(corsHeaders, status, message) {
 
 const MAX_TOOL_TURNS = 6;
 
+// Retry policy for transient Anthropic responses (429 rate-limited, 529
+// overloaded, 5xx). Without this, a single rate-limit blip turns into a
+// user-visible "busy" message — which is the dominant failure mode given
+// the large cached system prompt and multi-turn tool loop.
+const RETRYABLE_STATUS = new Set([429, 500, 502, 503, 504, 529]);
+const MAX_RETRY_ATTEMPTS = 3;          // total attempts including the first
+const RETRY_BASE_DELAY_MS = 750;       // exponential: 750ms, 1.5s, 3s
+const RETRY_MAX_DELAY_MS = 8000;       // honor retry-after up to this cap
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+function parseRetryAfter(headerVal) {
+  if (!headerVal) return null;
+  const seconds = Number(headerVal);
+  if (Number.isFinite(seconds) && seconds >= 0) {
+    return Math.min(seconds * 1000, RETRY_MAX_DELAY_MS);
+  }
+  // HTTP-date form — fall back to default backoff
+  return null;
+}
+
+async function callAnthropicWithRetry(payload, apiKey) {
+  let lastResp = null;
+  for (let attempt = 0; attempt < MAX_RETRY_ATTEMPTS; attempt++) {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify(payload),
+    });
+    if (resp.ok || !RETRYABLE_STATUS.has(resp.status) || attempt === MAX_RETRY_ATTEMPTS - 1) {
+      return resp;
+    }
+    const retryAfter = parseRetryAfter(resp.headers.get('retry-after'));
+    const backoff = retryAfter ?? Math.min(RETRY_BASE_DELAY_MS * 2 ** attempt, RETRY_MAX_DELAY_MS);
+    // Drain the body so the connection can be reused.
+    try { await resp.text(); } catch (_) {}
+    lastResp = resp;
+    await sleep(backoff);
+  }
+  return lastResp; // unreachable, but keeps the type checker honest
+}
+
 export default {
   async fetch(request, env) {
     const corsHeaders = {
@@ -545,21 +597,10 @@ export default {
       // Intermediate turns are non-streamed; the final text is wrapped in a
       // single SSE delta so the existing client code keeps working.
       for (let turn = 0; turn < MAX_TOOL_TURNS; turn++) {
-        const resp = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': env.ANTHROPIC_API_KEY,
-            'anthropic-version': '2023-06-01',
-          },
-          body: JSON.stringify({
-            model,
-            max_tokens: maxTokens,
-            system,
-            tools: TOOLS,
-            messages,
-          }),
-        });
+        const resp = await callAnthropicWithRetry(
+          { model, max_tokens: maxTokens, system, tools: TOOLS, messages },
+          env.ANTHROPIC_API_KEY,
+        );
 
         if (!resp.ok) {
           return jsonError(corsHeaders, resp.status, await resp.text());
