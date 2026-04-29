@@ -398,8 +398,8 @@ var welcomeEl = document.getElementById('welcome');
       var streamDone = false;
 
       var TICK_MS = 14;            // animation frame interval
-      var BASE_CPS = 90;           // ~ characters per second baseline
-      var MAX_CATCHUP = 220;       // cap chars/sec when queue grows long
+      var BASE_CPS = 380;          // ~ characters per second baseline
+      var MAX_CATCHUP = 900;       // cap chars/sec when queue grows long
 
       var typeTimer = setInterval(function(){
         if(pending.length === 0){
