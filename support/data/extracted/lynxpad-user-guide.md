@@ -489,7 +489,7 @@ Tutorial introduction
                           5      At this time, do not change the information in the Seeding area, but
                                  notice the options that are available. For example, you can change the
                                  number of lanes and the advancement criteria.
-                                                    Chapter 2 Quick Start Tutorial    17
+                                                     Chapter 2 Quick Start Tutorial    17
 
 
 
@@ -506,7 +506,7 @@ Tutorial introduction
               Now you are ready to save the event you just added to the sample
               competition.
 
-              Either click File from the Menu bar and select Save or click    .
+              Either click File from the Menu bar and select Save or click     .
 
               Notes:
               ▪   After each athlete or event is added or edited, the competition is
@@ -3511,7 +3511,8 @@ Importing reaction times • 108                     NetExchange • 75, 108
 Importing results from FieldLynx • 75              New LynxPad 3.25 Features • 5
 Importing results from FinishLynx • 68             non-track and field event, adding • 41
 Importing semi-colon and comma delimited files
-  • 100                                            O
+  • 100
+                                                   O
 Installing LynxPad • 8                             Opening a competition as read-only • 30
 Integrating entries from multiple sources • 100,   Opening an existing competition • 29, 68, 75, 99,
   104                                               107, 108, 110
@@ -3531,7 +3532,8 @@ lanes                                              Printing a Results report •
     lanes, changing number of • 58                 Printing Reports from LynxPad • 87
 language, converting LynxPad to use another •      Purging data • 85
    111
-LFF • 115                                          Q
+LFF • 115
+                                                   Q
 license • 115                                      Quick Start Tutorial • 13
 LIF • 115
 LNG file, customizing • 112                        R

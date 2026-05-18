@@ -27,6 +27,7 @@ When used as a stand-alone personal training system to help sprinters
 improve their starting technique, an individual ReacTime module can be
 used to record and display an athlete’s gun-to-motion times to an
 accuracy of 1/1000th of a second.
+
 The Competition ReacTime system detects false starts (as defined by
 World Athletics Technical rule 16.6 and USATF rule 162.14) – also to an
 accuracy of 1/1000th of a second – and instantly signals this information
@@ -50,6 +51,7 @@ to the starter.
       sound of the gun simultaneously.
  •    Includes all required cables as well as headset for
       the starter.
+
  •    100% integration with the FinishLynx timing system,
       including the ability to store the reaction time of the
       athletes in the FinishLynx results area and print with

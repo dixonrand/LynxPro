@@ -166,8 +166,8 @@ EtherLynx Vision PRO Camera                                                     
                                           # colors/pixel   Up to 2 million colors (user adjustable)
                                            Sensor Type     CMOS Array (single line in photo-finish mode)
                                              Time Base     0.5 Part Per Million (.0005s per 16.7 min) - Temp. Compensating
-                                Available Lens Mounts      CS-Mount; C-Mount; F-Mount
-                               Camera Alignment Aids       EasyAlign full-frame video preview
+                               Available Lens Mounts       CS-Mount; C-Mount; F-Mount
+                              Camera Alignment Aids        EasyAlign full-frame video preview
             Remote Lens & Remote Alignment Options         Yes
           LuxBoost Low-Light Capture & Auto LuxBoost       Yes – LuxBoost4
                                         On-Board Level     Yes

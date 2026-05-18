@@ -9,31 +9,23 @@
 
 ---
 
-Bronze
-                                                                  Manual Lap Timing
+.           /0
+
+
+          ,
+
+
+      1        &
 
 
 
 
-   FinishLynx Software
-
-
-       LynxPad
-
-
-    Lap Time plug-in
+                                  $%& #-   *
 
 
 
-
-                                                                                    *
-
-                                     MG-CAB001
-                                                         *          C
-
-               MG-CAB092
- MG-ACC073                 MG-REI201
-1A209LAP x 9
-                                MG-ACC075                    AC
-
- *Notebook computers and starting pistols not included                       Copyright 2007 Lynx System Developers, Inc.
+              $%& #- +
+ $%&#   '                $%&()!   *
+*# + #, +
+                             $%&#     2        #
+                                                   !   "

@@ -31,6 +31,7 @@ c.   Connection to Start Signal Generator: use the special
      wrap)
 
 
+
 Part 1B:       Setting up the RadioLynx Wireless Receiver (Vision Camera)
 Note: For the Vision camera, the Receiver plugs into
 the RadioLynx Port.

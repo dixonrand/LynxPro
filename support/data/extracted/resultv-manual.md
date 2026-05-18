@@ -71,7 +71,7 @@ Configuring the Data Source                                                     
             Configuring ResulTV for use with FinishLynx ............................................................................... 21
             Configuring FinishLynx for use with ResulTV ............................................................................... 21
      Hy-Tek Meet Manager as a data source...................................................................................................... 22
-            Hy-Tek Meet Manager for Track and Field..................................................................................... 22
+            Hy-Tek Meet Manager for Track and Field ..................................................................................... 22
             Hy-Tek Meet Manager for Swimming ............................................................................................ 26
      Working with a dynamic data source .......................................................................................................... 28
             Configuring the dynamic source ...................................................................................................... 28
@@ -2098,10 +2098,12 @@ FinishLynx                                       LSS • 69
    FinishLynx, displaying a dynamic image • 42   Meet Manager for Track and Field • 55
    running time, sending from FinishLynx • 54    Moving to back or front • 39
    start list, sending from FinishLynx • 53
-FinishLynx as a data source • 21                 N
+FinishLynx as a data source • 21
+                                                 N
                                                  network, using ResulTV over • 18
 G
-graphic object • 69                              O
+graphic object • 69
+                                                 O
 graphics                                         Obtaining Lynx products and information • 3, 18
    graphic, displaying a dynamic FinishLynx •    Obtaining technical support • 3
       42                                         Opening an existing layout • 31
@@ -2142,7 +2144,8 @@ layout, editing • 31                             Sending data to television �
 
 
 Sending results from Meet Manager for
-   Swimming • 55                                      W
+   Swimming • 55
+                                                      W
 Sending results from Meet Manager for Track           What's new in ResulTV 3.0 • 4
    and Field for Windows • 55                         Which RSS file do I select? • 20
 Sending running time from FinishLynx • 54             Working with a dynamic data source • 28

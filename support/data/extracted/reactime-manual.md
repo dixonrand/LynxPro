@@ -12,7 +12,9 @@
 Operator’s Manual
 
 
-       ReacTime™
+       ReacTime                  ™
+
+
 
 
          Lynx System Developers, Inc.
@@ -1054,8 +1056,8 @@ You can customize your own recordings of the "On Your Marks" and "Set" commands 
 example, in the coach's voice or in another language) and upload them to the Block Sensor.
 (Note: The gun sound cannot be edited.)
 To customize the audio files, you need:
-          •
         software that can create an 8khz 8 BIT mono WAV file (such as Windows Sound
+          •
         Recorder)
     • a sound card in your computer
     • a microphone

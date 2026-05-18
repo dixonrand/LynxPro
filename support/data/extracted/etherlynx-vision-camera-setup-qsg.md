@@ -43,8 +43,9 @@ tech support documents and downloads, visit www.finishlynx.com/support/
                       Power-over-Ethernet
 
                    CS Mount 2.8-10mm P-Iris                     *NOTE: If you are using this CS-Mount lens, DO NOT USE the C-Mount adaptor
-                                                CS2810P*                                         shown below
-                            Lens
+                                                CS2810P*
+                            Lens                                                                 shown below
+
 
 Optional Items shown below:
 

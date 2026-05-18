@@ -285,8 +285,8 @@ ETHERLYNX VISION CAMERA
 
 
                                                                8
-                                       QUALITY IMAGES
-                                        SPECTACULAR
+                                        QUALITY IMAGES
+                                         SPECTACULAR
                      ETHERLYNX VISION PRO CAMERA – 5L600
               EtherLynx Vision PRO Photo-Finish Camera
                         with EasyAlign, LuxBoost, and up to 20,000 FPS Capture
@@ -349,8 +349,8 @@ ETHERLYNX VISION PRO CAMERA
                                          # colors/pixel   Up to 2 million colors (user adjustable)
                                           Sensor Type     CMOS Array (single line in photo-finish mode)
                                             Time Base     0.5 Part Per Million (.0005s per 16.7 min) - Temp. Compensating
-                               Available Lens Mounts      CS-Mount; C-Mount; F-Mount
-                              Camera Alignment Aids       EasyAlign full-frame video preview
+                              Available Lens Mounts       CS-Mount; C-Mount; F-Mount
+                             Camera Alignment Aids        EasyAlign full-frame video preview
            Remote Lens & Remote Alignment Options         Yes
          LuxBoost Low-Light Capture & Auto LuxBoost       Yes – LuxBoost4
                                        On-Board Level     Yes
@@ -707,7 +707,6 @@ Athletics-Track Events
                                                                                             • RadioLynx Wireless Start System
 
                                                                                             • All-inclusive Power, Ethernet, & Start Cable Set
-
                                                                                             • Tripod & Mounting Hardware for Precision Adjustment
 
                                                                                             • Built-in Interface to Scoreboards and Wind Gauges
@@ -845,7 +844,6 @@ you can integrate serial devices across your timing
 network.
 
 The package also includes two EtherLynx Vision                 2000+ without LuxBoost            Vision with LuxBoost
-
 cameras for full-color, reverse-angle results. Both Vision cameras include Automatic Capture Mode and come outfitted
 with remote control features for easy setup and adjustment at your venue's finish line. The primary Vision camera also
 includes several premium upgrades that will enhance the ease and quality of your race captures.
@@ -1166,7 +1164,7 @@ Field Events
 
 
       Field Events
-                                                                                                            PAGE 21
+                                                                                                              PAGE 21
 I                                           ELECTRONIC DISTANCE MEASUREMENT
                                    LYNX SYSTEM DEVELOPERS, INC.
 
@@ -1435,11 +1433,14 @@ Athletics - Field Events
      Measurement System
                            Grand Prix Packages
                                                                                  LYNX SYSTEM DEVELOPERS, INC
+
+
+                                                                                              Grand Prix Elite Benefits
 Athletics - Field Events
 
 
 
-                                   Field Event Packages                                       Grand Prix Elite Benefits
+                                   Field Event Packages
                                 Grand Prix & Grand Prix Elite
                             The Grand Prix and Grand Prix Elite Field Packages
                             bring the highest levels of technology to the world of

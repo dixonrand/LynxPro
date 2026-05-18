@@ -170,10 +170,10 @@ passing for all sports.
 
                                                          SPECS
 
-                                                         Dimensions (WxLxH) Rolled: 46 X 46 X 43 cm
-                                                         			                          18.1 X 18.1 X 16.9 Inch
+                                                         Dimensions (WxLxH) Rolled:   46 X 46 X 43 cm
+                                                                                      18.1 X 18.1 X 16.9 Inch
                                                          Dimensions (WxLxH) Unrolled: 36 X 400 X 1 cm
-                                                         			                          14.2 X 157.5 X 0.4 Inch
+                                                                                      14.2 X 157.5 X 0.4 Inch
                                                          Maximum Mat Height: 1.0 cm / 0.40 Inch
                                                          Weight: 22 kg / 48.5 lb
 

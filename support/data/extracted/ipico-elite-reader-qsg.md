@@ -149,8 +149,9 @@ b. Click the + next to LapTime. A deeper menu
    (Always)                                                       FS: Can be used for the Reader at the finish line on
                                                                   Port 10200 to read the First Seen chip read only.
 Optional: For advanced users – Follow these steps to
-                                                                       Set the port to 10200 under LapTime | Options.
-control which chip read is accepted by FinishLynx.
+control which chip read is accepted by FinishLynx.                     Set the port to 10200 under LapTime | Options.
+
+
 c. Scroll down and click the + next to IPICO and select           LS: Typical for the Reader used at a Start Line on Port
    Suffix.                                                        10200 to only accept the Last Seen chip read as the
                                                                   competitor has passed the mat for the last time.
@@ -189,6 +190,7 @@ g. Once all chips have been read into FinishLynx, click                    infor
 h. Navigate to the Output Directory: where the .lif file
                                                                            and rename as a *.txt file for the ID mapping.
    is saved and open the .lif file in Notepad or Excel.
+
 Manual edit of the .Lif File to Map File
 a. Manually edit the *.lif file until each line contains the      Example (no spaces before or after the comma):
    Place value, a comma, and the chip internal ID. (12-                       1,05800151f932
