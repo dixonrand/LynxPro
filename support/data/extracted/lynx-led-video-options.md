@@ -13,11 +13,10 @@ LED Video Display Options
                                               Datasheet
 
 
-
 VDM (Video Display Module)
-VDM enables the live display of FinishLynx running time, results, and images on a video display
-connected to the HDMI port of Vision cameras. Simply connect a compatible video display to the camera
-back and instantly show live results data at the finish line.
+VDM enables the live display of FinishLynx running time, results, and images on a video display connected
+to the HDMI port of Vision cameras. Simply connect a compatible video display to the camera back and
+instantly show live results data at the finish line.
 
 Data Source – Limited to Vision/Vision PRO           Resolution – Up to 1600 x 900.
 cameras with VDM upgrade.
@@ -44,51 +43,102 @@ sending card.
 
 
 
+Windows PC NOT included.
+
+
+
+
 www.finishlynx.com/support                                                          support@finishlynx.com
                         LED Video Display Options
-                                                  Datasheet
+                                             Datasheet
 
 ResulTV-VDM
 ResulTV-VDM is a simplified version of ResulTV. Like the VDM option for Vision-series cameras, the
 content of the ResulTV-VDM layout is controlled by the data received using customizable scripts.
 
 
-Data Source – FinishLynx, FieldLynx, LynxPad,            Resolution – Limited to the size of the display
-ReacTime.                                                purchased with the solution.
-Connection – Wired Ethernet or Wi-Fi to ResulTV-         Layout – Similar to VDM. Design is controlled by
-VDM PC. HDMI between ResulTV-VDM PC and                  selected scoreboard script. Default scripts are
-display sending card.                                    included with FinishLynx, FieldLynx and LynxPad.
+Data Source – FinishLynx, FieldLynx, LynxPad,      Resolution – Limited to the size of the display
+ReacTime.                                          purchased with the solution.
+Connection – Wired Ethernet or Wi-Fi to ResulTV-   Layout – Similar to VDM. Design is controlled by
+VDM PC. HDMI between ResulTV-VDM PC and            selected scoreboard script. Default scripts are
+display sending card.                              included with FinishLynx, FieldLynx and LynxPad.
 
 
+
+
+Windows PC NOT included.
+
+
+Portable-VDM
+Portable-VDM is an integrated display solution that combines ResulTV-VDM running on a battery-powered
+Windows Mini-PC in a weatherproof connection box.
+
+
+Data Source – FinishLynx, FieldLynx, LynxPad,      Resolution – Limited to the size of the display
+ReacTime.                                          purchased with the solution.
+Connection – Wired Ethernet or Wi-Fi to ResulTV-   Layout – Similar to VDM. Design is controlled by
+VDM PC. HDMI between ResulTV-VDM PC and            selected scoreboard script. Default scripts are
+display sending card.                              included with FinishLynx, FieldLynx and LynxPad.
+
+
+
+
+Windows MiniPC provided.
+
+
+
+
+www.finishlynx.com/support                                                       support@finishlynx.com
+                                  LED Video Display Options
+                                                            Datasheet
 
 
 Compare Your Options
 
-                             VDM                           ResulTV                        ResulTV-VDM
-                                               Multiple source support:            Single source support (1 of):
-Data            Vision/Vision PRO
-Source          cameras with VDM option        - FinishLynx       - LynxPad        - FinishLynx    - LynxPad
-                                               - FieldLynx        - ReacTime       - FieldLynx     - ReacTime
-                                               Network to ResulTV PC.              Network to ResulTV-VDM PC.
-                HDMI between camera’s
-Connection      back panel and display         HDMI between ResulTV PC             HDMI between ResulTV-VDM
-                                               and display.                        PC and display.
-Resolution      Up to 1600 x 900               No limitations                      Locked to size of your display
-                                                                                   Design is controlled by
-                Design is controlled by                                            selected ResulTV-Video
-                selected VDM scoreboard                                            scoreboard script
-                script (customizable).         Full flexibility of custom layout   (customizable).
-Layout                                         design in ResulTV software.
-                Default scripts are included                                       Default scripts are included
-                with FinishLynx.                                                   with FinishLynx, FieldLynx, and
-                                                                                   LynxPad.
-                                               Lynx logo when display height       Lynx logo when display height
-Logo            No Lynx logo
-                                               is more than 250 pixels.            is more than 250 pixels.
-Scrolling       Not supported                  Supported                           Supported
-License         Per camera upgrade             Serial number + USB HW key          Serial number + USB HW key
+                           VDM                       ResulTV                  ResulTV-VDM                 Portable-VDM
+                                             Multiple source support:     Single source support       Single source support
+                                                                          (one of):                   (one of):
+                 Vision/Vision PRO           - FinishLynx                 - FinishLynx
+ Data                                                                                                 - FinishLynx
+                 cameras with VDM
+ Source          option
+                                             - FieldLynx                  - FieldLynx                 - FieldLynx
+                                             - LynxPad                    - LynxPad
+                                             - ReacTime                   - ReacTime
+
+                                                                                                      Battery-powered
+                                             Windows PC not               Windows PC not              Windows MiniPC in
+ Hardware        Vision-Series Camera
+                                             included.                    included.                   weatherproof box
+                                                                                                      (included)
+                                                                          Network to ResulTV-         Network to ResulTV-
+                                             Network to ResulTV PC.
+                 HDMI between camera’s                                    VDM PC.                     VDM PC.
+ Connection      back panel and display      HDMI between ResulTV
+                                                                          HDMI between ResulTV-       HDMI between ResulTV-
+                                             PC and display.
+                                                                          VDM PC and display.         VDM PC and display.
+                                                                          Locked to size of your      Locked to size of your
+ Resolution      Up to 1600 x 900            No limitations
+                                                                          display                     display
+                 Design is controlled by                                  Design is controlled by     Design is controlled by
+                 selected VDM                                             selected customizable       selected customizable
+                 scoreboard script           Full flexibility of custom   scoreboard script.          scoreboard script.
+ Layout          (customizable).             layout design in ResulTV
+                                             software.                    Default scripts are         Default scripts are
+                 Default scripts are                                      included with FinishLynx,   included with FinishLynx,
+                 included with FinishLynx.                                FieldLynx, and LynxPad.     FieldLynx, and LynxPad.
+
+                                             Lynx logo when display       Lynx logo when display      Lynx logo when display
+ Logo            No Lynx logo                height is more than 250      height is more than 250     height is more than 250
+                                             pixels.                      pixels.                     pixels.
+ Scrolling       Not supported               Supported                    Supported                   Supported
+ ScorePlus       Not supported               Not Supported                Not Supported               Included
+                                             Serial number + USB          Serial number + USB         Locked to provided
+ License         Per camera upgrade
+                                             HW key                       HW key                      MiniPC
 
 
 
 
-www.finishlynx.com/support                                                              support@finishlynx.com
+          www.finishlynx.com/support                                                            support@finishlynx.com
