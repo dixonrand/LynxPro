@@ -38,6 +38,7 @@ additional help, please call: USA 978.556.9780 or email support@finishlynx.com
 
 
                                      25’ Power Input
+                                                                                          7/32” Allen Wrench
                                           Cable
 
 
@@ -97,7 +98,7 @@ Method 1: FinishLynx & VDM
 3. Set the following:
         a. Serial Port: <Camera Name>(HDMI)
         b. See Resolution label on display and
-              enter the correct Width/Height.
+              enter the correct Width/Height (208/104)
         c. Rotate: Off
         d. Running Time: Normal
         e. Results: Auto
@@ -110,7 +111,7 @@ www.facebook.com/finishlynx                                                     
 
 
 
-Method 2: FinishLynx or Fieldlynx, and ResulTV
+Method 2: FinishLynx or FieldLynx, and ResulTV
 ResulTV
 1. Go to File | Options… | General tab:
        a. Select the Video-Portable profile.
@@ -133,8 +134,8 @@ FieldLynx
        o Standings: ResulTV_Video_Standings.lss
 
 Tips:       FinishLynx/Operating the Scoreboard
-1. There needs to be an active event for the running time to be displayed. Therefore, you will need to open up
-   a new event.
+1. There needs to be an active event for the running time to be displayed. Therefore, you will need to open a
+   new event.
 2. To begin operating the scoreboard for an event, display running time by giving a start signal to the event.
 3. To show your results from the race, stop the running time by pressing Alt+S, or Alt+F, when used with a
    photoeye.

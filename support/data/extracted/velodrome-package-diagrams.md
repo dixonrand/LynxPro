@@ -9,11 +9,11 @@
 
 ---
 
-Velo Bronze
-                                                                                                      TW-SET
+TW-SET
                                                                                                       (SPARE)
 
                                                                                                                 5
+                                                                                                                             Velo Bronze
                                                                                                   1 2 3 4
 
 
@@ -57,7 +57,7 @@ Velo Bronze
                                                                         PoE Injector                                                                           MG-REI301
 
                                      1A205U
-                                              FinishLynx Primary                                                                                               MG-CAB001
+                                              FinishLynx Primary                                                                                                MG-CAB001
 
 * FinishLynx computer not included                                                                                          © 1992 - 2023 | Lynx System Developers, Inc. | www.finishlynx.com
                                                                                                            TW-SET
@@ -176,8 +176,10 @@ Velo Bronze
 * Computers not included                                                                                                                             © 1992 - 2023 | Lynx System Developers, Inc. | www.finishlynx.com
                                                                5
                                                                     Velo Gold -
-                               0.0
                                                   1 2 3 4
+                               0.0
+
+
                                                                       MYLAPS
                                                                                                 40R111
     FinishLynx Software                                                                         10R170

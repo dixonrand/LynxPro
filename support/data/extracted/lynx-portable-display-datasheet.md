@@ -30,9 +30,9 @@ indoor and outdoor venues.                                                      
 
 Software Compatibility
 The display receives data through a standard HDMI connection and is compatible
-                                                                                              Welcome to the National
+                                                                                               Welcome to the National
 with any software capable of sending graphics to an HDMI-connected display. Place
-                                                                                              T&F Championships.
+                                                                                               T&F Championships.
 it at the finish line or field event and connect it to ResulTV to output results and
 broadcast-ready graphics, or send live results and images directly from FinishLynx
 cameras using the Video Display Module (VDM).

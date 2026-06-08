@@ -11,11 +11,14 @@
 
 Grand Prix Packages
                                                                                  LYNX SYSTEM DEVELOPERS, INC
+
+
+                                                                                              Grand Prix Elite Benefits
 Athletics - Field Events
 
 
 
-                                   Field Event Packages                                       Grand Prix Elite Benefits
+                                   Field Event Packages
                                 Grand Prix & Grand Prix Elite
                             The Grand Prix and Grand Prix Elite Field Packages
                             bring the highest levels of technology to the world of
