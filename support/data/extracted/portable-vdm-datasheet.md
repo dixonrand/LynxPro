@@ -15,7 +15,7 @@ Portable-VDM
 
 Integrated ResulTV-VDM Solution
                                                  Portable-VDM is an integrated display solution that combines
-                                                 ResulTV-VDM* running on a battery-powered Windows Mini-PC in a
+                                                 ResulTV-VDM* running on a battery-powered Mini-PC in a
                                                  weatherproof connection box. It can be connected to your Ethernet or
                                                  WiFi network to receive data from FinishLynx, FieldLynx, or LynxPad,
 and display graphics on your Lynx Video Display via the HDMI output.
@@ -25,27 +25,22 @@ displays for track or for field events.
 
  Data Source – FinishLynx, FieldLynx, LynxPad,                   Resolution – Limited to the size of the display
  ReacTime.                                                       purchased with the solution.
- Connection – Wired Ethernet or Wi-Fi to ResulTV-                Layout – Similar to VDM. Design is controlled by
- VDM PC. HDMI between ResulTV-VDM PC and display                 selected scoreboard script. Default scripts are included
- sending card.                                                   with FinishLynx, FieldLynx and LynxPad.
+Connection – Wired Ethernet or Wi-Fi to ResulTV-                 Layout – Similar to VDM. Design is controlled by
+VDM PC. HDMI between ResulTV-VDM PC and display                  selected scoreboard script. Default scripts are included
+sending card.                                                    with FinishLynx, FieldLynx and LynxPad.
 
 
 Portable-VDM Components
-Windows Mini-PC                                                  Battery-Powered
-• WiFi and Wired Ethernet - Connect automatically to              • Rechargeable 12V/6000mAh Lithium-Ion battery (10
-  an AirLynx Wireless network or configure it for your              hours of run time)
-  own wireless network.                                           • Includes AC/DC charger
-• HDMI output – connects directly to your display                 • LED charge level indicator
-• Pre-configured settings and pre-installed software
-                                                                 Software
-• Remote Desktop connection for advanced
-                                                                      •   ResulTV-VDM software
-  configuration
+Mini-PC
+• WiFi and Wired Ethernet - Connect automatically to
+  an AirLynx Wireless network or configure it for your           Battery-Powered
+  own wireless network.                                           • Rechargeable 12V/6000mAh Lithium-Ion battery (10
+• HDMI output – connects directly to your display                   hours of run time)
+• Pre-configured settings and pre-installed software              • Includes AC/DC charger
+• Remote Desktop connection for advanced                          • LED charge level indicator
+  configuration                                                  Software
+Weatherproof Connection Box                                           •   ResulTV-VDM software
                                                                       •   ScorePlus App
-Weatherproof Connection Box
-                                                                 PLUS Option – Includes an AirLynx Lite mini-router to
-                                                                 create a small private wireless network with a range of at
-                                                                 least 200 feet.
 
 
 
@@ -54,6 +49,8 @@ Weatherproof Connection Box
 ResulTV-VDM layout is controlled by the data received. The source applications (FinishLynx, FieldLynx, FieldLynx Lite
 or LynxPad) come standard with pre-defined and customizable scoreboard scripts to create modern and eye-catching
 layouts for all types of events.
+
+
 
    Lynx System Developers, Inc.       179 Ward Hill Ave., Haverhill, MA 01835 USA                     Tel: 978.556.9780
    www.finishlynx.com                          Toll Free: 800.989.5969                                Fax: 978.556.9781

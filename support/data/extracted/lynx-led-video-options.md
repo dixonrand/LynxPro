@@ -71,19 +71,19 @@ Windows PC NOT included.
 
 Portable-VDM
 Portable-VDM is an integrated display solution that combines ResulTV-VDM running on a battery-powered
-Windows Mini-PC in a weatherproof connection box.
+MiniPC in a weatherproof connection box.
 
 
-Data Source – FinishLynx, FieldLynx, LynxPad,      Resolution – Limited to the size of the display
-ReacTime.                                          purchased with the solution.
+Data Source – FinishLynx, FieldLynx, LynxPad,      Resolution – Delivered pre-configured to the size
+ReacTime.                                          of your display. Adjustable via remote commands.
 Connection – Wired Ethernet or Wi-Fi to ResulTV-   Layout – Similar to VDM. Design is controlled by
-VDM PC. HDMI between ResulTV-VDM PC and            selected scoreboard script. Default scripts are
-display sending card.                              included with FinishLynx, FieldLynx and LynxPad.
+VDM PC. HDMI between MiniPC and display            selected scoreboard script. Default scripts are
+sending card.                                      included with FinishLynx, FieldLynx and LynxPad.
 
 
 
 
-Windows MiniPC provided.
+MiniPC provided.
 
 
 
@@ -96,31 +96,36 @@ www.finishlynx.com/support                                                      
 Compare Your Options
 
                            VDM                       ResulTV                  ResulTV-VDM                 Portable-VDM
-                                             Multiple source support:     Single source support       Single source support
+                                                                          Single source support       Single source support
+                                             Multiple source support:
                                                                           (one of):                   (one of):
                  Vision/Vision PRO           - FinishLynx                 - FinishLynx
- Data                                                                                                 - FinishLynx
+ Data
                  cameras with VDM
  Source          option
-                                             - FieldLynx                  - FieldLynx                 - FieldLynx
+                                             - FieldLynx                  - FieldLynx                 - FinishLynx
                                              - LynxPad                    - LynxPad
+                                                                                                      - FieldLynx
                                              - ReacTime                   - ReacTime
 
-                                                                                                      Battery-powered
-                                             Windows PC not               Windows PC not              Windows MiniPC in
+                                                                                                      Battery-powered MiniPC
+                                             Windows PC not               Windows PC not
  Hardware        Vision-Series Camera
-                                             included.                    included.                   weatherproof box
+                                             included.                    included.
+                                                                                                      in weatherproof box
                                                                                                       (included)
-                                                                          Network to ResulTV-         Network to ResulTV-
-                                             Network to ResulTV PC.
-                 HDMI between camera’s                                    VDM PC.                     VDM PC.
- Connection      back panel and display      HDMI between ResulTV
-                                                                          HDMI between ResulTV-       HDMI between ResulTV-
-                                             PC and display.
-                                                                          VDM PC and display.         VDM PC and display.
-                                                                          Locked to size of your      Locked to size of your
+                                                                          Network to ResulTV-
+                                             Network to ResulTV PC.                                   Network to MiniPC.
+                 HDMI between camera’s                                    VDM PC.
+ Connection      back panel and display      HDMI between ResulTV                                     HDMI between MiniPC
+                                                                          HDMI between ResulTV-
+                                             PC and display.                                          and display.
+                                                                          VDM PC and display.
+                                                                                                      Delivered pre-configured
+                                                                          Locked to size of your      to size of your display;
  Resolution      Up to 1600 x 900            No limitations
-                                                                          display                     display
+                                                                          display                     adjustable via remote
+                                                                                                      commands
                  Design is controlled by                                  Design is controlled by     Design is controlled by
                  selected VDM                                             selected customizable       selected customizable
                  scoreboard script           Full flexibility of custom   scoreboard script.          scoreboard script.
