@@ -163,7 +163,7 @@ Each extracted doc lives at `support/data/extracted/<slug>.md`.
 - Portable-VDM with ScorePlus QSG (https://finishlynx.com/wp-content/uploads/2024/03/Portable-VDM_QSG.pdf) — HTTP 404
 - VeriLight QSG (https://finishlynx.com/wp-content/uploads/2024/01/VeriLight_QSG.pdf) — HTTP 404
 - Lynx Portable Display QSG (https://finishlynx.com/wp-content/uploads/2019/06/Lynx_Portable_Display_QSG.pdf) — HTTP 404
-- US High School Track Bronze Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/bronze-vision-qsg.pdf) — HTTP 404
 - US High School Track Scholastic Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/scholastic-vision-qsg.pdf) — HTTP 404
+- US High School Track Bronze Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/bronze-vision-qsg.pdf) — HTTP 404
 - US High School Track Silver Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/silver-vision-qsg.pdf) — HTTP 404
 - Long Track Speed Skating Package — Transponder Lap Timing (https://finishlynx.com/wp-content/uploads/2022/06/LT-LAP_T_info.pdf) — empty extraction (0 chars)
