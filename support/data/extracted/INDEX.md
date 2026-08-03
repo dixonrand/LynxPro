@@ -161,8 +161,8 @@ Each extracted doc lives at `support/data/extracted/<slug>.md`.
 - Internal RadioLynx Wireless Start Setup QSG (https://finishlynx.com/wp-content/uploads/2012/08/InternalRadioLynx_QSG.pdf) — HTTP 404
 - Installation Instructions for 1-Sided Field Display (https://finishlynx.com/wp-content/uploads/2017/09/Installation-Instructions-for-FLD_DSPLY_1S.pdf) — empty extraction (0 chars)
 - Portable-VDM with ScorePlus QSG (https://finishlynx.com/wp-content/uploads/2024/03/Portable-VDM_QSG.pdf) — HTTP 404
-- Lynx Portable Display QSG (https://finishlynx.com/wp-content/uploads/2019/06/Lynx_Portable_Display_QSG.pdf) — HTTP 404
 - VeriLight QSG (https://finishlynx.com/wp-content/uploads/2024/01/VeriLight_QSG.pdf) — HTTP 404
+- Lynx Portable Display QSG (https://finishlynx.com/wp-content/uploads/2019/06/Lynx_Portable_Display_QSG.pdf) — HTTP 404
 - US High School Track Bronze Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/bronze-vision-qsg.pdf) — HTTP 404
 - US High School Track Scholastic Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/scholastic-vision-qsg.pdf) — HTTP 404
 - US High School Track Silver Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/silver-vision-qsg.pdf) — HTTP 404
