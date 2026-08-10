@@ -157,13 +157,13 @@ Each extracted doc lives at `support/data/extracted/<slug>.md`.
 
 - EtherLynx Vision PRO X Datasheet (5L700) (https://finishlynx.com/wp-content/uploads/2026/03/EtherLynx-Vision-PRO-X-Datasheet-v6.pdf) — HTTP 404
 - MYLAPS CCNET Guide (https://finishlynx.com/wp-content/uploads/2022/09/CCNET.pdf) — empty extraction (13 chars)
-- LinkGate EncRadio & DecRadio User Manual (https://timing.microgate.it/sites/default/files/manuali/ENCRADIO_DECRADIO-User_Manual_2_0_EN.pdf) — fetch failed
 - Internal RadioLynx Wireless Start Setup QSG (https://finishlynx.com/wp-content/uploads/2012/08/InternalRadioLynx_QSG.pdf) — HTTP 404
+- LinkGate EncRadio & DecRadio User Manual (https://timing.microgate.it/sites/default/files/manuali/ENCRADIO_DECRADIO-User_Manual_2_0_EN.pdf) — fetch failed
 - Installation Instructions for 1-Sided Field Display (https://finishlynx.com/wp-content/uploads/2017/09/Installation-Instructions-for-FLD_DSPLY_1S.pdf) — empty extraction (0 chars)
 - Portable-VDM with ScorePlus QSG (https://finishlynx.com/wp-content/uploads/2024/03/Portable-VDM_QSG.pdf) — HTTP 404
-- VeriLight QSG (https://finishlynx.com/wp-content/uploads/2024/01/VeriLight_QSG.pdf) — HTTP 404
 - Lynx Portable Display QSG (https://finishlynx.com/wp-content/uploads/2019/06/Lynx_Portable_Display_QSG.pdf) — HTTP 404
-- US High School Track Bronze Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/bronze-vision-qsg.pdf) — HTTP 404
+- VeriLight QSG (https://finishlynx.com/wp-content/uploads/2024/01/VeriLight_QSG.pdf) — HTTP 404
 - US High School Track Scholastic Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/scholastic-vision-qsg.pdf) — HTTP 404
+- US High School Track Bronze Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/bronze-vision-qsg.pdf) — HTTP 404
 - US High School Track Silver Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/silver-vision-qsg.pdf) — HTTP 404
 - Long Track Speed Skating Package — Transponder Lap Timing (https://finishlynx.com/wp-content/uploads/2022/06/LT-LAP_T_info.pdf) — empty extraction (0 chars)
