@@ -157,13 +157,166 @@ Each extracted doc lives at `support/data/extracted/<slug>.md`.
 
 - EtherLynx Vision PRO X Datasheet (5L700) (https://finishlynx.com/wp-content/uploads/2026/03/EtherLynx-Vision-PRO-X-Datasheet-v6.pdf) — HTTP 404
 - MYLAPS CCNET Guide (https://finishlynx.com/wp-content/uploads/2022/09/CCNET.pdf) — empty extraction (13 chars)
+- LinkGate EncRadio & DecRadio User Manual (https://timing.microgate.it/sites/default/files/manuali/ENCRADIO_DECRADIO-User_Manual_2_0_EN.pdf) — Command failed: pdftotext -layout -enc UTF-8 /tmp/lynx-pdf-extract/linkgate-encradio-and-decradio-user-manual.pdf -
+Syntax Warning: May not be a PDF file (continuing anyway)
+Syntax Error (2): Illegal character <21> in hex string
+Syntax Error (4): Illegal character <6f> in hex string
+Syntax Error (6): Illegal character <74> in hex string
+Syntax Error (7): Illegal character <79> in hex string
+Syntax Error (8): Illegal character <70> in hex string
+Syntax Error (11): Illegal character <68> in hex string
+Syntax Error (12): Illegal character <74> in hex string
+Syntax Error (13): Illegal character <6d> in hex string
+Syntax Error (14): Illegal character <6c> in hex string
+Syntax Error (18): Illegal character <68> in hex string
+Syntax Error (19): Illegal character <74> in hex string
+Syntax Error (20): Illegal character <6d> in hex string
+Syntax Error (21): Illegal character <6c> in hex string
+Syntax Error (23): Illegal character <6c> in hex string
+Syntax Error (25): Illegal character <6e> in hex string
+Syntax Error (26): Illegal character <67> in hex string
+Syntax Error (27): Illegal character <3d> in hex string
+Syntax Error (28): Illegal character <22> in hex string
+Syntax Error (29): Illegal character <69> in hex string
+Syntax Error (30): Illegal character <74> in hex string
+Syntax Error (31): Illegal character <2d> in hex string
+Syntax Error (32): Illegal character <49> in hex string
+Syntax Error (33): Illegal character <54> in hex string
+Syntax Error (34): Illegal character <22> in hex string
+Syntax Error (36): Illegal character <70> in hex string
+Syntax Error (37): Illegal character <72> in hex string
+Syntax Error (40): Illegal character <69> in hex string
+Syntax Error (41): Illegal character <78> in hex string
+Syntax Error (42): Illegal character <3d> in hex string
+Syntax Error (43): Illegal character <22> in hex string
+Syntax Error (44): Illegal character <6f> in hex string
+Syntax Error (45): Illegal character <67> in hex string
+Syntax Error (46): Illegal character <3a> in hex string
+Syntax Error (48): Illegal character <68> in hex string
+Syntax Error (49): Illegal character <74> in hex string
+Syntax Error (50): Illegal character <74> in hex string
+Syntax Error (51): Illegal character <70> in hex string
+Syntax Error (52): Illegal character <73> in hex string
+Syntax Error (53): Illegal character <3a> in hex string
+Syntax Error (54): Illegal character <2f> in hex string
+Syntax Error (55): Illegal character <2f> in hex string
+Syntax Error (56): Illegal character <6f> in hex string
+Syntax Error (57): Illegal character <67> in hex string
+Syntax Error (58): Illegal character <70> in hex string
+Syntax Error (59): Illegal character <2e> in hex string
+Syntax Error (60): Illegal character <6d> in hex string
+Syntax Error (62): Illegal character <2f> in hex string
+Syntax Error (63): Illegal character <6e> in hex string
+Syntax Error (64): Illegal character <73> in hex string
+Syntax Error (65): Illegal character <23> in hex string
+Syntax Error (66): Illegal character <22> in hex string
+Syntax Error (70): Illegal character <68> in hex string
+Syntax Error (78): Illegal character <6d> in hex string
+Syntax Error (80): Illegal character <74> in hex string
+Syntax Error (84): Illegal character <68> in hex string
+Syntax Error (86): Illegal character <72> in hex string
+Syntax Error (87): Illegal character <73> in hex string
+Syntax Error (89): Illegal character <74> in hex string
+Syntax Error (90): Illegal character <3d> in hex string
+Syntax Error (91): Illegal character <22> in hex string
+Syntax Error (92): Illegal character <55> in hex string
+Syntax Error (93): Illegal character <54> in hex string
+Syntax Error (95): Illegal character <2d> in hex string
+Syntax Error (97): Illegal character <22> in hex string
+Syntax Error (102): Illegal character <6d> in hex string
+Syntax Error (104): Illegal character <74> in hex string
+Syntax Error (107): Illegal character <6e> in hex string
+Syntax Error (109): Illegal character <6d> in hex string
+Syntax Error (111): Illegal character <3d> in hex string
+Syntax Error (112): Illegal character <22> in hex string
+Syntax Error (113): Illegal character <76> in hex string
+Syntax Error (114): Illegal character <69> in hex string
+Syntax Error (116): Illegal character <77> in hex string
+Syntax Error (117): Illegal character <70> in hex string
+Syntax Error (118): Illegal character <6f> in hex string
+Syntax Error (119): Illegal character <72> in hex string
+Syntax Error (120): Illegal character <74> in hex string
+Syntax Error (121): Illegal character <22> in hex string
+Syntax Error (124): Illegal character <6f> in hex string
+Syntax Error (125): Illegal character <6e> in hex string
+Syntax Error (126): Illegal character <74> in hex string
+Syntax Error (128): Illegal character <6e> in hex string
+Syntax Error (129): Illegal character <74> in hex string
+Syntax Error (130): Illegal character <3d> in hex string
+Syntax Error (131): Illegal character <22> in hex string
+Syntax Error (132): Illegal character <77> in hex string
+Syntax Error (133): Illegal character <69> in hex string
+Syntax Error (135): Illegal character <74> in hex string
+Syntax Error (136): Illegal character <68> in hex string
+Syntax Error (137): Illegal character <3d> in hex string
+Syntax Error (140): Illegal character <76> in hex string
+Syntax Error (141): Illegal character <69> in hex string
+Syntax Error (144): Illegal character <2d> in hex string
+Syntax Error (145): Illegal character <77> in hex string
+Syntax Error (146): Illegal character <69> in hex string
+Syntax Error (148): Illegal character <74> in hex string
+Syntax Error (149): Illegal character <68> in hex string
+Syntax Error (150): Illegal character <2c> in hex string
+Syntax Error (152): Illegal character <69> in hex string
+Syntax Error (153): Illegal character <6e> in hex string
+Syntax Error (154): Illegal character <69> in hex string
+Syntax Error (155): Illegal character <74> in hex string
+Syntax Error (156): Illegal character <69> in hex string
+Syntax Error (158): Illegal character <6c> in hex string
+Syntax Error (159): Illegal character <2d> in hex string
+Syntax Error (160): Illegal character <73> in hex string
+Syntax Error (163): Illegal character <6c> in hex string
+Syntax Error (165): Illegal character <3d> in hex string
+Syntax Error (167): Illegal character <22> in hex string
+Syntax Error (172): Illegal character <6c> in hex string
+Syntax Error (173): Illegal character <69> in hex string
+Syntax Error (174): Illegal character <6e> in hex string
+Syntax Error (175): Illegal character <6b> in hex string
+Syntax Error (177): Illegal character <72> in hex string
+Syntax Error (179): Illegal character <6c> in hex string
+Syntax Error (180): Illegal character <3d> in hex string
+Syntax Error (181): Illegal character <22> in hex string
+Syntax Error (182): Illegal character <70> in hex string
+Syntax Error (183): Illegal character <72> in hex string
+Syntax Error (184): Illegal character <6f> in hex string
+Syntax Error (186): Illegal character <69> in hex string
+Syntax Error (187): Illegal character <6c> in hex string
+Syntax Error (189): Illegal character <22> in hex string
+Syntax Error (191): Illegal character <68> in hex string
+Syntax Error (192): Illegal character <72> in hex string
+Syntax Error (195): Illegal character <3d> in hex string
+Syntax Error (196): Illegal character <22> in hex string
+Syntax Error (197): Illegal character <68> in hex string
+Syntax Error (198): Illegal character <74> in hex string
+Syntax Error (199): Illegal character <74> in hex string
+Syntax Error (200): Illegal character <70> in hex string
+Syntax Error (201): Illegal character <73> in hex string
+Syntax Error (202): Illegal character <3a> in hex string
+Syntax Error (203): Illegal character <2f> in hex string
+Syntax Error (204): Illegal character <2f> in hex string
+Syntax Error (205): Illegal character <67> in hex string
+Syntax Error (206): Illegal character <6d> in hex string
+Syntax Error (207): Illegal character <70> in hex string
+Syntax Error (208): Illegal character <67> in hex string
+Syntax Error (209): Illegal character <2e> in hex string
+Syntax Error (210): Illegal character <6f> in hex string
+Syntax Error (211): Illegal character <72> in hex string
+Syntax Error (212): Illegal character <67> in hex string
+Syntax Error (213): Illegal character <2f> in hex string
+Syntax Error (214): Illegal character <78> in hex string
+Syntax Error (216): Illegal character <6e> in hex string
+Syntax Error (217): Illegal character <2f> in hex string
+Syntax Error (220): Illegal character <22> in hex string
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't read xref table
+
 - Internal RadioLynx Wireless Start Setup QSG (https://finishlynx.com/wp-content/uploads/2012/08/InternalRadioLynx_QSG.pdf) — HTTP 404
-- LinkGate EncRadio & DecRadio User Manual (https://timing.microgate.it/sites/default/files/manuali/ENCRADIO_DECRADIO-User_Manual_2_0_EN.pdf) — fetch failed
 - Installation Instructions for 1-Sided Field Display (https://finishlynx.com/wp-content/uploads/2017/09/Installation-Instructions-for-FLD_DSPLY_1S.pdf) — empty extraction (0 chars)
 - Portable-VDM with ScorePlus QSG (https://finishlynx.com/wp-content/uploads/2024/03/Portable-VDM_QSG.pdf) — HTTP 404
 - Lynx Portable Display QSG (https://finishlynx.com/wp-content/uploads/2019/06/Lynx_Portable_Display_QSG.pdf) — HTTP 404
 - VeriLight QSG (https://finishlynx.com/wp-content/uploads/2024/01/VeriLight_QSG.pdf) — HTTP 404
 - US High School Track Scholastic Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/scholastic-vision-qsg.pdf) — HTTP 404
-- US High School Track Bronze Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/bronze-vision-qsg.pdf) — HTTP 404
 - US High School Track Silver Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/silver-vision-qsg.pdf) — HTTP 404
+- US High School Track Bronze Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/bronze-vision-qsg.pdf) — HTTP 404
 - Long Track Speed Skating Package — Transponder Lap Timing (https://finishlynx.com/wp-content/uploads/2022/06/LT-LAP_T_info.pdf) — empty extraction (0 chars)
