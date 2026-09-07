@@ -157,6 +157,7 @@ Each extracted doc lives at `support/data/extracted/<slug>.md`.
 
 - EtherLynx Vision PRO X Datasheet (5L700) (https://finishlynx.com/wp-content/uploads/2026/03/EtherLynx-Vision-PRO-X-Datasheet-v6.pdf) — HTTP 404
 - MYLAPS CCNET Guide (https://finishlynx.com/wp-content/uploads/2022/09/CCNET.pdf) — empty extraction (13 chars)
+- Internal RadioLynx Wireless Start Setup QSG (https://finishlynx.com/wp-content/uploads/2012/08/InternalRadioLynx_QSG.pdf) — HTTP 404
 - LinkGate EncRadio & DecRadio User Manual (https://timing.microgate.it/sites/default/files/manuali/ENCRADIO_DECRADIO-User_Manual_2_0_EN.pdf) — Command failed: pdftotext -layout -enc UTF-8 /tmp/lynx-pdf-extract/linkgate-encradio-and-decradio-user-manual.pdf -
 Syntax Warning: May not be a PDF file (continuing anyway)
 Syntax Error (2): Illegal character <21> in hex string
@@ -177,11 +178,10 @@ Syntax Error (25): Illegal character <6e> in hex string
 Syntax Error (26): Illegal character <67> in hex string
 Syntax Error (27): Illegal character <3d> in hex string
 Syntax Error (28): Illegal character <22> in hex string
-Syntax Error (29): Illegal character <69> in hex string
-Syntax Error (30): Illegal character <74> in hex string
+Syntax Error (30): Illegal character <6e> in hex string
 Syntax Error (31): Illegal character <2d> in hex string
-Syntax Error (32): Illegal character <49> in hex string
-Syntax Error (33): Illegal character <54> in hex string
+Syntax Error (32): Illegal character <55> in hex string
+Syntax Error (33): Illegal character <53> in hex string
 Syntax Error (34): Illegal character <22> in hex string
 Syntax Error (36): Illegal character <70> in hex string
 Syntax Error (37): Illegal character <72> in hex string
@@ -311,12 +311,11 @@ Syntax Error: Couldn't find trailer dictionary
 Syntax Error: Couldn't find trailer dictionary
 Syntax Error: Couldn't read xref table
 
-- Internal RadioLynx Wireless Start Setup QSG (https://finishlynx.com/wp-content/uploads/2012/08/InternalRadioLynx_QSG.pdf) — HTTP 404
 - Installation Instructions for 1-Sided Field Display (https://finishlynx.com/wp-content/uploads/2017/09/Installation-Instructions-for-FLD_DSPLY_1S.pdf) — empty extraction (0 chars)
 - Portable-VDM with ScorePlus QSG (https://finishlynx.com/wp-content/uploads/2024/03/Portable-VDM_QSG.pdf) — HTTP 404
-- VeriLight QSG (https://finishlynx.com/wp-content/uploads/2024/01/VeriLight_QSG.pdf) — HTTP 404
 - Lynx Portable Display QSG (https://finishlynx.com/wp-content/uploads/2019/06/Lynx_Portable_Display_QSG.pdf) — HTTP 404
+- VeriLight QSG (https://finishlynx.com/wp-content/uploads/2024/01/VeriLight_QSG.pdf) — HTTP 404
+- US High School Track Scholastic Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/scholastic-vision-qsg.pdf) — HTTP 404
 - US High School Track Bronze Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/bronze-vision-qsg.pdf) — HTTP 404
 - US High School Track Silver Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/silver-vision-qsg.pdf) — HTTP 404
-- US High School Track Scholastic Package QSG (https://finishlynx.com/wp-content/uploads/2012/07/scholastic-vision-qsg.pdf) — HTTP 404
 - Long Track Speed Skating Package — Transponder Lap Timing (https://finishlynx.com/wp-content/uploads/2022/06/LT-LAP_T_info.pdf) — empty extraction (0 chars)
