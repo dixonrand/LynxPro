@@ -157,7 +157,6 @@ Each extracted doc lives at `support/data/extracted/<slug>.md`.
 
 - EtherLynx Vision PRO X Datasheet (5L700) (https://finishlynx.com/wp-content/uploads/2026/03/EtherLynx-Vision-PRO-X-Datasheet-v6.pdf) — HTTP 404
 - MYLAPS CCNET Guide (https://finishlynx.com/wp-content/uploads/2022/09/CCNET.pdf) — empty extraction (13 chars)
-- Internal RadioLynx Wireless Start Setup QSG (https://finishlynx.com/wp-content/uploads/2012/08/InternalRadioLynx_QSG.pdf) — HTTP 404
 - LinkGate EncRadio & DecRadio User Manual (https://timing.microgate.it/sites/default/files/manuali/ENCRADIO_DECRADIO-User_Manual_2_0_EN.pdf) — Command failed: pdftotext -layout -enc UTF-8 /tmp/lynx-pdf-extract/linkgate-encradio-and-decradio-user-manual.pdf -
 Syntax Warning: May not be a PDF file (continuing anyway)
 Syntax Error (2): Illegal character <21> in hex string
@@ -311,6 +310,7 @@ Syntax Error: Couldn't find trailer dictionary
 Syntax Error: Couldn't find trailer dictionary
 Syntax Error: Couldn't read xref table
 
+- Internal RadioLynx Wireless Start Setup QSG (https://finishlynx.com/wp-content/uploads/2012/08/InternalRadioLynx_QSG.pdf) — HTTP 404
 - Installation Instructions for 1-Sided Field Display (https://finishlynx.com/wp-content/uploads/2017/09/Installation-Instructions-for-FLD_DSPLY_1S.pdf) — empty extraction (0 chars)
 - Portable-VDM with ScorePlus QSG (https://finishlynx.com/wp-content/uploads/2024/03/Portable-VDM_QSG.pdf) — HTTP 404
 - Lynx Portable Display QSG (https://finishlynx.com/wp-content/uploads/2019/06/Lynx_Portable_Display_QSG.pdf) — HTTP 404
