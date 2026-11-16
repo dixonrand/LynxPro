@@ -11,17 +11,15 @@
 
 Road Cycling
                                                                                    LYNX SYSTEM DEVELOPERS, INC.
+
+
+
+
         SILVER PACKAGE
-
-
-
-
                                    SILVER PACKAGE                                                                COMPONENTS
+
+
 Silver Package
-
-
-
-
                                                                                         • Camera - EtherLynx Vision PRO, color, timer-
                                                                                           enabled, 3,000 frames per second captures
                                                                                             • 5L600Zoom for up to 2,048 vertical pixels

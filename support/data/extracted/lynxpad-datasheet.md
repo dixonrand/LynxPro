@@ -60,7 +60,12 @@ affordable
  LYNX SYSTEM DEVELOPERS, INC.           179 WARD HILL AVE., HAVERHILL, MA 01835 USA                  TEL: 978.556.9780
  HTTP://WWW.FINISHLYNX.COM                       TOLL FREE: 800.989.5969                             FAX: 978.556.9781
           data organization
-lynxpad   screenshots
+
+
+
+
+lynxpad
+          screenshots
 
                                                                                                       ♦ Seed an Event
                                     ♦ Add an Event                                                    ♦ Import Results

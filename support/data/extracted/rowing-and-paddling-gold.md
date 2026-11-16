@@ -15,11 +15,10 @@ Rowing and Paddling
 
 
                              Gold Package                                                               Components
+
+
+
 Gold Package
-
-
-
-
                                                                               • Finish Camera: EtherLynx Vision PRO, color, timer-
                                                                                 enabled, 1,000 fps, Wi-Fi enabled, Extended Zoom for
                                                                                 up to 2,048 vertical pixels

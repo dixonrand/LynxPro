@@ -618,22 +618,23 @@ carried out unconditionally.
 RADIO: Using the system via Linkgate radio in the Base Program, the transmitted radio signal type
 must be different from the one of other programs and it is advisable not to exceed the
 transmitter/receiver range of 150 m.
+
+
+
+
   A REI2, RACETIME2 O PC
-
-
-
-
                              BOCCOLA                               INGRESSO RADIO
+
+
+
+
                                                         DECRADIO
-
-
-
-
                              BLU
+
+
+
+
                                        ENCRADIO
-
-
-
 
                            CAB0xx
                                                                                     uTAB
@@ -825,6 +826,7 @@ Use of 2 Polifemo photocells and 2 EncRadios. The signal of the first EncRadio m
 
 Microgate                          MicroTab LED User Manual                          Page 28 of 84
                                                    ENCRADIO (Stop)
+
                    POLIFEMO
 
 
@@ -835,11 +837,11 @@ Microgate                          MicroTab LED User Manual                     
 
                                                                                                 DECRADIO
                                  BANANA CUBE
+
+
+
+
                                                    ENCRADIO (Lap qualsiasi)
-
-
-
-
                                                                                                                                                 uTAB
 
 
@@ -862,23 +864,18 @@ time cannot be less than 1 second.
                 POLIFEMO
                                                                               BANANA VERDE IN
                                                                               BOCCOLA VERDE
+
+
+
+
                                  CAB048 o CAB050
-
-
-
-
                                                                                      ENCRADIO
-
-
-
-
                                                                                                                                INGRESSO RADIO
-                                                                                                           DECRADIO
 
 
 
 
-               BANANA NERA IN
+               BANANA NERA IN                                                                              DECRADIO
                BOCCOLA NERA
 
                BANANA VERDE IN

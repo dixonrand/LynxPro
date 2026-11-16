@@ -15,11 +15,11 @@ Competition Packages
 
                                    Field Event Packages                                           Competition Elite Benefits
                                 Competition & Competition Elite
+
+
+
+
 Athletics - Field Events
-
-
-
-
                                                                                           The Competition Elite package adds two key
                                                                                           components to the Competition Package: a high-
                             The FieldLynx software at the heart of the Competition        visibility LED display and a World Athletics-
@@ -44,15 +44,16 @@ Athletics - Field Events
                                                                                           operated wirelessly from a computer anywhere on the
                                             Everything You Need                           infield.
 
-                                3 3xWindows-Based
-                                      Windows ConvertibleNetbook    Computers,
-                                                             Tablet/Laptops,
+                                3 3xWindows-Based       Netbook
+                                      Windows Convertible          Computers,
+                                                            Tablet/Laptops,
                                 Wireless
                                   Wireless Connectivity, Amplified Antenna, &
-                                           Connectivity, Amplified  Antenna,
-                                All Necessary  CablesCables
-                                     & All Necessary   and Software
-                                                              and Software
+                                          Connectivity, Amplified  Antenna,
+                                All & All
+                                   Necessary  Cables and
+                                          Necessary       Software
+                                                     Cables and  Software
 
 
 

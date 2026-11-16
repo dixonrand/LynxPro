@@ -51,7 +51,11 @@ cameras.
    HTTP://WWW.FINISHLYNX.COM                        TOLL FREE: 800.989.5969                             FAX: 978.556.9781
                         data collection
 
-etherlynx fusion       Technical Specifications
+
+
+
+etherlynx fusion
+                       Technical Specifications
                                     EtherLynx Fusion™          Base Model                                    With FLEX Option
                           Maximum Image Pixel Height                          Up to 1000 pixels                        Up to 2700 pixels (at 1000f/s)
                                  Maximum Frame Rate:                            Up to 2000 f/s                         Up to 3000 f/s (at 500 pixels)

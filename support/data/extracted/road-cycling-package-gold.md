@@ -14,11 +14,10 @@ Road Cycling
                                                                          LYNX SYSTEM DEVELOPERS, INC.
 
                            GOLD PACKAGE                                                                    Components
+
+
+
 Gold Package
-
-
-
-
                 The Road Cycling Gold Package is arguably the finest
                 timing system available for cycling today. It is designed        Two Powerful Photo Finish Cameras:
                 to meet all the demands of large, fast-paced cycling                •      EtherLynx Vision PRO – color, timer-

@@ -15,11 +15,10 @@ Road Cycling
 
 
                            BRONZE PACKAGE                                                                        COMPONENTS
+
+
+
 Bronze Package
-
-
-
-
                                                                                        • Camera – EtherLynx Vision, color, timer-
                    FinishLynx photo-finish timing technology has been                    enabled, 2,000 frames per second, On-Board
                    used for years at the highest levels of competitive                   Level 1,280 vertical pixels

@@ -280,13 +280,9 @@ ETHERLYNX VISION CAMERA
 
 ETHERLYNX VISION CAMERA
 Tel: 978.556.9780 Toll Free: 800.989.5969 www.finishlynx.com
-
-
-
-
                                                                8
-                                        QUALITY IMAGES
                                          SPECTACULAR
+                                        QUALITY IMAGES
                      ETHERLYNX VISION PRO CAMERA – 5L600
               EtherLynx Vision PRO Photo-Finish Camera
                         with EasyAlign, LuxBoost, and up to 20,000 FPS Capture
@@ -501,11 +497,11 @@ An Introduction to Fully Automatic Timing                                       
 
                                    World Athletics-Approved                                                           Components
                                   Photo-Finish Timing System                              •   Camera: EtherLynx Vision, 2,000 frames/second,
+
+
+
+
 Athletics-Track Events
-
-
-
-
                                                                                               full-color images, On-board Level, timer-enabled,
                                       World Athletics Rule 165:13                             fully upgradeable
                            "Fully Automatic Timing and Photo Finish System approved
@@ -588,11 +584,11 @@ include:
 
                                     World Athletics-Approved                                                          Components
                                    Photo-Finish Timing System                                • Camera: EtherLynx Vision, 2,000 frames/second,
+
+
+
+
 Athletics-Track Events
-
-
-
-
                                                                                                full-color images, On-Board Level, timer-enabled,
                            The Competition Elite Package includes all the
                                                                                                fully upgradeable
@@ -682,11 +678,11 @@ The Vision camera is the latest in a long line of powerful EtherLynx photo-finis
                            World Athletics-Approved 2-Camera Timing System                                                 Components
                              (1 Photo Finish + 1 Head-On Video Camera),
                                                                                             • Camera: EtherLynx Vision, 2,000 frames/second,
+
+
+
+
 Athletics-Track Events
-
-
-
-
                             Remote Controls, LED Display, & Wind Gauge
                                                                                               full-color images, On-Board Level, timer-enabled, fully
                           The Championship Package is a World Athletics-                      upgradeable
@@ -778,11 +774,11 @@ www.finishlynx.com                                                              
 
                           World Athletics-Approved Three-Camera Timing                                                   Components
                                               System                                           • Primary Camera: EtherLynx Vision, 2,000 fps x
+
+
+
+
 Athletics-Track Events
-
-
-
-
                                                                                                  1280 pixels, color images, On-Board Level, timer-
                                                                                                  enabled, EasyAlign
                                                                                                   • LuxBoost Low-Light Amplification Option
@@ -870,11 +866,11 @@ includes several premium upgrades that will enhance the ease and quality of your
 
                                       World Athletics-Approved                                                          Components
                                     Three-Camera Timing System
+
+
+
+
 Athletics - Track Events
-
-
-
-
                                                                                                                              CAMERAS
                                                                                                • Primary Camera: EtherLynx Vision PRO, 3,000 fps,
                                                                                                  2,048 vertical pixels, color, On-Board Level, timer-
@@ -971,11 +967,11 @@ www.finishlynx.com                                                              
 
                               World Athletics-Approved Three-Camera                                           Components
                                            Timing System                                                          CAMERAS
+
+
+
+
 Athletics-Track Events
-
-
-
-
                                                                                          • Primary Camera: EtherLynx Vision PRO, 6,000 fps
                                                                                            upgrade, 2,048 vertical pixels, On-Board Level, color,
                                                                                            timer-enabled
@@ -1218,11 +1214,11 @@ AN INTRODUCTION TO ELECTRONIC DISTANCE MEASUREMENT
 
                                    Field Event Packages                                           Competition Elite Benefits
                                 Competition & Competition Elite
+
+
+
+
 Athletics - Field Events
-
-
-
-
                                                                                           The Competition Elite package adds two key
                                                                                           components to the Competition Package: a high-
                             The FieldLynx software at the heart of the Competition        visibility LED display and a World Athletics-
@@ -1247,15 +1243,16 @@ Athletics - Field Events
                                                                                           operated wirelessly from a computer anywhere on the
                                             Everything You Need                           infield.
 
-                                3 3xWindows-Based
-                                      Windows ConvertibleNetbook    Computers,
-                                                             Tablet/Laptops,
+                                3 3xWindows-Based       Netbook
+                                      Windows Convertible          Computers,
+                                                            Tablet/Laptops,
                                 Wireless
                                   Wireless Connectivity, Amplified Antenna, &
-                                           Connectivity, Amplified  Antenna,
-                                All Necessary  CablesCables
-                                     & All Necessary   and Software
-                                                              and Software
+                                          Connectivity, Amplified  Antenna,
+                                All & All
+                                   Necessary  Cables and
+                                          Necessary       Software
+                                                     Cables and  Software
 
 
 
@@ -1334,11 +1331,11 @@ Components: Field Competition Elite Package
 
                                      Field Packages                                             Championship Elite Benefits
                              Championship & Championship Elite
+
+
+
+
 Athletics - Field Events
-
-
-
-
                                                                                            The Championship Elite Field Package adds an
                              The two Championship-level Field Packages build on            additional World Athletics-compliant wind gauge kit
                              the components of the Competition packages, adding            (2 total), 2 extra LED displays (4 total), and a
@@ -1436,10 +1433,11 @@ Athletics - Field Events
 
 
                                                                                               Grand Prix Elite Benefits
+
+
+
+
 Athletics - Field Events
-
-
-
                                    Field Event Packages
                                 Grand Prix & Grand Prix Elite
                             The Grand Prix and Grand Prix Elite Field Packages
@@ -1853,11 +1851,9 @@ Lynx Portable Display
 
 
                      BUILDING LYNX INTO THE DESIGN PROCESS
+
+
 ATHLETICS
-
-
-
-
             One area of track and field design where Lynx has been able to
             provide assistance to many of today’s top architects is by helping to
             increase their knowledge of, and infrastructure planning for, a
@@ -1940,11 +1936,8 @@ ATHLETICS
                     •   IAAF Winter Permit Meeting (Russia)
                     •   DECASTAR IAAF World Combined Events Challenge (France)
                     •   Pan-American Games (Mexico)
+
 FinishLynx
-
-
-
-
                     •   Pan-Arab Games (Qatar)
                     •   Ibero-American Games (Puerto Rico)
                     •   Russian Athletics National Championships (Russia)

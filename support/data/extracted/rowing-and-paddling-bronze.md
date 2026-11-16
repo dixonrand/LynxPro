@@ -14,11 +14,10 @@ Rowing and Paddling
 
 
                             Bronze Package                                                                       Components
+
+
+
 Bronze Package
-
-
-
-
                                                                                         •    Camera: EtherLynx Vision, color, timer-enabled,
                                                                                              Internal On-Board Level, 500 frames per second,
                                                                                              1,000 vertical pixels

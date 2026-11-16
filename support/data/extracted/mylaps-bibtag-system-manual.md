@@ -1753,10 +1753,7 @@ but not lim ited to:
 
 
 
-                                                                                             As required
-                                                                            6-m onthly
-                                                                 m onthly
-
+                                                                 m onthly   6-m onthly       As required
 
  Clean
  Charge battery

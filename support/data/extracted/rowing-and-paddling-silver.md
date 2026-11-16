@@ -14,11 +14,10 @@ Rowing and Paddling
 
 
                            SILVER PACKAGE                                                                    Components
+
+
+
 Silver Package
-
-
-
-
                                                                                     • Camera: EtherLynx Vision PRO, color, timer-
                                                                                       enabled, 1,000 fps, extended resolution/zoom for
                                                                                       up to 2,048 vertical pixels

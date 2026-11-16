@@ -15,11 +15,11 @@ Championship Packages
 
                                      Field Packages                                             Championship Elite Benefits
                              Championship & Championship Elite
+
+
+
+
 Athletics - Field Events
-
-
-
-
                                                                                            The Championship Elite Field Package adds an
                              The two Championship-level Field Packages build on            additional World Athletics-compliant wind gauge kit
                              the components of the Competition packages, adding            (2 total), 2 extra LED displays (4 total), and a

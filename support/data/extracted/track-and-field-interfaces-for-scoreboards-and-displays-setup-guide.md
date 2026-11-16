@@ -324,7 +324,7 @@ photo finish camera for Fully Automatic Timing (FAT).
 
 FinishLynx Setup for Football/Track Scoreboard
 Reference Drawings:
-   Track/Football SCBD w/ FinishLynx & All Sport 5000........................................... DWG-95152
+   Track/Football SCBD w/ FinishLynx & All Sport 5000. ......................................... DWG-95152
    Track/Football SCBD w/ FinishLynx, In Field ....................................................... DWG-95153
 This setup will display FinishLynx running time, lane results, and event/heat information
 on a Daktronics football/track scoreboard. This setup DOES NOT allow Hy-Tek data to be
@@ -425,7 +425,7 @@ Resources (p.54).
                                         6
 FinishLynx Setup for Lane/Place/Time Track Scoreboard
 Reference Drawings:
-   Track SCBD w/ FinishLynx, in Press Box .............................................................. DWG-104300
+   Track SCBD w/ FinishLynx, in Press Box . ............................................................ DWG-104300
 This setup will display FinishLynx running time and lane results on a Daktronics track
 scoreboard, which typically shows 6, 8, or 10 lines of information at once. An additional
 scoreboard module may be used to show Event/Heat information. See Figure 9 for
@@ -759,7 +759,7 @@ Which Auxiliary Modules (SW-2000 series) can be controlled by FinishLynx?
 
     OmniSport 2000 & LED Video Display
     Reference Drawings:
-       Riser: DMP-8000/FB Track Scbd, w/Omni 2K, Hytek, Show Cntrl................... DWG-3058769
+       Riser: DMP-8000/FB Track Scbd, w/Omni 2K, Hytek, Show Cntrl. ................. DWG-3058769
     This setup displays running time, lane results, and event/heat information on a Daktronics
     LED video display from an OmniSport 2000 timing console. A track button interface
     connects to the J7 SWITCH INPUTS jack on the console. The track button interface
@@ -1412,10 +1412,10 @@ settings:
 Fully Automatic Timing (FinishLynx)
 Reference Drawings:
    Riser; V1500/M2/M3/Galaxy, Lynx/Hytek, Ethernet......................................... DWG-266821
-   Riser; Hytek/Lynx/V1500, M2/M3 Galaxy, Fiber, SCBD..................................... DWG-291376
-   Riser; Hytek/Lynx/V1500, M2/M3 Galaxy, Fiber, AS5000.................................. DWG-298848
+   Riser; Hytek/Lynx/V1500, M2/M3 Galaxy, Fiber, SCBD. ................................... DWG-291376
+   Riser; Hytek/Lynx/V1500, M2/M3 Galaxy, Fiber, AS5000.. ............................... DWG-298848
    Riser; Hytek/Lynx/Show Cntrl. M2/M3 Galaxy, EBR Radio............................... DWG-300928
-   Riser; Hytek/Lynx/Show Control Galaxy, E-net, SCBD.................................... DWG-3695367
+   Riser; Hytek/Lynx/Show Control Galaxy, E-net, SCBD. .................................. DWG-3695367
 The FinishLynx™ Timing System consists of a personal computer, FinishLynx software, and
 a photo finish camera for Fully Automatic Timing (FAT). This setup displays running time,
 lane results, and event/heat information as RTD (Real Time Data) on a Daktronics LED
@@ -2510,19 +2510,19 @@ Figure 85: Presentation with FieldLynx Event
     Refer to Resources (p.1) for information regarding how to read the drawing number.
     Any contract-specific drawings take precedence over the general drawings.
     Reference Drawings:
-       Track/Football SCBD w/ FinishLynx & All Sport 5000........................................... DWG-95152
+       Track/Football SCBD w/ FinishLynx & All Sport 5000. ......................................... DWG-95152
        Track/Football SCBD w/ FinishLynx, In Field........................................................ DWG-95153
-       Track SCBD w/ FinishLynx, in Press Box............................................................... DWG-104300
+       Track SCBD w/ FinishLynx, in Press Box. ............................................................. DWG-104300
        System Riser: FB/Track SCBD w/ Omni2K– Track Side...................................... DWG-186535
        Riser; V1500/M2/M3/Galaxy, Lynx/Hytek, Ethernet......................................... DWG-266821
        TI-2020, -2021, -3101 w/ Finish Lynx................................................................... . DWG-267638
-       Riser; Hytek/Lynx/V1500, M2/M3 Galaxy, Fiber, SCBD..................................... DWG-291376
-       Riser; Hytek/Lynx/V1500, M2/M3 Galaxy, Fiber, AS5000.................................. DWG-298848
+       Riser; Hytek/Lynx/V1500, M2/M3 Galaxy, Fiber, SCBD. ................................... DWG-291376
+       Riser; Hytek/Lynx/V1500, M2/M3 Galaxy, Fiber, AS5000.. ............................... DWG-298848
        Riser; Hytek/Lynx/Show Cntrl. M2/M3 Galaxy, EBR Radio............................... DWG-300928
        System Riser; Track M3 Matrix w/ Omni2K in Pressbox................................... DWG-1072146
        Riser; Hytek/Lynx/Show Cntrl, Fiber, Scbd, DVX w/ Version 6.4.................... DWG-3058591
-       Riser: DMP-8000/FB Track Scbd, w/Omni 2K, Hytek, Show Cntrl................... DWG-3058769
-       Riser; Hytek/Lynx/Show Control Galaxy, E-net, SCBD.................................... DWG-3695367
+       Riser: DMP-8000/FB Track Scbd, w/Omni 2K, Hytek, Show Cntrl. ................. DWG-3058769
+       Riser; Hytek/Lynx/Show Control Galaxy, E-net, SCBD. .................................. DWG-3695367
 
 
 
@@ -2879,19 +2879,10 @@ REV     DATE:                     BY:
                                                                                                                                                                                                                                                                                                                  INPUT PORT 3: OPEN
                                                                                                                                                                                                                                                        HY-TEK ALPHA SCBD SETTINGS
                                                                                                                                                                                                                                                        ****HYTEK VERSION 4.0BE OR HIGHER*****
-
-
-
-
-                                                                                                                                                                  START
-                                                                                                                                                                                                                                                                                                                 INPUT PORT 4: OPEN
-
-
-
+                                                                                                                                                                FINISH                                                                                                                                           INPUT PORT 4: OPEN
 
                                                                                                                                                        COMMON
-                                                                                                                                                                FINISH
-                                                                                                                                                                                                                                                       SETUP>ALPHA SCBD INTERFACE:                               PORT 5:
+                                                                                                                                                                  START                                                                                SETUP>ALPHA SCBD INTERFACE:                               PORT 5:
                                                                                                                                                                                                                                                            SCBD TYPE: DAKTRONICS FULL MATRIX                           NAME: OUTPUT, TYPE: UDP/IP SOCKET
                                                                                                                                                                                                                                                            CONNECTION METHOD: UDP ETHERNET                                   PORT: 3002, BROADCAST: CHECKED
                                                                                                                                                                                                                                                                                                                              INPUT TEMPLATE: BLANK
